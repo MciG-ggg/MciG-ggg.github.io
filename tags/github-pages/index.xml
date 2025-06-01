@@ -464,26 +464,137 @@
 &lt;/div>&lt;h2 id="结论">结论
 &lt;/h2>&lt;p>现在你已经掌握了使用Hugo创建博客并部署到GitHub Pages的基本流程。通过这个方法，你可以免费托管你的个人博客，并且可以方便地进行更新和维护。&lt;/p>
 &lt;h2 id="常见问题解答">常见问题解答
-&lt;/h2>&lt;ol>
+&lt;/h2>&lt;h2 id="配置评论系统">配置评论系统
+&lt;/h2>&lt;p>Stack主题支持多种评论系统，包括：&lt;/p>
+&lt;ol>
+&lt;li>Disqus（默认配置）&lt;/li>
+&lt;li>DisqusJS&lt;/li>
+&lt;li>Utterances（GitHub Issues驱动）&lt;/li>
+&lt;li>Giscus（GitHub Discussions驱动）&lt;/li>
+&lt;li>Twikoo&lt;/li>
+&lt;li>Waline&lt;/li>
+&lt;li>等其他系统&lt;/li>
+&lt;/ol>
+&lt;h3 id="配置disqus最简单">配置Disqus（最简单）
+&lt;/h3>&lt;ol>
+&lt;li>在 &lt;a class="link" href="https://disqus.com" target="_blank" rel="noopener"
+>Disqus官网&lt;/a> 注册账号&lt;/li>
+&lt;li>创建一个站点，获取shortname&lt;/li>
+&lt;li>修改 &lt;code>hugo.yaml&lt;/code> 中的配置：&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;span class="lnt">8
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">services&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">disqus&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">shortname&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s2">&amp;#34;你的shortname&amp;#34;&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="c"># 替换为你的Disqus shortname&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">params&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">comments&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">enabled&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="kc">true&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">provider&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">disqus &lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="c"># 使用disqus作为评论系统&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="配置utterances基于github">配置Utterances（基于GitHub）
+&lt;/h3>&lt;ol>
+&lt;li>安装 &lt;a class="link" href="https://github.com/apps/utterances" target="_blank" rel="noopener"
+>Utterances GitHub App&lt;/a>&lt;/li>
+&lt;li>修改 &lt;code>hugo.yaml&lt;/code> 配置：&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;span class="lnt">8
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">params&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">comments&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">enabled&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="kc">true&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">provider&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">utterances&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">utterances&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">repo&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">owner/repo-name &lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="c"># 替换为你的GitHub仓库&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">issueTerm&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">pathname &lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="c"># 文章和issue的映射方式&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">label&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">comment &lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="c"># issue的标签&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="配置giscus新一代github评论">配置Giscus（新一代GitHub评论）
+&lt;/h3>&lt;ol>
+&lt;li>安装 &lt;a class="link" href="https://github.com/apps/giscus" target="_blank" rel="noopener"
+>Giscus GitHub App&lt;/a>&lt;/li>
+&lt;li>在仓库设置中启用Discussions功能&lt;/li>
+&lt;li>访问 &lt;a class="link" href="https://giscus.app" target="_blank" rel="noopener"
+>Giscus.app&lt;/a> 生成配置&lt;/li>
+&lt;li>修改 &lt;code>hugo.yaml&lt;/code> 配置：&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">params&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">comments&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">enabled&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="kc">true&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">provider&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">giscus&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">giscus&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">repo&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">owner/repo-name &lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="c"># 你的GitHub仓库&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">repoID&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s2">&amp;#34;R_xxx&amp;#34;&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="c"># 仓库ID&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">category&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s2">&amp;#34;Announcements&amp;#34;&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="c"># discussion分类&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">categoryID&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s2">&amp;#34;DIC_xxx&amp;#34;&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="c"># 分类ID&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">mapping&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s2">&amp;#34;pathname&amp;#34;&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="c"># 映射方式&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">reactionsEnabled&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="m">1&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="c"># 允许反应&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">emitMetadata&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="m">0&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="c"># 元数据&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="最佳实践">最佳实践
+&lt;/h3>&lt;ol>
 &lt;li>
-&lt;p>图片无法显示？&lt;/p>
+&lt;p>对于个人博客：&lt;/p>
 &lt;ul>
-&lt;li>确保图片放在正确的目录下&lt;/li>
-&lt;li>检查图片路径是否正确&lt;/li>
+&lt;li>如果想要最简单的设置：选择Disqus&lt;/li>
+&lt;li>如果想要与GitHub集成：选择Giscus&lt;/li>
+&lt;li>如果注重隐私：选择self-hosted的Waline&lt;/li>
 &lt;/ul>
 &lt;/li>
 &lt;li>
-&lt;p>部署后页面空白？&lt;/p>
+&lt;p>评论系统管理：&lt;/p>
 &lt;ul>
-&lt;li>检查baseURL配置是否正确&lt;/li>
-&lt;li>确认GitHub Pages是否已经启用&lt;/li>
+&lt;li>定期审核评论&lt;/li>
+&lt;li>设置合适的垃圾评论过滤&lt;/li>
+&lt;li>保持与读者的互动&lt;/li>
 &lt;/ul>
 &lt;/li>
 &lt;li>
-&lt;p>主题样式丢失？&lt;/p>
+&lt;p>性能考虑：&lt;/p>
 &lt;ul>
-&lt;li>检查主题配置是否正确&lt;/li>
-&lt;li>确认主题子模块是否正确克隆&lt;/li>
+&lt;li>评论系统通常会增加页面加载时间&lt;/li>
+&lt;li>考虑使用懒加载方式加载评论系统&lt;/li>
+&lt;li>可以设置评论区在用户滚动到底部时才加载&lt;/li>
 &lt;/ul>
 &lt;/li>
 &lt;/ol></description></item></channel></rss>
