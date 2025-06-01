@@ -188,107 +188,97 @@
 &lt;/div>
 &lt;/div>&lt;p>访问 http://localhost:1313 查看效果。&lt;/p>
 &lt;h2 id="部署到github-pages">部署到GitHub Pages
-&lt;/h2>&lt;p>在部署之前，让我们先了解Hugo博客的文件夹结构：&lt;/p>
-&lt;div class="highlight">&lt;div class="chroma">
-&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
-&lt;/span>&lt;span class="lnt">2
-&lt;/span>&lt;span class="lnt">3
-&lt;/span>&lt;span class="lnt">4
-&lt;/span>&lt;span class="lnt">5
-&lt;/span>&lt;span class="lnt">6
-&lt;/span>&lt;span class="lnt">7
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">blog/ # 博客根目录
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">├── archetypes/ # 文章模板
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">├── content/ # 所有文章内容
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">├── public/ # 生成的静态网站文件
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">├── static/ # 静态资源文件
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">├── themes/ # 主题文件
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">└── hugo.yaml # 配置文件
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;p>需要创建两个GitHub仓库：&lt;/p>
+&lt;/h2>&lt;p>在部署之前，需要明确理解Hugo博客的两个重要概念：&lt;/p>
 &lt;ol>
-&lt;li>&lt;code>blog-source&lt;/code>：存储博客源码&lt;/li>
-&lt;li>&lt;code>username.github.io&lt;/code>：存储生成的静态网站&lt;/li>
+&lt;li>&lt;strong>源码目录&lt;/strong>：包含所有的文章源文件、配置文件和主题&lt;/li>
+&lt;li>&lt;strong>构建目录&lt;/strong>（public/）：包含Hugo生成的静态网站文件&lt;/li>
 &lt;/ol>
-&lt;h3 id="1-部署源码仓库">1. 部署源码仓库
-&lt;/h3>&lt;p>源码仓库需要包含以下文件和文件夹：&lt;/p>
+&lt;p>为了正确管理博客，我们需要创建两个独立的GitHub仓库：&lt;/p>
+&lt;ol>
+&lt;li>
+&lt;p>&lt;strong>博客源码仓库&lt;/strong>（比如：&lt;code>blog-source&lt;/code>）&lt;/p>
+&lt;ul>
+&lt;li>用途：存储和版本控制博客的源代码&lt;/li>
+&lt;li>内容：所有的markdown文件、配置文件、主题等&lt;/li>
+&lt;li>特点：需要在 &lt;code>.gitignore&lt;/code> 中忽略 &lt;code>public/&lt;/code> 目录，因为它是构建产物&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>静态网站仓库&lt;/strong>（必须命名为：&lt;code>username.github.io&lt;/code>）&lt;/p>
+&lt;ul>
+&lt;li>用途：通过GitHub Pages提供网站访问&lt;/li>
+&lt;li>内容：只包含 &lt;code>public/&lt;/code> 目录中的构建产物&lt;/li>
+&lt;li>特点：这个仓库就是您的网站的实际托管位置&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ol>
+&lt;h3 id="部署步骤">部署步骤
+&lt;/h3>&lt;h4 id="1-设置源码仓库">1. 设置源码仓库
+&lt;/h4>&lt;p>首先，在博客根目录（blog/）下执行：&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
-&lt;/span>&lt;span class="lnt">2
-&lt;/span>&lt;span class="lnt">3
-&lt;/span>&lt;span class="lnt">4
-&lt;/span>&lt;span class="lnt">5
-&lt;/span>&lt;span class="lnt">6
-&lt;/span>&lt;span class="lnt">7
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">blog/
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">├── archetypes/
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">├── content/
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">├── static/
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">├── themes/
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">├── hugo.yaml
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">└── .gitignore # 需要创建，忽略public文件夹
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;p>执行以下命令：&lt;/p>
-&lt;div class="highlight">&lt;div class="chroma">
-&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
-&lt;/span>&lt;span class="lnt">2
-&lt;/span>&lt;span class="lnt">3
-&lt;/span>&lt;span class="lnt">4
-&lt;/span>&lt;span class="lnt">5
-&lt;/span>&lt;span class="lnt">6
-&lt;/span>&lt;span class="lnt">7
-&lt;/span>&lt;span class="lnt">8
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 在blog目录下&lt;/span>
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 1. 创建 .gitignore 文件，忽略构建产物&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">echo&lt;/span> &lt;span class="s2">&amp;#34;public/&amp;#34;&lt;/span> &amp;gt; .gitignore
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 2. 初始化源码仓库&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git init
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git add .
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git commit -m &lt;span class="s2">&amp;#34;Initial commit&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git commit -m &lt;span class="s2">&amp;#34;Initial commit: Blog source code&amp;#34;&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git branch -M main
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git remote add origin https://github.com/username/blog-source.git
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git push -u origin main
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div>&lt;h3 id="2-部署静态网站">2. 部署静态网站
-&lt;/h3>&lt;p>生成并部署静态网站：&lt;/p>
+&lt;/div>&lt;h4 id="2-设置静态网站仓库">2. 设置静态网站仓库
+&lt;/h4>&lt;p>然后，处理构建后的静态文件：&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
-&lt;/span>&lt;span class="lnt">2
-&lt;/span>&lt;span class="lnt">3
-&lt;/span>&lt;span class="lnt">4
-&lt;/span>&lt;span class="lnt">5
-&lt;/span>&lt;span class="lnt">6
-&lt;/span>&lt;span class="lnt">7
-&lt;/span>&lt;span class="lnt">8
-&lt;/span>&lt;span class="lnt">9
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 在blog目录下&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">hugo --minify &lt;span class="c1"># 生成静态文件&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">cd&lt;/span> public &lt;span class="c1"># 进入public目录&lt;/span>
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 1. 生成静态网站文件&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">hugo --minify
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 2. 进入构建目录&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">cd&lt;/span> public
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 3. 初始化静态网站仓库&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git init
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git add .
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git commit -m &lt;span class="s2">&amp;#34;Initial commit&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git commit -m &lt;span class="s2">&amp;#34;Initial commit: Static website files&amp;#34;&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git branch -M main
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git remote add origin https://github.com/username/username.github.io.git
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git push -u origin main
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div>&lt;h3 id="3-后续更新流程">3. 后续更新流程
-&lt;/h3>&lt;p>每次更新博客内容后，需要：&lt;/p>
+&lt;/div>&lt;h3 id="更新博客流程">更新博客流程
+&lt;/h3>&lt;p>每次更新博客内容时：&lt;/p>
 &lt;ol>
-&lt;li>更新源码仓库：&lt;/li>
+&lt;li>在源码仓库中修改内容（比如写新文章）：&lt;/li>
 &lt;/ol>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
@@ -300,7 +290,7 @@
 &lt;td class="lntd">
 &lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 在blog目录下&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git add .
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git commit -m &lt;span class="s2">&amp;#34;Update content&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git commit -m &lt;span class="s2">&amp;#34;Add new blog post&amp;#34;&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git push
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
@@ -315,17 +305,25 @@
 &lt;/span>&lt;span class="lnt">4
 &lt;/span>&lt;span class="lnt">5
 &lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
 &lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 在blog目录下&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">hugo --minify &lt;span class="c1"># 重新生成静态文件&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">cd&lt;/span> public &lt;span class="c1"># 进入public目录&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git add .
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git commit -m &lt;span class="s2">&amp;#34;Update site&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git push
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">cd&lt;/span> public &lt;span class="c1"># 进入构建目录&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git add . &lt;span class="c1"># 添加新生成的文件&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git commit -m &lt;span class="s2">&amp;#34;Update website&amp;#34;&lt;/span> &lt;span class="c1"># 提交更改&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git push &lt;span class="c1"># 推送到GitHub Pages&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">cd&lt;/span> .. &lt;span class="c1"># 返回博客根目录&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div>&lt;p>提示：建议使用自动化部署（GitHub Actions）来简化这个过程。&lt;/p>
+&lt;/div>&lt;p>这种双仓库的设置确保了：&lt;/p>
+&lt;ul>
+&lt;li>源代码得到完整的版本控制&lt;/li>
+&lt;li>构建产物独立管理&lt;/li>
+&lt;li>GitHub Pages能正确托管网站&lt;/li>
+&lt;/ul>
+&lt;p>提示：如果这个手动部署过程太繁琐，可以使用GitHub Actions自动化它。&lt;/p>
 &lt;h2 id="自动化部署">自动化部署
 &lt;/h2>&lt;p>可以使用GitHub Actions实现自动部署。这种方式的优势是：&lt;/p>
 &lt;ul>
