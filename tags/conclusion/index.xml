@@ -1,0 +1,587 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Conclusion on MciG</title><link>https://mcig-ggg.github.io/tags/conclusion/</link><description>Recent content in Conclusion on MciG</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><copyright>MciG</copyright><lastBuildDate>Sun, 01 Jun 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://mcig-ggg.github.io/tags/conclusion/index.xml" rel="self" type="application/rss+xml"/><item><title>CS188从搜索问题，MDP到RL</title><link>https://mcig-ggg.github.io/p/cs188%E4%BB%8E%E6%90%9C%E7%B4%A2%E9%97%AE%E9%A2%98mdp%E5%88%B0rl/</link><pubDate>Sun, 01 Jun 2025 00:00:00 +0000</pubDate><guid>https://mcig-ggg.github.io/p/cs188%E4%BB%8E%E6%90%9C%E7%B4%A2%E9%97%AE%E9%A2%98mdp%E5%88%B0rl/</guid><description>&lt;hr>
+&lt;h1 id="cs188从搜索问题到-rl人工智能决策算法的演进之路">CS188：从搜索问题到 RL——人工智能决策算法的演进之路
+&lt;/h1>&lt;p>UC Berkeley 的 CS188 课程（人工智能导论）以“构建智能体的决策能力”为核心，从经典的搜索算法到现代强化学习（Reinforcement Learning, RL），系统性地揭示了人工智能如何在复杂环境中规划路径、解决问题并优化策略。本文将沿着课程脉络，梳理从基础搜索到强化学习的演进逻辑，并探讨其背后的核心思想。&lt;/p>
+&lt;hr>
+&lt;h2 id="第一部分确定性世界的决策基础搜索问题">&lt;strong>第一部分：确定性世界的决策基础——搜索问题&lt;/strong>
+&lt;/h2>&lt;h3 id="1-搜索问题的数学定义">&lt;strong>1. 搜索问题的数学定义&lt;/strong>
+&lt;/h3>&lt;p>搜索问题的目标是找到从&lt;strong>初始状态&lt;/strong>到&lt;strong>目标状态&lt;/strong>的最优路径（或满足条件的可行路径）。其核心在于形式化环境的结构，使智能体能够系统化地探索可能的行动序列。&lt;/p>
+&lt;hr>
+&lt;h3 id="2-搜索问题的构成要素">&lt;strong>2. 搜索问题的构成要素&lt;/strong>
+&lt;/h3>&lt;h4 id="1-状态空间state-space">&lt;strong>(1) 状态空间（State Space）&lt;/strong>
+&lt;/h4>&lt;ul>
+&lt;li>&lt;strong>定义&lt;/strong>：所有可能状态的集合，描述智能体在环境中的可能配置。&lt;/li>
+&lt;li>&lt;strong>示例&lt;/strong>：
+&lt;ul>
+&lt;li>迷宫问题：状态是坐标 &lt;code>(x, y)&lt;/code>。&lt;/li>
+&lt;li>拼图游戏：状态是棋盘的布局（如八数码问题）。&lt;/li>
+&lt;li>机器人导航：状态是机器人的位置与朝向。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h4 id="2-动作集合actions">&lt;strong>(2) 动作集合（Actions）&lt;/strong>
+&lt;/h4>&lt;ul>
+&lt;li>&lt;strong>定义&lt;/strong>：在某个状态下可执行的操作集合，记为 &lt;code>Actions(s)&lt;/code>。&lt;/li>
+&lt;li>&lt;strong>示例&lt;/strong>：
+&lt;ul>
+&lt;li>迷宫中：&lt;code>{上, 下, 左, 右}&lt;/code>。&lt;/li>
+&lt;li>拼图游戏：&lt;code>{空格与相邻数字交换}&lt;/code>。&lt;/li>
+&lt;li>自动驾驶：&lt;code>{加速, 刹车, 左转, 右转}&lt;/code>。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h4 id="3-转移模型transition-model">&lt;strong>(3) 转移模型（Transition Model）&lt;/strong>
+&lt;/h4>&lt;ul>
+&lt;li>&lt;strong>定义&lt;/strong>：函数 &lt;code>Result(s, a) → s'&lt;/code>，描述在状态 &lt;code>s&lt;/code> 执行动作 &lt;code>a&lt;/code> 后到达的下一状态 &lt;code>s'&lt;/code>。&lt;/li>
+&lt;li>&lt;strong>示例&lt;/strong>：
+&lt;ul>
+&lt;li>迷宫中：&lt;code>Result((x,y), 上) → (x, y+1)&lt;/code>（假设坐标系向上为y轴正方向）。&lt;/li>
+&lt;li>拼图游戏：&lt;code>Result(当前布局, 左移空格) → 新布局&lt;/code>。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h4 id="4-动作成本action-cost">&lt;strong>(4) 动作成本（Action Cost）&lt;/strong>
+&lt;/h4>&lt;ul>
+&lt;li>&lt;strong>定义&lt;/strong>：从状态 &lt;code>s&lt;/code> 通过动作 &lt;code>a&lt;/code> 转移到 &lt;code>s'&lt;/code> 的即时成本，记为 &lt;code>Cost(s, a, s')&lt;/code>。&lt;/li>
+&lt;li>&lt;strong>作用&lt;/strong>：用于衡量路径的优劣（如最短路径、最低能耗）。&lt;/li>
+&lt;li>&lt;strong>示例&lt;/strong>：
+&lt;ul>
+&lt;li>迷宫中：每步成本为1（路径长度即总成本）。&lt;/li>
+&lt;li>导航问题：成本为道路长度或行驶时间。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h4 id="5-初始状态start-state">&lt;strong>(5) 初始状态（Start State）&lt;/strong>
+&lt;/h4>&lt;ul>
+&lt;li>&lt;strong>定义&lt;/strong>：智能体开始执行任务时的初始配置。&lt;/li>
+&lt;li>&lt;strong>示例&lt;/strong>：
+&lt;ul>
+&lt;li>罗马尼亚度假问题：初始状态是城市 &lt;code>Arad&lt;/code>。&lt;/li>
+&lt;li>拼图游戏：初始状态是打乱的棋盘布局。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h4 id="6-目标测试goal-test">&lt;strong>(6) 目标测试（Goal Test）&lt;/strong>
+&lt;/h4>&lt;ul>
+&lt;li>&lt;strong>定义&lt;/strong>：函数 &lt;code>GoalTest(s) → True/False&lt;/code>，判断状态 &lt;code>s&lt;/code> 是否为目标状态。&lt;/li>
+&lt;li>&lt;strong>示例&lt;/strong>：
+&lt;ul>
+&lt;li>迷宫问题：&lt;code>GoalTest((x,y)) → (x,y)是否为终点坐标&lt;/code>。&lt;/li>
+&lt;li>拼图游戏：&lt;code>GoalTest(s) → s是否为目标布局&lt;/code>。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h3 id="3-搜索问题的求解目标">&lt;strong>3. 搜索问题的求解目标&lt;/strong>
+&lt;/h3>&lt;p>智能体需要找到从初始状态到目标状态的&lt;strong>最优路径&lt;/strong>（或可行路径），其中“最优”由&lt;strong>路径总成本&lt;/strong>定义。例如：&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>最短路径&lt;/strong>：动作成本为1时，BFS可找到最优解。&lt;/li>
+&lt;li>&lt;strong>最低成本路径&lt;/strong>：动作成本不同时，需使用一致代价搜索（UCS）。&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h3 id="4-示例罗马尼亚度假问题">&lt;strong>4. 示例：罗马尼亚度假问题&lt;/strong>
+&lt;/h3>&lt;ul>
+&lt;li>&lt;strong>状态空间&lt;/strong>：罗马尼亚城市（如Arad, Bucharest, Sibiu等）。&lt;/li>
+&lt;li>&lt;strong>动作&lt;/strong>：从当前城市可直达的相邻城市（如从Arad可到Sibiu、Timisoara等）。&lt;/li>
+&lt;li>&lt;strong>转移模型&lt;/strong>：&lt;code>Result(Arad, 前往Sibiu) → Sibiu&lt;/code>。&lt;/li>
+&lt;li>&lt;strong>动作成本&lt;/strong>：城市间的道路长度（如Arad到Sibiu为140公里）。&lt;/li>
+&lt;li>&lt;strong>初始状态&lt;/strong>：Arad。&lt;/li>
+&lt;li>&lt;strong>目标测试&lt;/strong>：当前城市是否为Bucharest。&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>求解目标&lt;/strong>：找到从Arad到Bucharest的最短路径（如Arad → Sibiu → Rimnicu Vilcea → Pitesti → Bucharest）。&lt;/p>
+&lt;hr>
+&lt;h3 id="5-搜索问题与智能体的关系">&lt;strong>5. 搜索问题与智能体的关系&lt;/strong>
+&lt;/h3>&lt;ul>
+&lt;li>&lt;strong>理性决策&lt;/strong>：智能体需在有限计算资源下，选择能最大化未来累积奖励（或最小化成本）的行动。&lt;/li>
+&lt;li>&lt;strong>搜索算法的角色&lt;/strong>：通过系统化地探索状态空间（如BFS、A*、UCS等），找到满足目标的最优路径。&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h3 id="6-关键挑战">&lt;strong>6. 关键挑战&lt;/strong>
+&lt;/h3>&lt;ol>
+&lt;li>&lt;strong>状态空间爆炸&lt;/strong>：状态数量可能随问题规模指数增长（如棋盘游戏）。&lt;/li>
+&lt;li>&lt;strong>最优性与效率的权衡&lt;/strong>：如何在合理时间内找到最优解（如启发式搜索A*）。&lt;/li>
+&lt;li>&lt;strong>动态环境&lt;/strong>：若环境变化（如交通拥堵），需重新规划路径（需结合在线搜索）。&lt;/li>
+&lt;/ol>
+&lt;hr>
+&lt;h3 id="总结">&lt;strong>总结&lt;/strong>
+&lt;/h3>&lt;p>搜索问题的形式化定义为智能体提供了在复杂环境中规划行动的数学框架。通过明确状态空间、动作、转移模型等要素，结合适当的搜索算法（如BFS、A*、UCS），智能体能够高效地找到从初始状态到目标状态的最优路径。这一过程是构建理性规划智能体的基础，也是后续学习更高级算法（如强化学习）的前提。&lt;/p>
+&lt;blockquote>
+&lt;p>[!NOTE] 搜索问题的解法&lt;/p>
+&lt;ul>
+&lt;li>把搜索问题抽象成图论问题
+&lt;ul>
+&lt;li>把每个状态看成一个节点&lt;/li>
+&lt;li>把每个action 看成节点之间的有向边&lt;/li>
+&lt;li>用图的搜索算法来解决搜索问题&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>&lt;/blockquote>
+&lt;hr>
+&lt;h2 id="第二部分不确定性与动态环境从-mdp-到强化学习">&lt;strong>第二部分：不确定性与动态环境——从 MDP 到强化学习&lt;/strong>
+&lt;/h2>&lt;h3 id="1-马尔可夫决策过程mdp">&lt;strong>1. 马尔可夫决策过程（MDP）&lt;/strong>
+&lt;/h3>&lt;p>MDP 是建模随机环境的数学框架，包含：&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;strong>状态 $s$ 、动作 $a$ 、转移概率 $T(s,a,s&amp;rsquo;)$&lt;/strong>：动作可能导致多个后续状态。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>**奖励函数 $R(s,a,s&amp;rsquo;)$ **：定义每个状态的即时收益。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>**折扣因子 $\gamma$ **：权衡当前与未来奖励。&lt;br>
+![[Pasted image 20250424203806.png]]
+&lt;strong>求解方法&lt;/strong>：&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>值迭代&lt;/strong>：通过贝尔曼方程迭代更新值函数，收敛到最优策略。&lt;/p>
+&lt;ul>
+&lt;li>![[Pasted image 20250425133751.png]]&lt;/li>
+&lt;li>公式： $$V_{k+1}(s) = \max_{a}\sum_{s'}T(s,a,s')[R(s,a,s')+\gamma V_{k}(s')]$$
+&lt;ul>
+&lt;li>用 $s$ 的下一个状态 $s&amp;rsquo;$ 的第 $k$ 次迭代的V 值 $V_{k}(s&amp;rsquo;)$ 来更新第 $k+1$ 迭代的状态 $s$ 的V 值 $V_{k+1}(s)$&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>策略迭代&lt;/strong>：交替执行策略评估与改进，直接优化策略。
+两个步骤：&lt;/p>
+&lt;ul>
+&lt;li>策略评价
+&lt;ul>
+&lt;li>&lt;strong>目标&lt;/strong>：计算当前策略 $\pi$ 的状态值函数 $V^\pi(s)$ 。&lt;/li>
+&lt;li>&lt;strong>方法&lt;/strong>：通过迭代求解贝尔曼期望方程：
+$$V^\pi(s) = \sum_{a} \pi(a|s) \left[ R(s,a) + \gamma \sum_{s'} P(s'|s,a) V^\pi(s') \right]$$
+其中：
+&lt;ul>
+&lt;li>$R(s,a)$ 是即时奖励，&lt;/li>
+&lt;li>$P(s&amp;rsquo;|s,a)$ 是状态转移概率，&lt;/li>
+&lt;li>$\gamma$ 是折扣因子。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>终止条件&lt;/strong>：当值函数的变化小于阈值 $\theta$（如 $10^{-3}$）时停止迭代。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>策略改进/策略提取
+&lt;ul>
+&lt;li>&lt;strong>目标&lt;/strong>：基于当前值函数 $V^\pi(s)$ 生成更优策略 $\pi&amp;rsquo;$ 。
+&lt;ul>
+&lt;li>&lt;strong>方法&lt;/strong>：对每个状态 $s$，选择使动作值函数 $Q^\pi(s,a)$ 最大的动作：
+$$\pi'(s) = \arg\max_{a} \left[ R(s,a) + \gamma \sum_{s'} P(s'|s,a) V^\pi(s') \right]$$&lt;/li>
+&lt;li>若新策略 $\pi&amp;rsquo;$ 与原策略 $\pi$ 相同，则停止迭代；否则，用 $\pi&amp;rsquo;$ 替代 $\pi$ ，重复策略评估。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h3 id="2-强化学习rl无模型的动态决策">&lt;strong>2. 强化学习（RL）：无模型的动态决策&lt;/strong>
+&lt;/h3>&lt;ul>
+&lt;li>RL 问题：仍然是MDP 模型，但是不知道 $T(s,a,s&amp;rsquo;)$ 或 $R(s,a,s&amp;rsquo;)$
+&lt;ul>
+&lt;li>两个主要问题：
+&lt;ul>
+&lt;li>怎么从尝试过的动作中学习（被动RL）
+&lt;ul>
+&lt;li>两种解决办法：
+&lt;ul>
+&lt;li>基于模型的RL：尝试获取 $T(s,a,s&amp;rsquo;)$ 或者 $R(s,a,s&amp;rsquo;)$ ，从而变回MDP 问题，用策略迭代或者值迭代即可&lt;/li>
+&lt;li>不基于模型的RL：不获取 $T(s,a,s&amp;rsquo;)$ 或者 $R(s,a,s&amp;rsquo;)$ ，直接通过 $Q$ 值来学习策略 $\pi$&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>怎么基于学到的东西去选择执行的动作（在探索（尝试新动作以发现更好策略）和利用（选择当前最优动作）之间权衡）（主动RL）：
+&lt;ul>
+&lt;li>$\epsilon$ -贪心： $\epsilon$ 的概率随机探索（exploration）， $1-\epsilon$ 的概率采取利用（exploitation）当前数据得出的最佳值&lt;/li>
+&lt;li>exploration function&lt;/li>
+&lt;li>等等&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h4 id="被动rl">被动RL
+&lt;/h4>&lt;ul>
+&lt;li>基于模型的RL和不基于模型的RL 的区别：
+![[Pasted image 20250425144547.png]]&lt;/li>
+&lt;/ul>
+&lt;blockquote>
+&lt;p>[!NOTE] Title&lt;/p>
+&lt;ul>
+&lt;li>左侧：基于数据去获取P（a），可以理解为对世界建模，理解概率的分布&lt;/li>
+&lt;li>右侧：基于采样的数据直接获取A 的期望，并不知道概率分布（对世界的具体模型没有了解）&lt;/li>
+&lt;/ul>&lt;/blockquote>
+&lt;ul>
+&lt;li>不基于模型的RL：当环境模型未知时，强化学习通过&lt;strong>试错&lt;/strong>直接学习策略。核心算法 Q 学习通过&lt;strong>时序差分更新&lt;/strong>逐步逼近最优动作价值函数：&lt;br>
+$$
+Q (s, a) \leftarrow Q (s, a) + \alpha \left[ R (s, a) + \gamma \max_{a'} Q (s', a') - Q (s, a) \right]
+$$&lt;/li>
+&lt;/ul>
+&lt;blockquote>
+&lt;p>[!NOTE] Q-learning 是离策略 (Off-policy)&lt;/p>
+&lt;ul>
+&lt;li>离策略算法的核心是将目标策略（Target Policy）的学习与行为策略（Behavior Policy）的数据收集过程分离。
+&lt;ul>
+&lt;li>目标策略（π） ：&lt;em>希望学习的最优策略，通常通过最大化期望回报得到&lt;/em>（如 Q-learning 中的贪婪策略）。&lt;/li>
+&lt;li>行为策略（μ） ：用于&lt;em>与环境交互、生成训练数据&lt;/em>的策略，通常包含探索机制（如ε-greedy、Boltzmann 探索）。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>&lt;/blockquote>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>&lt;strong>特性&lt;/strong>&lt;/th>
+&lt;th>&lt;strong>离策略（Off-Policy）&lt;/strong>&lt;/th>
+&lt;th>&lt;strong>在线策略（On-Policy）&lt;/strong>&lt;/th>
+&lt;th>&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;strong>策略关系&lt;/strong>&lt;/td>
+&lt;td>目标策略 ≠ 行为策略&lt;/td>
+&lt;td>目标策略 = 行为策略&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;strong>数据来源&lt;/strong>&lt;/td>
+&lt;td>可复用历史数据或外部数据&lt;/td>
+&lt;td>必须实时与环境交互生成新数据&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;strong>典型算法&lt;/strong>&lt;/td>
+&lt;td>Q-learning、DQN、DDPG、SAC&lt;/td>
+&lt;td>SARSA、REINFORCE、PPO&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;strong>数据效率&lt;/strong>&lt;/td>
+&lt;td>高（数据可重复使用）&lt;/td>
+&lt;td>低（需持续交互）&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;strong>实现复杂度&lt;/strong>&lt;/td>
+&lt;td>高（需处理分布偏移）&lt;/td>
+&lt;td>低（策略一致性）&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;ul>
+&lt;li>解释：
+&lt;ul>
+&lt;li>为什么学习 $Q$ 值而不是 $V$ 值：
+&lt;ul>
+&lt;li>如果使用 V 值，智能体需要知道环境的动态模型（即状态转移概率 $T(s,a,s&amp;rsquo;)$ 和奖励函数 $R(s,a,s&amp;rsquo;)$ ），才能通过贝尔曼方程计算动作的期望价值. 而通过直接学习 Q(s,a)，绕过了对环境模型的依赖&lt;/li>
+&lt;li>Q值的灵活性与V值的不足 ：Q(s,a) 显式地为每个动作分配价值，允许智能体在探索（如随机动作）和利用（选择当前最优动作）之间灵活切换。若使用 V 值，智能体需要额外机制（如策略函数）将状态价值映射到动作选择，这会增加复杂度。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>Q 学习 vs. MDP&lt;/strong>：&lt;/p>
+&lt;ul>
+&lt;li>MDP 需已知环境模型（转移概率与奖励函数），RL 无需模型。&lt;/li>
+&lt;li>Q 学习通过经验（状态-动作-奖励序列）直接学习，适用于动态环境。&lt;/li>
+&lt;/ul>
+&lt;h4 id="主动rl">主动RL
+&lt;/h4>&lt;ul>
+&lt;li>$\epsilon$ - greedy&lt;/li>
+&lt;li>exploration function
+&lt;ul>
+&lt;li>把通过某个 action $a&amp;rsquo;$ 到达某个状态 $s&amp;rsquo;$ 的次数 $N(s&amp;rsquo;,a&amp;rsquo;)$ 纳入考虑，用 $f(Q(s&amp;rsquo;,a&amp;rsquo;), N(s&amp;rsquo;,a&amp;rsquo;))$ 取代原先的 $Q(s&amp;rsquo;,a&amp;rsquo;)$ $$Q(s,a) \leftarrow (1-\alpha)Q(s,a) + \alpha[R(s,a,s') + \gamma \max_{a'}f(Q(s',a'), N(s',a'))]$$&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h4 id="approximate-q-learning-介绍">Approximate Q-learning 介绍
+&lt;/h4>&lt;p>&lt;strong>Approximate Q-learning&lt;/strong> 是经典 Q-learning 算法的扩展，旨在解决传统 Q-learning 在高维或连续状态空间中的&lt;strong>维度灾难&lt;/strong>问题。其核心思想是通过&lt;strong>函数逼近&lt;/strong>（Function Approximation）代替传统的表格（Tabular）存储，利用参数化的函数（如线性模型、神经网络）近似表示 Q 值，从而实现对大规模状态空间的泛化能力。&lt;/p>
+&lt;hr>
+&lt;h5 id="1-为什么需要-approximate-q-learning">&lt;strong>1. 为什么需要 Approximate Q-learning？&lt;/strong>
+&lt;/h5>&lt;ul>
+&lt;li>
+&lt;p>&lt;strong>传统 Q-learning 的局限性&lt;/strong>&lt;br>
+在表格型 Q-learning 中，Q 值存储为一个二维表 $Q(s, a)$，每个状态-动作对需要单独维护一个值。当状态空间巨大（如围棋的 $10^{170}$ 种状态）或连续（如机器人传感器数据）时，表格存储和更新变得不可行。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>函数逼近的优势&lt;/strong>&lt;br>
+使用参数化函数 $Q(s, a; \theta)$（如线性模型、神经网络）代替表格，通过调整参数 $\theta$ 逼近真实 Q 值。这种方法可以：&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>泛化&lt;/strong>：相似状态共享参数，避免重复学习。&lt;/li>
+&lt;li>&lt;strong>处理连续状态&lt;/strong>：直接接受实数向量作为输入（如传感器数据）。&lt;/li>
+&lt;li>&lt;strong>降低存储成本&lt;/strong>：参数规模远小于状态-动作组合数。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h5 id="2-算法原理">&lt;strong>2. 算法原理&lt;/strong>
+&lt;/h5>&lt;p>&lt;strong>Approximate Q-learning&lt;/strong> 的更新规则基于传统 Q-learning，但引入函数逼近和梯度下降优化：&lt;/p>
+&lt;ol>
+&lt;li>
+&lt;p>&lt;strong>目标 Q 值计算&lt;/strong>&lt;br>
+与传统 Q-learning 类似，目标 Q 值为：
+&lt;/p>
+$$\text{Target} = r + \gamma \max_{a'} Q(s', a'; \theta)$$&lt;p>
+其中 $s&amp;rsquo;$ 是下一状态，$\gamma$ 是折扣因子。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>损失函数与参数更新&lt;/strong>&lt;br>
+定义损失函数为预测 Q 值与目标 Q 值的均方误差：
+&lt;/p>
+$$L(\theta) = \frac{1}{2} \left[ Q(s, a; \theta) - \text{Target} \right]^2$$&lt;p>
+通过梯度下降更新参数 $\theta$：
+&lt;/p>
+$$\theta \leftarrow \theta - \alpha \nabla_\theta L(\theta)$$&lt;p>
+其中 $\alpha$ 是学习率，梯度方向由链式法则计算：
+&lt;/p>
+$$\nabla_\theta L(\theta) = \left( Q(s, a; \theta) - \text{Target} \right) \nabla_\theta Q(s, a; \theta)$$&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>伪代码示例&lt;/strong>&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;span class="lnt">8
+&lt;/span>&lt;span class="lnt">9
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="k">for&lt;/span> &lt;span class="n">each&lt;/span> &lt;span class="n">episode&lt;/span>&lt;span class="p">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">initialize&lt;/span> &lt;span class="n">state&lt;/span> &lt;span class="n">s&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">while&lt;/span> &lt;span class="ow">not&lt;/span> &lt;span class="n">terminal&lt;/span>&lt;span class="p">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">choose&lt;/span> &lt;span class="n">action&lt;/span> &lt;span class="n">a&lt;/span> &lt;span class="n">via&lt;/span> &lt;span class="n">ε&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="n">greedy&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">Q&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">s&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">a&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="n">θ&lt;/span>&lt;span class="p">))&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">execute&lt;/span> &lt;span class="n">a&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">observe&lt;/span> &lt;span class="n">reward&lt;/span> &lt;span class="n">r&lt;/span> &lt;span class="ow">and&lt;/span> &lt;span class="nb">next&lt;/span> &lt;span class="n">state&lt;/span> &lt;span class="n">s&lt;/span>&lt;span class="s1">&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">target&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">r&lt;/span> &lt;span class="o">+&lt;/span> &lt;span class="n">γ&lt;/span> &lt;span class="o">*&lt;/span> &lt;span class="n">max_a&lt;/span>&lt;span class="s1">&amp;#39; Q(s&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">a&lt;/span>&lt;span class="s1">&amp;#39;; θ)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">loss&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mf">0.5&lt;/span> &lt;span class="o">*&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="n">Q&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">s&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">a&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="n">θ&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="o">-&lt;/span> &lt;span class="n">target&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="o">^&lt;/span>&lt;span class="mi">2&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">θ&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">θ&lt;/span> &lt;span class="o">-&lt;/span> &lt;span class="n">α&lt;/span> &lt;span class="o">*&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="n">Q&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">s&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">a&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="n">θ&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="o">-&lt;/span> &lt;span class="n">target&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="o">*&lt;/span> &lt;span class="err">∇&lt;/span>&lt;span class="n">θ&lt;/span> &lt;span class="n">Q&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">s&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">a&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="n">θ&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">s&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">s&lt;/span>&lt;span class="s1">&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;/ol>
+&lt;hr>
+&lt;h5 id="3-函数逼近方法">&lt;strong>3. 函数逼近方法&lt;/strong>
+&lt;/h5>&lt;ul>
+&lt;li>
+&lt;p>&lt;strong>线性函数逼近&lt;/strong>&lt;br>
+用线性组合表示 Q 值：&lt;br>
+&lt;/p>
+$$Q(s, a; \theta) = \theta^T \phi(s, a)$$&lt;p>&lt;br>
+其中 $\phi(s, a)$ 是状态-动作的特征向量（如人工设计的特征或自动编码的特征）。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>非线性函数逼近（如神经网络）&lt;/strong>&lt;br>
+使用深度神经网络（DQN）自动提取状态特征：&lt;br>
+&lt;/p>
+$$Q(s, a; \theta) = \text{NeuralNetwork}(s, a; \theta)$$&lt;p>&lt;br>
+深度 Q 网络（DQN）通过&lt;strong>经验回放&lt;/strong>（Experience Replay）和&lt;strong>目标网络&lt;/strong>（Target Network）稳定训练。&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h5 id="4-优缺点分析">&lt;strong>4. 优缺点分析&lt;/strong>
+&lt;/h5>&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>&lt;strong>优点&lt;/strong>&lt;/th>
+&lt;th>&lt;strong>缺点&lt;/strong>&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>可处理高维/连续状态空间&lt;/td>
+&lt;td>收敛性不保证（函数逼近可能发散）&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>泛化能力强，避免维度灾难&lt;/td>
+&lt;td>需谨慎设计特征或网络结构&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>适用于真实场景（如图像、传感器输入）&lt;/td>
+&lt;td>超参数（学习率、网络架构）敏感&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;hr>
+&lt;h5 id="5-应用场景">&lt;strong>5. 应用场景&lt;/strong>
+&lt;/h5>&lt;ul>
+&lt;li>&lt;strong>游戏 AI&lt;/strong>：如 Atari 游戏（DQN 直接以像素为输入）&lt;/li>
+&lt;li>&lt;strong>机器人控制&lt;/strong>：连续传感器数据映射到动作（如机械臂抓取）&lt;/li>
+&lt;li>&lt;strong>资源调度&lt;/strong>：大规模状态空间下的动态决策（如云计算资源分配）&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h5 id="6-扩展与改进">&lt;strong>6. 扩展与改进&lt;/strong>
+&lt;/h5>&lt;ul>
+&lt;li>&lt;strong>深度 Q 网络（DQN）&lt;/strong>：结合神经网络与经验回放、目标网络（见 Nature DQN）。&lt;/li>
+&lt;li>&lt;strong>Double Q-learning&lt;/strong>：减少最大化偏差（Maximization Bias）。&lt;/li>
+&lt;li>&lt;strong>Dueling DQN&lt;/strong>：分离状态价值 $V(s)$ 和动作优势 $A(s, a)$，提升策略评估效率。&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h4 id="1-策略搜索policy-search">&lt;strong>1. 策略搜索（Policy Search）&lt;/strong>
+&lt;/h4>&lt;p>当基于特征的策略难以通过 Q-learning 直接优化时，策略搜索通过直接优化策略参数（而非 Q 值）提升性能。&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;strong>核心思想&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Q-learning 的局限&lt;/strong>：Q-learning 优先准确估计 Q 值（建模），但特征设计的偏差可能导致策略次优。&lt;/li>
+&lt;li>&lt;strong>策略搜索的目标&lt;/strong>：直接优化策略参数，最大化累积奖励（预测），而非精确拟合 Q 值。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>方法分类&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>简单策略搜索&lt;/strong>：通过扰动特征权重（如线性 Q 函数的权重），评估策略改进方向（需大量采样）。&lt;/li>
+&lt;li>&lt;strong>策略梯度（Policy Gradient）&lt;/strong>：基于蒙特卡洛采样，通过梯度上升更新策略参数，使高奖励轨迹的动作概率增加。&lt;/li>
+&lt;li>&lt;strong>近端策略优化（PPO）&lt;/strong>：改进策略梯度，限制策略更新的幅度，提升训练稳定性。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>应用场景&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>连续动作空间&lt;/strong>（如机器人关节控制）：Q-learning 需计算 $\max_a Q(s,a)$，而连续动作难以枚举，策略搜索直接输出动作分布。&lt;/li>
+&lt;li>&lt;strong>高维/复杂策略&lt;/strong>（如语言生成）：直接优化生成策略（如选择下一个词的概率分布）。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h4 id="2-案例分析case-studies">&lt;strong>2. 案例分析（Case Studies）&lt;/strong>
+&lt;/h4>&lt;p>强化学习在多个领域展现强大能力，以下是三个典型应用：&lt;/p>
+&lt;h5 id="案例-1atari-游戏atari-game-playing">&lt;strong>案例 1：Atari 游戏（Atari Game Playing）&lt;/strong>
+&lt;/h5>&lt;ul>
+&lt;li>&lt;strong>MDP 设置&lt;/strong>
+&lt;ul>
+&lt;li>&lt;strong>状态&lt;/strong>：游戏屏幕的像素（$84 \times 84$ 图像）。&lt;/li>
+&lt;li>&lt;strong>动作&lt;/strong>：手柄按键组合（如 18 种离散动作）。&lt;/li>
+&lt;li>&lt;strong>挑战&lt;/strong>：状态空间巨大（$256^{84 \times 84}$），无法使用表格法。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>解决方案&lt;/strong>
+&lt;ul>
+&lt;li>&lt;strong>深度 Q 网络（DQN）&lt;/strong>：用卷积神经网络逼近 Q 值，结合经验回放和目标网络稳定训练。&lt;/li>
+&lt;li>&lt;strong>探索策略&lt;/strong>：ε-greedy 平衡探索与利用。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h5 id="案例-2机器人运动控制robot-locomotion">&lt;strong>案例 2：机器人运动控制（Robot Locomotion）&lt;/strong>
+&lt;/h5>&lt;ul>
+&lt;li>&lt;strong>MDP 设置&lt;/strong>
+&lt;ul>
+&lt;li>&lt;strong>状态&lt;/strong>：机器人传感器数据（关节角度、加速度等连续向量）。&lt;/li>
+&lt;li>&lt;strong>动作&lt;/strong>：电机指令（连续向量）。&lt;/li>
+&lt;li>&lt;strong>挑战&lt;/strong>：真实世界训练成本高、风险大。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>解决方案&lt;/strong>
+&lt;ul>
+&lt;li>&lt;strong>仿真训练迁移&lt;/strong>：先在模拟器中训练策略，再部署到真实机器人。&lt;/li>
+&lt;li>&lt;strong>策略搜索方法&lt;/strong>：PPO 优化连续动作策略，最大化前进速度、保持平衡等奖励。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h5 id="案例-3语言助手language-assistants">&lt;strong>案例 3：语言助手（Language Assistants）&lt;/strong>
+&lt;/h5>&lt;ul>
+&lt;li>&lt;strong>MDP 设置&lt;/strong>
+&lt;ul>
+&lt;li>&lt;strong>状态&lt;/strong>：已生成的文本序列（如“What is population of Berkeley?”）。&lt;/li>
+&lt;li>&lt;strong>动作&lt;/strong>：选择下一个词（词汇表大小约 10 万）。&lt;/li>
+&lt;li>&lt;strong>奖励&lt;/strong>：人工标注或奖励模型（如回答准确性、流畅性）。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>解决方案&lt;/strong>
+&lt;ul>
+&lt;li>&lt;strong>策略梯度&lt;/strong>：直接优化生成策略，调整词的概率分布。&lt;/li>
+&lt;li>&lt;strong>挑战&lt;/strong>：动作空间极大（10 万词），需高效采样与梯度估计。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h4 id="3-后续方向与总结">&lt;strong>3. 后续方向与总结&lt;/strong>
+&lt;/h4>&lt;ul>
+&lt;li>&lt;strong>课程后续内容&lt;/strong>：转向 &lt;strong>不确定性（Uncertainty）&lt;/strong> 与 &lt;strong>学习理论（Learning）&lt;/strong>，涵盖贝叶斯网络、隐马尔可夫模型等。&lt;/li>
+&lt;li>&lt;strong>强化学习的核心挑战&lt;/strong>：
+&lt;ul>
+&lt;li>&lt;strong>探索与利用的平衡&lt;/strong>：如何在复杂环境中高效探索（如基于好奇心的内在奖励）。&lt;/li>
+&lt;li>&lt;strong>样本效率&lt;/strong>：减少真实环境中的交互次数（如元学习、模仿学习）。&lt;/li>
+&lt;li>&lt;strong>安全与鲁棒性&lt;/strong>：确保策略在真实场景中的可靠性（如安全约束强化学习）。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;hr></description></item><item><title>obsidian折腾总结</title><link>https://mcig-ggg.github.io/p/obsidian%E6%8A%98%E8%85%BE%E6%80%BB%E7%BB%93/</link><pubDate>Sun, 01 Jun 2025 00:00:00 +0000</pubDate><guid>https://mcig-ggg.github.io/p/obsidian%E6%8A%98%E8%85%BE%E6%80%BB%E7%BB%93/</guid><description>&lt;ul>
+&lt;li>少折腾&lt;/li>
+&lt;li>记录下现在的成果
+&lt;ul>
+&lt;li>主页&lt;/li>
+&lt;li>时间线
+&lt;ul>
+&lt;li>添加时间节点：在 Home 里把时间线的 events 加一项&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>习惯记录
+&lt;ul>
+&lt;li>更改标题：更改 &lt;code>dv.span(&amp;quot;** 📖 阅读 **&amp;quot;) &lt;/code> 括号中的内容&lt;/li>
+&lt;li>更改习惯分类：更改 &lt;code>const habitIntensity = getHabitInPage(page, 'reading')&lt;/code> 中‘reading’为对应的习惯分类，如 &lt;code>outputing&lt;/code>&lt;/li>
+&lt;li>更改颜色：更改 &lt;code>color: &amp;quot;orange&amp;quot;&lt;/code> 中为 calendarData 中对应颜色&lt;/li>
+&lt;li>记录每天的习惯：如&lt;code>- [x] [[obsidian折腾总结]] #habit outputing:: 1 ✅ 2025-04-22&lt;/code>
+&lt;ul>
+&lt;li>注意格式：
+&lt;ul>
+&lt;li>&lt;code>#habit&lt;/code> 必须在 &lt;code>outputing&lt;/code> 等前面&lt;/li>
+&lt;li>&lt;code>outputing&lt;/code> 后面要紧跟双冒号 &lt;code>::&lt;/code>&lt;/li>
+&lt;li>冒号后面接的是颜色深度，有范围限制&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>contribution 图&lt;/li>
+&lt;li>tasks
+&lt;ul>
+&lt;li>tasks canlendar wraper
+![[Pasted image 20250422233209.png]]
+![[Pasted image 20250422233237.png]]&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul></description></item><item><title>避免无意义的重复：记一次obsidian折腾</title><link>https://mcig-ggg.github.io/p/%E9%81%BF%E5%85%8D%E6%97%A0%E6%84%8F%E4%B9%89%E7%9A%84%E9%87%8D%E5%A4%8D%E8%AE%B0%E4%B8%80%E6%AC%A1obsidian%E6%8A%98%E8%85%BE/</link><pubDate>Sun, 01 Jun 2025 00:00:00 +0000</pubDate><guid>https://mcig-ggg.github.io/p/%E9%81%BF%E5%85%8D%E6%97%A0%E6%84%8F%E4%B9%89%E7%9A%84%E9%87%8D%E5%A4%8D%E8%AE%B0%E4%B8%80%E6%AC%A1obsidian%E6%8A%98%E8%85%BE/</guid><description>&lt;h2 id="起因">起因
+&lt;/h2>&lt;ul>
+&lt;li>事情的起因是复制 ai 回答的内容里的 LaTeX 公式，它所采用的是 &lt;code>\( \)&lt;/code> (行内公式) 和 &lt;code>\[ \]&lt;/code> （行间公式），而 obsidian 默认支持的是 &lt;code>$ $&lt;/code> 和 &lt;code>$$ $$&lt;/code> ，然后复制过来的话要对内容进行修改才能成功渲染LaTeX 公式&lt;/li>
+&lt;li>手动修改无疑是无意义的重复，但是我一直懒得找解决方法，直到今天实在受不了了。&lt;/li>
+&lt;/ul>
+&lt;h2 id="经历">经历
+&lt;/h2>&lt;ul>
+&lt;li>最开始的想法：看看能不能更改 obsidian 支持的 latex 格式，但是我没找到（也许有，可能只是我没找到）&lt;/li>
+&lt;li>后来的想法：因为对这种字符串操作，第一反应就是 vim, 然后我记得 obsidian 是有 vim 模式的，于是我开了 obsidian 的 vim 模式，尝试手动用 vim 命令更改粘贴后的内容,,,
+&lt;ul>
+&lt;li>但是好像 obsidian 的 vim 支持不是很好（？）好像不支持捕获组（也有可能是我命令输的有问题）&lt;/li>
+&lt;li>于是只能换方法&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>后来把我的需求描述清楚，去问 qwen, 说可以用 obsidian 的 templater 插件，并且给了相应的代码，
+&lt;ul>
+&lt;li>然后我按照他给的代码，去做，发现不行。&lt;/li>
+&lt;li>然后根据我之前的经历，可能是模型不够强&lt;/li>
+&lt;li>于是我去用 cursor&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>cursor 给了代码，能使用
+&lt;ul>
+&lt;li>不过一开始不符合我的需求&lt;/li>
+&lt;li>然后经过不断的调整，描述自己的需求，最终成功实现&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="感想">感想
+&lt;/h2>&lt;ul>
+&lt;li>第一个就是，就像 jyy 说的，要是重复做什么事情三次以上，就该想想有没有现成的自动化工具，如果没有，就看看自己能不能写出来，这是学计算机的人很需要的一个技能&lt;/li>
+&lt;li>然后就是 ai 的使用吧，比较难度高的任务还是得用好点的 ai, 不然错误太多了。&lt;/li>
+&lt;/ul></description></item></channel></rss>

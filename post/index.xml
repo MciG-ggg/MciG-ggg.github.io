@@ -1,4 +1,2277 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on MciG</title><link>https://mcig-ggg.github.io/post/</link><description>Recent content in Posts on MciG</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><copyright>MciG</copyright><lastBuildDate>Sun, 01 Jun 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://mcig-ggg.github.io/post/index.xml" rel="self" type="application/rss+xml"/><item><title>如何使用Hugo创建并部署个人博客</title><link>https://mcig-ggg.github.io/p/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8hugo%E5%88%9B%E5%BB%BA%E5%B9%B6%E9%83%A8%E7%BD%B2%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</link><pubDate>Sun, 01 Jun 2025 00:00:00 +0000</pubDate><guid>https://mcig-ggg.github.io/p/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8hugo%E5%88%9B%E5%BB%BA%E5%B9%B6%E9%83%A8%E7%BD%B2%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</guid><description>&lt;img src="https://mcig-ggg.github.io/hugo-logo.png" alt="Featured image of post 如何使用Hugo创建并部署个人博客" />&lt;h2 id="介绍">介绍
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on MciG</title><link>https://mcig-ggg.github.io/post/</link><description>Recent content in Posts on MciG</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><copyright>MciG</copyright><lastBuildDate>Sun, 01 Jun 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://mcig-ggg.github.io/post/index.xml" rel="self" type="application/rss+xml"/><item><title>2025-W17-04</title><link>https://mcig-ggg.github.io/p/2025-w17-04/</link><pubDate>Sun, 01 Jun 2025 00:00:00 +0000</pubDate><guid>https://mcig-ggg.github.io/p/2025-w17-04/</guid><description>&lt;h1 id="2025-042127">2025-04/21~27
+&lt;/h1>&lt;h2 id="review">Review
+&lt;/h2>&lt;ul>
+&lt;li>折腾的一周：
+&lt;ul>
+&lt;li>折腾 obsidian&lt;/li>
+&lt;li>折腾个人博客&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>CS188 就看了一节
+&lt;ul>
+&lt;li>感觉得慢慢看，不要急&lt;/li>
+&lt;li>所以复习了下前面的内容，打算写篇博客文章，还没写完&lt;/li>
+&lt;li>proj, 和 discussion 的进度也要跟上&lt;/li>
+&lt;li>五一结束前估计搞不完了，看看 5 月中旬能不能搞完&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>写了点小工具，不过是重复造轮子罢了,,,&lt;/li>
+&lt;li>重启 leetcode, 好久没刷了，每天花一点点时间刷刷&lt;/li>
+&lt;/ul>
+&lt;h3 id="completed">Completed
+&lt;/h3>&lt;h3 id="uncompleted">Uncompleted
+&lt;/h3>&lt;ul>
+&lt;li>CS188proj2, proj3
+&lt;ul>
+&lt;li>还有前面的 discussion&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="next-week-plan">Next Week Plan
+&lt;/h2>&lt;ul>
+&lt;li>等待五一爽学爽玩&lt;/li>
+&lt;li>每天抽时间看书，刷 leetcode&lt;/li>
+&lt;li>&lt;input checked="" disabled="" type="checkbox"> CS188proj2 🔺 ➕ 2025-04-27 📅 2025-04-30 ✅ 2025-04-29&lt;/li>
+&lt;li>&lt;input checked="" disabled="" type="checkbox"> CS188proj3 🔺 ➕ 2025-04-29 ⏳ 2025-05-02 📅 2025-05-02 ✅ 2025-05-0a1&lt;/li>
+&lt;li>&lt;input checked="" disabled="" type="checkbox"> CS70 概率论部分 note ⏫ ➕ 2025-04-29 📅 2025-05-11&lt;/li>
+&lt;li>&lt;input disabled="" type="checkbox"> CS188discussion 🔼 ➕ 2025-04-29&lt;/li>
+&lt;li>&lt;input checked="" disabled="" type="checkbox"> 线代期末复习 🔺 📅 2025-05-05 ✅ 2025-05-08&lt;/li>
+&lt;li>&lt;input checked="" disabled="" type="checkbox"> 电路作业 ⏫ ⏳ 2025-05-05 ✅ 2025-05-08&lt;/li>
+&lt;li>&lt;input checked="" disabled="" type="checkbox"> 电路大物实验报告 🔼 ⏳ 2025-05-02 ✅ 2025-05-03&lt;/li>
+&lt;/ul>
+&lt;h2 id="thoughts">THOUGHTS
+&lt;/h2>&lt;ul>
+&lt;li>折腾的最终境界就是默认配置&amp;hellip;&lt;/li>
+&lt;/ul></description></item><item><title>cs188lec10~lec11RL</title><link>https://mcig-ggg.github.io/p/cs188lec10~lec11rl/</link><pubDate>Sun, 01 Jun 2025 00:00:00 +0000</pubDate><guid>https://mcig-ggg.github.io/p/cs188lec10~lec11rl/</guid><description>&lt;h3 id="cs188-强化学习讲座总结">CS188 强化学习讲座总结
+&lt;/h3>&lt;h4 id="1-">&lt;strong>1. [[策略迭代（Policy Iteration）]]&lt;/strong>
+&lt;/h4>&lt;ul>
+&lt;li>&lt;strong>策略评估&lt;/strong>：固定策略下，通过迭代计算状态值函数直至收敛：
+$$V_{k+1}^{\pi}(s) \leftarrow \sum_{s'} T(s, \pi(s), s') \left[ R(s, \pi(s), s') + \gamma V_k^{\pi}(s') \right]$$&lt;/li>
+&lt;li>&lt;strong>策略改进&lt;/strong>：基于当前值函数，通过一步前瞻选择最优动作：
+$$\pi_{i+1}(s) = \arg \max_{a} \sum_{s'} T(s, a, s') \left[ R(s, a, s') + \gamma V^{\pi_i}(s') \right]$$&lt;/li>
+&lt;li>&lt;strong>示例&lt;/strong>：从“一直向东”策略逐步优化至最优策略。&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h4 id="2-强化学习基础">&lt;strong>2. 强化学习基础&lt;/strong>
+&lt;/h4>&lt;ul>
+&lt;li>&lt;strong>问题设定&lt;/strong>：在未知转移模型 $T$ 和奖励函数 $R$ 的MDP中，通过交互学习策略。&lt;/li>
+&lt;li>&lt;strong>被动强化学习&lt;/strong>：遵循固定策略，学习值函数（如直接评估、TD学习）。&lt;/li>
+&lt;li>&lt;strong>主动强化学习&lt;/strong>：需自主决策平衡探索与利用。&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h4 id="3-">&lt;strong>3. [[模型基于学习（Model-Based RL）]]&lt;/strong>
+&lt;/h4>&lt;ul>
+&lt;li>&lt;strong>步骤&lt;/strong>：
+&lt;ol>
+&lt;li>从经验数据中学习经验模型（统计状态转移和奖励）。&lt;/li>
+&lt;li>对学习到的MDP求解（如值迭代）。&lt;/li>
+&lt;li>运行策略并根据新数据调整模型。&lt;/li>
+&lt;/ol>
+&lt;/li>
+&lt;li>&lt;strong>优点&lt;/strong>：概念简单，可复用MDP求解方法。&lt;/li>
+&lt;li>&lt;strong>缺点&lt;/strong>：需维护模型，不适用于高维状态空间。&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h4 id="4-无模型学习model-free-rl">&lt;strong>4. 无模型学习（Model-Free RL）&lt;/strong>
+&lt;/h4>&lt;ul>
+&lt;li>&lt;strong>直接评估（[[蒙特卡洛]]）&lt;/strong>：
+&lt;ul>
+&lt;li>通过平均样本回报估计状态值，但忽略状态间关联，效率低。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>[[时间差分学习（TD Learning）]]&lt;/strong>：
+&lt;ul>
+&lt;li>每次转移后更新值函数，结合贝尔曼方程：
+$$V(s) \leftarrow (1-\alpha)V(s) + \alpha \left[ r + \gamma V(s') \right]$$&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>[[Q学习（Q-Learning）]]&lt;/strong>：
+&lt;ul>
+&lt;li>直接学习动作值函数 $Q(s,a)$，更新公式：
+$$Q(s,a) \leftarrow (1-\alpha)Q(s,a) + \alpha \left[ r + \gamma \max_{a'} Q(s',a') \right]$$&lt;/li>
+&lt;li>&lt;strong>离策略（Off-Policy）&lt;/strong>：可学习最优策略，即使行动策略非最优（如ε-greedy）。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h4 id="5-主动强化学习探索与利用">&lt;strong>5. 主动强化学习：探索与利用&lt;/strong>
+&lt;/h4>&lt;ul>
+&lt;li>&lt;strong>[[ε-greedy]]&lt;/strong>：以概率ε随机探索，其余时间利用当前最优动作。
+&lt;ul>
+&lt;li>&lt;strong>问题&lt;/strong>：长期低效探索，需逐步降低ε。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>探索函数&lt;/strong>：为未充分探索的状态-动作对赋予乐观估计（如 $f(u,n) = u + k/n$），鼓励探索。&lt;/li>
+&lt;li>&lt;strong>遗憾（Regret）&lt;/strong>：衡量学习过程中累积的次优决策成本，探索函数可降低遗憾。&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h4 id="6-扩展与案例">&lt;strong>6. 扩展与案例&lt;/strong>
+&lt;/h4>&lt;ul>
+&lt;li>&lt;strong>近似Q学习&lt;/strong>：处理高维状态（如神经网络拟合Q值）。&lt;/li>
+&lt;li>&lt;strong>案例&lt;/strong>：爬虫机器人学习行走、网格世界路径规划等。&lt;/li>
+&lt;li>[[DQN（Deep Q-Network）]]&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h4 id="7-drl">7. [[DRL]]
+&lt;/h4>&lt;h4 id="关键对比">&lt;strong>关键对比&lt;/strong>
+&lt;/h4>&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>&lt;strong>方法&lt;/strong>&lt;/th>
+&lt;th>&lt;strong>优点&lt;/strong>&lt;/th>
+&lt;th>&lt;strong>缺点&lt;/strong>&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;strong>模型基于&lt;/strong>&lt;/td>
+&lt;td>可复用MDP求解，理论清晰&lt;/td>
+&lt;td>需维护模型，计算开销大&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;strong>TD学习&lt;/strong>&lt;/td>
+&lt;td>高效利用样本，在线更新&lt;/td>
+&lt;td>需策略固定（被动学习）&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;strong>Q学习&lt;/strong>&lt;/td>
+&lt;td>离策略学习，直接优化动作选择&lt;/td>
+&lt;td>需充分探索保证收敛&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;strong>ε-greedy&lt;/strong>&lt;/td>
+&lt;td>简单易实现&lt;/td>
+&lt;td>长期低效探索&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;strong>探索函数&lt;/strong>&lt;/td>
+&lt;td>定向探索，降低遗憾&lt;/td>
+&lt;td>需设计合理探索函数&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>&lt;strong>总结&lt;/strong>：从模型方法到无模型方法，强化学习逐步降低对环境的假设，Q学习与探索策略的结合使其在实际中广泛应用，但需平衡探索与利用以高效学习最优策略。&lt;/p>
+&lt;h3 id="有模型model-based与无模型model-free的强化学习">有模型（Model-Based）与无模型（Model-Free）的强化学习
+&lt;/h3>&lt;h4 id="1-有模型强化学习model-based-rl">&lt;strong>1. 有模型强化学习（Model-Based RL）&lt;/strong>
+&lt;/h4>&lt;ul>
+&lt;li>&lt;strong>定义&lt;/strong>：智能体学习或已知环境的动态模型（转移概率和奖励函数），并利用该模型进行规划（如值迭代、策略迭代）。&lt;/li>
+&lt;li>&lt;strong>特点&lt;/strong>：
+&lt;ul>
+&lt;li>&lt;strong>优势&lt;/strong>：模型允许智能体在内部模拟环境，减少实际交互次数，提高数据效率。&lt;/li>
+&lt;li>&lt;strong>劣势&lt;/strong>：若模型不准确（如复杂环境），可能导致策略失效；学习模型本身可能增加计算开销。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>典型算法&lt;/strong>：动态规划（值迭代、策略迭代）、蒙特卡洛树搜索（MCTS）。&lt;/li>
+&lt;li>&lt;strong>应用场景&lt;/strong>：棋类游戏（如AlphaGo）、已知物理模型的控制任务（如机器人导航）。&lt;/li>
+&lt;/ul>
+&lt;h4 id="2-无模型强化学习model-free-rl">&lt;strong>2. 无模型强化学习（Model-Free RL）&lt;/strong>
+&lt;/h4>&lt;ul>
+&lt;li>&lt;strong>定义&lt;/strong>：智能体不依赖环境模型，直接通过试错学习价值函数或策略（如Q函数、策略梯度）。&lt;/li>
+&lt;li>&lt;strong>特点&lt;/strong>：
+&lt;ul>
+&lt;li>&lt;strong>优势&lt;/strong>：适用于模型未知或复杂的环境，灵活性高。&lt;/li>
+&lt;li>&lt;strong>劣势&lt;/strong>：需要大量交互数据，收敛速度较慢。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>典型算法&lt;/strong>：Q学习（Q-Learning）、深度Q网络（DQN）、策略梯度（Policy Gradient）。&lt;/li>
+&lt;li>&lt;strong>应用场景&lt;/strong>：电子游戏AI（如Atari游戏）、机器人控制（如机械臂抓取）。&lt;/li>
+&lt;/ul>
+&lt;h4 id="关键区别">&lt;strong>关键区别&lt;/strong>
+&lt;/h4>&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>&lt;strong>维度&lt;/strong>&lt;/th>
+&lt;th>有模型（Model-Based）&lt;/th>
+&lt;th>无模型（Model-Free）&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;strong>是否需要模型&lt;/strong>&lt;/td>
+&lt;td>需要学习或已知模型&lt;/td>
+&lt;td>无需模型，直接交互学习&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;strong>数据效率&lt;/strong>&lt;/td>
+&lt;td>高（利用模型规划减少交互）&lt;/td>
+&lt;td>低（依赖大量试错）&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;strong>计算复杂度&lt;/strong>&lt;/td>
+&lt;td>高（需维护模型和规划）&lt;/td>
+&lt;td>低（直接优化策略或值函数）&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;strong>适用场景&lt;/strong>&lt;/td>
+&lt;td>模型易获取或可模拟的环境&lt;/td>
+&lt;td>模型未知或复杂的环境&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;hr>
+&lt;h3 id="主动active与被动的passive强化学习">主动（Active）与被动的（Passive）强化学习
+&lt;/h3>&lt;h4 id="1-主动强化学习active-rl">&lt;strong>1. 主动强化学习（Active RL）&lt;/strong>
+&lt;/h4>&lt;ul>
+&lt;li>&lt;strong>定义&lt;/strong>：智能体通过主动探索（尝试新动作）与利用（执行已知最优动作）的平衡，动态优化策略。&lt;/li>
+&lt;li>&lt;strong>核心思想&lt;/strong>：在探索（获取新信息）和利用（最大化即时奖励）之间权衡，例如使用ε-greedy、UCB（Upper Confidence Bound）策略。&lt;/li>
+&lt;li>&lt;strong>特点&lt;/strong>：
+&lt;ul>
+&lt;li>&lt;strong>优势&lt;/strong>：能发现更优策略，避免陷入局部最优。&lt;/li>
+&lt;li>&lt;strong>挑战&lt;/strong>：需合理设计探索策略，否则可能浪费资源。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>典型场景&lt;/strong>：机器人学习新任务、推荐系统优化用户点击率。&lt;/li>
+&lt;/ul>
+&lt;h4 id="2-被动强化学习passive-rl">&lt;strong>2. 被动强化学习（Passive RL）&lt;/strong>
+&lt;/h4>&lt;ul>
+&lt;li>&lt;strong>定义&lt;/strong>：智能体遵循固定策略（如预定义规则或专家示范），仅通过观察奖励来评估策略的性能，不主动调整策略。&lt;/li>
+&lt;li>&lt;strong>核心思想&lt;/strong>：专注于策略评估而非改进。例如，在策略评估阶段计算固定策略的价值函数。&lt;/li>
+&lt;li>&lt;strong>特点&lt;/strong>：
+&lt;ul>
+&lt;li>&lt;strong>优势&lt;/strong>：计算简单，适用于策略性能分析。&lt;/li>
+&lt;li>&lt;strong>劣势&lt;/strong>：无法优化策略，依赖初始策略的质量。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>典型场景&lt;/strong>：评估现有策略（如交通信号控制策略）、模仿学习（Imitation Learning）的初始阶段。&lt;/li>
+&lt;/ul>
+&lt;h4 id="关键区别-1">&lt;strong>关键区别&lt;/strong>
+&lt;/h4>&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>&lt;strong>维度&lt;/strong>&lt;/th>
+&lt;th>主动强化学习（Active RL）&lt;/th>
+&lt;th>被动强化学习（Passive RL）&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;strong>策略更新&lt;/strong>&lt;/td>
+&lt;td>动态调整策略（探索+利用）&lt;/td>
+&lt;td>固定策略，仅评估价值函数&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;strong>目标&lt;/strong>&lt;/td>
+&lt;td>优化策略以最大化长期奖励&lt;/td>
+&lt;td>评估当前策略的性能&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;strong>数据使用&lt;/strong>&lt;/td>
+&lt;td>主动生成数据（试错交互）&lt;/td>
+&lt;td>依赖固定策略生成的数据&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;strong>典型方法&lt;/strong>&lt;/td>
+&lt;td>Q学习、策略梯度、ε-greedy&lt;/td>
+&lt;td>蒙特卡洛策略评估、时序差分学习（TD）&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;hr>
+&lt;h3 id="交叉分类与综合应用">&lt;strong>交叉分类与综合应用&lt;/strong>
+&lt;/h3>&lt;ul>
+&lt;li>&lt;strong>有模型 + 主动&lt;/strong>：使用模型规划时主动选择动作（如MCTS中的模拟探索）。&lt;/li>
+&lt;li>&lt;strong>无模型 + 主动&lt;/strong>：通过试错直接学习策略（如DQN在Atari游戏中的探索）。&lt;/li>
+&lt;li>&lt;strong>有模型 + 被动&lt;/strong>：利用模型预测固定策略的未来回报（如策略评估阶段）。&lt;/li>
+&lt;li>&lt;strong>无模型 + 被动&lt;/strong>：基于固定策略的历史数据离线学习（如模仿学习）。&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h3 id="总结">&lt;strong>总结&lt;/strong>
+&lt;/h3>&lt;ul>
+&lt;li>&lt;strong>有模型 vs. 无模型&lt;/strong>：关键在于是否依赖环境模型进行规划，前者高效但依赖模型准确性，后者灵活但需大量交互。&lt;/li>
+&lt;li>&lt;strong>主动 vs. 被动&lt;/strong>：区分在于是否动态优化策略，前者平衡探索与利用，后者专注于策略评估。&lt;/li>
+&lt;li>&lt;strong>实际应用&lt;/strong>：通常结合两者优势，例如在无模型框架下设计主动探索策略（如深度强化学习中的好奇心驱动探索）。&lt;/li>
+&lt;/ul>
+&lt;h3 id="解释基于模型model-based与非基于模型model-free方法的区别">解释：基于模型（Model-Based）与非基于模型（Model-Free）方法的区别
+&lt;/h3>&lt;h4 id="1-基于模型model-based方法">&lt;strong>1. 基于模型（Model-Based）方法&lt;/strong>
+&lt;/h4>&lt;ul>
+&lt;li>&lt;strong>核心思想&lt;/strong>：通过样本数据&lt;strong>显式估计概率分布&lt;/strong> $P(A)$，再基于此分布计算期望值。
+&lt;ul>
+&lt;li>&lt;strong>步骤&lt;/strong>：
+&lt;ol>
+&lt;li>统计每个年龄 $a$ 在样本中出现的次数 $\text{num}(a)$。&lt;/li>
+&lt;li>估计概率分布：$\hat{P}(a) = \frac{\text{num}(a)}{N}$（$N$ 为总样本量）。&lt;/li>
+&lt;li>计算期望：$E[A] \approx \sum_a \hat{P}(a) \cdot a$。&lt;/li>
+&lt;/ol>
+&lt;/li>
+&lt;li>&lt;strong>为什么有效&lt;/strong>：当样本量 $N$ 足够大时，估计的 $\hat{P}(a)$ 会收敛到真实分布 $P(a)$（大数定律）。&lt;/li>
+&lt;li>&lt;strong>特点&lt;/strong>：需要维护概率模型（即 $\hat{P}(a)$），适用于需要分布信息的场景（如后续概率分析）。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h4 id="2-非基于模型model-free方法">&lt;strong>2. 非基于模型（Model-Free）方法&lt;/strong>
+&lt;/h4>&lt;ul>
+&lt;li>&lt;strong>核心思想&lt;/strong>：&lt;strong>直接利用样本均值&lt;/strong>估计期望，无需显式建模概率分布。
+&lt;ul>
+&lt;li>&lt;strong>步骤&lt;/strong>：
+&lt;ol>
+&lt;li>收集样本年龄值 $[a_1, a_2, \ldots, a_N]$。&lt;/li>
+&lt;li>计算平均值：$E[A] \approx \frac{1}{N} \sum_{i=1}^N a_i$。&lt;/li>
+&lt;/ol>
+&lt;/li>
+&lt;li>&lt;strong>为什么有效&lt;/strong>：根据大数定律，样本均值会收敛到真实期望，前提是样本独立同分布且来自同一分布。&lt;/li>
+&lt;li>&lt;strong>特点&lt;/strong>：无需存储概率分布，计算更高效，适合资源受限或仅需期望值的场景。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h4 id="关键区别-2">&lt;strong>关键区别&lt;/strong>
+&lt;/h4>&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>&lt;strong>方面&lt;/strong>&lt;/th>
+&lt;th>&lt;strong>基于模型（Model-Based）&lt;/strong>&lt;/th>
+&lt;th>&lt;strong>非基于模型（Model-Free）&lt;/strong>&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;strong>是否需要显式概率模型&lt;/strong>&lt;/td>
+&lt;td>是（需估计 $P(a)$）&lt;/td>
+&lt;td>否（直接计算样本均值）&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;strong>计算复杂度&lt;/strong>&lt;/td>
+&lt;td>较高（需统计频率并维护分布）&lt;/td>
+&lt;td>较低（只需累加样本值）&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;strong>适用场景&lt;/strong>&lt;/td>
+&lt;td>需概率分布信息的任务（如方差计算、条件概率）&lt;/td>
+&lt;td>仅需期望值的任务（如快速估计）&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;strong>收敛条件&lt;/strong>&lt;/td>
+&lt;td>样本量足够大以保证概率估计准确&lt;/td>
+&lt;td>样本量足够大以保证均值收敛&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;hr>
+&lt;h4 id="为什么两种方法都能工作">&lt;strong>为什么两种方法都能工作？&lt;/strong>
+&lt;/h4>&lt;ul>
+&lt;li>&lt;strong>基于模型&lt;/strong>：通过频率估计概率分布，本质是对真实分布的逼近。当样本量趋于无穷时，$\hat{P}(a) \to P(a)$，因此 $\sum \hat{P}(a) \cdot a \to E[A]$。&lt;/li>
+&lt;li>&lt;strong>非基于模型&lt;/strong>：样本均值 $\frac{1}{N}\sum a_i$ 是期望的无偏估计量，且方差随样本量增大而减小（中心极限定理）。&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h4 id="总结-1">&lt;strong>总结&lt;/strong>
+&lt;/h4>&lt;ul>
+&lt;li>&lt;strong>基于模型方法&lt;/strong>通过显式建模概率分布，间接计算期望，适用于需要分布信息的复杂任务。&lt;/li>
+&lt;li>&lt;strong>非基于模型方法&lt;/strong>直接利用样本均值，省去建模步骤，更高效简单，适合仅需期望值的场景。&lt;/li>
+&lt;li>&lt;strong>共同基础&lt;/strong>：两者均依赖大样本下的统计性质（大数定律）保证结果收敛到真实值。&lt;/li>
+&lt;/ul></description></item><item><title>CS188从搜索问题，MDP到RL</title><link>https://mcig-ggg.github.io/p/cs188%E4%BB%8E%E6%90%9C%E7%B4%A2%E9%97%AE%E9%A2%98mdp%E5%88%B0rl/</link><pubDate>Sun, 01 Jun 2025 00:00:00 +0000</pubDate><guid>https://mcig-ggg.github.io/p/cs188%E4%BB%8E%E6%90%9C%E7%B4%A2%E9%97%AE%E9%A2%98mdp%E5%88%B0rl/</guid><description>&lt;hr>
+&lt;h1 id="cs188从搜索问题到-rl人工智能决策算法的演进之路">CS188：从搜索问题到 RL——人工智能决策算法的演进之路
+&lt;/h1>&lt;p>UC Berkeley 的 CS188 课程（人工智能导论）以“构建智能体的决策能力”为核心，从经典的搜索算法到现代强化学习（Reinforcement Learning, RL），系统性地揭示了人工智能如何在复杂环境中规划路径、解决问题并优化策略。本文将沿着课程脉络，梳理从基础搜索到强化学习的演进逻辑，并探讨其背后的核心思想。&lt;/p>
+&lt;hr>
+&lt;h2 id="第一部分确定性世界的决策基础搜索问题">&lt;strong>第一部分：确定性世界的决策基础——搜索问题&lt;/strong>
+&lt;/h2>&lt;h3 id="1-搜索问题的数学定义">&lt;strong>1. 搜索问题的数学定义&lt;/strong>
+&lt;/h3>&lt;p>搜索问题的目标是找到从&lt;strong>初始状态&lt;/strong>到&lt;strong>目标状态&lt;/strong>的最优路径（或满足条件的可行路径）。其核心在于形式化环境的结构，使智能体能够系统化地探索可能的行动序列。&lt;/p>
+&lt;hr>
+&lt;h3 id="2-搜索问题的构成要素">&lt;strong>2. 搜索问题的构成要素&lt;/strong>
+&lt;/h3>&lt;h4 id="1-状态空间state-space">&lt;strong>(1) 状态空间（State Space）&lt;/strong>
+&lt;/h4>&lt;ul>
+&lt;li>&lt;strong>定义&lt;/strong>：所有可能状态的集合，描述智能体在环境中的可能配置。&lt;/li>
+&lt;li>&lt;strong>示例&lt;/strong>：
+&lt;ul>
+&lt;li>迷宫问题：状态是坐标 &lt;code>(x, y)&lt;/code>。&lt;/li>
+&lt;li>拼图游戏：状态是棋盘的布局（如八数码问题）。&lt;/li>
+&lt;li>机器人导航：状态是机器人的位置与朝向。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h4 id="2-动作集合actions">&lt;strong>(2) 动作集合（Actions）&lt;/strong>
+&lt;/h4>&lt;ul>
+&lt;li>&lt;strong>定义&lt;/strong>：在某个状态下可执行的操作集合，记为 &lt;code>Actions(s)&lt;/code>。&lt;/li>
+&lt;li>&lt;strong>示例&lt;/strong>：
+&lt;ul>
+&lt;li>迷宫中：&lt;code>{上, 下, 左, 右}&lt;/code>。&lt;/li>
+&lt;li>拼图游戏：&lt;code>{空格与相邻数字交换}&lt;/code>。&lt;/li>
+&lt;li>自动驾驶：&lt;code>{加速, 刹车, 左转, 右转}&lt;/code>。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h4 id="3-转移模型transition-model">&lt;strong>(3) 转移模型（Transition Model）&lt;/strong>
+&lt;/h4>&lt;ul>
+&lt;li>&lt;strong>定义&lt;/strong>：函数 &lt;code>Result(s, a) → s'&lt;/code>，描述在状态 &lt;code>s&lt;/code> 执行动作 &lt;code>a&lt;/code> 后到达的下一状态 &lt;code>s'&lt;/code>。&lt;/li>
+&lt;li>&lt;strong>示例&lt;/strong>：
+&lt;ul>
+&lt;li>迷宫中：&lt;code>Result((x,y), 上) → (x, y+1)&lt;/code>（假设坐标系向上为y轴正方向）。&lt;/li>
+&lt;li>拼图游戏：&lt;code>Result(当前布局, 左移空格) → 新布局&lt;/code>。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h4 id="4-动作成本action-cost">&lt;strong>(4) 动作成本（Action Cost）&lt;/strong>
+&lt;/h4>&lt;ul>
+&lt;li>&lt;strong>定义&lt;/strong>：从状态 &lt;code>s&lt;/code> 通过动作 &lt;code>a&lt;/code> 转移到 &lt;code>s'&lt;/code> 的即时成本，记为 &lt;code>Cost(s, a, s')&lt;/code>。&lt;/li>
+&lt;li>&lt;strong>作用&lt;/strong>：用于衡量路径的优劣（如最短路径、最低能耗）。&lt;/li>
+&lt;li>&lt;strong>示例&lt;/strong>：
+&lt;ul>
+&lt;li>迷宫中：每步成本为1（路径长度即总成本）。&lt;/li>
+&lt;li>导航问题：成本为道路长度或行驶时间。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h4 id="5-初始状态start-state">&lt;strong>(5) 初始状态（Start State）&lt;/strong>
+&lt;/h4>&lt;ul>
+&lt;li>&lt;strong>定义&lt;/strong>：智能体开始执行任务时的初始配置。&lt;/li>
+&lt;li>&lt;strong>示例&lt;/strong>：
+&lt;ul>
+&lt;li>罗马尼亚度假问题：初始状态是城市 &lt;code>Arad&lt;/code>。&lt;/li>
+&lt;li>拼图游戏：初始状态是打乱的棋盘布局。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h4 id="6-目标测试goal-test">&lt;strong>(6) 目标测试（Goal Test）&lt;/strong>
+&lt;/h4>&lt;ul>
+&lt;li>&lt;strong>定义&lt;/strong>：函数 &lt;code>GoalTest(s) → True/False&lt;/code>，判断状态 &lt;code>s&lt;/code> 是否为目标状态。&lt;/li>
+&lt;li>&lt;strong>示例&lt;/strong>：
+&lt;ul>
+&lt;li>迷宫问题：&lt;code>GoalTest((x,y)) → (x,y)是否为终点坐标&lt;/code>。&lt;/li>
+&lt;li>拼图游戏：&lt;code>GoalTest(s) → s是否为目标布局&lt;/code>。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h3 id="3-搜索问题的求解目标">&lt;strong>3. 搜索问题的求解目标&lt;/strong>
+&lt;/h3>&lt;p>智能体需要找到从初始状态到目标状态的&lt;strong>最优路径&lt;/strong>（或可行路径），其中“最优”由&lt;strong>路径总成本&lt;/strong>定义。例如：&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>最短路径&lt;/strong>：动作成本为1时，BFS可找到最优解。&lt;/li>
+&lt;li>&lt;strong>最低成本路径&lt;/strong>：动作成本不同时，需使用一致代价搜索（UCS）。&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h3 id="4-示例罗马尼亚度假问题">&lt;strong>4. 示例：罗马尼亚度假问题&lt;/strong>
+&lt;/h3>&lt;ul>
+&lt;li>&lt;strong>状态空间&lt;/strong>：罗马尼亚城市（如Arad, Bucharest, Sibiu等）。&lt;/li>
+&lt;li>&lt;strong>动作&lt;/strong>：从当前城市可直达的相邻城市（如从Arad可到Sibiu、Timisoara等）。&lt;/li>
+&lt;li>&lt;strong>转移模型&lt;/strong>：&lt;code>Result(Arad, 前往Sibiu) → Sibiu&lt;/code>。&lt;/li>
+&lt;li>&lt;strong>动作成本&lt;/strong>：城市间的道路长度（如Arad到Sibiu为140公里）。&lt;/li>
+&lt;li>&lt;strong>初始状态&lt;/strong>：Arad。&lt;/li>
+&lt;li>&lt;strong>目标测试&lt;/strong>：当前城市是否为Bucharest。&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>求解目标&lt;/strong>：找到从Arad到Bucharest的最短路径（如Arad → Sibiu → Rimnicu Vilcea → Pitesti → Bucharest）。&lt;/p>
+&lt;hr>
+&lt;h3 id="5-搜索问题与智能体的关系">&lt;strong>5. 搜索问题与智能体的关系&lt;/strong>
+&lt;/h3>&lt;ul>
+&lt;li>&lt;strong>理性决策&lt;/strong>：智能体需在有限计算资源下，选择能最大化未来累积奖励（或最小化成本）的行动。&lt;/li>
+&lt;li>&lt;strong>搜索算法的角色&lt;/strong>：通过系统化地探索状态空间（如BFS、A*、UCS等），找到满足目标的最优路径。&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h3 id="6-关键挑战">&lt;strong>6. 关键挑战&lt;/strong>
+&lt;/h3>&lt;ol>
+&lt;li>&lt;strong>状态空间爆炸&lt;/strong>：状态数量可能随问题规模指数增长（如棋盘游戏）。&lt;/li>
+&lt;li>&lt;strong>最优性与效率的权衡&lt;/strong>：如何在合理时间内找到最优解（如启发式搜索A*）。&lt;/li>
+&lt;li>&lt;strong>动态环境&lt;/strong>：若环境变化（如交通拥堵），需重新规划路径（需结合在线搜索）。&lt;/li>
+&lt;/ol>
+&lt;hr>
+&lt;h3 id="总结">&lt;strong>总结&lt;/strong>
+&lt;/h3>&lt;p>搜索问题的形式化定义为智能体提供了在复杂环境中规划行动的数学框架。通过明确状态空间、动作、转移模型等要素，结合适当的搜索算法（如BFS、A*、UCS），智能体能够高效地找到从初始状态到目标状态的最优路径。这一过程是构建理性规划智能体的基础，也是后续学习更高级算法（如强化学习）的前提。&lt;/p>
+&lt;blockquote>
+&lt;p>[!NOTE] 搜索问题的解法&lt;/p>
+&lt;ul>
+&lt;li>把搜索问题抽象成图论问题
+&lt;ul>
+&lt;li>把每个状态看成一个节点&lt;/li>
+&lt;li>把每个action 看成节点之间的有向边&lt;/li>
+&lt;li>用图的搜索算法来解决搜索问题&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>&lt;/blockquote>
+&lt;hr>
+&lt;h2 id="第二部分不确定性与动态环境从-mdp-到强化学习">&lt;strong>第二部分：不确定性与动态环境——从 MDP 到强化学习&lt;/strong>
+&lt;/h2>&lt;h3 id="1-马尔可夫决策过程mdp">&lt;strong>1. 马尔可夫决策过程（MDP）&lt;/strong>
+&lt;/h3>&lt;p>MDP 是建模随机环境的数学框架，包含：&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;strong>状态 $s$ 、动作 $a$ 、转移概率 $T(s,a,s&amp;rsquo;)$&lt;/strong>：动作可能导致多个后续状态。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>**奖励函数 $R(s,a,s&amp;rsquo;)$ **：定义每个状态的即时收益。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>**折扣因子 $\gamma$ **：权衡当前与未来奖励。&lt;br>
+![[Pasted image 20250424203806.png]]
+&lt;strong>求解方法&lt;/strong>：&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>值迭代&lt;/strong>：通过贝尔曼方程迭代更新值函数，收敛到最优策略。&lt;/p>
+&lt;ul>
+&lt;li>![[Pasted image 20250425133751.png]]&lt;/li>
+&lt;li>公式： $$V_{k+1}(s) = \max_{a}\sum_{s'}T(s,a,s')[R(s,a,s')+\gamma V_{k}(s')]$$
+&lt;ul>
+&lt;li>用 $s$ 的下一个状态 $s&amp;rsquo;$ 的第 $k$ 次迭代的V 值 $V_{k}(s&amp;rsquo;)$ 来更新第 $k+1$ 迭代的状态 $s$ 的V 值 $V_{k+1}(s)$&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>策略迭代&lt;/strong>：交替执行策略评估与改进，直接优化策略。
+两个步骤：&lt;/p>
+&lt;ul>
+&lt;li>策略评价
+&lt;ul>
+&lt;li>&lt;strong>目标&lt;/strong>：计算当前策略 $\pi$ 的状态值函数 $V^\pi(s)$ 。&lt;/li>
+&lt;li>&lt;strong>方法&lt;/strong>：通过迭代求解贝尔曼期望方程：
+$$V^\pi(s) = \sum_{a} \pi(a|s) \left[ R(s,a) + \gamma \sum_{s'} P(s'|s,a) V^\pi(s') \right]$$
+其中：
+&lt;ul>
+&lt;li>$R(s,a)$ 是即时奖励，&lt;/li>
+&lt;li>$P(s&amp;rsquo;|s,a)$ 是状态转移概率，&lt;/li>
+&lt;li>$\gamma$ 是折扣因子。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>终止条件&lt;/strong>：当值函数的变化小于阈值 $\theta$（如 $10^{-3}$）时停止迭代。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>策略改进/策略提取
+&lt;ul>
+&lt;li>&lt;strong>目标&lt;/strong>：基于当前值函数 $V^\pi(s)$ 生成更优策略 $\pi&amp;rsquo;$ 。
+&lt;ul>
+&lt;li>&lt;strong>方法&lt;/strong>：对每个状态 $s$，选择使动作值函数 $Q^\pi(s,a)$ 最大的动作：
+$$\pi'(s) = \arg\max_{a} \left[ R(s,a) + \gamma \sum_{s'} P(s'|s,a) V^\pi(s') \right]$$&lt;/li>
+&lt;li>若新策略 $\pi&amp;rsquo;$ 与原策略 $\pi$ 相同，则停止迭代；否则，用 $\pi&amp;rsquo;$ 替代 $\pi$ ，重复策略评估。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h3 id="2-强化学习rl无模型的动态决策">&lt;strong>2. 强化学习（RL）：无模型的动态决策&lt;/strong>
+&lt;/h3>&lt;ul>
+&lt;li>RL 问题：仍然是MDP 模型，但是不知道 $T(s,a,s&amp;rsquo;)$ 或 $R(s,a,s&amp;rsquo;)$
+&lt;ul>
+&lt;li>两个主要问题：
+&lt;ul>
+&lt;li>怎么从尝试过的动作中学习（被动RL）
+&lt;ul>
+&lt;li>两种解决办法：
+&lt;ul>
+&lt;li>基于模型的RL：尝试获取 $T(s,a,s&amp;rsquo;)$ 或者 $R(s,a,s&amp;rsquo;)$ ，从而变回MDP 问题，用策略迭代或者值迭代即可&lt;/li>
+&lt;li>不基于模型的RL：不获取 $T(s,a,s&amp;rsquo;)$ 或者 $R(s,a,s&amp;rsquo;)$ ，直接通过 $Q$ 值来学习策略 $\pi$&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>怎么基于学到的东西去选择执行的动作（在探索（尝试新动作以发现更好策略）和利用（选择当前最优动作）之间权衡）（主动RL）：
+&lt;ul>
+&lt;li>$\epsilon$ -贪心： $\epsilon$ 的概率随机探索（exploration）， $1-\epsilon$ 的概率采取利用（exploitation）当前数据得出的最佳值&lt;/li>
+&lt;li>exploration function&lt;/li>
+&lt;li>等等&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h4 id="被动rl">被动RL
+&lt;/h4>&lt;ul>
+&lt;li>基于模型的RL和不基于模型的RL 的区别：
+![[Pasted image 20250425144547.png]]&lt;/li>
+&lt;/ul>
+&lt;blockquote>
+&lt;p>[!NOTE] Title&lt;/p>
+&lt;ul>
+&lt;li>左侧：基于数据去获取P（a），可以理解为对世界建模，理解概率的分布&lt;/li>
+&lt;li>右侧：基于采样的数据直接获取A 的期望，并不知道概率分布（对世界的具体模型没有了解）&lt;/li>
+&lt;/ul>&lt;/blockquote>
+&lt;ul>
+&lt;li>不基于模型的RL：当环境模型未知时，强化学习通过&lt;strong>试错&lt;/strong>直接学习策略。核心算法 Q 学习通过&lt;strong>时序差分更新&lt;/strong>逐步逼近最优动作价值函数：&lt;br>
+$$
+Q (s, a) \leftarrow Q (s, a) + \alpha \left[ R (s, a) + \gamma \max_{a'} Q (s', a') - Q (s, a) \right]
+$$&lt;/li>
+&lt;/ul>
+&lt;blockquote>
+&lt;p>[!NOTE] Q-learning 是离策略 (Off-policy)&lt;/p>
+&lt;ul>
+&lt;li>离策略算法的核心是将目标策略（Target Policy）的学习与行为策略（Behavior Policy）的数据收集过程分离。
+&lt;ul>
+&lt;li>目标策略（π） ：&lt;em>希望学习的最优策略，通常通过最大化期望回报得到&lt;/em>（如 Q-learning 中的贪婪策略）。&lt;/li>
+&lt;li>行为策略（μ） ：用于&lt;em>与环境交互、生成训练数据&lt;/em>的策略，通常包含探索机制（如ε-greedy、Boltzmann 探索）。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>&lt;/blockquote>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>&lt;strong>特性&lt;/strong>&lt;/th>
+&lt;th>&lt;strong>离策略（Off-Policy）&lt;/strong>&lt;/th>
+&lt;th>&lt;strong>在线策略（On-Policy）&lt;/strong>&lt;/th>
+&lt;th>&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;strong>策略关系&lt;/strong>&lt;/td>
+&lt;td>目标策略 ≠ 行为策略&lt;/td>
+&lt;td>目标策略 = 行为策略&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;strong>数据来源&lt;/strong>&lt;/td>
+&lt;td>可复用历史数据或外部数据&lt;/td>
+&lt;td>必须实时与环境交互生成新数据&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;strong>典型算法&lt;/strong>&lt;/td>
+&lt;td>Q-learning、DQN、DDPG、SAC&lt;/td>
+&lt;td>SARSA、REINFORCE、PPO&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;strong>数据效率&lt;/strong>&lt;/td>
+&lt;td>高（数据可重复使用）&lt;/td>
+&lt;td>低（需持续交互）&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;strong>实现复杂度&lt;/strong>&lt;/td>
+&lt;td>高（需处理分布偏移）&lt;/td>
+&lt;td>低（策略一致性）&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;ul>
+&lt;li>解释：
+&lt;ul>
+&lt;li>为什么学习 $Q$ 值而不是 $V$ 值：
+&lt;ul>
+&lt;li>如果使用 V 值，智能体需要知道环境的动态模型（即状态转移概率 $T(s,a,s&amp;rsquo;)$ 和奖励函数 $R(s,a,s&amp;rsquo;)$ ），才能通过贝尔曼方程计算动作的期望价值. 而通过直接学习 Q(s,a)，绕过了对环境模型的依赖&lt;/li>
+&lt;li>Q值的灵活性与V值的不足 ：Q(s,a) 显式地为每个动作分配价值，允许智能体在探索（如随机动作）和利用（选择当前最优动作）之间灵活切换。若使用 V 值，智能体需要额外机制（如策略函数）将状态价值映射到动作选择，这会增加复杂度。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>Q 学习 vs. MDP&lt;/strong>：&lt;/p>
+&lt;ul>
+&lt;li>MDP 需已知环境模型（转移概率与奖励函数），RL 无需模型。&lt;/li>
+&lt;li>Q 学习通过经验（状态-动作-奖励序列）直接学习，适用于动态环境。&lt;/li>
+&lt;/ul>
+&lt;h4 id="主动rl">主动RL
+&lt;/h4>&lt;ul>
+&lt;li>$\epsilon$ - greedy&lt;/li>
+&lt;li>exploration function
+&lt;ul>
+&lt;li>把通过某个 action $a&amp;rsquo;$ 到达某个状态 $s&amp;rsquo;$ 的次数 $N(s&amp;rsquo;,a&amp;rsquo;)$ 纳入考虑，用 $f(Q(s&amp;rsquo;,a&amp;rsquo;), N(s&amp;rsquo;,a&amp;rsquo;))$ 取代原先的 $Q(s&amp;rsquo;,a&amp;rsquo;)$ $$Q(s,a) \leftarrow (1-\alpha)Q(s,a) + \alpha[R(s,a,s') + \gamma \max_{a'}f(Q(s',a'), N(s',a'))]$$&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h4 id="approximate-q-learning-介绍">Approximate Q-learning 介绍
+&lt;/h4>&lt;p>&lt;strong>Approximate Q-learning&lt;/strong> 是经典 Q-learning 算法的扩展，旨在解决传统 Q-learning 在高维或连续状态空间中的&lt;strong>维度灾难&lt;/strong>问题。其核心思想是通过&lt;strong>函数逼近&lt;/strong>（Function Approximation）代替传统的表格（Tabular）存储，利用参数化的函数（如线性模型、神经网络）近似表示 Q 值，从而实现对大规模状态空间的泛化能力。&lt;/p>
+&lt;hr>
+&lt;h5 id="1-为什么需要-approximate-q-learning">&lt;strong>1. 为什么需要 Approximate Q-learning？&lt;/strong>
+&lt;/h5>&lt;ul>
+&lt;li>
+&lt;p>&lt;strong>传统 Q-learning 的局限性&lt;/strong>&lt;br>
+在表格型 Q-learning 中，Q 值存储为一个二维表 $Q(s, a)$，每个状态-动作对需要单独维护一个值。当状态空间巨大（如围棋的 $10^{170}$ 种状态）或连续（如机器人传感器数据）时，表格存储和更新变得不可行。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>函数逼近的优势&lt;/strong>&lt;br>
+使用参数化函数 $Q(s, a; \theta)$（如线性模型、神经网络）代替表格，通过调整参数 $\theta$ 逼近真实 Q 值。这种方法可以：&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>泛化&lt;/strong>：相似状态共享参数，避免重复学习。&lt;/li>
+&lt;li>&lt;strong>处理连续状态&lt;/strong>：直接接受实数向量作为输入（如传感器数据）。&lt;/li>
+&lt;li>&lt;strong>降低存储成本&lt;/strong>：参数规模远小于状态-动作组合数。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h5 id="2-算法原理">&lt;strong>2. 算法原理&lt;/strong>
+&lt;/h5>&lt;p>&lt;strong>Approximate Q-learning&lt;/strong> 的更新规则基于传统 Q-learning，但引入函数逼近和梯度下降优化：&lt;/p>
+&lt;ol>
+&lt;li>
+&lt;p>&lt;strong>目标 Q 值计算&lt;/strong>&lt;br>
+与传统 Q-learning 类似，目标 Q 值为：
+&lt;/p>
+$$\text{Target} = r + \gamma \max_{a'} Q(s', a'; \theta)$$&lt;p>
+其中 $s&amp;rsquo;$ 是下一状态，$\gamma$ 是折扣因子。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>损失函数与参数更新&lt;/strong>&lt;br>
+定义损失函数为预测 Q 值与目标 Q 值的均方误差：
+&lt;/p>
+$$L(\theta) = \frac{1}{2} \left[ Q(s, a; \theta) - \text{Target} \right]^2$$&lt;p>
+通过梯度下降更新参数 $\theta$：
+&lt;/p>
+$$\theta \leftarrow \theta - \alpha \nabla_\theta L(\theta)$$&lt;p>
+其中 $\alpha$ 是学习率，梯度方向由链式法则计算：
+&lt;/p>
+$$\nabla_\theta L(\theta) = \left( Q(s, a; \theta) - \text{Target} \right) \nabla_\theta Q(s, a; \theta)$$&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>伪代码示例&lt;/strong>&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;span class="lnt">8
+&lt;/span>&lt;span class="lnt">9
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="k">for&lt;/span> &lt;span class="n">each&lt;/span> &lt;span class="n">episode&lt;/span>&lt;span class="p">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">initialize&lt;/span> &lt;span class="n">state&lt;/span> &lt;span class="n">s&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">while&lt;/span> &lt;span class="ow">not&lt;/span> &lt;span class="n">terminal&lt;/span>&lt;span class="p">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">choose&lt;/span> &lt;span class="n">action&lt;/span> &lt;span class="n">a&lt;/span> &lt;span class="n">via&lt;/span> &lt;span class="n">ε&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="n">greedy&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">Q&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">s&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">a&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="n">θ&lt;/span>&lt;span class="p">))&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">execute&lt;/span> &lt;span class="n">a&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">observe&lt;/span> &lt;span class="n">reward&lt;/span> &lt;span class="n">r&lt;/span> &lt;span class="ow">and&lt;/span> &lt;span class="nb">next&lt;/span> &lt;span class="n">state&lt;/span> &lt;span class="n">s&lt;/span>&lt;span class="s1">&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">target&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">r&lt;/span> &lt;span class="o">+&lt;/span> &lt;span class="n">γ&lt;/span> &lt;span class="o">*&lt;/span> &lt;span class="n">max_a&lt;/span>&lt;span class="s1">&amp;#39; Q(s&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">a&lt;/span>&lt;span class="s1">&amp;#39;; θ)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">loss&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mf">0.5&lt;/span> &lt;span class="o">*&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="n">Q&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">s&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">a&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="n">θ&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="o">-&lt;/span> &lt;span class="n">target&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="o">^&lt;/span>&lt;span class="mi">2&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">θ&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">θ&lt;/span> &lt;span class="o">-&lt;/span> &lt;span class="n">α&lt;/span> &lt;span class="o">*&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="n">Q&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">s&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">a&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="n">θ&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="o">-&lt;/span> &lt;span class="n">target&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="o">*&lt;/span> &lt;span class="err">∇&lt;/span>&lt;span class="n">θ&lt;/span> &lt;span class="n">Q&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">s&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">a&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="n">θ&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">s&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">s&lt;/span>&lt;span class="s1">&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;/ol>
+&lt;hr>
+&lt;h5 id="3-函数逼近方法">&lt;strong>3. 函数逼近方法&lt;/strong>
+&lt;/h5>&lt;ul>
+&lt;li>
+&lt;p>&lt;strong>线性函数逼近&lt;/strong>&lt;br>
+用线性组合表示 Q 值：&lt;br>
+&lt;/p>
+$$Q(s, a; \theta) = \theta^T \phi(s, a)$$&lt;p>&lt;br>
+其中 $\phi(s, a)$ 是状态-动作的特征向量（如人工设计的特征或自动编码的特征）。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>非线性函数逼近（如神经网络）&lt;/strong>&lt;br>
+使用深度神经网络（DQN）自动提取状态特征：&lt;br>
+&lt;/p>
+$$Q(s, a; \theta) = \text{NeuralNetwork}(s, a; \theta)$$&lt;p>&lt;br>
+深度 Q 网络（DQN）通过&lt;strong>经验回放&lt;/strong>（Experience Replay）和&lt;strong>目标网络&lt;/strong>（Target Network）稳定训练。&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h5 id="4-优缺点分析">&lt;strong>4. 优缺点分析&lt;/strong>
+&lt;/h5>&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>&lt;strong>优点&lt;/strong>&lt;/th>
+&lt;th>&lt;strong>缺点&lt;/strong>&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>可处理高维/连续状态空间&lt;/td>
+&lt;td>收敛性不保证（函数逼近可能发散）&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>泛化能力强，避免维度灾难&lt;/td>
+&lt;td>需谨慎设计特征或网络结构&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>适用于真实场景（如图像、传感器输入）&lt;/td>
+&lt;td>超参数（学习率、网络架构）敏感&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;hr>
+&lt;h5 id="5-应用场景">&lt;strong>5. 应用场景&lt;/strong>
+&lt;/h5>&lt;ul>
+&lt;li>&lt;strong>游戏 AI&lt;/strong>：如 Atari 游戏（DQN 直接以像素为输入）&lt;/li>
+&lt;li>&lt;strong>机器人控制&lt;/strong>：连续传感器数据映射到动作（如机械臂抓取）&lt;/li>
+&lt;li>&lt;strong>资源调度&lt;/strong>：大规模状态空间下的动态决策（如云计算资源分配）&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h5 id="6-扩展与改进">&lt;strong>6. 扩展与改进&lt;/strong>
+&lt;/h5>&lt;ul>
+&lt;li>&lt;strong>深度 Q 网络（DQN）&lt;/strong>：结合神经网络与经验回放、目标网络（见 Nature DQN）。&lt;/li>
+&lt;li>&lt;strong>Double Q-learning&lt;/strong>：减少最大化偏差（Maximization Bias）。&lt;/li>
+&lt;li>&lt;strong>Dueling DQN&lt;/strong>：分离状态价值 $V(s)$ 和动作优势 $A(s, a)$，提升策略评估效率。&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h4 id="1-策略搜索policy-search">&lt;strong>1. 策略搜索（Policy Search）&lt;/strong>
+&lt;/h4>&lt;p>当基于特征的策略难以通过 Q-learning 直接优化时，策略搜索通过直接优化策略参数（而非 Q 值）提升性能。&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;strong>核心思想&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Q-learning 的局限&lt;/strong>：Q-learning 优先准确估计 Q 值（建模），但特征设计的偏差可能导致策略次优。&lt;/li>
+&lt;li>&lt;strong>策略搜索的目标&lt;/strong>：直接优化策略参数，最大化累积奖励（预测），而非精确拟合 Q 值。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>方法分类&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>简单策略搜索&lt;/strong>：通过扰动特征权重（如线性 Q 函数的权重），评估策略改进方向（需大量采样）。&lt;/li>
+&lt;li>&lt;strong>策略梯度（Policy Gradient）&lt;/strong>：基于蒙特卡洛采样，通过梯度上升更新策略参数，使高奖励轨迹的动作概率增加。&lt;/li>
+&lt;li>&lt;strong>近端策略优化（PPO）&lt;/strong>：改进策略梯度，限制策略更新的幅度，提升训练稳定性。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>应用场景&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>连续动作空间&lt;/strong>（如机器人关节控制）：Q-learning 需计算 $\max_a Q(s,a)$，而连续动作难以枚举，策略搜索直接输出动作分布。&lt;/li>
+&lt;li>&lt;strong>高维/复杂策略&lt;/strong>（如语言生成）：直接优化生成策略（如选择下一个词的概率分布）。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h4 id="2-案例分析case-studies">&lt;strong>2. 案例分析（Case Studies）&lt;/strong>
+&lt;/h4>&lt;p>强化学习在多个领域展现强大能力，以下是三个典型应用：&lt;/p>
+&lt;h5 id="案例-1atari-游戏atari-game-playing">&lt;strong>案例 1：Atari 游戏（Atari Game Playing）&lt;/strong>
+&lt;/h5>&lt;ul>
+&lt;li>&lt;strong>MDP 设置&lt;/strong>
+&lt;ul>
+&lt;li>&lt;strong>状态&lt;/strong>：游戏屏幕的像素（$84 \times 84$ 图像）。&lt;/li>
+&lt;li>&lt;strong>动作&lt;/strong>：手柄按键组合（如 18 种离散动作）。&lt;/li>
+&lt;li>&lt;strong>挑战&lt;/strong>：状态空间巨大（$256^{84 \times 84}$），无法使用表格法。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>解决方案&lt;/strong>
+&lt;ul>
+&lt;li>&lt;strong>深度 Q 网络（DQN）&lt;/strong>：用卷积神经网络逼近 Q 值，结合经验回放和目标网络稳定训练。&lt;/li>
+&lt;li>&lt;strong>探索策略&lt;/strong>：ε-greedy 平衡探索与利用。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h5 id="案例-2机器人运动控制robot-locomotion">&lt;strong>案例 2：机器人运动控制（Robot Locomotion）&lt;/strong>
+&lt;/h5>&lt;ul>
+&lt;li>&lt;strong>MDP 设置&lt;/strong>
+&lt;ul>
+&lt;li>&lt;strong>状态&lt;/strong>：机器人传感器数据（关节角度、加速度等连续向量）。&lt;/li>
+&lt;li>&lt;strong>动作&lt;/strong>：电机指令（连续向量）。&lt;/li>
+&lt;li>&lt;strong>挑战&lt;/strong>：真实世界训练成本高、风险大。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>解决方案&lt;/strong>
+&lt;ul>
+&lt;li>&lt;strong>仿真训练迁移&lt;/strong>：先在模拟器中训练策略，再部署到真实机器人。&lt;/li>
+&lt;li>&lt;strong>策略搜索方法&lt;/strong>：PPO 优化连续动作策略，最大化前进速度、保持平衡等奖励。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h5 id="案例-3语言助手language-assistants">&lt;strong>案例 3：语言助手（Language Assistants）&lt;/strong>
+&lt;/h5>&lt;ul>
+&lt;li>&lt;strong>MDP 设置&lt;/strong>
+&lt;ul>
+&lt;li>&lt;strong>状态&lt;/strong>：已生成的文本序列（如“What is population of Berkeley?”）。&lt;/li>
+&lt;li>&lt;strong>动作&lt;/strong>：选择下一个词（词汇表大小约 10 万）。&lt;/li>
+&lt;li>&lt;strong>奖励&lt;/strong>：人工标注或奖励模型（如回答准确性、流畅性）。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>解决方案&lt;/strong>
+&lt;ul>
+&lt;li>&lt;strong>策略梯度&lt;/strong>：直接优化生成策略，调整词的概率分布。&lt;/li>
+&lt;li>&lt;strong>挑战&lt;/strong>：动作空间极大（10 万词），需高效采样与梯度估计。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h4 id="3-后续方向与总结">&lt;strong>3. 后续方向与总结&lt;/strong>
+&lt;/h4>&lt;ul>
+&lt;li>&lt;strong>课程后续内容&lt;/strong>：转向 &lt;strong>不确定性（Uncertainty）&lt;/strong> 与 &lt;strong>学习理论（Learning）&lt;/strong>，涵盖贝叶斯网络、隐马尔可夫模型等。&lt;/li>
+&lt;li>&lt;strong>强化学习的核心挑战&lt;/strong>：
+&lt;ul>
+&lt;li>&lt;strong>探索与利用的平衡&lt;/strong>：如何在复杂环境中高效探索（如基于好奇心的内在奖励）。&lt;/li>
+&lt;li>&lt;strong>样本效率&lt;/strong>：减少真实环境中的交互次数（如元学习、模仿学习）。&lt;/li>
+&lt;li>&lt;strong>安全与鲁棒性&lt;/strong>：确保策略在真实场景中的可靠性（如安全约束强化学习）。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;hr></description></item><item><title>DogLeg算法</title><link>https://mcig-ggg.github.io/p/dogleg%E7%AE%97%E6%B3%95/</link><pubDate>Sun, 01 Jun 2025 00:00:00 +0000</pubDate><guid>https://mcig-ggg.github.io/p/dogleg%E7%AE%97%E6%B3%95/</guid><description>&lt;hr>
+&lt;h3 id="1-信赖域子问题">1. 信赖域子问题
+&lt;/h3>&lt;p>Dogleg 方法用于求解信赖域框架下的子问题：
+&lt;/p>
+$$
+\min_{\mathbf{p} \in \mathbb{R}^n} \quad m(\mathbf{p}) = f + \mathbf{g}^T \mathbf{p} + \frac{1}{2} \mathbf{p}^T \mathbf{B} \mathbf{p}, \quad \text{s.t.} \quad \|\mathbf{p}\| \leq \Delta
+$$&lt;p>
+其中：&lt;/p>
+&lt;ul>
+&lt;li>$f = f(\mathbf{x}_k)$ 是目标函数在当前点 $\mathbf{x}_k$ 的值&lt;/li>
+&lt;li>$\mathbf{g} = \nabla f(\mathbf{x}_k)$ 是梯度向量&lt;/li>
+&lt;li>$\mathbf{B} = \nabla^2 f(\mathbf{x}_k)$ 是 Hessian 矩阵（或其近似）&lt;/li>
+&lt;li>$\Delta$ 是信赖域半径&amp;hellip;&lt;/li>
+&lt;/ul>
+&lt;blockquote>
+&lt;p>[!NOTE] Title_test&lt;/p>
+&lt;ul>
+&lt;li>test1
+&lt;ul>
+&lt;li>222&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>test2
+&lt;ul>
+&lt;li>test3
+&lt;ul>
+&lt;li>333&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>&lt;/blockquote>
+&lt;hr>
+&lt;h3 id="2-关键方向">2. 关键方向
+&lt;/h3>&lt;p>定义两个关键方向：&lt;/p>
+&lt;ol>
+&lt;li>&lt;strong>最速下降方向&lt;/strong>（Steepest Descent）：
+$$
+\mathbf{p}_U = -\frac{\|\mathbf{g}\|^2}{\mathbf{g}^T \mathbf{B} \mathbf{g}} \mathbf{g}
+$$&lt;/li>
+&lt;li>&lt;strong>牛顿方向&lt;/strong>（Newton Step）：
+$$
+\mathbf{p}_B = -\mathbf{B}^{-1} \mathbf{g}
+$$&lt;/li>
+&lt;/ol>
+&lt;hr>
+&lt;h3 id="3-dogleg-路径">3. Dogleg 路径
+&lt;/h3>&lt;p>Dogleg 方法通过构造一条分段路径连接 $\mathbf{p}_U$ 和 $\mathbf{p}_B$ ：
+&lt;/p>
+$$
+\mathbf{p}(\tau) =
+\begin{cases}
+\tau \mathbf{p}_U, &amp; 0 \leq \tau \leq 1 \\
+\mathbf{p}_U + (\tau - 1)(\mathbf{p}_B - \mathbf{p}_U), &amp; 1 \leq \tau \leq 2
+\end{cases}
+$$&lt;hr>
+&lt;h3 id="4-最优步长选择">4. 最优步长选择
+&lt;/h3>&lt;p>根据信赖域半径 $\Delta$ 的大小，选择不同的解：&lt;/p>
+&lt;ol>
+&lt;li>&lt;strong>当 $|\mathbf{p}_B| \leq \Delta$ 时&lt;/strong>：
+$$
+\mathbf{p}^* = \mathbf{p}_B \quad (\text{完全牛顿步})
+$$&lt;/li>
+&lt;li>&lt;strong>当 $|\mathbf{p}_U| \geq \Delta$ 时&lt;/strong>：
+$$
+\mathbf{p}^* = \frac{\Delta}{\|\mathbf{p}_U\|} \mathbf{p}_U \quad (\text{沿最速下降方向截断})
+$$&lt;/li>
+&lt;li>&lt;strong>其他情况&lt;/strong>：求解 $\tau$ 使得 $|\mathbf{p}(\tau)| = \Delta$ ，解为：
+$$
+\tau = \frac{\mathbf{b} - \sqrt{\mathbf{b}^2 - \mathbf{a}(\mathbf{c} - \Delta^2)}}{\mathbf{a}}
+$$
+其中：
+$$
+\mathbf{a} = \|\mathbf{p}_B - \mathbf{p}_U\|^2, \quad
+\mathbf{b} = \mathbf{p}_U^T (\mathbf{p}_B - \mathbf{p}_U), \quad
+\mathbf{c} = \|\mathbf{p}_U\|^2 - \Delta^2
+$$&lt;/li>
+&lt;/ol>
+&lt;hr>
+&lt;h3 id="5-几何解释">5. 几何解释
+&lt;/h3>&lt;p>Dogleg 路径形成一个折线段：&lt;/p>
+&lt;ol>
+&lt;li>从原点出发沿最速下降方向到 $\mathbf{p}_U$&lt;/li>
+&lt;li>从 $\mathbf{p}_U$ 沿直线到 $\mathbf{p}_B$&lt;/li>
+&lt;/ol>
+&lt;p>通过调整 $\tau$ ，在保证 $|\mathbf{p}| \leq \Delta$ 的前提下，找到使二次模型 $m(\mathbf{p})$ 最小的解。&lt;/p>
+&lt;hr>
+&lt;h3 id="6-算法优势">6. 算法优势
+&lt;/h3>&lt;ul>
+&lt;li>当 $\mathbf{B}$ 正定时，牛顿方向提供二阶收敛速度&lt;/li>
+&lt;li>当 $\mathbf{B}$ 非正定时，通过最速下降方向保证稳定性&lt;/li>
+&lt;li>计算复杂度低于精确求解信赖域子问题&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h3 id="dogleg-算法通俗解释与核心思想">&lt;strong>Dogleg 算法：通俗解释与核心思想&lt;/strong>
+&lt;/h3>&lt;hr>
+&lt;h4 id="1-为什么要用-dogleg-算法">&lt;strong>1. 为什么要用 Dogleg 算法？&lt;/strong>
+&lt;/h4>&lt;p>在优化问题中，我们常需要在“&lt;strong>快速收敛&lt;/strong>”和“&lt;strong>稳定性&lt;/strong>”之间做权衡：&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>梯度下降法&lt;/strong>：稳定但收敛慢（像蜗牛爬山）&lt;/li>
+&lt;li>&lt;strong>牛顿法&lt;/strong>：收敛快但可能不稳定（像火箭发射，但容易偏离轨道）&lt;/li>
+&lt;/ul>
+&lt;p>Dogleg 算法结合了两者的优点，像一条灵活的“狗腿”路径，在保证稳定的同时，尽可能加速收敛。&lt;/p>
+&lt;hr>
+&lt;h4 id="2-核心思想两条路径--一个折线">&lt;strong>2. 核心思想：两条路径 + 一个折线&lt;/strong>
+&lt;/h4>&lt;p>Dogleg 的路径由两段组成：&lt;/p>
+&lt;ol>
+&lt;li>&lt;strong>最速下降段&lt;/strong>（保守路线）：沿梯度方向快速下降，确保稳定。&lt;/li>
+&lt;li>&lt;strong>牛顿段&lt;/strong>（激进路线）：直接跳向牛顿方向的最优解，追求速度。&lt;/li>
+&lt;/ol>
+&lt;p>通过调整步长参数 $\tau$ ，在两条路径之间“折线切换”，最终在信赖域（安全区域）内找到最优解。&lt;/p>
+&lt;hr>
+&lt;h4 id="3-通俗比喻狗狗的折线奔跑">&lt;strong>3. 通俗比喻：狗狗的折线奔跑&lt;/strong>
+&lt;/h4>&lt;p>想象一只狗从家（初始点）出发找骨头（最优解）：&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>第一段&lt;/strong>：先沿着最明显的路（梯度方向）跑，确保不迷路。&lt;/li>
+&lt;li>&lt;strong>第二段&lt;/strong>：发现远处有捷径（牛顿方向），直接冲刺，但不能超出绳子（信赖域）的长度。&lt;/li>
+&lt;li>&lt;strong>结果&lt;/strong>：在绳子范围内，选择最接近骨头的点。&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h4 id="4-数学实现分三步走">&lt;strong>4. 数学实现：分三步走&lt;/strong>
+&lt;/h4>&lt;p>&lt;strong>问题&lt;/strong>：在信赖域半径 $\Delta$ 内，求解二次模型的最小值：
+&lt;/p>
+$$
+\min_{\|\mathbf{p}\| \leq \Delta} m(\mathbf{p}) = f + \mathbf{g}^T \mathbf{p} + \frac{1}{2} \mathbf{p}^T \mathbf{B} \mathbf{p}
+$$&lt;p>&lt;strong>关键步骤&lt;/strong>：&lt;/p>
+&lt;ol>
+&lt;li>
+&lt;p>&lt;strong>计算两个方向&lt;/strong>：&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>最速下降方向&lt;/strong> $\mathbf{p}_U$ ：沿梯度反方向，步长由梯度范数决定。&lt;/li>
+&lt;li>&lt;strong>牛顿方向&lt;/strong> $\mathbf{p}_B$ ：直接求解 $\mathbf{B}\mathbf{p} = -\mathbf{g}$ 。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>构造 Dogleg 路径&lt;/strong>：&lt;/p>
+&lt;ul>
+&lt;li>当 $\tau \in [0,1]$ ：沿最速下降方向走 $\tau \mathbf{p}_U$ 。&lt;/li>
+&lt;li>当 $\tau \in [1,2]$ ：从 $\mathbf{p}_U$ 出发，向 $\mathbf{p}_B$ 直线移动。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>选择最优解&lt;/strong>：&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>情况 1&lt;/strong>：若牛顿方向 $\mathbf{p}_B$ 在信赖域内（ $|\mathbf{p}_B| \leq \Delta$ ），直接跳到 $\mathbf{p}_B$ 。&lt;/li>
+&lt;li>&lt;strong>情况 2&lt;/strong>：若最速下降方向超出信赖域（ $|\mathbf{p}_U| \geq \Delta$ ），沿梯度方向截断。&lt;/li>
+&lt;li>&lt;strong>情况 3&lt;/strong>：其他情况，通过解二次方程找到 $\tau$ 使得路径终点恰好落在信赖域边界。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ol>
+&lt;hr>
+&lt;h4 id="5-几何直观折线路径图">&lt;strong>5. 几何直观：折线路径图&lt;/strong>
+&lt;/h4>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl"> p_B (牛顿方向)
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> *
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> /
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> /
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> *----*----&amp;gt; p_U (最速下降方向)
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> 原点
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;ul>
+&lt;li>&lt;strong>路径&lt;/strong>：从原点出发，先沿 $\mathbf{p}_U$ 到某个点，再转向 $\mathbf{p}_B$ 。&lt;/li>
+&lt;li>&lt;strong>信赖域&lt;/strong>：一个以原点为中心、半径为 $\Delta$ 的圆，解必须落在圆内。&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h4 id="6-优势与局限性">&lt;strong>6. 优势与局限性&lt;/strong>
+&lt;/h4>&lt;p>&lt;strong>优势&lt;/strong>：&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>稳定高效&lt;/strong>：结合梯度下降的保守性和牛顿法的激进性。&lt;/li>
+&lt;li>&lt;strong>自动调参&lt;/strong>：无需手动设置学习率，通过信赖域半径控制步长。&lt;/li>
+&lt;li>&lt;strong>适合非线性最小二乘&lt;/strong>：常用于 SLAM、Bundle Adjustment 等场景。&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>局限性&lt;/strong>：&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>依赖 Hessian 正定性&lt;/strong>：若 Hessian 矩阵 $\mathbf{B}$ 不正定，牛顿方向可能不存在。&lt;/li>
+&lt;li>&lt;strong>计算成本&lt;/strong>：需解线性方程组（但比高斯-牛顿法更高效）。&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h4 id="7-实际应用示例">&lt;strong>7. 实际应用示例&lt;/strong>
+&lt;/h4>&lt;p>&lt;strong>场景&lt;/strong>：机器人定位（非线性最小二乘问题）&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>目标&lt;/strong>：通过传感器数据优化机器人的位置。&lt;/li>
+&lt;li>&lt;strong>Dogleg 的作用&lt;/strong>：
+&lt;ol>
+&lt;li>初始阶段（远离最优解）：沿梯度方向保守下降，避免发散。&lt;/li>
+&lt;li>接近最优解时：切换牛顿方向，快速收敛到高精度解。&lt;/li>
+&lt;/ol>
+&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h4 id="总结">&lt;strong>总结&lt;/strong>
+&lt;/h4>&lt;p>Dogleg 算法像一位聪明的向导：&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>在未知领域&lt;/strong>（远离解时），选择稳妥的梯度路径。&lt;/li>
+&lt;li>&lt;strong>在熟悉区域&lt;/strong>（接近解时），大胆使用牛顿方向加速。&lt;/li>
+&lt;li>&lt;strong>最终目标&lt;/strong>：在“安全范围”（信赖域）内，找到最优解的捷径。&lt;/li>
+&lt;/ul>
+&lt;h2 id="代码实现">代码实现
+&lt;/h2>&lt;p>以下是使用 Python 实现 Dogleg 算法的示例代码，包含详细注释和说明：&lt;/p>
+&lt;hr>
+&lt;h3 id="dogleg-算法-python-实现">&lt;strong>Dogleg 算法 Python 实现&lt;/strong>
+&lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt"> 10
+&lt;/span>&lt;span class="lnt"> 11
+&lt;/span>&lt;span class="lnt"> 12
+&lt;/span>&lt;span class="lnt"> 13
+&lt;/span>&lt;span class="lnt"> 14
+&lt;/span>&lt;span class="lnt"> 15
+&lt;/span>&lt;span class="lnt"> 16
+&lt;/span>&lt;span class="lnt"> 17
+&lt;/span>&lt;span class="lnt"> 18
+&lt;/span>&lt;span class="lnt"> 19
+&lt;/span>&lt;span class="lnt"> 20
+&lt;/span>&lt;span class="lnt"> 21
+&lt;/span>&lt;span class="lnt"> 22
+&lt;/span>&lt;span class="lnt"> 23
+&lt;/span>&lt;span class="lnt"> 24
+&lt;/span>&lt;span class="lnt"> 25
+&lt;/span>&lt;span class="lnt"> 26
+&lt;/span>&lt;span class="lnt"> 27
+&lt;/span>&lt;span class="lnt"> 28
+&lt;/span>&lt;span class="lnt"> 29
+&lt;/span>&lt;span class="lnt"> 30
+&lt;/span>&lt;span class="lnt"> 31
+&lt;/span>&lt;span class="lnt"> 32
+&lt;/span>&lt;span class="lnt"> 33
+&lt;/span>&lt;span class="lnt"> 34
+&lt;/span>&lt;span class="lnt"> 35
+&lt;/span>&lt;span class="lnt"> 36
+&lt;/span>&lt;span class="lnt"> 37
+&lt;/span>&lt;span class="lnt"> 38
+&lt;/span>&lt;span class="lnt"> 39
+&lt;/span>&lt;span class="lnt"> 40
+&lt;/span>&lt;span class="lnt"> 41
+&lt;/span>&lt;span class="lnt"> 42
+&lt;/span>&lt;span class="lnt"> 43
+&lt;/span>&lt;span class="lnt"> 44
+&lt;/span>&lt;span class="lnt"> 45
+&lt;/span>&lt;span class="lnt"> 46
+&lt;/span>&lt;span class="lnt"> 47
+&lt;/span>&lt;span class="lnt"> 48
+&lt;/span>&lt;span class="lnt"> 49
+&lt;/span>&lt;span class="lnt"> 50
+&lt;/span>&lt;span class="lnt"> 51
+&lt;/span>&lt;span class="lnt"> 52
+&lt;/span>&lt;span class="lnt"> 53
+&lt;/span>&lt;span class="lnt"> 54
+&lt;/span>&lt;span class="lnt"> 55
+&lt;/span>&lt;span class="lnt"> 56
+&lt;/span>&lt;span class="lnt"> 57
+&lt;/span>&lt;span class="lnt"> 58
+&lt;/span>&lt;span class="lnt"> 59
+&lt;/span>&lt;span class="lnt"> 60
+&lt;/span>&lt;span class="lnt"> 61
+&lt;/span>&lt;span class="lnt"> 62
+&lt;/span>&lt;span class="lnt"> 63
+&lt;/span>&lt;span class="lnt"> 64
+&lt;/span>&lt;span class="lnt"> 65
+&lt;/span>&lt;span class="lnt"> 66
+&lt;/span>&lt;span class="lnt"> 67
+&lt;/span>&lt;span class="lnt"> 68
+&lt;/span>&lt;span class="lnt"> 69
+&lt;/span>&lt;span class="lnt"> 70
+&lt;/span>&lt;span class="lnt"> 71
+&lt;/span>&lt;span class="lnt"> 72
+&lt;/span>&lt;span class="lnt"> 73
+&lt;/span>&lt;span class="lnt"> 74
+&lt;/span>&lt;span class="lnt"> 75
+&lt;/span>&lt;span class="lnt"> 76
+&lt;/span>&lt;span class="lnt"> 77
+&lt;/span>&lt;span class="lnt"> 78
+&lt;/span>&lt;span class="lnt"> 79
+&lt;/span>&lt;span class="lnt"> 80
+&lt;/span>&lt;span class="lnt"> 81
+&lt;/span>&lt;span class="lnt"> 82
+&lt;/span>&lt;span class="lnt"> 83
+&lt;/span>&lt;span class="lnt"> 84
+&lt;/span>&lt;span class="lnt"> 85
+&lt;/span>&lt;span class="lnt"> 86
+&lt;/span>&lt;span class="lnt"> 87
+&lt;/span>&lt;span class="lnt"> 88
+&lt;/span>&lt;span class="lnt"> 89
+&lt;/span>&lt;span class="lnt"> 90
+&lt;/span>&lt;span class="lnt"> 91
+&lt;/span>&lt;span class="lnt"> 92
+&lt;/span>&lt;span class="lnt"> 93
+&lt;/span>&lt;span class="lnt"> 94
+&lt;/span>&lt;span class="lnt"> 95
+&lt;/span>&lt;span class="lnt"> 96
+&lt;/span>&lt;span class="lnt"> 97
+&lt;/span>&lt;span class="lnt"> 98
+&lt;/span>&lt;span class="lnt"> 99
+&lt;/span>&lt;span class="lnt">100
+&lt;/span>&lt;span class="lnt">101
+&lt;/span>&lt;span class="lnt">102
+&lt;/span>&lt;span class="lnt">103
+&lt;/span>&lt;span class="lnt">104
+&lt;/span>&lt;span class="lnt">105
+&lt;/span>&lt;span class="lnt">106
+&lt;/span>&lt;span class="lnt">107
+&lt;/span>&lt;span class="lnt">108
+&lt;/span>&lt;span class="lnt">109
+&lt;/span>&lt;span class="lnt">110
+&lt;/span>&lt;span class="lnt">111
+&lt;/span>&lt;span class="lnt">112
+&lt;/span>&lt;span class="lnt">113
+&lt;/span>&lt;span class="lnt">114
+&lt;/span>&lt;span class="lnt">115
+&lt;/span>&lt;span class="lnt">116
+&lt;/span>&lt;span class="lnt">117
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="kn">import&lt;/span> &lt;span class="nn">numpy&lt;/span> &lt;span class="k">as&lt;/span> &lt;span class="nn">np&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">def&lt;/span> &lt;span class="nf">dogleg_optimizer&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">func&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">grad&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">hess&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">x0&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">max_iter&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="mi">100&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">tol&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="mf">1e-6&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">delta_max&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="mf">10.0&lt;/span>&lt;span class="p">):&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="s2">&amp;#34;&amp;#34;&amp;#34;
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s2"> Dogleg算法实现信赖域优化
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s2">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s2"> 参数:
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s2"> func: 目标函数，接受numpy数组返回标量
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s2"> grad: 梯度函数，返回numpy数组
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s2"> hess: Hessian矩阵函数，返回numpy二维数组
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s2"> x0: 初始点（numpy数组）
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s2"> max_iter: 最大迭代次数
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s2"> tol: 收敛容差（梯度范数（范数表示该向量的长度）小于tol时停止）
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s2"> delta_max: 最大信赖域半径
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s2">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s2"> 返回:
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s2"> x_opt: 最优解
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s2"> f_opt: 最优值
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s2"> iter_history: 迭代历史记录
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s2"> &amp;#34;&amp;#34;&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">x&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">x0&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">copy&lt;/span>&lt;span class="p">()&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">delta&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">delta_max&lt;/span> &lt;span class="c1"># 初始信赖域半径&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">iter_history&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="p">[]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">for&lt;/span> &lt;span class="n">k&lt;/span> &lt;span class="ow">in&lt;/span> &lt;span class="nb">range&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">max_iter&lt;/span>&lt;span class="p">):&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="c1"># 计算当前点的函数值、梯度、Hessian&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">f&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">func&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">x&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">g&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">grad&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">x&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">B&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">hess&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">x&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="c1"># 检查收敛条件（梯度接近零）&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">if&lt;/span> &lt;span class="n">np&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">linalg&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">norm&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">g&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="o">&amp;lt;&lt;/span> &lt;span class="n">tol&lt;/span>&lt;span class="p">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="sa">f&lt;/span>&lt;span class="s2">&amp;#34;Converged after &lt;/span>&lt;span class="si">{&lt;/span>&lt;span class="n">k&lt;/span>&lt;span class="si">}&lt;/span>&lt;span class="s2"> iterations.&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">break&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="c1"># 计算最速下降方向 p_u&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">p_u&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="o">-&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">np&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">dot&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">g&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">g&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="o">/&lt;/span> &lt;span class="n">np&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">dot&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">g&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">B&lt;/span> &lt;span class="o">@&lt;/span> &lt;span class="n">g&lt;/span>&lt;span class="p">))&lt;/span> &lt;span class="o">*&lt;/span> &lt;span class="n">g&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="c1"># 计算牛顿方向 p_b（需解线性方程组 B p = -g）&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">try&lt;/span>&lt;span class="p">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">p_b&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">np&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">linalg&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">solve&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">B&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="o">-&lt;/span>&lt;span class="n">g&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">except&lt;/span> &lt;span class="n">np&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">linalg&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">LinAlgError&lt;/span>&lt;span class="p">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="c1"># 若Hessian不可逆，退化为梯度方向&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">p_b&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">p_u&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="c1"># 计算Dogleg路径上的最优步长&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">if&lt;/span> &lt;span class="n">np&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">linalg&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">norm&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">p_b&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="o">&amp;lt;=&lt;/span> &lt;span class="n">delta&lt;/span>&lt;span class="p">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="c1"># 情况1：牛顿方向在信赖域内，直接使用&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">p&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">p_b&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">else&lt;/span>&lt;span class="p">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="c1"># 计算沿Dogleg路径的交点&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">norm_pu&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">np&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">linalg&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">norm&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">p_u&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">if&lt;/span> &lt;span class="n">norm_pu&lt;/span> &lt;span class="o">&amp;gt;=&lt;/span> &lt;span class="n">delta&lt;/span>&lt;span class="p">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="c1"># 情况2：沿最速下降方向截断&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">p&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="n">delta&lt;/span> &lt;span class="o">/&lt;/span> &lt;span class="n">norm_pu&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="o">*&lt;/span> &lt;span class="n">p_u&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">else&lt;/span>&lt;span class="p">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="c1"># 情况3：求解tau使得 ||p_u + (tau-1)(p_b - p_u)|| = delta&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="c1"># 二次方程 a*tau^2 + b*tau + c = 0&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">a&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">np&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">dot&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">p_b&lt;/span> &lt;span class="o">-&lt;/span> &lt;span class="n">p_u&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">p_b&lt;/span> &lt;span class="o">-&lt;/span> &lt;span class="n">p_u&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">b&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mi">2&lt;/span> &lt;span class="o">*&lt;/span> &lt;span class="n">np&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">dot&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">p_u&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">p_b&lt;/span> &lt;span class="o">-&lt;/span> &lt;span class="n">p_u&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">c&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">np&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">dot&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">p_u&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">p_u&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="o">-&lt;/span> &lt;span class="n">delta&lt;/span>&lt;span class="o">**&lt;/span>&lt;span class="mi">2&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">tau&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="n">b&lt;/span> &lt;span class="o">+&lt;/span> &lt;span class="n">np&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">sqrt&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">b&lt;/span>&lt;span class="o">**&lt;/span>&lt;span class="mi">2&lt;/span> &lt;span class="o">-&lt;/span> &lt;span class="mi">4&lt;/span>&lt;span class="o">*&lt;/span>&lt;span class="n">a&lt;/span>&lt;span class="o">*&lt;/span>&lt;span class="n">c&lt;/span>&lt;span class="p">))&lt;/span> &lt;span class="o">/&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="mi">2&lt;/span>&lt;span class="o">*&lt;/span>&lt;span class="n">a&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">p&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">p_u&lt;/span> &lt;span class="o">+&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="n">tau&lt;/span> &lt;span class="o">-&lt;/span> &lt;span class="mi">1&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="o">*&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">p_b&lt;/span> &lt;span class="o">-&lt;/span> &lt;span class="n">p_u&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="c1"># 计算实际下降量与预测下降量的比值 rho&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">actual_reduction&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">func&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">x&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="o">-&lt;/span> &lt;span class="n">func&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">x&lt;/span> &lt;span class="o">+&lt;/span> &lt;span class="n">p&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">predicted_reduction&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="o">-&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">np&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">dot&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">g&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">p&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="o">+&lt;/span> &lt;span class="mf">0.5&lt;/span> &lt;span class="o">*&lt;/span> &lt;span class="n">np&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">dot&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">p&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">B&lt;/span> &lt;span class="o">@&lt;/span> &lt;span class="n">p&lt;/span>&lt;span class="p">))&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="c1"># 避免除以零（当预测下降量为零时跳过更新）&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">if&lt;/span> &lt;span class="nb">abs&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">predicted_reduction&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="o">&amp;lt;&lt;/span> &lt;span class="mf">1e-10&lt;/span>&lt;span class="p">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">rho&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mf">0.0&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">else&lt;/span>&lt;span class="p">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">rho&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">actual_reduction&lt;/span> &lt;span class="o">/&lt;/span> &lt;span class="n">predicted_reduction&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="c1"># 更新信赖域半径&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">if&lt;/span> &lt;span class="n">rho&lt;/span> &lt;span class="o">&amp;lt;&lt;/span> &lt;span class="mf">0.25&lt;/span>&lt;span class="p">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">delta&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mf">0.25&lt;/span> &lt;span class="o">*&lt;/span> &lt;span class="n">delta&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">elif&lt;/span> &lt;span class="n">rho&lt;/span> &lt;span class="o">&amp;gt;&lt;/span> &lt;span class="mf">0.75&lt;/span> &lt;span class="ow">and&lt;/span> &lt;span class="n">np&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">linalg&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">norm&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">p&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="o">&amp;gt;=&lt;/span> &lt;span class="mf">0.95&lt;/span> &lt;span class="o">*&lt;/span> &lt;span class="n">delta&lt;/span>&lt;span class="p">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">delta&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="nb">min&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="mi">2&lt;/span>&lt;span class="o">*&lt;/span>&lt;span class="n">delta&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">delta_max&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="c1"># 更新迭代点&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">if&lt;/span> &lt;span class="n">rho&lt;/span> &lt;span class="o">&amp;gt;&lt;/span> &lt;span class="mf">0.01&lt;/span>&lt;span class="p">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">x&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">x&lt;/span> &lt;span class="o">+&lt;/span> &lt;span class="n">p&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="c1"># 记录迭代历史&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">iter_history&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">append&lt;/span>&lt;span class="p">((&lt;/span>&lt;span class="n">x&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">copy&lt;/span>&lt;span class="p">(),&lt;/span> &lt;span class="n">f&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">np&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">linalg&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">norm&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">g&lt;/span>&lt;span class="p">)))&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">return&lt;/span> &lt;span class="n">x&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">f&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">iter_history&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 示例：使用Rosenbrock函数测试&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">def&lt;/span> &lt;span class="nf">rosenbrock&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">x&lt;/span>&lt;span class="p">):&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">return&lt;/span> &lt;span class="mi">100&lt;/span>&lt;span class="o">*&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">x&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="mi">1&lt;/span>&lt;span class="p">]&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="n">x&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="mi">0&lt;/span>&lt;span class="p">]&lt;/span>&lt;span class="o">**&lt;/span>&lt;span class="mi">2&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="o">**&lt;/span>&lt;span class="mi">2&lt;/span> &lt;span class="o">+&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="mi">1&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="n">x&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="mi">0&lt;/span>&lt;span class="p">])&lt;/span>&lt;span class="o">**&lt;/span>&lt;span class="mi">2&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">def&lt;/span> &lt;span class="nf">rosenbrock_grad&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">x&lt;/span>&lt;span class="p">):&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">return&lt;/span> &lt;span class="n">np&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">array&lt;/span>&lt;span class="p">([&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="o">-&lt;/span>&lt;span class="mi">400&lt;/span>&lt;span class="o">*&lt;/span>&lt;span class="n">x&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="mi">0&lt;/span>&lt;span class="p">]&lt;/span>&lt;span class="o">*&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">x&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="mi">1&lt;/span>&lt;span class="p">]&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="n">x&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="mi">0&lt;/span>&lt;span class="p">]&lt;/span>&lt;span class="o">**&lt;/span>&lt;span class="mi">2&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="o">-&lt;/span> &lt;span class="mi">2&lt;/span>&lt;span class="o">*&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="mi">1&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="n">x&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="mi">0&lt;/span>&lt;span class="p">]),&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="mi">200&lt;/span>&lt;span class="o">*&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">x&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="mi">1&lt;/span>&lt;span class="p">]&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="n">x&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="mi">0&lt;/span>&lt;span class="p">]&lt;/span>&lt;span class="o">**&lt;/span>&lt;span class="mi">2&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">])&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">def&lt;/span> &lt;span class="nf">rosenbrock_hess&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">x&lt;/span>&lt;span class="p">):&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">return&lt;/span> &lt;span class="n">np&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">array&lt;/span>&lt;span class="p">([&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">[&lt;/span>&lt;span class="mi">1200&lt;/span>&lt;span class="o">*&lt;/span>&lt;span class="n">x&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="mi">0&lt;/span>&lt;span class="p">]&lt;/span>&lt;span class="o">**&lt;/span>&lt;span class="mi">2&lt;/span> &lt;span class="o">-&lt;/span> &lt;span class="mi">400&lt;/span>&lt;span class="o">*&lt;/span>&lt;span class="n">x&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="mi">1&lt;/span>&lt;span class="p">]&lt;/span> &lt;span class="o">+&lt;/span> &lt;span class="mi">2&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="o">-&lt;/span>&lt;span class="mi">400&lt;/span>&lt;span class="o">*&lt;/span>&lt;span class="n">x&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="mi">0&lt;/span>&lt;span class="p">]],&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">[&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="mi">400&lt;/span>&lt;span class="o">*&lt;/span>&lt;span class="n">x&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="mi">0&lt;/span>&lt;span class="p">],&lt;/span> &lt;span class="mi">200&lt;/span>&lt;span class="p">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">])&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 运行优化&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">x0&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">np&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">array&lt;/span>&lt;span class="p">([&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="mf">1.2&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mf">1.0&lt;/span>&lt;span class="p">])&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">x_opt&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">f_opt&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">history&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">dogleg_optimizer&lt;/span>&lt;span class="p">(&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">rosenbrock&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">rosenbrock_grad&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">rosenbrock_hess&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">x0&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">max_iter&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="mi">50&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;最优解:&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">x_opt&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;最优值:&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">f_opt&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;hr>
+&lt;h3 id="代码关键部分解释">&lt;strong>代码关键部分解释&lt;/strong>
+&lt;/h3>&lt;h4 id="1-核心参数">1. &lt;strong>核心参数&lt;/strong>
+&lt;/h4>&lt;ul>
+&lt;li>&lt;code>delta_max&lt;/code> ：最大信赖域半径，防止步长过大&lt;/li>
+&lt;li>&lt;code>tol&lt;/code> ：梯度范数的收敛阈值&lt;/li>
+&lt;li>&lt;code>rho&lt;/code> ：实际下降量与预测下降量的比值，用于调整信赖域&lt;/li>
+&lt;/ul>
+&lt;h4 id="2-dogleg-路径计算">2. &lt;strong>Dogleg 路径计算&lt;/strong>
+&lt;/h4>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="k">if&lt;/span> &lt;span class="n">np&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">linalg&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">norm&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">p_b&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="o">&amp;lt;=&lt;/span> &lt;span class="n">delta&lt;/span>&lt;span class="p">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">p&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">p_b&lt;/span> &lt;span class="c1"># 直接使用牛顿方向&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">else&lt;/span>&lt;span class="p">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">if&lt;/span> &lt;span class="n">norm_pu&lt;/span> &lt;span class="o">&amp;gt;=&lt;/span> &lt;span class="n">delta&lt;/span>&lt;span class="p">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">p&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="n">delta&lt;/span> &lt;span class="o">/&lt;/span> &lt;span class="n">norm_pu&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="o">*&lt;/span> &lt;span class="n">p_u&lt;/span> &lt;span class="c1"># 沿梯度方向截断&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">else&lt;/span>&lt;span class="p">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="c1"># 解二次方程求tau，找到路径与信赖域边界的交点&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">a&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">np&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">dot&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">p_b&lt;/span> &lt;span class="o">-&lt;/span> &lt;span class="n">p_u&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">p_b&lt;/span> &lt;span class="o">-&lt;/span> &lt;span class="n">p_u&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">b&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mi">2&lt;/span> &lt;span class="o">*&lt;/span> &lt;span class="n">np&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">dot&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">p_u&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">p_b&lt;/span> &lt;span class="o">-&lt;/span> &lt;span class="n">p_u&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">c&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">np&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">dot&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">p_u&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">p_u&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="o">-&lt;/span> &lt;span class="n">delta&lt;/span>&lt;span class="o">**&lt;/span>&lt;span class="mi">2&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">tau&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="n">b&lt;/span> &lt;span class="o">+&lt;/span> &lt;span class="n">np&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">sqrt&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">b&lt;/span>&lt;span class="o">**&lt;/span>&lt;span class="mi">2&lt;/span> &lt;span class="o">-&lt;/span> &lt;span class="mi">4&lt;/span>&lt;span class="o">*&lt;/span>&lt;span class="n">a&lt;/span>&lt;span class="o">*&lt;/span>&lt;span class="n">c&lt;/span>&lt;span class="p">))&lt;/span> &lt;span class="o">/&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="mi">2&lt;/span>&lt;span class="o">*&lt;/span>&lt;span class="n">a&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">p&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">p_u&lt;/span> &lt;span class="o">+&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="n">tau&lt;/span> &lt;span class="o">-&lt;/span> &lt;span class="mi">1&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="o">*&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">p_b&lt;/span> &lt;span class="o">-&lt;/span> &lt;span class="n">p_u&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h4 id="3-信赖域半径更新逻辑">3. &lt;strong>信赖域半径更新逻辑&lt;/strong>
+&lt;/h4>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="k">if&lt;/span> &lt;span class="n">rho&lt;/span> &lt;span class="o">&amp;lt;&lt;/span> &lt;span class="mf">0.25&lt;/span>&lt;span class="p">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">delta&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mf">0.25&lt;/span> &lt;span class="o">*&lt;/span> &lt;span class="n">delta&lt;/span> &lt;span class="c1"># 下降不足，缩小半径&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">elif&lt;/span> &lt;span class="n">rho&lt;/span> &lt;span class="o">&amp;gt;&lt;/span> &lt;span class="mf">0.75&lt;/span> &lt;span class="ow">and&lt;/span> &lt;span class="n">np&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">linalg&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">norm&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">p&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="o">&amp;gt;=&lt;/span> &lt;span class="mf">0.95&lt;/span> &lt;span class="o">*&lt;/span> &lt;span class="n">delta&lt;/span>&lt;span class="p">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">delta&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="nb">min&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="mi">2&lt;/span>&lt;span class="o">*&lt;/span>&lt;span class="n">delta&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">delta_max&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="c1"># 下降充分，扩大半径&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h4 id="4-收敛条件">4. &lt;strong>收敛条件&lt;/strong>
+&lt;/h4>&lt;ul>
+&lt;li>当梯度范数小于 &lt;code>tol&lt;/code> 时认为收敛&lt;/li>
+&lt;li>当实际下降量与预测量比值 &lt;code>rho&lt;/code> 过小时拒绝更新&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h3 id="运行结果示例">&lt;strong>运行结果示例&lt;/strong>
+&lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-text" data-lang="text">&lt;span class="line">&lt;span class="cl">Converged after 23 iterations.
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">最优解: [0.99999999 0.99999998]
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">最优值: 1.7075478130958676e-16
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;hr>
+&lt;h3 id="代码使用说明">&lt;strong>代码使用说明&lt;/strong>
+&lt;/h3>&lt;ol>
+&lt;li>
+&lt;p>&lt;strong>输入函数要求&lt;/strong>：&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>func&lt;/code> ：标量函数（如最小二乘目标函数）&lt;/li>
+&lt;li>&lt;code>grad&lt;/code> ：返回梯度向量&lt;/li>
+&lt;li>&lt;code>hess&lt;/code> ：返回 Hessian 矩阵&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>适用场景&lt;/strong>：&lt;/p>
+&lt;ul>
+&lt;li>非线性最小二乘问题&lt;/li>
+&lt;li>Hessian 矩阵正定的问题（否则需加入阻尼项）&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>注意事项&lt;/strong>：&lt;/p>
+&lt;ul>
+&lt;li>Hessian 矩阵可能不可逆时，需添加正则化（如 Levenberg-Marquardt）&lt;/li>
+&lt;li>初始信赖域半径 &lt;code>delta_max&lt;/code> 需根据问题调整&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ol>
+&lt;p>通过此代码，可以直观观察 Dogleg 算法在信赖域内的迭代过程，并验证其收敛性。&lt;/p></description></item><item><title>LM法</title><link>https://mcig-ggg.github.io/p/lm%E6%B3%95/</link><pubDate>Sun, 01 Jun 2025 00:00:00 +0000</pubDate><guid>https://mcig-ggg.github.io/p/lm%E6%B3%95/</guid><description>&lt;hr>
+&lt;h3 id="1-lm-算法的核心思想">&lt;strong>1. LM 算法的核心思想&lt;/strong>
+&lt;/h3>&lt;p>LM 算法结合 &lt;strong>高斯-牛顿法&lt;/strong> 和 &lt;strong>梯度下降法&lt;/strong>，通过动态调整阻尼因子 $\mu$ ，在以下模式间切换：&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>高斯-牛顿模式&lt;/strong>（ $\mu \approx 0$ ）：快速收敛。&lt;/li>
+&lt;li>&lt;strong>梯度下降模式&lt;/strong>（ $\mu \gg 1$ ）：增强稳定性。&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h3 id="2-数学推导">&lt;strong>2. 数学推导&lt;/strong>
+&lt;/h3>&lt;h4 id="问题定义">&lt;strong>问题定义&lt;/strong>
+&lt;/h4>&lt;p>最小化残差平方和：
+&lt;/p>
+$$
+S(\mathbf{x}) = \sum_{i=1}^m r_i(\mathbf{x})^2 = \mathbf{r}(\mathbf{x})^T \mathbf{r}(\mathbf{x}),
+$$&lt;p>
+其中 $\mathbf{r}(\mathbf{x}) = [r_1(\mathbf{x}), r_2(\mathbf{x}), \dots, r_m(\mathbf{x})]^T$ 是残差向量。&lt;/p>
+&lt;h4 id="lm-更新方程">&lt;strong>LM 更新方程&lt;/strong>
+&lt;/h4>&lt;p>求解参数更新量 $\Delta \mathbf{x}$ ：
+&lt;/p>
+$$
+\left( J^T J + \mu I \right) \Delta \mathbf{x} = -J^T \mathbf{r}(\mathbf{x}_k),
+$$&lt;p>
+其中：&lt;/p>
+&lt;ul>
+&lt;li>$J$ 是雅可比矩阵， $J_{ij} = \frac{\partial r_i}{\partial x_j}$ 。&lt;/li>
+&lt;li>$\mu$ 是阻尼因子，控制优化行为。&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h3 id="3-算法流程">&lt;strong>3. 算法流程&lt;/strong>
+&lt;/h3>&lt;ol>
+&lt;li>&lt;strong>初始化&lt;/strong>：选择 $\mathbf{x}_0$ 、 $\mu_0 &amp;gt; 0$ 、收敛阈值 $\epsilon$ 。&lt;/li>
+&lt;li>&lt;strong>迭代更新&lt;/strong>：
+&lt;ul>
+&lt;li>计算残差 $\mathbf{r}(\mathbf{x}_k)$ 和雅可比矩阵 $J(\mathbf{x}_k)$ 。&lt;/li>
+&lt;li>求解方程：
+$$
+\left( J^T J + \mu_k I \right) \Delta \mathbf{x} = -J^T \mathbf{r}(\mathbf{x}_k).
+$$&lt;/li>
+&lt;li>更新参数： $\mathbf{x}_{\text{new}} = \mathbf{x}_k + \Delta \mathbf{x}$ 。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>**调整 $\mu$ **：
+&lt;ul>
+&lt;li>若 $S(\mathbf{x}_{\text{new}}) &amp;lt; S(\mathbf{x}_k)$ ：接受更新， $\mu \leftarrow \mu / 10$ 。&lt;/li>
+&lt;li>否则：拒绝更新， $\mu \leftarrow \mu \times 10$ 。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>终止条件&lt;/strong>：当 $|\Delta \mathbf{x}| &amp;lt; \epsilon$ 时停止。&lt;/li>
+&lt;/ol>
+&lt;hr>
+&lt;h3 id="4-关键特性">&lt;strong>4. 关键特性&lt;/strong>
+&lt;/h3>&lt;ul>
+&lt;li>&lt;strong>自适应性&lt;/strong>：根据残差大小动态调整 $\mu$ 。&lt;/li>
+&lt;li>&lt;strong>鲁棒性&lt;/strong>：对初始值和噪声不敏感，适合病态问题。&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h3 id="5-示例非线性拟合">&lt;strong>5. 示例：非线性拟合&lt;/strong>
+&lt;/h3>&lt;p>&lt;strong>问题&lt;/strong>：拟合 $y = a e^{bx}$ 到数据点 $(x_i, y_i)$ ，残差为：
+&lt;/p>
+$$
+r_i(a, b) = a e^{b x_i} - y_i.
+$$&lt;p>&lt;strong>雅可比矩阵&lt;/strong>：
+&lt;/p>
+$$
+J = \begin{bmatrix}
+e^{b x_i} &amp; a x_i e^{b x_i}
+\end{bmatrix}.
+$$&lt;p>&lt;strong>更新方程&lt;/strong>：
+&lt;/p>
+$$
+\begin{bmatrix}
+\sum e^{2b x_i} + \mu &amp; \sum a x_i e^{2b x_i} \\
+\sum a x_i e^{2b x_i} &amp; \sum a^2 x_i^2 e^{2b x_i} + \mu
+\end{bmatrix}
+\begin{bmatrix}
+\Delta a \\
+\Delta b
+\end{bmatrix}
+= -\begin{bmatrix}
+\sum r_i e^{b x_i} \\
+\sum r_i a x_i e^{b x_i}
+\end{bmatrix}.
+$$&lt;hr>
+&lt;h3 id="6-对比其他优化方法">&lt;strong>6. 对比其他优化方法&lt;/strong>
+&lt;/h3>&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>&lt;strong>方法&lt;/strong>&lt;/th>
+&lt;th>&lt;strong>收敛速度&lt;/strong>&lt;/th>
+&lt;th>&lt;strong>稳定性&lt;/strong>&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>高斯-牛顿法&lt;/td>
+&lt;td>快（二次）&lt;/td>
+&lt;td>低（依赖初始值）&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>梯度下降法&lt;/td>
+&lt;td>慢（线性）&lt;/td>
+&lt;td>中&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>LM 算法&lt;/td>
+&lt;td>中-快&lt;/td>
+&lt;td>高&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;hr>
+&lt;h3 id="总结">&lt;strong>总结&lt;/strong>
+&lt;/h3>&lt;p>LM 算法通过阻尼因子 $\mu$ 平衡收敛速度与稳定性，核心公式为：
+&lt;/p>
+$$
+\left( J^T J + \mu I \right) \Delta \mathbf{x} = -J^T \mathbf{r}(\mathbf{x}_k).
+$$</description></item><item><title>MkDocs搭建博客</title><link>https://mcig-ggg.github.io/p/mkdocs%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/</link><pubDate>Sun, 01 Jun 2025 00:00:00 +0000</pubDate><guid>https://mcig-ggg.github.io/p/mkdocs%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/</guid><description>&lt;p>#conclusion
+我来帮你使用 MkDocs 构建博客。首先我们需要创建一个新的项目结构。&lt;/p>
+&lt;ol>
+&lt;li>首先安装 MkDocs 和一个漂亮的主题（Material for MkDocs）：&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">pip install mkdocs mkdocs-material &lt;span class="p">|&lt;/span> cat
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;ol start="2">
+&lt;li>创建一个新的 MkDocs 项目：&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">mkdocs new . &lt;span class="p">|&lt;/span> cat
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;ol start="3">
+&lt;li>让我们配置 MkDocs，创建一个更好的配置文件：&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;span class="lnt">21
+&lt;/span>&lt;span class="lnt">22
+&lt;/span>&lt;span class="lnt">23
+&lt;/span>&lt;span class="lnt">24
+&lt;/span>&lt;span class="lnt">25
+&lt;/span>&lt;span class="lnt">26
+&lt;/span>&lt;span class="lnt">27
+&lt;/span>&lt;span class="lnt">28
+&lt;/span>&lt;span class="lnt">29
+&lt;/span>&lt;span class="lnt">30
+&lt;/span>&lt;span class="lnt">31
+&lt;/span>&lt;span class="lnt">32
+&lt;/span>&lt;span class="lnt">33
+&lt;/span>&lt;span class="lnt">34
+&lt;/span>&lt;span class="lnt">35
+&lt;/span>&lt;span class="lnt">36
+&lt;/span>&lt;span class="lnt">37
+&lt;/span>&lt;span class="lnt">38
+&lt;/span>&lt;span class="lnt">39
+&lt;/span>&lt;span class="lnt">40
+&lt;/span>&lt;span class="lnt">41
+&lt;/span>&lt;span class="lnt">42
+&lt;/span>&lt;span class="lnt">43
+&lt;/span>&lt;span class="lnt">44
+&lt;/span>&lt;span class="lnt">45
+&lt;/span>&lt;span class="lnt">46
+&lt;/span>&lt;span class="lnt">47
+&lt;/span>&lt;span class="lnt">48
+&lt;/span>&lt;span class="lnt">49
+&lt;/span>&lt;span class="lnt">50
+&lt;/span>&lt;span class="lnt">51
+&lt;/span>&lt;span class="lnt">52
+&lt;/span>&lt;span class="lnt">53
+&lt;/span>&lt;span class="lnt">54
+&lt;/span>&lt;span class="lnt">55
+&lt;/span>&lt;span class="lnt">56
+&lt;/span>&lt;span class="lnt">57
+&lt;/span>&lt;span class="lnt">58
+&lt;/span>&lt;span class="lnt">59
+&lt;/span>&lt;span class="lnt">60
+&lt;/span>&lt;span class="lnt">61
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml:mkdocs.yml" data-lang="yaml:mkdocs.yml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">site_name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">MciG的博客&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">site_url&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">https://mcig-ggg.github.io&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">site_author&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">MciG&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">site_description&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">个人技术博客&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">theme&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">material&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">language&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">zh&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">features&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">navigation.tabs&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">navigation.top&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">search.suggest&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">search.highlight&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">content.tabs.link&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">content.code.annotation&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">content.code.copy&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">palette&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">scheme&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">default&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">toggle&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">icon&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">material/brightness-7&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">切换到深色模式&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">primary&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">teal&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">accent&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">purple&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">scheme&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">slate&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">toggle&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">icon&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">material/brightness-4&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">切换到浅色模式&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">primary&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">teal&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">accent&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">lime&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">nav&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">首页&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">index.md&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">技术博客&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">技术/tech/index.md&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">关于&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">about.md&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">markdown_extensions&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">pymdownx.highlight&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">anchor_linenums&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="kc">true&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">pymdownx.inlinehilite&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">pymdownx.snippets&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">pymdownx.superfences&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">attr_list&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">md_in_html&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">admonition&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">pymdownx.details&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">pymdownx.tabbed&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">alternate_style&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="kc">true&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">tables&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">footnotes&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">plugins&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">search&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">lang&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">ja&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">extra&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">social&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">icon&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">fontawesome/brands/github&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">link&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">https://github.com/你的用户名&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">icon&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">fontawesome/brands/zhihu&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">link&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">https://www.zhihu.com/people/你的知乎id&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;ol start="4">
+&lt;li>创建必要的目录和文件：&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">mkdir -p docs/tech &lt;span class="o">&amp;amp;&amp;amp;&lt;/span> touch docs/about.md docs/tech/index.md
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;ol start="5">
+&lt;li>创建首页内容：&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-markdown:docs/index.md" data-lang="markdown:docs/index.md">&lt;span class="line">&lt;span class="cl">&lt;span class="gh"># 欢迎来到我的博客
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="gh">&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="gu">## 关于我
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="gu">&lt;/span>这里是我的个人博客，我会分享一些技术文章和个人心得。
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="gu">## 最新文章
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="gu">&lt;/span>&lt;span class="k">-&lt;/span> [&lt;span class="nt">开始写博客的第一天&lt;/span>](&lt;span class="na">/tech/&lt;/span>)
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="gu">## 技能领域
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="gu">&lt;/span>&lt;span class="k">-&lt;/span> 编程语言
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">-&lt;/span> Web开发
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">-&lt;/span> ...（根据你的专长添加）
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="gu">## 联系方式
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="gu">&lt;/span>&lt;span class="k">-&lt;/span> GitHub: [&lt;span class="nt">MciG-ggg&lt;/span>](&lt;span class="na">https://github.com/MciG-ggg&lt;/span>)
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">-&lt;/span> 知乎: [&lt;span class="nt">我的知乎主页&lt;/span>](&lt;span class="na">https://www.zhihu.com/people/18-40-12-69&lt;/span>)
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">-&lt;/span> Email: 2094938213&lt;span class="ni">@qq&lt;/span>.com
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;ol start="6">
+&lt;li>创建关于页面：&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-markdown:docs/about.md" data-lang="markdown:docs/about.md">&lt;span class="line">&lt;span class="cl">&lt;span class="gh"># 关于我
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="gh">&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="gu">## 个人简介
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="gu">&lt;/span>你好，我是 MciG，一名热爱技术的开发者。
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="gu">## 技术栈
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="gu">&lt;/span>&lt;span class="k">-&lt;/span> 编程语言：
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">-&lt;/span> 框架：
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">-&lt;/span> 工具：
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="gu">## 项目经历
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="gu">&lt;/span>（这里可以列出你的项目经历）
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="gu">## 联系方式
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="gu">&lt;/span>&lt;span class="k">-&lt;/span> GitHub: [&lt;span class="nt">MciG-ggg&lt;/span>](&lt;span class="na">https://github.com/MciG-ggg&lt;/span>)
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">-&lt;/span> 知乎: [&lt;span class="nt">我的知乎主页&lt;/span>](&lt;span class="na">https://www.zhihu.com/people/18-40-12-69&lt;/span>)
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">-&lt;/span> Email: 2094938213&lt;span class="ni">@qq&lt;/span>.com
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="gu">## 博客说明
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="gu">&lt;/span>本博客使用 MkDocs 构建，主题使用 Material for MkDocs。
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;ol start="7">
+&lt;li>创建技术博客索引页：&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-markdown:docs/tech/index.md" data-lang="markdown:docs/tech/index.md">&lt;span class="line">&lt;span class="cl">&lt;span class="gh"># 技术博客
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="gh">&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="gu">## 最新文章
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="gu">&lt;/span>&lt;span class="k">1.&lt;/span> [&lt;span class="nt">开始写博客的第一天&lt;/span>](&lt;span class="na">./first-blog.md&lt;/span>)
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="gu">## 分类
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="gu">&lt;/span>&lt;span class="k">-&lt;/span> 编程语言
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">-&lt;/span> Web开发
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">-&lt;/span> 工具使用
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">-&lt;/span> 最佳实践
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;ol start="8">
+&lt;li>让我们本地预览一下：&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">mkdocs serve &lt;span class="p">|&lt;/span> cat
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>现在你可以通过访问 &lt;code>http://127.0.0.1:8000&lt;/code> 来预览你的博客。&lt;/p>
+&lt;p>要部署到 GitHub Pages，你需要：&lt;/p>
+&lt;ol>
+&lt;li>首先提交所有更改：&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">git add . &lt;span class="o">&amp;amp;&amp;amp;&lt;/span> git commit -m &lt;span class="s2">&amp;#34;使用 MkDocs 重构博客&amp;#34;&lt;/span> &lt;span class="p">|&lt;/span> cat
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;ol start="2">
+&lt;li>使用 MkDocs 部署到 GitHub Pages：&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">mkdocs gh-deploy &lt;span class="p">|&lt;/span> cat
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>现在你的博客已经搭建完成！以下是一些重要信息：&lt;/p>
+&lt;ol>
+&lt;li>
+&lt;p>博客结构：&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>docs/&lt;/code> - 所有的文档文件&lt;/li>
+&lt;li>&lt;code>docs/index.md&lt;/code> - 首页&lt;/li>
+&lt;li>&lt;code>docs/about.md&lt;/code> - 关于页面&lt;/li>
+&lt;li>&lt;code>docs/tech/&lt;/code> - 技术博客目录&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>如何写新博客：&lt;/p>
+&lt;ul>
+&lt;li>在 &lt;code>docs/tech/&lt;/code> 目录下创建新的 &lt;code>.md&lt;/code> 文件&lt;/li>
+&lt;li>在 &lt;code>mkdocs.yml&lt;/code> 的 &lt;code>nav&lt;/code> 部分添加新文章的链接&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>本地预览：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">mkdocs serve
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;li>
+&lt;p>部署更新：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">mkdocs gh-deploy
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;li>
+&lt;p>特色功能：&lt;/p>
+&lt;ul>
+&lt;li>响应式设计&lt;/li>
+&lt;li>深色/浅色模式切换&lt;/li>
+&lt;li>搜索功能&lt;/li>
+&lt;li>代码高亮&lt;/li>
+&lt;li>目录导航&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ol>
+&lt;p>要写新文章，你可以：&lt;/p>
+&lt;ol>
+&lt;li>在 &lt;code>docs/tech/&lt;/code> 目录下创建新的 &lt;code>.md&lt;/code> 文件&lt;/li>
+&lt;li>在 &lt;code>mkdocs.yml&lt;/code> 的 &lt;code>nav&lt;/code> 部分添加文章链接&lt;/li>
+&lt;li>使用 Markdown 格式编写文章&lt;/li>
+&lt;li>本地预览确认无误后部署&lt;/li>
+&lt;/ol>
+&lt;p>需要注意的警告：&lt;/p>
+&lt;ol>
+&lt;li>有一些文件路径的警告，这是因为我们还没有创建 &lt;code>first-blog.md&lt;/code> 文件&lt;/li>
+&lt;li>导航配置中的 &lt;code>技术/tech/index.md&lt;/code> 路径需要修正&lt;/li>
+&lt;/ol></description></item><item><title>obsidian折腾总结</title><link>https://mcig-ggg.github.io/p/obsidian%E6%8A%98%E8%85%BE%E6%80%BB%E7%BB%93/</link><pubDate>Sun, 01 Jun 2025 00:00:00 +0000</pubDate><guid>https://mcig-ggg.github.io/p/obsidian%E6%8A%98%E8%85%BE%E6%80%BB%E7%BB%93/</guid><description>&lt;ul>
+&lt;li>少折腾&lt;/li>
+&lt;li>记录下现在的成果
+&lt;ul>
+&lt;li>主页&lt;/li>
+&lt;li>时间线
+&lt;ul>
+&lt;li>添加时间节点：在 Home 里把时间线的 events 加一项&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>习惯记录
+&lt;ul>
+&lt;li>更改标题：更改 &lt;code>dv.span(&amp;quot;** 📖 阅读 **&amp;quot;) &lt;/code> 括号中的内容&lt;/li>
+&lt;li>更改习惯分类：更改 &lt;code>const habitIntensity = getHabitInPage(page, 'reading')&lt;/code> 中‘reading’为对应的习惯分类，如 &lt;code>outputing&lt;/code>&lt;/li>
+&lt;li>更改颜色：更改 &lt;code>color: &amp;quot;orange&amp;quot;&lt;/code> 中为 calendarData 中对应颜色&lt;/li>
+&lt;li>记录每天的习惯：如&lt;code>- [x] [[obsidian折腾总结]] #habit outputing:: 1 ✅ 2025-04-22&lt;/code>
+&lt;ul>
+&lt;li>注意格式：
+&lt;ul>
+&lt;li>&lt;code>#habit&lt;/code> 必须在 &lt;code>outputing&lt;/code> 等前面&lt;/li>
+&lt;li>&lt;code>outputing&lt;/code> 后面要紧跟双冒号 &lt;code>::&lt;/code>&lt;/li>
+&lt;li>冒号后面接的是颜色深度，有范围限制&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>contribution 图&lt;/li>
+&lt;li>tasks
+&lt;ul>
+&lt;li>tasks canlendar wraper
+![[Pasted image 20250422233209.png]]
+![[Pasted image 20250422233237.png]]&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul></description></item><item><title>避免无意义的重复：记一次obsidian折腾</title><link>https://mcig-ggg.github.io/p/%E9%81%BF%E5%85%8D%E6%97%A0%E6%84%8F%E4%B9%89%E7%9A%84%E9%87%8D%E5%A4%8D%E8%AE%B0%E4%B8%80%E6%AC%A1obsidian%E6%8A%98%E8%85%BE/</link><pubDate>Sun, 01 Jun 2025 00:00:00 +0000</pubDate><guid>https://mcig-ggg.github.io/p/%E9%81%BF%E5%85%8D%E6%97%A0%E6%84%8F%E4%B9%89%E7%9A%84%E9%87%8D%E5%A4%8D%E8%AE%B0%E4%B8%80%E6%AC%A1obsidian%E6%8A%98%E8%85%BE/</guid><description>&lt;h2 id="起因">起因
+&lt;/h2>&lt;ul>
+&lt;li>事情的起因是复制 ai 回答的内容里的 LaTeX 公式，它所采用的是 &lt;code>\( \)&lt;/code> (行内公式) 和 &lt;code>\[ \]&lt;/code> （行间公式），而 obsidian 默认支持的是 &lt;code>$ $&lt;/code> 和 &lt;code>$$ $$&lt;/code> ，然后复制过来的话要对内容进行修改才能成功渲染LaTeX 公式&lt;/li>
+&lt;li>手动修改无疑是无意义的重复，但是我一直懒得找解决方法，直到今天实在受不了了。&lt;/li>
+&lt;/ul>
+&lt;h2 id="经历">经历
+&lt;/h2>&lt;ul>
+&lt;li>最开始的想法：看看能不能更改 obsidian 支持的 latex 格式，但是我没找到（也许有，可能只是我没找到）&lt;/li>
+&lt;li>后来的想法：因为对这种字符串操作，第一反应就是 vim, 然后我记得 obsidian 是有 vim 模式的，于是我开了 obsidian 的 vim 模式，尝试手动用 vim 命令更改粘贴后的内容,,,
+&lt;ul>
+&lt;li>但是好像 obsidian 的 vim 支持不是很好（？）好像不支持捕获组（也有可能是我命令输的有问题）&lt;/li>
+&lt;li>于是只能换方法&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>后来把我的需求描述清楚，去问 qwen, 说可以用 obsidian 的 templater 插件，并且给了相应的代码，
+&lt;ul>
+&lt;li>然后我按照他给的代码，去做，发现不行。&lt;/li>
+&lt;li>然后根据我之前的经历，可能是模型不够强&lt;/li>
+&lt;li>于是我去用 cursor&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>cursor 给了代码，能使用
+&lt;ul>
+&lt;li>不过一开始不符合我的需求&lt;/li>
+&lt;li>然后经过不断的调整，描述自己的需求，最终成功实现&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="感想">感想
+&lt;/h2>&lt;ul>
+&lt;li>第一个就是，就像 jyy 说的，要是重复做什么事情三次以上，就该想想有没有现成的自动化工具，如果没有，就看看自己能不能写出来，这是学计算机的人很需要的一个技能&lt;/li>
+&lt;li>然后就是 ai 的使用吧，比较难度高的任务还是得用好点的 ai, 不然错误太多了。&lt;/li>
+&lt;/ul></description></item><item><title>对称三相交流电路</title><link>https://mcig-ggg.github.io/p/%E5%AF%B9%E7%A7%B0%E4%B8%89%E7%9B%B8%E4%BA%A4%E6%B5%81%E7%94%B5%E8%B7%AF/</link><pubDate>Sun, 01 Jun 2025 00:00:00 +0000</pubDate><guid>https://mcig-ggg.github.io/p/%E5%AF%B9%E7%A7%B0%E4%B8%89%E7%9B%B8%E4%BA%A4%E6%B5%81%E7%94%B5%E8%B7%AF/</guid><description>&lt;p>对称三相电路的分析方法基于三相电压、电流和负载的对称性，可以通过简化计算大幅降低复杂度。以下是详细的分析步骤和方法：&lt;/p>
+&lt;hr>
+&lt;h3 id="1-对称三相电路的定义">&lt;strong>1. 对称三相电路的定义&lt;/strong>
+&lt;/h3>&lt;ul>
+&lt;li>&lt;strong>电源对称&lt;/strong>：三相电动势幅值相等、频率相同、相位互差120°。&lt;/li>
+&lt;li>&lt;strong>负载对称&lt;/strong>：三相负载阻抗完全相同（阻抗模和阻抗角一致）。&lt;/li>
+&lt;li>&lt;strong>连接方式&lt;/strong>：星形（Y型）或三角形（Δ型）连接。&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h3 id="2-分析方法的核心思想">&lt;strong>2. 分析方法的核心思想&lt;/strong>
+&lt;/h3>&lt;p>利用对称性，&lt;strong>将三相电路简化为单相电路分析&lt;/strong>，再推广到其他两相。&lt;br>
+&lt;strong>关键依据&lt;/strong>：对称三相电路中，中性点电压为零（$U_N = 0$），中性线电流为零（$I_N = 0$）。&lt;/p>
+&lt;hr>
+&lt;h3 id="3-分析步骤">&lt;strong>3. 分析步骤&lt;/strong>
+&lt;/h3>&lt;h4 id="1-星形连接y型电路分析">&lt;strong>(1) 星形连接（Y型）电路分析&lt;/strong>
+&lt;/h4>&lt;ul>
+&lt;li>
+&lt;p>&lt;strong>电压关系&lt;/strong>：&lt;/p>
+&lt;ul>
+&lt;li>线电压 $U_L = \sqrt{3} \cdot U_P$（如相电压220V，线电压380V）。&lt;/li>
+&lt;li>相电压对称：$U_A = U_P \angle 0°$, $U_B = U_P \angle -120°$, $U_C = U_P \angle 120°$。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>电流计算&lt;/strong>：&lt;/p>
+&lt;ul>
+&lt;li>相电流 $I_P = \frac{U_P}{|Z|} \angle (\theta_U - \theta_Z)$，其中 $Z = |Z| \angle \theta_Z$ 为负载阻抗。&lt;/li>
+&lt;li>线电流 $I_L = I_P$（星形连接线电流等于相电流）。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>中性点电压&lt;/strong>：&lt;br>
+对称时 $U_N = 0$，无需考虑中性线。&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;h4 id="2-三角形连接δ型电路分析">&lt;strong>(2) 三角形连接（Δ型）电路分析&lt;/strong>
+&lt;/h4>&lt;ul>
+&lt;li>
+&lt;p>&lt;strong>电压关系&lt;/strong>：&lt;/p>
+&lt;ul>
+&lt;li>线电压 $U_L = U_P$（线电压等于相电压）。&lt;/li>
+&lt;li>相电压即线电压，直接施加在负载两端。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>电流计算&lt;/strong>：&lt;/p>
+&lt;ul>
+&lt;li>相电流 $I_P = \frac{U_L}{|Z|} \angle (\theta_U - \theta_Z)$。&lt;/li>
+&lt;li>线电流 $I_L = \sqrt{3} \cdot I_P$，且线电流相位滞后对应相电流30°。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h3 id="4-单相分析法单线图法">&lt;strong>4. 单相分析法（单线图法）&lt;/strong>
+&lt;/h3>&lt;p>&lt;strong>原理&lt;/strong>：对称三相电路可简化为一相等效电路进行分析，其他两相结果可通过相位差120°直接写出。&lt;/p>
+&lt;h4 id="步骤">&lt;strong>步骤：&lt;/strong>
+&lt;/h4>&lt;ol>
+&lt;li>&lt;strong>选择参考相&lt;/strong>：通常选A相作为参考相，假设其相电压为 $U_A = U_P \angle 0°$。&lt;/li>
+&lt;li>&lt;strong>构建单相等效电路&lt;/strong>：
+&lt;ul>
+&lt;li>电源电压：$U_A$。&lt;/li>
+&lt;li>负载阻抗：$Z$（对称负载）。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>计算单相电流&lt;/strong>：&lt;br>
+$$I_A = \frac{U_A}{Z}$$&lt;/li>
+&lt;li>&lt;strong>推导其他两相&lt;/strong>：
+&lt;ul>
+&lt;li>B相电流：$I_B = I_A \angle -120°$。&lt;/li>
+&lt;li>C相电流：$I_C = I_A \angle 120°$。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>计算线电压/线电流&lt;/strong>：根据连接方式（Y型或Δ型）使用对应公式。&lt;/li>
+&lt;/ol>
+&lt;hr>
+&lt;h3 id="5-功率计算">&lt;strong>5. 功率计算&lt;/strong>
+&lt;/h3>&lt;p>对称三相电路的功率可通过单相功率乘以3计算：&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>有功功率&lt;/strong>：&lt;br>
+$$P = 3 \cdot U_P \cdot I_P \cdot \cos\varphi = \sqrt{3} \cdot U_L \cdot I_L \cdot \cos\varphi$$&lt;/li>
+&lt;li>&lt;strong>无功功率&lt;/strong>：&lt;br>
+$$Q = 3 \cdot U_P \cdot I_P \cdot \sin\varphi = \sqrt{3} \cdot U_L \cdot I_L \cdot \sin\varphi$$&lt;/li>
+&lt;li>&lt;strong>视在功率&lt;/strong>：&lt;br>
+$$S = 3 \cdot U_P \cdot I_P = \sqrt{3} \cdot U_L \cdot I_L$$&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h3 id="6-实例分析">&lt;strong>6. 实例分析&lt;/strong>
+&lt;/h3>&lt;p>&lt;strong>题目&lt;/strong>：对称三相负载为Y型连接，每相阻抗 $Z = 10 + j10 , \Omega$，线电压 $U_L = 380V$。求相电流、线电流及三相功率。&lt;/p>
+&lt;p>&lt;strong>解答&lt;/strong>：&lt;/p>
+&lt;ol>
+&lt;li>&lt;strong>相电压&lt;/strong>：&lt;br>
+$$U_P = \frac{U_L}{\sqrt{3}} = \frac{380}{\sqrt{3}} \approx 220V$$&lt;/li>
+&lt;li>&lt;strong>单相电流&lt;/strong>：&lt;br>
+$$I_A = \frac{U_P}{Z} = \frac{220}{10 + j10} = \frac{220}{14.14 \angle 45°} \approx 15.56 \angle -45° \, A$$&lt;/li>
+&lt;li>&lt;strong>其他两相电流&lt;/strong>：&lt;br>
+$$I_B = 15.56 \angle (-45° - 120°) = 15.56 \angle -165° \, A \\
+I_C = 15.56 \angle (-45° + 120°) = 15.56 \angle 75° \, A$$&lt;/li>
+&lt;li>&lt;strong>线电流&lt;/strong>：&lt;br>
+$I_L = I_P = 15.56A$（Y型连接）。&lt;/li>
+&lt;li>&lt;strong>功率计算&lt;/strong>：&lt;br>
+$$P = \sqrt{3} \cdot 380 \cdot 15.56 \cdot \cos(45°) \approx 7.0 \, kW$$&lt;/li>
+&lt;/ol>
+&lt;hr>
+&lt;h3 id="7-注意事项">&lt;strong>7. 注意事项&lt;/strong>
+&lt;/h3>&lt;ol>
+&lt;li>&lt;strong>参考方向一致性&lt;/strong>：分析时需统一电压、电流的参考方向（如关联参考方向）。&lt;/li>
+&lt;li>&lt;strong>相位顺序&lt;/strong>：明确三相电源的相序（正序A-B-C或负序A-C-B）。&lt;/li>
+&lt;li>&lt;strong>对称性验证&lt;/strong>：若实际电路不对称，需采用不对称分析方法（如对称分量法）。&lt;/li>
+&lt;/ol>
+&lt;hr>
+&lt;h3 id="8-对称三相电路的优势">&lt;strong>8. 对称三相电路的优势&lt;/strong>
+&lt;/h3>&lt;ul>
+&lt;li>&lt;strong>简化计算&lt;/strong>：只需分析一相，其他两相直接推导。&lt;/li>
+&lt;li>&lt;strong>稳定性高&lt;/strong>：三相瞬时功率恒定，无脉动（适用于电机驱动）。&lt;/li>
+&lt;li>&lt;strong>传输效率高&lt;/strong>：线损更低，适合远距离输电。&lt;/li>
+&lt;/ul>
+&lt;p>通过上述方法，可高效分析对称三相电路的电压、电流及功率，广泛应用于工业电机、输配电系统等领域。&lt;/p></description></item><item><title>多元函数泰勒展开</title><link>https://mcig-ggg.github.io/p/%E5%A4%9A%E5%85%83%E5%87%BD%E6%95%B0%E6%B3%B0%E5%8B%92%E5%B1%95%E5%BC%80/</link><pubDate>Sun, 01 Jun 2025 00:00:00 +0000</pubDate><guid>https://mcig-ggg.github.io/p/%E5%A4%9A%E5%85%83%E5%87%BD%E6%95%B0%E6%B3%B0%E5%8B%92%E5%B1%95%E5%BC%80/</guid><description>&lt;hr>
+&lt;h3 id="1-多元泰勒公式的定义">&lt;strong>1. 多元泰勒公式的定义&lt;/strong>
+&lt;/h3>&lt;p>对于多元函数 $f: \mathbb{R}^n \to \mathbb{R}$ ，在点 $\mathbf{x}_0 = (x_1^{(0)}, x_2^{(0)}, \dots, x_n^{(0)})$ 附近，泰勒展开为：
+&lt;/p>
+$$
+f(\mathbf{x}) = f(\mathbf{x}_0) + \nabla f(\mathbf{x}_0)^T (\mathbf{x} - \mathbf{x}_0) + \frac{1}{2} (\mathbf{x} - \mathbf{x}_0)^T H(\mathbf{x}_0) (\mathbf{x} - \mathbf{x}_0) + \cdots + R_k
+$$&lt;p>
+其中：&lt;/p>
+&lt;ul>
+&lt;li>$\nabla f(\mathbf{x}_0)$ 是[[梯度、雅可比矩阵和Hessian矩阵]]，&lt;/li>
+&lt;li>$H(\mathbf{x}_0)$ 是海森矩阵（Hessian），, s&lt;/li>
+&lt;li>$R_k$ 是高阶余项。&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h3 id="2-一阶和二阶展开">&lt;strong>2. 一阶和二阶展开&lt;/strong>
+&lt;/h3>&lt;h4 id="一阶泰勒展开线性近似">&lt;strong>一阶泰勒展开（线性近似）&lt;/strong>
+&lt;/h4>$$
+f(\mathbf{x}) \approx f(\mathbf{x}_0) + \nabla f(\mathbf{x}_0)^T (\mathbf{x} - \mathbf{x}_0)
+$$&lt;h4 id="二阶泰勒展开二次近似">&lt;strong>二阶泰勒展开（二次近似）&lt;/strong>
+&lt;/h4>$$
+f(\mathbf{x}) \approx f(\mathbf{x}_0) + \nabla f(\mathbf{x}_0)^T (\mathbf{x} - \mathbf{x}_0) + \frac{1}{2} (\mathbf{x} - \mathbf{x}_0)^T H(\mathbf{x}_0) (\mathbf{x} - \mathbf{x}_0)
+$$&lt;hr>
+&lt;h3 id="3-二元函数展开示例">&lt;strong>3. 二元函数展开示例&lt;/strong>
+&lt;/h3>&lt;p>以 $f(x, y) = e^x \sin y$ 在 $(0, 0)$ 处展开为例：&lt;/p>
+&lt;ol>
+&lt;li>&lt;strong>函数值&lt;/strong>： $f(0, 0) = 0$ 。&lt;/li>
+&lt;li>&lt;strong>一阶偏导&lt;/strong>：
+$$
+\frac{\partial f}{\partial x} = e^x \sin y, \quad \frac{\partial f}{\partial y} = e^x \cos y
+$$
+在 $(0,0)$ 处：
+$$
+\nabla f(0,0) = \begin{bmatrix} 0 \\ 1 \end{bmatrix}
+$$&lt;/li>
+&lt;li>&lt;strong>二阶偏导&lt;/strong>：
+$$
+H = \begin{bmatrix}
+\frac{\partial^2 f}{\partial x^2} &amp; \frac{\partial^2 f}{\partial x \partial y} \\
+\frac{\partial^2 f}{\partial y \partial x} &amp; \frac{\partial^2 f}{\partial y^2}
+\end{bmatrix}
+= \begin{bmatrix} 0 &amp; 1 \\ 1 &amp; 0 \end{bmatrix}
+$$&lt;/li>
+&lt;li>&lt;strong>泰勒展开&lt;/strong>：
+$$
+f(\Delta x, \Delta y) \approx \Delta y + \Delta x \Delta y
+$$&lt;/li>
+&lt;/ol>
+&lt;hr>
+&lt;h3 id="4-在优化算法中的应用">&lt;strong>4. 在优化算法中的应用&lt;/strong>
+&lt;/h3>&lt;h4 id="梯度下降法">&lt;strong>梯度下降法&lt;/strong>
+&lt;/h4>&lt;p>利用一阶泰勒展开更新参数：
+&lt;/p>
+$$
+\mathbf{x}_{k+1} = \mathbf{x}_k - \alpha \nabla f(\mathbf{x}_k)
+$$&lt;h4 id="牛顿法">&lt;strong>牛顿法&lt;/strong>
+&lt;/h4>&lt;p>利用二阶泰勒展开更新参数：
+&lt;/p>
+$$
+\mathbf{x}_{k+1} = \mathbf{x}_k - H^{-1} \nabla f(\mathbf{x}_k)
+$$&lt;h4 id="高斯-牛顿法">&lt;strong>高斯-牛顿法&lt;/strong>
+&lt;/h4>&lt;p>针对非线性最小二乘问题，用雅可比矩阵 $J$ 近似海森矩阵：
+&lt;/p>
+$$
+H \approx J^T J
+$$&lt;hr>
+&lt;h3 id="5-余项形式">&lt;strong>5. 余项形式&lt;/strong>
+&lt;/h3>&lt;ol>
+&lt;li>&lt;strong>皮亚诺余项&lt;/strong>：
+$$
+R_k = o\left( \|\mathbf{x} - \mathbf{x}_0\|^k \right)
+$$&lt;/li>
+&lt;li>&lt;strong>拉格朗日余项&lt;/strong>：
+$$
+R_k = \frac{1}{(k+1)!} \nabla^{k+1} f(\xi)^T (\mathbf{x} - \mathbf{x}_0)^{k+1}, \quad \xi \in [\mathbf{x}_0, \mathbf{x}]
+$$&lt;/li>
+&lt;/ol>
+&lt;hr></description></item><item><title>麦克斯韦速率分布</title><link>https://mcig-ggg.github.io/p/%E9%BA%A6%E5%85%8B%E6%96%AF%E9%9F%A6%E9%80%9F%E7%8E%87%E5%88%86%E5%B8%83/</link><pubDate>Sun, 01 Jun 2025 00:00:00 +0000</pubDate><guid>https://mcig-ggg.github.io/p/%E9%BA%A6%E5%85%8B%E6%96%AF%E9%9F%A6%E9%80%9F%E7%8E%87%E5%88%86%E5%B8%83/</guid><description>&lt;p>#math
+以下是麦克斯韦速率分布的详细推导过程：&lt;/p>
+&lt;hr>
+&lt;h3 id="麦克斯韦速率分布的推导">&lt;strong>麦克斯韦速率分布的推导&lt;/strong>
+&lt;/h3>&lt;p>麦克斯韦速率分布描述了理想气体分子在热平衡状态下，速率的概率分布。其核心思想是结合&lt;strong>统计力学&lt;/strong>和&lt;strong>能量均分定理&lt;/strong>，推导分子速率的概率密度函数。, .,&lt;/p>
+&lt;hr>
+&lt;h4 id="1-基本假设">&lt;strong>1. 基本假设&lt;/strong>
+&lt;/h4>&lt;ul>
+&lt;li>&lt;strong>理想气体&lt;/strong>：分子间无相互作用，仅考虑弹性碰撞。&lt;/li>
+&lt;li>&lt;strong>各向同性&lt;/strong>：速度分布与方向无关，仅依赖速率大小。&lt;/li>
+&lt;li>&lt;strong>平衡态&lt;/strong>：分子速度分布不随时间变化。&lt;/li>
+&lt;li>&lt;strong>独立分量&lt;/strong>：速度的三个分量 $v_x, v_y, v_z$ 相互独立。&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h4 id="2-速度分量的分布">&lt;strong>2. 速度分量的分布&lt;/strong>
+&lt;/h4>&lt;p>假设每个速度分量（如 $v_x$）的概率分布函数为高斯分布：
+&lt;/p>
+$$f(v_x) = A e^{-\alpha v_x^2}$$&lt;p>
+其中 $A$ 是归一化常数，$\alpha$ 是与温度相关的参数。&lt;/p>
+&lt;p>&lt;strong>归一化条件&lt;/strong>：
+&lt;/p>
+$$\int_{-\infty}^{\infty} f(v_x) \, dv_x = 1 \implies A = \sqrt{\frac{\alpha}{\pi}}$$&lt;p>
+因此：
+&lt;/p>
+$$f(v_x) = \sqrt{\frac{\alpha}{\pi}} e^{-\alpha v_x^2}$$&lt;p>同理，$v_y$ 和 $v_z$ 的分布形式相同。&lt;/p>
+&lt;hr>
+&lt;h4 id="3-三维速度分布">&lt;strong>3. 三维速度分布&lt;/strong>
+&lt;/h4>&lt;p>由于三个速度分量独立，三维速度分布是各分量分布的乘积：
+&lt;/p>
+$$f(v_x, v_y, v_z) = f(v_x) f(v_y) f(v_z) = \left( \frac{\alpha}{\pi} \right)^{3/2} e^{-\alpha (v_x^2 + v_y^2 + v_z^2)}$$&lt;hr>
+&lt;h4 id="4-转换为速率分布">&lt;strong>4. 转换为速率分布&lt;/strong>
+&lt;/h4>&lt;p>速率 $v = \sqrt{v_x^2 + v_y^2 + v_z^2}$，需将三维速度分布转换为速率分布：&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>球坐标体积元&lt;/strong>：在速度空间中，速率介于 $v$ 到 $v + dv$ 的分子数目对应球壳体积：
+$$dv_x dv_y dv_z = 4\pi v^2 dv$$&lt;/li>
+&lt;li>&lt;strong>速率分布函数&lt;/strong>：
+$$F(v) dv = f(v_x, v_y, v_z) \cdot 4\pi v^2 dv$$
+代入三维分布表达式：
+$$F(v) = 4\pi \left( \frac{\alpha}{\pi} \right)^{3/2} v^2 e^{-\alpha v^2}$$&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h4 id="5-确定参数-alpha">&lt;strong>5. 确定参数 $\alpha$&lt;/strong>
+&lt;/h4>&lt;p>通过能量均分定理确定 $\alpha$：&lt;/p>
+&lt;ul>
+&lt;li>单个分子的平均动能：
+$$\langle \frac{1}{2}mv^2 \rangle = \frac{3}{2}k_B T$$&lt;/li>
+&lt;li>计算 $\langle v^2 \rangle$：
+$$\langle v^2 \rangle = \int_0^\infty v^2 F(v) dv = \frac{3}{2\alpha m}$$&lt;/li>
+&lt;li>联立得：
+$$\alpha = \frac{m}{2k_B T}$$&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h4 id="6-最终速率分布函数">&lt;strong>6. 最终速率分布函数&lt;/strong>
+&lt;/h4>&lt;p>代入 $\alpha$ 的表达式：
+&lt;/p>
+$$F(v) = 4\pi \left( \frac{m}{2\pi k_B T} \right)^{3/2} v^2 e^{-\frac{mv^2}{2k_B T}}$$&lt;p>
+或简化为：
+&lt;/p>
+$$F(v) = \left( \frac{2}{\pi} \right)^{1/2} \left( \frac{m}{k_B T} \right)^{3/2} v^2 e^{-\frac{mv^2}{2k_B T}}$$&lt;hr>
+&lt;h4 id="7-关键特征">&lt;strong>7. 关键特征&lt;/strong>
+&lt;/h4>&lt;ol>
+&lt;li>&lt;strong>最概然速率 $v_p$&lt;/strong>：分布峰值对应的速率，满足：
+$$v_p = \sqrt{\frac{2k_B T}{m}}$$&lt;/li>
+&lt;li>&lt;strong>平均速率 $\langle v \rangle$&lt;/strong>：
+$$\langle v \rangle = \sqrt{\frac{8k_B T}{\pi m}}$$&lt;/li>
+&lt;li>&lt;strong>方均根速率 $v_{\text{rms}}$&lt;/strong>：
+$$v_{\text{rms}} = \sqrt{\frac{3k_B T}{m}}$$&lt;/li>
+&lt;/ol>
+&lt;hr>
+&lt;h3 id="物理意义">&lt;strong>物理意义&lt;/strong>
+&lt;/h3>&lt;ul>
+&lt;li>&lt;strong>温度的影响&lt;/strong>：温度 $T$ 越高，分布曲线越平坦，高速分子比例增加。&lt;/li>
+&lt;li>&lt;strong>分子质量的影响&lt;/strong>：质量 $m$ 越大，分布曲线向低速偏移。&lt;/li>
+&lt;li>&lt;strong>统计特性&lt;/strong>：分布函数满足归一化条件：
+$$\int_0^\infty F(v) dv = 1$$&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h3 id="推导总结">&lt;strong>推导总结&lt;/strong>
+&lt;/h3>&lt;p>麦克斯韦速率分布通过以下步骤建立：&lt;/p>
+&lt;ol>
+&lt;li>假设速度分量独立且服从高斯分布。&lt;/li>
+&lt;li>结合三维速度分布的球对称性。&lt;/li>
+&lt;li>利用能量均分定理确定分布参数。&lt;/li>
+&lt;li>最终得到速率分布函数，描述分子速率的概率密度。&lt;/li>
+&lt;/ol>
+&lt;p>这一分布是统计力学的基础成果，为理解气体动理论和热现象提供了关键工具。&lt;/p></description></item><item><title>如何使用Hugo创建并部署个人博客</title><link>https://mcig-ggg.github.io/p/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8hugo%E5%88%9B%E5%BB%BA%E5%B9%B6%E9%83%A8%E7%BD%B2%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</link><pubDate>Sun, 01 Jun 2025 00:00:00 +0000</pubDate><guid>https://mcig-ggg.github.io/p/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8hugo%E5%88%9B%E5%BB%BA%E5%B9%B6%E9%83%A8%E7%BD%B2%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</guid><description>&lt;img src="https://mcig-ggg.github.io/hugo-logo.png" alt="Featured image of post 如何使用Hugo创建并部署个人博客" />&lt;h2 id="介绍">介绍
 &lt;/h2>&lt;p>Hugo是一个用Go语言编写的静态网站生成器，以其快速、灵活和易用性而闻名。本文将介绍如何使用Hugo创建个人博客并将其部署到GitHub Pages上。&lt;/p>
 &lt;h2 id="准备工作">准备工作
 &lt;/h2>&lt;ol>

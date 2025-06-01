@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>课内 on MciG</title><link>https://mcig-ggg.github.io/tags/%E8%AF%BE%E5%86%85/</link><description>Recent content in 课内 on MciG</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><copyright>MciG</copyright><lastBuildDate>Sun, 01 Jun 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://mcig-ggg.github.io/tags/%E8%AF%BE%E5%86%85/index.xml" rel="self" type="application/rss+xml"/><item><title>对称三相交流电路</title><link>https://mcig-ggg.github.io/p/%E5%AF%B9%E7%A7%B0%E4%B8%89%E7%9B%B8%E4%BA%A4%E6%B5%81%E7%94%B5%E8%B7%AF/</link><pubDate>Sun, 01 Jun 2025 00:00:00 +0000</pubDate><guid>https://mcig-ggg.github.io/p/%E5%AF%B9%E7%A7%B0%E4%B8%89%E7%9B%B8%E4%BA%A4%E6%B5%81%E7%94%B5%E8%B7%AF/</guid><description>&lt;p>对称三相电路的分析方法基于三相电压、电流和负载的对称性，可以通过简化计算大幅降低复杂度。以下是详细的分析步骤和方法：&lt;/p>
+&lt;hr>
+&lt;h3 id="1-对称三相电路的定义">&lt;strong>1. 对称三相电路的定义&lt;/strong>
+&lt;/h3>&lt;ul>
+&lt;li>&lt;strong>电源对称&lt;/strong>：三相电动势幅值相等、频率相同、相位互差120°。&lt;/li>
+&lt;li>&lt;strong>负载对称&lt;/strong>：三相负载阻抗完全相同（阻抗模和阻抗角一致）。&lt;/li>
+&lt;li>&lt;strong>连接方式&lt;/strong>：星形（Y型）或三角形（Δ型）连接。&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h3 id="2-分析方法的核心思想">&lt;strong>2. 分析方法的核心思想&lt;/strong>
+&lt;/h3>&lt;p>利用对称性，&lt;strong>将三相电路简化为单相电路分析&lt;/strong>，再推广到其他两相。&lt;br>
+&lt;strong>关键依据&lt;/strong>：对称三相电路中，中性点电压为零（$U_N = 0$），中性线电流为零（$I_N = 0$）。&lt;/p>
+&lt;hr>
+&lt;h3 id="3-分析步骤">&lt;strong>3. 分析步骤&lt;/strong>
+&lt;/h3>&lt;h4 id="1-星形连接y型电路分析">&lt;strong>(1) 星形连接（Y型）电路分析&lt;/strong>
+&lt;/h4>&lt;ul>
+&lt;li>
+&lt;p>&lt;strong>电压关系&lt;/strong>：&lt;/p>
+&lt;ul>
+&lt;li>线电压 $U_L = \sqrt{3} \cdot U_P$（如相电压220V，线电压380V）。&lt;/li>
+&lt;li>相电压对称：$U_A = U_P \angle 0°$, $U_B = U_P \angle -120°$, $U_C = U_P \angle 120°$。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>电流计算&lt;/strong>：&lt;/p>
+&lt;ul>
+&lt;li>相电流 $I_P = \frac{U_P}{|Z|} \angle (\theta_U - \theta_Z)$，其中 $Z = |Z| \angle \theta_Z$ 为负载阻抗。&lt;/li>
+&lt;li>线电流 $I_L = I_P$（星形连接线电流等于相电流）。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>中性点电压&lt;/strong>：&lt;br>
+对称时 $U_N = 0$，无需考虑中性线。&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;h4 id="2-三角形连接δ型电路分析">&lt;strong>(2) 三角形连接（Δ型）电路分析&lt;/strong>
+&lt;/h4>&lt;ul>
+&lt;li>
+&lt;p>&lt;strong>电压关系&lt;/strong>：&lt;/p>
+&lt;ul>
+&lt;li>线电压 $U_L = U_P$（线电压等于相电压）。&lt;/li>
+&lt;li>相电压即线电压，直接施加在负载两端。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>电流计算&lt;/strong>：&lt;/p>
+&lt;ul>
+&lt;li>相电流 $I_P = \frac{U_L}{|Z|} \angle (\theta_U - \theta_Z)$。&lt;/li>
+&lt;li>线电流 $I_L = \sqrt{3} \cdot I_P$，且线电流相位滞后对应相电流30°。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h3 id="4-单相分析法单线图法">&lt;strong>4. 单相分析法（单线图法）&lt;/strong>
+&lt;/h3>&lt;p>&lt;strong>原理&lt;/strong>：对称三相电路可简化为一相等效电路进行分析，其他两相结果可通过相位差120°直接写出。&lt;/p>
+&lt;h4 id="步骤">&lt;strong>步骤：&lt;/strong>
+&lt;/h4>&lt;ol>
+&lt;li>&lt;strong>选择参考相&lt;/strong>：通常选A相作为参考相，假设其相电压为 $U_A = U_P \angle 0°$。&lt;/li>
+&lt;li>&lt;strong>构建单相等效电路&lt;/strong>：
+&lt;ul>
+&lt;li>电源电压：$U_A$。&lt;/li>
+&lt;li>负载阻抗：$Z$（对称负载）。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>计算单相电流&lt;/strong>：&lt;br>
+$$I_A = \frac{U_A}{Z}$$&lt;/li>
+&lt;li>&lt;strong>推导其他两相&lt;/strong>：
+&lt;ul>
+&lt;li>B相电流：$I_B = I_A \angle -120°$。&lt;/li>
+&lt;li>C相电流：$I_C = I_A \angle 120°$。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>计算线电压/线电流&lt;/strong>：根据连接方式（Y型或Δ型）使用对应公式。&lt;/li>
+&lt;/ol>
+&lt;hr>
+&lt;h3 id="5-功率计算">&lt;strong>5. 功率计算&lt;/strong>
+&lt;/h3>&lt;p>对称三相电路的功率可通过单相功率乘以3计算：&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>有功功率&lt;/strong>：&lt;br>
+$$P = 3 \cdot U_P \cdot I_P \cdot \cos\varphi = \sqrt{3} \cdot U_L \cdot I_L \cdot \cos\varphi$$&lt;/li>
+&lt;li>&lt;strong>无功功率&lt;/strong>：&lt;br>
+$$Q = 3 \cdot U_P \cdot I_P \cdot \sin\varphi = \sqrt{3} \cdot U_L \cdot I_L \cdot \sin\varphi$$&lt;/li>
+&lt;li>&lt;strong>视在功率&lt;/strong>：&lt;br>
+$$S = 3 \cdot U_P \cdot I_P = \sqrt{3} \cdot U_L \cdot I_L$$&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h3 id="6-实例分析">&lt;strong>6. 实例分析&lt;/strong>
+&lt;/h3>&lt;p>&lt;strong>题目&lt;/strong>：对称三相负载为Y型连接，每相阻抗 $Z = 10 + j10 , \Omega$，线电压 $U_L = 380V$。求相电流、线电流及三相功率。&lt;/p>
+&lt;p>&lt;strong>解答&lt;/strong>：&lt;/p>
+&lt;ol>
+&lt;li>&lt;strong>相电压&lt;/strong>：&lt;br>
+$$U_P = \frac{U_L}{\sqrt{3}} = \frac{380}{\sqrt{3}} \approx 220V$$&lt;/li>
+&lt;li>&lt;strong>单相电流&lt;/strong>：&lt;br>
+$$I_A = \frac{U_P}{Z} = \frac{220}{10 + j10} = \frac{220}{14.14 \angle 45°} \approx 15.56 \angle -45° \, A$$&lt;/li>
+&lt;li>&lt;strong>其他两相电流&lt;/strong>：&lt;br>
+$$I_B = 15.56 \angle (-45° - 120°) = 15.56 \angle -165° \, A \\
+I_C = 15.56 \angle (-45° + 120°) = 15.56 \angle 75° \, A$$&lt;/li>
+&lt;li>&lt;strong>线电流&lt;/strong>：&lt;br>
+$I_L = I_P = 15.56A$（Y型连接）。&lt;/li>
+&lt;li>&lt;strong>功率计算&lt;/strong>：&lt;br>
+$$P = \sqrt{3} \cdot 380 \cdot 15.56 \cdot \cos(45°) \approx 7.0 \, kW$$&lt;/li>
+&lt;/ol>
+&lt;hr>
+&lt;h3 id="7-注意事项">&lt;strong>7. 注意事项&lt;/strong>
+&lt;/h3>&lt;ol>
+&lt;li>&lt;strong>参考方向一致性&lt;/strong>：分析时需统一电压、电流的参考方向（如关联参考方向）。&lt;/li>
+&lt;li>&lt;strong>相位顺序&lt;/strong>：明确三相电源的相序（正序A-B-C或负序A-C-B）。&lt;/li>
+&lt;li>&lt;strong>对称性验证&lt;/strong>：若实际电路不对称，需采用不对称分析方法（如对称分量法）。&lt;/li>
+&lt;/ol>
+&lt;hr>
+&lt;h3 id="8-对称三相电路的优势">&lt;strong>8. 对称三相电路的优势&lt;/strong>
+&lt;/h3>&lt;ul>
+&lt;li>&lt;strong>简化计算&lt;/strong>：只需分析一相，其他两相直接推导。&lt;/li>
+&lt;li>&lt;strong>稳定性高&lt;/strong>：三相瞬时功率恒定，无脉动（适用于电机驱动）。&lt;/li>
+&lt;li>&lt;strong>传输效率高&lt;/strong>：线损更低，适合远距离输电。&lt;/li>
+&lt;/ul>
+&lt;p>通过上述方法，可高效分析对称三相电路的电压、电流及功率，广泛应用于工业电机、输配电系统等领域。&lt;/p></description></item></channel></rss>

@@ -1,0 +1,335 @@
+<!doctype html><html lang=zh-cn dir=ltr><head><meta charset=utf-8><meta name=viewport content='width=device-width,initial-scale=1'><meta name=description content="Content from DogLeg算法"><title>DogLeg算法</title><link rel=canonical href=https://mcig-ggg.github.io/p/dogleg%E7%AE%97%E6%B3%95/><link rel=stylesheet href=/scss/style.min.946cca6c6259ef94ac55abfae7c7bf3291ea3ed5eea17ef77500b257217c6710.css><meta property='og:title' content="DogLeg算法"><meta property='og:description' content="Content from DogLeg算法"><meta property='og:url' content='https://mcig-ggg.github.io/p/dogleg%E7%AE%97%E6%B3%95/'><meta property='og:site_name' content='MciG'><meta property='og:type' content='article'><meta property='article:section' content='Post'><meta property='article:tag' content='math'><meta property='article:tag' content='非线性最小二乘问题'><meta property='article:published_time' content='2025-06-01T00:00:00+00:00'><meta property='article:modified_time' content='2025-06-01T00:00:00+00:00'><meta name=twitter:title content="DogLeg算法"><meta name=twitter:description content="Content from DogLeg算法"></head><body class=article-page><script>(function(){const e="StackColorScheme";localStorage.getItem(e)||localStorage.setItem(e,"auto")})()</script><script>(function(){const t="StackColorScheme",e=localStorage.getItem(t),n=window.matchMedia("(prefers-color-scheme: dark)").matches===!0;e=="dark"||e==="auto"&&n?document.documentElement.dataset.scheme="dark":document.documentElement.dataset.scheme="light"})()</script><div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky"><button class="hamburger hamburger--spin" type=button id=toggle-menu aria-label=切换菜单>
+<span class=hamburger-box><span class=hamburger-inner></span></span></button><header><figure class=site-avatar><a href=/><img src=/img/avatar_hu_2d151bf001e892f5.png width=300 height=300 class=site-logo loading=lazy alt=Avatar>
+</a><span class=emoji>🍥</span></figure><div class=site-meta><h1 class=site-name><a href=/>MciG</a></h1><h2 class=site-description>MciG</h2></div></header><ol class=menu-social><li><a href=https://github.com/MciG-ggg target=_blank title=GitHub rel=me><!doctype html><svg t="1746714174576" class="icon" viewBox="0 0 1024 1024" p-id="2461" xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200"><path d="M465.981 1001.74a89.578 89.578.0 01-89.889-88.955l-.356-63.666c-176.662 38.422-213.927-74.93-213.927-74.93-28.895-73.372-70.523-92.873-70.523-92.873-57.61-39.446 4.364-38.645 4.364-38.645 63.71 4.452 97.28 65.447 97.28 65.447 56.631 97.058 148.569 69.009 184.765 52.803 5.699-41.049 22.172-69.053 40.337-84.947-141.045-16.028-289.303-70.523-289.303-313.79.0-69.32 24.799-125.952 65.447-170.429-6.589-16.028-28.316-80.584 6.144-168.025.0.0 53.337-17.052 174.659 65.09a609.28 609.28.0 01158.943-21.37c53.915.223 108.276 7.257 159.031 21.37C814.186 6.679 867.434 23.73 867.434 23.73c34.549 87.485 12.822 152.042 6.233 168.025 40.693 44.433 65.358 101.109 65.358 170.43.0 243.89-148.57 297.583-289.926 313.299 22.751 19.723 43.053 58.323 43.053 117.582.0 84.992-.312 119.674-.312 119.674a89.622 89.622.0 01-89.8 89H465.98z" fill="#46B980" p-id="2462"/></svg></a></li><li><a href=https://www.zhihu.com/people/18-40-12-69 target=_blank title=Zhihu rel=me><!doctype html><svg t="1746714155361" class="icon" viewBox="0 0 1024 1024" p-id="1482" xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200"><path d="M564.7 230.1V803h60l25.2 71.4L756.3 803h131.5V230.1H564.7zm247.7 497h-59.9l-75.1 50.4-17.8-50.4h-18V308.3h170.7v418.8zM526.1 486.9H393.3c2.1-44.9 4.3-104.3 6.6-172.9h130.9l-.1-8.1c0-.6-.2-14.7-2.3-29.1-2.1-15-6.6-34.9-21-34.9H287.8c4.4-20.6 15.7-69.7 29.4-93.8l6.4-11.2-12.9-.7c-.8.0-19.6-.9-41.4 10.6-35.7 19-51.7 56.4-58.7 84.4-18.4 73.1-44.6 123.9-55.7 145.6-3.3 6.4-5.3 10.2-6.2 12.8-1.8 4.9-.8 9.8 2.8 13 10.5 9.5 38.2-2.9 38.5-3 .6-.3 1.3-.6 2.2-1 13.9-6.3 55.1-25 69.8-84.5h56.7c.7 32.2 3.1 138.4 2.9 172.9h-141l-2.1 1.5c-23.1 16.9-30.5 63.2-30.8 65.2l-1.4 9.2h167c-12.3 78.3-26.5 113.4-34 127.4-3.7 7-7.3 14-10.7 20.8-21.3 42.2-43.4 85.8-126.3 153.6-3.6 2.8-7 8-4.8 13.7 2.4 6.3 9.3 9.1 24.6 9.1 5.4.0 11.8-.3 19.4-1 49.9-4.4 100.8-18 135.1-87.6 17-35.1 31.7-71.7 43.9-108.9L497 850l5-12c.8-1.9 19-46.3 5.1-95.9l-.5-1.8-108.1-123-22 16.6c6.4-26.1 10.6-49.9 12.5-71.1h158.7v-8c0-40.1-18.5-63.9-19.2-64.9l-2.4-3z" fill="#1296DB" p-id="1483"/></svg></a></li></ol><ol class=menu id=main-menu><li><a href=/><svg class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="5 12 3 12 12 3 21 12 19 12"/><path d="M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"/><path d="M9 21v-6a2 2 0 012-2h2a2 2 0 012 2v6"/></svg>
+<span>主页</span></a></li><li><a href=/%E5%85%B3%E4%BA%8E/><svg class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="7" r="4"/><path d="M6 21v-2a4 4 0 014-4h4a4 4 0 014 4v2"/></svg>
+<span>关于</span></a></li><li><a href=/archives/><svg class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><rect x="3" y="4" width="18" height="4" rx="2"/><path d="M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8"/><line x1="10" y1="12" x2="14" y2="12"/></svg>
+<span>Archives</span></a></li><li><a href=/search/><svg class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="10" cy="10" r="7"/><line x1="21" y1="21" x2="15" y2="15"/></svg>
+<span>Search</span></a></li><li><a href=/links/><svg class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><path d="M10 14a3.5 3.5.0 005 0l4-4a3.5 3.5.0 00-5-5l-.5.5"/><path d="M14 10a3.5 3.5.0 00-5 0l-4 4a3.5 3.5.0 005 5l.5-.5"/></svg>
+<span>Links</span></a></li><li class=menu-bottom-section><ol class=menu><li id=dark-mode-toggle><svg class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="8" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg>
+<svg class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="16" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg>
+<span>暗色模式</span></li></ol></li></ol></aside><aside class="sidebar right-sidebar sticky"><section class="widget archives"><div class=widget-icon><svg class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><line x1="5" y1="9" x2="19" y2="9"/><line x1="5" y1="15" x2="19" y2="15"/><line x1="11" y1="4" x2="7" y2="20"/><line x1="17" y1="4" x2="13" y2="20"/></svg></div><h2 class="widget-title section-title">目录</h2><div class=widget--toc><nav id=TableOfContents><ol><li><ol><li><a href=#1-信赖域子问题>1. 信赖域子问题</a></li><li><a href=#2-关键方向>2. 关键方向</a></li><li><a href=#3-dogleg-路径>3. Dogleg 路径</a></li><li><a href=#4-最优步长选择>4. 最优步长选择</a></li><li><a href=#5-几何解释>5. 几何解释</a></li><li><a href=#6-算法优势>6. 算法优势</a></li><li><a href=#dogleg-算法通俗解释与核心思想><strong>Dogleg 算法：通俗解释与核心思想</strong></a><ol><li><a href=#1-为什么要用-dogleg-算法><strong>1. 为什么要用 Dogleg 算法？</strong></a></li><li><a href=#2-核心思想两条路径--一个折线><strong>2. 核心思想：两条路径 + 一个折线</strong></a></li><li><a href=#3-通俗比喻狗狗的折线奔跑><strong>3. 通俗比喻：狗狗的折线奔跑</strong></a></li><li><a href=#4-数学实现分三步走><strong>4. 数学实现：分三步走</strong></a></li><li><a href=#5-几何直观折线路径图><strong>5. 几何直观：折线路径图</strong></a></li><li><a href=#6-优势与局限性><strong>6. 优势与局限性</strong></a></li><li><a href=#7-实际应用示例><strong>7. 实际应用示例</strong></a></li><li><a href=#总结><strong>总结</strong></a></li></ol></li></ol></li><li><a href=#代码实现>代码实现</a><ol><li><a href=#dogleg-算法-python-实现><strong>Dogleg 算法 Python 实现</strong></a></li><li><a href=#代码关键部分解释><strong>代码关键部分解释</strong></a><ol><li><a href=#1-核心参数>1. <strong>核心参数</strong></a></li><li><a href=#2-dogleg-路径计算>2. <strong>Dogleg 路径计算</strong></a></li><li><a href=#3-信赖域半径更新逻辑>3. <strong>信赖域半径更新逻辑</strong></a></li><li><a href=#4-收敛条件>4. <strong>收敛条件</strong></a></li></ol></li><li><a href=#运行结果示例><strong>运行结果示例</strong></a></li><li><a href=#代码使用说明><strong>代码使用说明</strong></a></li></ol></li></ol></nav></div></section></aside><main class="main full-width"><article class=main-article><header class=article-header><div class=article-details><div class=article-title-wrapper><h2 class=article-title><a href=/p/dogleg%E7%AE%97%E6%B3%95/>DogLeg算法</a></h2><h3 class=article-subtitle>Content from DogLeg算法</h3></div><footer class=article-time><div><svg class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><path d="M11.795 21H5a2 2 0 01-2-2V7a2 2 0 012-2h12a2 2 0 012 2v4"/><circle cx="18" cy="18" r="4"/><path d="M15 3v4"/><path d="M7 3v4"/><path d="M3 11h16"/><path d="M18 16.496V18l1 1"/></svg>
+<time class=article-time--published>Jun 01, 2025</time></div><div><svg class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
+<time class=article-time--reading>阅读时长: 5 分钟</time></div></footer></div></header><section class=article-content><hr><h3 id=1-信赖域子问题>1. 信赖域子问题</h3><p>Dogleg 方法用于求解信赖域框架下的子问题：</p>$$
+\min_{\mathbf{p} \in \mathbb{R}^n} \quad m(\mathbf{p}) = f + \mathbf{g}^T \mathbf{p} + \frac{1}{2} \mathbf{p}^T \mathbf{B} \mathbf{p}, \quad \text{s.t.} \quad \|\mathbf{p}\| \leq \Delta
+$$<p>其中：</p><ul><li>$f = f(\mathbf{x}_k)$ 是目标函数在当前点 $\mathbf{x}_k$ 的值</li><li>$\mathbf{g} = \nabla f(\mathbf{x}_k)$ 是梯度向量</li><li>$\mathbf{B} = \nabla^2 f(\mathbf{x}_k)$ 是 Hessian 矩阵（或其近似）</li><li>$\Delta$ 是信赖域半径&mldr;</li></ul><blockquote><p>[!NOTE] Title_test</p><ul><li>test1<ul><li>222</li></ul></li><li>test2<ul><li>test3<ul><li>333</li></ul></li></ul></li></ul></blockquote><hr><h3 id=2-关键方向>2. 关键方向</h3><p>定义两个关键方向：</p><ol><li><strong>最速下降方向</strong>（Steepest Descent）：
+$$
+\mathbf{p}_U = -\frac{\|\mathbf{g}\|^2}{\mathbf{g}^T \mathbf{B} \mathbf{g}} \mathbf{g}
+$$</li><li><strong>牛顿方向</strong>（Newton Step）：
+$$
+\mathbf{p}_B = -\mathbf{B}^{-1} \mathbf{g}
+$$</li></ol><hr><h3 id=3-dogleg-路径>3. Dogleg 路径</h3><p>Dogleg 方法通过构造一条分段路径连接 $\mathbf{p}_U$ 和 $\mathbf{p}_B$ ：</p>$$
+\mathbf{p}(\tau) =
+\begin{cases}
+\tau \mathbf{p}_U, & 0 \leq \tau \leq 1 \\
+\mathbf{p}_U + (\tau - 1)(\mathbf{p}_B - \mathbf{p}_U), & 1 \leq \tau \leq 2
+\end{cases}
+$$<hr><h3 id=4-最优步长选择>4. 最优步长选择</h3><p>根据信赖域半径 $\Delta$ 的大小，选择不同的解：</p><ol><li><strong>当 $|\mathbf{p}_B| \leq \Delta$ 时</strong>：
+$$
+\mathbf{p}^* = \mathbf{p}_B \quad (\text{完全牛顿步})
+$$</li><li><strong>当 $|\mathbf{p}_U| \geq \Delta$ 时</strong>：
+$$
+\mathbf{p}^* = \frac{\Delta}{\|\mathbf{p}_U\|} \mathbf{p}_U \quad (\text{沿最速下降方向截断})
+$$</li><li><strong>其他情况</strong>：求解 $\tau$ 使得 $|\mathbf{p}(\tau)| = \Delta$ ，解为：
+$$
+\tau = \frac{\mathbf{b} - \sqrt{\mathbf{b}^2 - \mathbf{a}(\mathbf{c} - \Delta^2)}}{\mathbf{a}}
+$$
+其中：
+$$
+\mathbf{a} = \|\mathbf{p}_B - \mathbf{p}_U\|^2, \quad
+\mathbf{b} = \mathbf{p}_U^T (\mathbf{p}_B - \mathbf{p}_U), \quad
+\mathbf{c} = \|\mathbf{p}_U\|^2 - \Delta^2
+$$</li></ol><hr><h3 id=5-几何解释>5. 几何解释</h3><p>Dogleg 路径形成一个折线段：</p><ol><li>从原点出发沿最速下降方向到 $\mathbf{p}_U$</li><li>从 $\mathbf{p}_U$ 沿直线到 $\mathbf{p}_B$</li></ol><p>通过调整 $\tau$ ，在保证 $|\mathbf{p}| \leq \Delta$ 的前提下，找到使二次模型 $m(\mathbf{p})$ 最小的解。</p><hr><h3 id=6-算法优势>6. 算法优势</h3><ul><li>当 $\mathbf{B}$ 正定时，牛顿方向提供二阶收敛速度</li><li>当 $\mathbf{B}$ 非正定时，通过最速下降方向保证稳定性</li><li>计算复杂度低于精确求解信赖域子问题</li></ul><hr><h3 id=dogleg-算法通俗解释与核心思想><strong>Dogleg 算法：通俗解释与核心思想</strong></h3><hr><h4 id=1-为什么要用-dogleg-算法><strong>1. 为什么要用 Dogleg 算法？</strong></h4><p>在优化问题中，我们常需要在“<strong>快速收敛</strong>”和“<strong>稳定性</strong>”之间做权衡：</p><ul><li><strong>梯度下降法</strong>：稳定但收敛慢（像蜗牛爬山）</li><li><strong>牛顿法</strong>：收敛快但可能不稳定（像火箭发射，但容易偏离轨道）</li></ul><p>Dogleg 算法结合了两者的优点，像一条灵活的“狗腿”路径，在保证稳定的同时，尽可能加速收敛。</p><hr><h4 id=2-核心思想两条路径--一个折线><strong>2. 核心思想：两条路径 + 一个折线</strong></h4><p>Dogleg 的路径由两段组成：</p><ol><li><strong>最速下降段</strong>（保守路线）：沿梯度方向快速下降，确保稳定。</li><li><strong>牛顿段</strong>（激进路线）：直接跳向牛顿方向的最优解，追求速度。</li></ol><p>通过调整步长参数 $\tau$ ，在两条路径之间“折线切换”，最终在信赖域（安全区域）内找到最优解。</p><hr><h4 id=3-通俗比喻狗狗的折线奔跑><strong>3. 通俗比喻：狗狗的折线奔跑</strong></h4><p>想象一只狗从家（初始点）出发找骨头（最优解）：</p><ul><li><strong>第一段</strong>：先沿着最明显的路（梯度方向）跑，确保不迷路。</li><li><strong>第二段</strong>：发现远处有捷径（牛顿方向），直接冲刺，但不能超出绳子（信赖域）的长度。</li><li><strong>结果</strong>：在绳子范围内，选择最接近骨头的点。</li></ul><hr><h4 id=4-数学实现分三步走><strong>4. 数学实现：分三步走</strong></h4><p><strong>问题</strong>：在信赖域半径 $\Delta$ 内，求解二次模型的最小值：</p>$$
+\min_{\|\mathbf{p}\| \leq \Delta} m(\mathbf{p}) = f + \mathbf{g}^T \mathbf{p} + \frac{1}{2} \mathbf{p}^T \mathbf{B} \mathbf{p}
+$$<p><strong>关键步骤</strong>：</p><ol><li><p><strong>计算两个方向</strong>：</p><ul><li><strong>最速下降方向</strong> $\mathbf{p}_U$ ：沿梯度反方向，步长由梯度范数决定。</li><li><strong>牛顿方向</strong> $\mathbf{p}_B$ ：直接求解 $\mathbf{B}\mathbf{p} = -\mathbf{g}$ 。</li></ul></li><li><p><strong>构造 Dogleg 路径</strong>：</p><ul><li>当 $\tau \in [0,1]$ ：沿最速下降方向走 $\tau \mathbf{p}_U$ 。</li><li>当 $\tau \in [1,2]$ ：从 $\mathbf{p}_U$ 出发，向 $\mathbf{p}_B$ 直线移动。</li></ul></li><li><p><strong>选择最优解</strong>：</p><ul><li><strong>情况 1</strong>：若牛顿方向 $\mathbf{p}_B$ 在信赖域内（ $|\mathbf{p}_B| \leq \Delta$ ），直接跳到 $\mathbf{p}_B$ 。</li><li><strong>情况 2</strong>：若最速下降方向超出信赖域（ $|\mathbf{p}_U| \geq \Delta$ ），沿梯度方向截断。</li><li><strong>情况 3</strong>：其他情况，通过解二次方程找到 $\tau$ 使得路径终点恰好落在信赖域边界。</li></ul></li></ol><hr><h4 id=5-几何直观折线路径图><strong>5. 几何直观：折线路径图</strong></h4><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>          p_B (牛顿方向)
+</span></span><span class=line><span class=cl>           *
+</span></span><span class=line><span class=cl>          / 
+</span></span><span class=line><span class=cl>         /  
+</span></span><span class=line><span class=cl>        *----*----&gt; p_U (最速下降方向)
+</span></span><span class=line><span class=cl>       原点
+</span></span></code></pre></td></tr></table></div></div><ul><li><strong>路径</strong>：从原点出发，先沿 $\mathbf{p}_U$ 到某个点，再转向 $\mathbf{p}_B$ 。</li><li><strong>信赖域</strong>：一个以原点为中心、半径为 $\Delta$ 的圆，解必须落在圆内。</li></ul><hr><h4 id=6-优势与局限性><strong>6. 优势与局限性</strong></h4><p><strong>优势</strong>：</p><ul><li><strong>稳定高效</strong>：结合梯度下降的保守性和牛顿法的激进性。</li><li><strong>自动调参</strong>：无需手动设置学习率，通过信赖域半径控制步长。</li><li><strong>适合非线性最小二乘</strong>：常用于 SLAM、Bundle Adjustment 等场景。</li></ul><p><strong>局限性</strong>：</p><ul><li><strong>依赖 Hessian 正定性</strong>：若 Hessian 矩阵 $\mathbf{B}$ 不正定，牛顿方向可能不存在。</li><li><strong>计算成本</strong>：需解线性方程组（但比高斯-牛顿法更高效）。</li></ul><hr><h4 id=7-实际应用示例><strong>7. 实际应用示例</strong></h4><p><strong>场景</strong>：机器人定位（非线性最小二乘问题）</p><ul><li><strong>目标</strong>：通过传感器数据优化机器人的位置。</li><li><strong>Dogleg 的作用</strong>：<ol><li>初始阶段（远离最优解）：沿梯度方向保守下降，避免发散。</li><li>接近最优解时：切换牛顿方向，快速收敛到高精度解。</li></ol></li></ul><hr><h4 id=总结><strong>总结</strong></h4><p>Dogleg 算法像一位聪明的向导：</p><ul><li><strong>在未知领域</strong>（远离解时），选择稳妥的梯度路径。</li><li><strong>在熟悉区域</strong>（接近解时），大胆使用牛顿方向加速。</li><li><strong>最终目标</strong>：在“安全范围”（信赖域）内，找到最优解的捷径。</li></ul><h2 id=代码实现>代码实现</h2><p>以下是使用 Python 实现 Dogleg 算法的示例代码，包含详细注释和说明：</p><hr><h3 id=dogleg-算法-python-实现><strong>Dogleg 算法 Python 实现</strong></h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>  1
+</span><span class=lnt>  2
+</span><span class=lnt>  3
+</span><span class=lnt>  4
+</span><span class=lnt>  5
+</span><span class=lnt>  6
+</span><span class=lnt>  7
+</span><span class=lnt>  8
+</span><span class=lnt>  9
+</span><span class=lnt> 10
+</span><span class=lnt> 11
+</span><span class=lnt> 12
+</span><span class=lnt> 13
+</span><span class=lnt> 14
+</span><span class=lnt> 15
+</span><span class=lnt> 16
+</span><span class=lnt> 17
+</span><span class=lnt> 18
+</span><span class=lnt> 19
+</span><span class=lnt> 20
+</span><span class=lnt> 21
+</span><span class=lnt> 22
+</span><span class=lnt> 23
+</span><span class=lnt> 24
+</span><span class=lnt> 25
+</span><span class=lnt> 26
+</span><span class=lnt> 27
+</span><span class=lnt> 28
+</span><span class=lnt> 29
+</span><span class=lnt> 30
+</span><span class=lnt> 31
+</span><span class=lnt> 32
+</span><span class=lnt> 33
+</span><span class=lnt> 34
+</span><span class=lnt> 35
+</span><span class=lnt> 36
+</span><span class=lnt> 37
+</span><span class=lnt> 38
+</span><span class=lnt> 39
+</span><span class=lnt> 40
+</span><span class=lnt> 41
+</span><span class=lnt> 42
+</span><span class=lnt> 43
+</span><span class=lnt> 44
+</span><span class=lnt> 45
+</span><span class=lnt> 46
+</span><span class=lnt> 47
+</span><span class=lnt> 48
+</span><span class=lnt> 49
+</span><span class=lnt> 50
+</span><span class=lnt> 51
+</span><span class=lnt> 52
+</span><span class=lnt> 53
+</span><span class=lnt> 54
+</span><span class=lnt> 55
+</span><span class=lnt> 56
+</span><span class=lnt> 57
+</span><span class=lnt> 58
+</span><span class=lnt> 59
+</span><span class=lnt> 60
+</span><span class=lnt> 61
+</span><span class=lnt> 62
+</span><span class=lnt> 63
+</span><span class=lnt> 64
+</span><span class=lnt> 65
+</span><span class=lnt> 66
+</span><span class=lnt> 67
+</span><span class=lnt> 68
+</span><span class=lnt> 69
+</span><span class=lnt> 70
+</span><span class=lnt> 71
+</span><span class=lnt> 72
+</span><span class=lnt> 73
+</span><span class=lnt> 74
+</span><span class=lnt> 75
+</span><span class=lnt> 76
+</span><span class=lnt> 77
+</span><span class=lnt> 78
+</span><span class=lnt> 79
+</span><span class=lnt> 80
+</span><span class=lnt> 81
+</span><span class=lnt> 82
+</span><span class=lnt> 83
+</span><span class=lnt> 84
+</span><span class=lnt> 85
+</span><span class=lnt> 86
+</span><span class=lnt> 87
+</span><span class=lnt> 88
+</span><span class=lnt> 89
+</span><span class=lnt> 90
+</span><span class=lnt> 91
+</span><span class=lnt> 92
+</span><span class=lnt> 93
+</span><span class=lnt> 94
+</span><span class=lnt> 95
+</span><span class=lnt> 96
+</span><span class=lnt> 97
+</span><span class=lnt> 98
+</span><span class=lnt> 99
+</span><span class=lnt>100
+</span><span class=lnt>101
+</span><span class=lnt>102
+</span><span class=lnt>103
+</span><span class=lnt>104
+</span><span class=lnt>105
+</span><span class=lnt>106
+</span><span class=lnt>107
+</span><span class=lnt>108
+</span><span class=lnt>109
+</span><span class=lnt>110
+</span><span class=lnt>111
+</span><span class=lnt>112
+</span><span class=lnt>113
+</span><span class=lnt>114
+</span><span class=lnt>115
+</span><span class=lnt>116
+</span><span class=lnt>117
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=kn>import</span> <span class=nn>numpy</span> <span class=k>as</span> <span class=nn>np</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>def</span> <span class=nf>dogleg_optimizer</span><span class=p>(</span><span class=n>func</span><span class=p>,</span> <span class=n>grad</span><span class=p>,</span> <span class=n>hess</span><span class=p>,</span> <span class=n>x0</span><span class=p>,</span> <span class=n>max_iter</span><span class=o>=</span><span class=mi>100</span><span class=p>,</span> <span class=n>tol</span><span class=o>=</span><span class=mf>1e-6</span><span class=p>,</span> <span class=n>delta_max</span><span class=o>=</span><span class=mf>10.0</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;&#34;&#34;
+</span></span></span><span class=line><span class=cl><span class=s2>    Dogleg算法实现信赖域优化
+</span></span></span><span class=line><span class=cl><span class=s2>    
+</span></span></span><span class=line><span class=cl><span class=s2>    参数:
+</span></span></span><span class=line><span class=cl><span class=s2>    func: 目标函数，接受numpy数组返回标量
+</span></span></span><span class=line><span class=cl><span class=s2>    grad: 梯度函数，返回numpy数组
+</span></span></span><span class=line><span class=cl><span class=s2>    hess: Hessian矩阵函数，返回numpy二维数组
+</span></span></span><span class=line><span class=cl><span class=s2>    x0: 初始点（numpy数组）
+</span></span></span><span class=line><span class=cl><span class=s2>    max_iter: 最大迭代次数
+</span></span></span><span class=line><span class=cl><span class=s2>    tol: 收敛容差（梯度范数（范数表示该向量的长度）小于tol时停止）
+</span></span></span><span class=line><span class=cl><span class=s2>    delta_max: 最大信赖域半径
+</span></span></span><span class=line><span class=cl><span class=s2>    
+</span></span></span><span class=line><span class=cl><span class=s2>    返回:
+</span></span></span><span class=line><span class=cl><span class=s2>    x_opt: 最优解
+</span></span></span><span class=line><span class=cl><span class=s2>    f_opt: 最优值
+</span></span></span><span class=line><span class=cl><span class=s2>    iter_history: 迭代历史记录
+</span></span></span><span class=line><span class=cl><span class=s2>    &#34;&#34;&#34;</span>
+</span></span><span class=line><span class=cl>    <span class=n>x</span> <span class=o>=</span> <span class=n>x0</span><span class=o>.</span><span class=n>copy</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>    <span class=n>delta</span> <span class=o>=</span> <span class=n>delta_max</span>  <span class=c1># 初始信赖域半径</span>
+</span></span><span class=line><span class=cl>    <span class=n>iter_history</span> <span class=o>=</span> <span class=p>[]</span>
+</span></span><span class=line><span class=cl>    
+</span></span><span class=line><span class=cl>    <span class=k>for</span> <span class=n>k</span> <span class=ow>in</span> <span class=nb>range</span><span class=p>(</span><span class=n>max_iter</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>        <span class=c1># 计算当前点的函数值、梯度、Hessian</span>
+</span></span><span class=line><span class=cl>        <span class=n>f</span> <span class=o>=</span> <span class=n>func</span><span class=p>(</span><span class=n>x</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=n>g</span> <span class=o>=</span> <span class=n>grad</span><span class=p>(</span><span class=n>x</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=n>B</span> <span class=o>=</span> <span class=n>hess</span><span class=p>(</span><span class=n>x</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        
+</span></span><span class=line><span class=cl>        <span class=c1># 检查收敛条件（梯度接近零）</span>
+</span></span><span class=line><span class=cl>        <span class=k>if</span> <span class=n>np</span><span class=o>.</span><span class=n>linalg</span><span class=o>.</span><span class=n>norm</span><span class=p>(</span><span class=n>g</span><span class=p>)</span> <span class=o>&lt;</span> <span class=n>tol</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>            <span class=nb>print</span><span class=p>(</span><span class=sa>f</span><span class=s2>&#34;Converged after </span><span class=si>{</span><span class=n>k</span><span class=si>}</span><span class=s2> iterations.&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>            <span class=k>break</span>
+</span></span><span class=line><span class=cl>        
+</span></span><span class=line><span class=cl>        <span class=c1># 计算最速下降方向 p_u</span>
+</span></span><span class=line><span class=cl>        <span class=n>p_u</span> <span class=o>=</span> <span class=o>-</span><span class=p>(</span><span class=n>np</span><span class=o>.</span><span class=n>dot</span><span class=p>(</span><span class=n>g</span><span class=p>,</span> <span class=n>g</span><span class=p>)</span> <span class=o>/</span> <span class=n>np</span><span class=o>.</span><span class=n>dot</span><span class=p>(</span><span class=n>g</span><span class=p>,</span> <span class=n>B</span> <span class=o>@</span> <span class=n>g</span><span class=p>))</span> <span class=o>*</span> <span class=n>g</span>
+</span></span><span class=line><span class=cl>        
+</span></span><span class=line><span class=cl>        <span class=c1># 计算牛顿方向 p_b（需解线性方程组 B p = -g）</span>
+</span></span><span class=line><span class=cl>        <span class=k>try</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>            <span class=n>p_b</span> <span class=o>=</span> <span class=n>np</span><span class=o>.</span><span class=n>linalg</span><span class=o>.</span><span class=n>solve</span><span class=p>(</span><span class=n>B</span><span class=p>,</span> <span class=o>-</span><span class=n>g</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=k>except</span> <span class=n>np</span><span class=o>.</span><span class=n>linalg</span><span class=o>.</span><span class=n>LinAlgError</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>            <span class=c1># 若Hessian不可逆，退化为梯度方向</span>
+</span></span><span class=line><span class=cl>            <span class=n>p_b</span> <span class=o>=</span> <span class=n>p_u</span>
+</span></span><span class=line><span class=cl>        
+</span></span><span class=line><span class=cl>        <span class=c1># 计算Dogleg路径上的最优步长</span>
+</span></span><span class=line><span class=cl>        <span class=k>if</span> <span class=n>np</span><span class=o>.</span><span class=n>linalg</span><span class=o>.</span><span class=n>norm</span><span class=p>(</span><span class=n>p_b</span><span class=p>)</span> <span class=o>&lt;=</span> <span class=n>delta</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>            <span class=c1># 情况1：牛顿方向在信赖域内，直接使用</span>
+</span></span><span class=line><span class=cl>            <span class=n>p</span> <span class=o>=</span> <span class=n>p_b</span>
+</span></span><span class=line><span class=cl>        <span class=k>else</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>            <span class=c1># 计算沿Dogleg路径的交点</span>
+</span></span><span class=line><span class=cl>            <span class=n>norm_pu</span> <span class=o>=</span> <span class=n>np</span><span class=o>.</span><span class=n>linalg</span><span class=o>.</span><span class=n>norm</span><span class=p>(</span><span class=n>p_u</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>            <span class=k>if</span> <span class=n>norm_pu</span> <span class=o>&gt;=</span> <span class=n>delta</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>                <span class=c1># 情况2：沿最速下降方向截断</span>
+</span></span><span class=line><span class=cl>                <span class=n>p</span> <span class=o>=</span> <span class=p>(</span><span class=n>delta</span> <span class=o>/</span> <span class=n>norm_pu</span><span class=p>)</span> <span class=o>*</span> <span class=n>p_u</span>
+</span></span><span class=line><span class=cl>            <span class=k>else</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>                <span class=c1># 情况3：求解tau使得 ||p_u + (tau-1)(p_b - p_u)|| = delta</span>
+</span></span><span class=line><span class=cl>                <span class=c1># 二次方程 a*tau^2 + b*tau + c = 0</span>
+</span></span><span class=line><span class=cl>                <span class=n>a</span> <span class=o>=</span> <span class=n>np</span><span class=o>.</span><span class=n>dot</span><span class=p>(</span><span class=n>p_b</span> <span class=o>-</span> <span class=n>p_u</span><span class=p>,</span> <span class=n>p_b</span> <span class=o>-</span> <span class=n>p_u</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>                <span class=n>b</span> <span class=o>=</span> <span class=mi>2</span> <span class=o>*</span> <span class=n>np</span><span class=o>.</span><span class=n>dot</span><span class=p>(</span><span class=n>p_u</span><span class=p>,</span> <span class=n>p_b</span> <span class=o>-</span> <span class=n>p_u</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>                <span class=n>c</span> <span class=o>=</span> <span class=n>np</span><span class=o>.</span><span class=n>dot</span><span class=p>(</span><span class=n>p_u</span><span class=p>,</span> <span class=n>p_u</span><span class=p>)</span> <span class=o>-</span> <span class=n>delta</span><span class=o>**</span><span class=mi>2</span>
+</span></span><span class=line><span class=cl>                <span class=n>tau</span> <span class=o>=</span> <span class=p>(</span><span class=o>-</span><span class=n>b</span> <span class=o>+</span> <span class=n>np</span><span class=o>.</span><span class=n>sqrt</span><span class=p>(</span><span class=n>b</span><span class=o>**</span><span class=mi>2</span> <span class=o>-</span> <span class=mi>4</span><span class=o>*</span><span class=n>a</span><span class=o>*</span><span class=n>c</span><span class=p>))</span> <span class=o>/</span> <span class=p>(</span><span class=mi>2</span><span class=o>*</span><span class=n>a</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>                <span class=n>p</span> <span class=o>=</span> <span class=n>p_u</span> <span class=o>+</span> <span class=p>(</span><span class=n>tau</span> <span class=o>-</span> <span class=mi>1</span><span class=p>)</span><span class=o>*</span><span class=p>(</span><span class=n>p_b</span> <span class=o>-</span> <span class=n>p_u</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        
+</span></span><span class=line><span class=cl>        <span class=c1># 计算实际下降量与预测下降量的比值 rho</span>
+</span></span><span class=line><span class=cl>        <span class=n>actual_reduction</span> <span class=o>=</span> <span class=n>func</span><span class=p>(</span><span class=n>x</span><span class=p>)</span> <span class=o>-</span> <span class=n>func</span><span class=p>(</span><span class=n>x</span> <span class=o>+</span> <span class=n>p</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=n>predicted_reduction</span> <span class=o>=</span> <span class=o>-</span><span class=p>(</span><span class=n>np</span><span class=o>.</span><span class=n>dot</span><span class=p>(</span><span class=n>g</span><span class=p>,</span> <span class=n>p</span><span class=p>)</span> <span class=o>+</span> <span class=mf>0.5</span> <span class=o>*</span> <span class=n>np</span><span class=o>.</span><span class=n>dot</span><span class=p>(</span><span class=n>p</span><span class=p>,</span> <span class=n>B</span> <span class=o>@</span> <span class=n>p</span><span class=p>))</span>
+</span></span><span class=line><span class=cl>        
+</span></span><span class=line><span class=cl>        <span class=c1># 避免除以零（当预测下降量为零时跳过更新）</span>
+</span></span><span class=line><span class=cl>        <span class=k>if</span> <span class=nb>abs</span><span class=p>(</span><span class=n>predicted_reduction</span><span class=p>)</span> <span class=o>&lt;</span> <span class=mf>1e-10</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>            <span class=n>rho</span> <span class=o>=</span> <span class=mf>0.0</span>
+</span></span><span class=line><span class=cl>        <span class=k>else</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>            <span class=n>rho</span> <span class=o>=</span> <span class=n>actual_reduction</span> <span class=o>/</span> <span class=n>predicted_reduction</span>
+</span></span><span class=line><span class=cl>        
+</span></span><span class=line><span class=cl>        <span class=c1># 更新信赖域半径</span>
+</span></span><span class=line><span class=cl>        <span class=k>if</span> <span class=n>rho</span> <span class=o>&lt;</span> <span class=mf>0.25</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>            <span class=n>delta</span> <span class=o>=</span> <span class=mf>0.25</span> <span class=o>*</span> <span class=n>delta</span>
+</span></span><span class=line><span class=cl>        <span class=k>elif</span> <span class=n>rho</span> <span class=o>&gt;</span> <span class=mf>0.75</span> <span class=ow>and</span> <span class=n>np</span><span class=o>.</span><span class=n>linalg</span><span class=o>.</span><span class=n>norm</span><span class=p>(</span><span class=n>p</span><span class=p>)</span> <span class=o>&gt;=</span> <span class=mf>0.95</span> <span class=o>*</span> <span class=n>delta</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>            <span class=n>delta</span> <span class=o>=</span> <span class=nb>min</span><span class=p>(</span><span class=mi>2</span><span class=o>*</span><span class=n>delta</span><span class=p>,</span> <span class=n>delta_max</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        
+</span></span><span class=line><span class=cl>        <span class=c1># 更新迭代点</span>
+</span></span><span class=line><span class=cl>        <span class=k>if</span> <span class=n>rho</span> <span class=o>&gt;</span> <span class=mf>0.01</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>            <span class=n>x</span> <span class=o>=</span> <span class=n>x</span> <span class=o>+</span> <span class=n>p</span>
+</span></span><span class=line><span class=cl>        
+</span></span><span class=line><span class=cl>        <span class=c1># 记录迭代历史</span>
+</span></span><span class=line><span class=cl>        <span class=n>iter_history</span><span class=o>.</span><span class=n>append</span><span class=p>((</span><span class=n>x</span><span class=o>.</span><span class=n>copy</span><span class=p>(),</span> <span class=n>f</span><span class=p>,</span> <span class=n>np</span><span class=o>.</span><span class=n>linalg</span><span class=o>.</span><span class=n>norm</span><span class=p>(</span><span class=n>g</span><span class=p>)))</span>
+</span></span><span class=line><span class=cl>    
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=n>x</span><span class=p>,</span> <span class=n>f</span><span class=p>,</span> <span class=n>iter_history</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 示例：使用Rosenbrock函数测试</span>
+</span></span><span class=line><span class=cl><span class=k>def</span> <span class=nf>rosenbrock</span><span class=p>(</span><span class=n>x</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=mi>100</span><span class=o>*</span><span class=p>(</span><span class=n>x</span><span class=p>[</span><span class=mi>1</span><span class=p>]</span><span class=o>-</span><span class=n>x</span><span class=p>[</span><span class=mi>0</span><span class=p>]</span><span class=o>**</span><span class=mi>2</span><span class=p>)</span><span class=o>**</span><span class=mi>2</span> <span class=o>+</span> <span class=p>(</span><span class=mi>1</span><span class=o>-</span><span class=n>x</span><span class=p>[</span><span class=mi>0</span><span class=p>])</span><span class=o>**</span><span class=mi>2</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>def</span> <span class=nf>rosenbrock_grad</span><span class=p>(</span><span class=n>x</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=n>np</span><span class=o>.</span><span class=n>array</span><span class=p>([</span>
+</span></span><span class=line><span class=cl>        <span class=o>-</span><span class=mi>400</span><span class=o>*</span><span class=n>x</span><span class=p>[</span><span class=mi>0</span><span class=p>]</span><span class=o>*</span><span class=p>(</span><span class=n>x</span><span class=p>[</span><span class=mi>1</span><span class=p>]</span><span class=o>-</span><span class=n>x</span><span class=p>[</span><span class=mi>0</span><span class=p>]</span><span class=o>**</span><span class=mi>2</span><span class=p>)</span> <span class=o>-</span> <span class=mi>2</span><span class=o>*</span><span class=p>(</span><span class=mi>1</span><span class=o>-</span><span class=n>x</span><span class=p>[</span><span class=mi>0</span><span class=p>]),</span>
+</span></span><span class=line><span class=cl>        <span class=mi>200</span><span class=o>*</span><span class=p>(</span><span class=n>x</span><span class=p>[</span><span class=mi>1</span><span class=p>]</span><span class=o>-</span><span class=n>x</span><span class=p>[</span><span class=mi>0</span><span class=p>]</span><span class=o>**</span><span class=mi>2</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=p>])</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>def</span> <span class=nf>rosenbrock_hess</span><span class=p>(</span><span class=n>x</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=n>np</span><span class=o>.</span><span class=n>array</span><span class=p>([</span>
+</span></span><span class=line><span class=cl>        <span class=p>[</span><span class=mi>1200</span><span class=o>*</span><span class=n>x</span><span class=p>[</span><span class=mi>0</span><span class=p>]</span><span class=o>**</span><span class=mi>2</span> <span class=o>-</span> <span class=mi>400</span><span class=o>*</span><span class=n>x</span><span class=p>[</span><span class=mi>1</span><span class=p>]</span> <span class=o>+</span> <span class=mi>2</span><span class=p>,</span> <span class=o>-</span><span class=mi>400</span><span class=o>*</span><span class=n>x</span><span class=p>[</span><span class=mi>0</span><span class=p>]],</span>
+</span></span><span class=line><span class=cl>        <span class=p>[</span><span class=o>-</span><span class=mi>400</span><span class=o>*</span><span class=n>x</span><span class=p>[</span><span class=mi>0</span><span class=p>],</span> <span class=mi>200</span><span class=p>]</span>
+</span></span><span class=line><span class=cl>    <span class=p>])</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 运行优化</span>
+</span></span><span class=line><span class=cl><span class=n>x0</span> <span class=o>=</span> <span class=n>np</span><span class=o>.</span><span class=n>array</span><span class=p>([</span><span class=o>-</span><span class=mf>1.2</span><span class=p>,</span> <span class=mf>1.0</span><span class=p>])</span>
+</span></span><span class=line><span class=cl><span class=n>x_opt</span><span class=p>,</span> <span class=n>f_opt</span><span class=p>,</span> <span class=n>history</span> <span class=o>=</span> <span class=n>dogleg_optimizer</span><span class=p>(</span>
+</span></span><span class=line><span class=cl>    <span class=n>rosenbrock</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=n>rosenbrock_grad</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=n>rosenbrock_hess</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=n>x0</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=n>max_iter</span><span class=o>=</span><span class=mi>50</span>
+</span></span><span class=line><span class=cl><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nb>print</span><span class=p>(</span><span class=s2>&#34;最优解:&#34;</span><span class=p>,</span> <span class=n>x_opt</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=nb>print</span><span class=p>(</span><span class=s2>&#34;最优值:&#34;</span><span class=p>,</span> <span class=n>f_opt</span><span class=p>)</span>
+</span></span></code></pre></td></tr></table></div></div><hr><h3 id=代码关键部分解释><strong>代码关键部分解释</strong></h3><h4 id=1-核心参数>1. <strong>核心参数</strong></h4><ul><li><code>delta_max</code> ：最大信赖域半径，防止步长过大</li><li><code>tol</code> ：梯度范数的收敛阈值</li><li><code>rho</code> ：实际下降量与预测下降量的比值，用于调整信赖域</li></ul><h4 id=2-dogleg-路径计算>2. <strong>Dogleg 路径计算</strong></h4><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=k>if</span> <span class=n>np</span><span class=o>.</span><span class=n>linalg</span><span class=o>.</span><span class=n>norm</span><span class=p>(</span><span class=n>p_b</span><span class=p>)</span> <span class=o>&lt;=</span> <span class=n>delta</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>    <span class=n>p</span> <span class=o>=</span> <span class=n>p_b</span>  <span class=c1># 直接使用牛顿方向</span>
+</span></span><span class=line><span class=cl><span class=k>else</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>    <span class=k>if</span> <span class=n>norm_pu</span> <span class=o>&gt;=</span> <span class=n>delta</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>        <span class=n>p</span> <span class=o>=</span> <span class=p>(</span><span class=n>delta</span> <span class=o>/</span> <span class=n>norm_pu</span><span class=p>)</span> <span class=o>*</span> <span class=n>p_u</span>  <span class=c1># 沿梯度方向截断</span>
+</span></span><span class=line><span class=cl>    <span class=k>else</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>        <span class=c1># 解二次方程求tau，找到路径与信赖域边界的交点</span>
+</span></span><span class=line><span class=cl>        <span class=n>a</span> <span class=o>=</span> <span class=n>np</span><span class=o>.</span><span class=n>dot</span><span class=p>(</span><span class=n>p_b</span> <span class=o>-</span> <span class=n>p_u</span><span class=p>,</span> <span class=n>p_b</span> <span class=o>-</span> <span class=n>p_u</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=n>b</span> <span class=o>=</span> <span class=mi>2</span> <span class=o>*</span> <span class=n>np</span><span class=o>.</span><span class=n>dot</span><span class=p>(</span><span class=n>p_u</span><span class=p>,</span> <span class=n>p_b</span> <span class=o>-</span> <span class=n>p_u</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=n>c</span> <span class=o>=</span> <span class=n>np</span><span class=o>.</span><span class=n>dot</span><span class=p>(</span><span class=n>p_u</span><span class=p>,</span> <span class=n>p_u</span><span class=p>)</span> <span class=o>-</span> <span class=n>delta</span><span class=o>**</span><span class=mi>2</span>
+</span></span><span class=line><span class=cl>        <span class=n>tau</span> <span class=o>=</span> <span class=p>(</span><span class=o>-</span><span class=n>b</span> <span class=o>+</span> <span class=n>np</span><span class=o>.</span><span class=n>sqrt</span><span class=p>(</span><span class=n>b</span><span class=o>**</span><span class=mi>2</span> <span class=o>-</span> <span class=mi>4</span><span class=o>*</span><span class=n>a</span><span class=o>*</span><span class=n>c</span><span class=p>))</span> <span class=o>/</span> <span class=p>(</span><span class=mi>2</span><span class=o>*</span><span class=n>a</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=n>p</span> <span class=o>=</span> <span class=n>p_u</span> <span class=o>+</span> <span class=p>(</span><span class=n>tau</span> <span class=o>-</span> <span class=mi>1</span><span class=p>)</span><span class=o>*</span><span class=p>(</span><span class=n>p_b</span> <span class=o>-</span> <span class=n>p_u</span><span class=p>)</span>
+</span></span></code></pre></td></tr></table></div></div><h4 id=3-信赖域半径更新逻辑>3. <strong>信赖域半径更新逻辑</strong></h4><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=k>if</span> <span class=n>rho</span> <span class=o>&lt;</span> <span class=mf>0.25</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>    <span class=n>delta</span> <span class=o>=</span> <span class=mf>0.25</span> <span class=o>*</span> <span class=n>delta</span>  <span class=c1># 下降不足，缩小半径</span>
+</span></span><span class=line><span class=cl><span class=k>elif</span> <span class=n>rho</span> <span class=o>&gt;</span> <span class=mf>0.75</span> <span class=ow>and</span> <span class=n>np</span><span class=o>.</span><span class=n>linalg</span><span class=o>.</span><span class=n>norm</span><span class=p>(</span><span class=n>p</span><span class=p>)</span> <span class=o>&gt;=</span> <span class=mf>0.95</span> <span class=o>*</span> <span class=n>delta</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>    <span class=n>delta</span> <span class=o>=</span> <span class=nb>min</span><span class=p>(</span><span class=mi>2</span><span class=o>*</span><span class=n>delta</span><span class=p>,</span> <span class=n>delta_max</span><span class=p>)</span>  <span class=c1># 下降充分，扩大半径</span>
+</span></span></code></pre></td></tr></table></div></div><h4 id=4-收敛条件>4. <strong>收敛条件</strong></h4><ul><li>当梯度范数小于 <code>tol</code> 时认为收敛</li><li>当实际下降量与预测量比值 <code>rho</code> 过小时拒绝更新</li></ul><hr><h3 id=运行结果示例><strong>运行结果示例</strong></h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-text data-lang=text><span class=line><span class=cl>Converged after 23 iterations.
+</span></span><span class=line><span class=cl>最优解: [0.99999999 0.99999998]
+</span></span><span class=line><span class=cl>最优值: 1.7075478130958676e-16
+</span></span></code></pre></td></tr></table></div></div><hr><h3 id=代码使用说明><strong>代码使用说明</strong></h3><ol><li><p><strong>输入函数要求</strong>：</p><ul><li><code>func</code> ：标量函数（如最小二乘目标函数）</li><li><code>grad</code> ：返回梯度向量</li><li><code>hess</code> ：返回 Hessian 矩阵</li></ul></li><li><p><strong>适用场景</strong>：</p><ul><li>非线性最小二乘问题</li><li>Hessian 矩阵正定的问题（否则需加入阻尼项）</li></ul></li><li><p><strong>注意事项</strong>：</p><ul><li>Hessian 矩阵可能不可逆时，需添加正则化（如 Levenberg-Marquardt）</li><li>初始信赖域半径 <code>delta_max</code> 需根据问题调整</li></ul></li></ol><p>通过此代码，可以直观观察 Dogleg 算法在信赖域内的迭代过程，并验证其收敛性。</p></section><footer class=article-footer><section class=article-tags><a href=/tags/math/>Math</a>
+<a href=/tags/%E9%9D%9E%E7%BA%BF%E6%80%A7%E6%9C%80%E5%B0%8F%E4%BA%8C%E4%B9%98%E9%97%AE%E9%A2%98/>非线性最小二乘问题</a></section><section class=article-copyright><svg class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><path d="M14.5 9a3.5 4 0 100 6"/></svg>
+<span>Licensed under CC BY-NC-SA 4.0</span></section></footer><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css integrity=sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV crossorigin=anonymous><script src=https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js integrity=sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8 crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js integrity=sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05 crossorigin=anonymous defer></script><script>window.addEventListener("DOMContentLoaded",()=>{const e=document.querySelector(".main-article");renderMathInElement(e,{delimiters:[{left:"$$",right:"$$",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1},{left:"\\[",right:"\\]",display:!0}],ignoredClasses:["gist"]})})</script></article><aside class=related-content--wrapper><h2 class=section-title>相关文章</h2><div class=related-content><div class="flex article-list--tile"><article><a href=/p/lm%E6%B3%95/><div class=article-details><h2 class=article-title>LM法</h2></div></a></article></div></div></aside><script src=https://utteranc.es/client.js repo=MciG-ggg/MciG-ggg.github.io issue-term=pathname label=comment crossorigin=anonymous async></script><style>.utterances{max-width:unset}</style><script>let utterancesLoaded=!1;function setUtterancesTheme(e){let t=document.querySelector(".utterances iframe");t&&t.contentWindow.postMessage({type:"set-theme",theme:`github-${e}`},"https://utteranc.es")}addEventListener("message",e=>{if(e.origin!=="https://utteranc.es")return;utterancesLoaded=!0,setUtterancesTheme(document.documentElement.dataset.scheme)}),window.addEventListener("onColorSchemeChange",e=>{if(!utterancesLoaded)return;setUtterancesTheme(e.detail)})</script><footer class=site-footer><section class=copyright>&copy;
+2025 MciG</section><section class=powerby>路漫漫其修远兮，吾将上下而求索<br>使用 <a href=https://gohugo.io/ target=_blank rel=noopener>Hugo</a> 构建<br>主题 <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=noopener data-version=3.30.0>Stack</a></b> 由 <a href=https://jimmycai.com target=_blank rel=noopener>Jimmy</a> 设计</section></footer><div class=pswp tabindex=-1 role=dialog aria-hidden=true><div class=pswp__bg></div><div class=pswp__scroll-wrap><div class=pswp__container><div class=pswp__item></div><div class=pswp__item></div><div class=pswp__item></div></div><div class="pswp__ui pswp__ui--hidden"><div class=pswp__top-bar><div class=pswp__counter></div><button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+<button class="pswp__button pswp__button--share" title=Share></button>
+<button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button><div class=pswp__preloader><div class=pswp__preloader__icn><div class=pswp__preloader__cut><div class=pswp__preloader__donut></div></div></div></div></div><div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap"><div class=pswp__share-tooltip></div></div><button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+</button>
+<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button><div class=pswp__caption><div class=pswp__caption__center></div></div></div></div></div><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo=" crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU=" crossorigin=anonymous defer></script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css crossorigin=anonymous><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css crossorigin=anonymous></main></div><script src=https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z+KMkF24hUW8WePSA9HM=" crossorigin=anonymous></script><script type=text/javascript src=/ts/main.1e9a3bafd846ced4c345d084b355fb8c7bae75701c338f8a1f8a82c780137826.js defer></script><script>(function(){const e=document.createElement("link");e.href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap",e.type="text/css",e.rel="stylesheet",document.head.appendChild(e)})()</script></body></html>
