@@ -128,13 +128,13 @@
 &lt;/li>
 &lt;li>
 &lt;p>**折扣因子 $\gamma$ **：权衡当前与未来奖励。&lt;br>
-![[Pasted image 20250424203806.png]]
+![Pasted image 20250424203806.png](Pasted image 20250424203806.png)
 &lt;strong>求解方法&lt;/strong>：&lt;/p>
 &lt;/li>
 &lt;li>
 &lt;p>&lt;strong>值迭代&lt;/strong>：通过贝尔曼方程迭代更新值函数，收敛到最优策略。&lt;/p>
 &lt;ul>
-&lt;li>![[Pasted image 20250425133751.png]]&lt;/li>
+&lt;li>![Pasted image 20250425133751.png](Pasted image 20250425133751.png)&lt;/li>
 &lt;li>公式： $$V_{k+1}(s) = \max_{a}\sum_{s'}T(s,a,s')[R(s,a,s')+\gamma V_{k}(s')]$$
 &lt;ul>
 &lt;li>用 $s$ 的下一个状态 $s&amp;rsquo;$ 的第 $k$ 次迭代的V 值 $V_{k}(s&amp;rsquo;)$ 来更新第 $k+1$ 迭代的状态 $s$ 的V 值 $V_{k+1}(s)$&lt;/li>
@@ -207,7 +207,7 @@ $$\pi'(s) = \arg\max_{a} \left[ R(s,a) + \gamma \sum_{s'} P(s'|s,a) V^\pi(s') \r
 &lt;h4 id="被动rl">被动RL
 &lt;/h4>&lt;ul>
 &lt;li>基于模型的RL和不基于模型的RL 的区别：
-![[Pasted image 20250425144547.png]]&lt;/li>
+![Pasted image 20250425144547.png](Pasted image 20250425144547.png)&lt;/li>
 &lt;/ul>
 &lt;blockquote>
 &lt;p>[!NOTE] Title&lt;/p>
@@ -546,8 +546,8 @@ $$Q(s, a; \theta) = \text{NeuralNetwork}(s, a; \theta)$$&lt;p>&lt;br>
 &lt;li>tasks
 &lt;ul>
 &lt;li>tasks canlendar wraper
-![[Pasted image 20250422233209.png]]
-![[Pasted image 20250422233237.png]]&lt;/li>
+![Pasted image 20250422233209.png](Pasted image 20250422233209.png)
+![Pasted image 20250422233237.png](Pasted image 20250422233237.png)&lt;/li>
 &lt;/ul>
 &lt;/li>
 &lt;/ul>

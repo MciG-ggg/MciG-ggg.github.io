@@ -11,7 +11,7 @@
 <time class=article-time--published>Jun 02, 2025</time></div><div><svg class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
 <time class=article-time--reading>阅读时长: 2 分钟</time></div></footer></div></header><section class=article-content><p>#算法
 好的！以下是 <strong>Alpha-Beta剪枝</strong> 的核心原理说明和一个简化的Python实现代码，适用于对抗性搜索（如棋类游戏）的优化。</p><hr><h3 id=alpha-beta剪枝原理><strong>Alpha-Beta剪枝原理</strong></h3><p>Alpha-Beta剪枝是一种优化 <strong>Minimax算法</strong> 的技术，通过剪去搜索树中无需评估的分支，减少计算量。其核心思想是：<strong>如果某个路径的选择已经明显比已知的更好（或更差）选项差，则提前终止该路径的搜索</strong>。</p><ul><li><strong>Alpha（α）</strong>：当前路径上，玩家（MAX）<strong>已知的最佳选择</strong>的最小下界。初始值为 <code>-∞</code>。</li><li><strong>Beta（β）</strong>：当前路径上，对手（MIN）<strong>已知的最佳选择</strong>的最大上界。初始值为 <code>+∞</code>。</li><li><strong>剪枝条件</strong>：当 <code>α ≥ β</code> 时，停止当前分支的搜索（因为父节点不会选择这条路径）。</li></ul><hr><h3 id=python代码实现><strong>Python代码实现</strong></h3><p>以下是一个简化的Alpha-Beta剪枝代码框架，假设树节点为以下结构：</p><ul><li>每个节点包含 <code>value</code>（若为叶子节点）或 <code>children</code>（子节点列表）。</li><li><code>is_maximizing</code> 标记当前是MAX还是MIN层。
-![[Pasted image 20250420192228.png]]</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+![Pasted image 20250420192228.png](Pasted image 20250420192228.png)</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
 </span><span class=lnt> 2
 </span><span class=lnt> 3
 </span><span class=lnt> 4
