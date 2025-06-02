@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Conclusion on MciG</title><link>https://mcig-ggg.github.io/tags/conclusion/</link><description>Recent content in Conclusion on MciG</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><copyright>MciG</copyright><lastBuildDate>Mon, 02 Jun 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://mcig-ggg.github.io/tags/conclusion/index.xml" rel="self" type="application/rss+xml"/><item><title>CS188从搜索问题，MDP到RL</title><link>https://mcig-ggg.github.io/p/cs188%E4%BB%8E%E6%90%9C%E7%B4%A2%E9%97%AE%E9%A2%98mdp%E5%88%B0rl/</link><pubDate>Mon, 02 Jun 2025 00:00:00 +0000</pubDate><guid>https://mcig-ggg.github.io/p/cs188%E4%BB%8E%E6%90%9C%E7%B4%A2%E9%97%AE%E9%A2%98mdp%E5%88%B0rl/</guid><description>&lt;hr>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Conclusion on MciG</title><link>https://mcig-ggg.github.io/tags/conclusion/</link><description>Recent content in Conclusion on MciG</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><copyright>MciG</copyright><lastBuildDate>Mon, 02 Jun 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://mcig-ggg.github.io/tags/conclusion/index.xml" rel="self" type="application/rss+xml"/><item><title>CS188从搜索问题，MDP到RL</title><link>https://mcig-ggg.github.io/p/cs188%E4%BB%8E%E6%90%9C%E7%B4%A2%E9%97%AE%E9%A2%98mdp%E5%88%B0rl/</link><pubDate>Mon, 02 Jun 2025 00:00:00 +0000</pubDate><guid>https://mcig-ggg.github.io/p/cs188%E4%BB%8E%E6%90%9C%E7%B4%A2%E9%97%AE%E9%A2%98mdp%E5%88%B0rl/</guid><description>&lt;img src="https://mcig-ggg.github.io/p/cs188%E4%BB%8E%E6%90%9C%E7%B4%A2%E9%97%AE%E9%A2%98mdp%E5%88%B0rl/Pasted-image-20250424203806.png" alt="Featured image of post CS188从搜索问题，MDP到RL" />&lt;hr>
 &lt;h1 id="cs188从搜索问题到-rl人工智能决策算法的演进之路">CS188：从搜索问题到 RL——人工智能决策算法的演进之路
 &lt;/h1>&lt;p>UC Berkeley 的 CS188 课程（人工智能导论）以“构建智能体的决策能力”为核心，从经典的搜索算法到现代强化学习（Reinforcement Learning, RL），系统性地揭示了人工智能如何在复杂环境中规划路径、解决问题并优化策略。本文将沿着课程脉络，梳理从基础搜索到强化学习的演进逻辑，并探讨其背后的核心思想。&lt;/p>
 &lt;hr>
@@ -128,10 +128,10 @@
 &lt;/li>
 &lt;li>
 &lt;p>**折扣因子 $\gamma$ **：权衡当前与未来奖励。&lt;br>
-&lt;img src="https://mcig-ggg.github.io/p/cs188%E4%BB%8E%E6%90%9C%E7%B4%A2%E9%97%AE%E9%A2%98mdp%E5%88%B0rl/Pasted%20image%2020250424203806.png"
+&lt;img src="https://mcig-ggg.github.io/p/cs188%E4%BB%8E%E6%90%9C%E7%B4%A2%E9%97%AE%E9%A2%98mdp%E5%88%B0rl/Pasted-image-20250424203806.png"
 width="1920"
 height="998"
-srcset="https://mcig-ggg.github.io/p/cs188%E4%BB%8E%E6%90%9C%E7%B4%A2%E9%97%AE%E9%A2%98mdp%E5%88%B0rl/Pasted%20image%2020250424203806_hu_cd3d5b8b4f9b483e.png 480w, https://mcig-ggg.github.io/p/cs188%E4%BB%8E%E6%90%9C%E7%B4%A2%E9%97%AE%E9%A2%98mdp%E5%88%B0rl/Pasted%20image%2020250424203806_hu_2a902aba1fa584f2.png 1024w"
+srcset="https://mcig-ggg.github.io/p/cs188%E4%BB%8E%E6%90%9C%E7%B4%A2%E9%97%AE%E9%A2%98mdp%E5%88%B0rl/Pasted-image-20250424203806_hu_cd3d5b8b4f9b483e.png 480w, https://mcig-ggg.github.io/p/cs188%E4%BB%8E%E6%90%9C%E7%B4%A2%E9%97%AE%E9%A2%98mdp%E5%88%B0rl/Pasted-image-20250424203806_hu_2a902aba1fa584f2.png 1024w"
 loading="lazy"
 alt="Pasted image 20250424203806.png"
 class="gallery-image"
@@ -143,10 +143,10 @@ data-flex-basis="461px"
 &lt;li>
 &lt;p>&lt;strong>值迭代&lt;/strong>：通过贝尔曼方程迭代更新值函数，收敛到最优策略。&lt;/p>
 &lt;ul>
-&lt;li>&lt;img src="https://mcig-ggg.github.io/p/cs188%E4%BB%8E%E6%90%9C%E7%B4%A2%E9%97%AE%E9%A2%98mdp%E5%88%B0rl/Pasted%20image%2020250425133751.png"
+&lt;li>&lt;img src="https://mcig-ggg.github.io/p/cs188%E4%BB%8E%E6%90%9C%E7%B4%A2%E9%97%AE%E9%A2%98mdp%E5%88%B0rl/Pasted-image-20250425133751.png"
 width="1932"
 height="1082"
-srcset="https://mcig-ggg.github.io/p/cs188%E4%BB%8E%E6%90%9C%E7%B4%A2%E9%97%AE%E9%A2%98mdp%E5%88%B0rl/Pasted%20image%2020250425133751_hu_2d5f0c47e67d6b60.png 480w, https://mcig-ggg.github.io/p/cs188%E4%BB%8E%E6%90%9C%E7%B4%A2%E9%97%AE%E9%A2%98mdp%E5%88%B0rl/Pasted%20image%2020250425133751_hu_6256398997e4fbcb.png 1024w"
+srcset="https://mcig-ggg.github.io/p/cs188%E4%BB%8E%E6%90%9C%E7%B4%A2%E9%97%AE%E9%A2%98mdp%E5%88%B0rl/Pasted-image-20250425133751_hu_2d5f0c47e67d6b60.png 480w, https://mcig-ggg.github.io/p/cs188%E4%BB%8E%E6%90%9C%E7%B4%A2%E9%97%AE%E9%A2%98mdp%E5%88%B0rl/Pasted-image-20250425133751_hu_6256398997e4fbcb.png 1024w"
 loading="lazy"
 alt="Pasted image 20250425133751.png"
 class="gallery-image"
@@ -225,10 +225,10 @@ $$\pi'(s) = \arg\max_{a} \left[ R(s,a) + \gamma \sum_{s'} P(s'|s,a) V^\pi(s') \r
 &lt;h4 id="被动rl">被动RL
 &lt;/h4>&lt;ul>
 &lt;li>基于模型的RL和不基于模型的RL 的区别：
-&lt;img src="https://mcig-ggg.github.io/p/cs188%E4%BB%8E%E6%90%9C%E7%B4%A2%E9%97%AE%E9%A2%98mdp%E5%88%B0rl/Pasted%20image%2020250425144547.png"
+&lt;img src="https://mcig-ggg.github.io/p/cs188%E4%BB%8E%E6%90%9C%E7%B4%A2%E9%97%AE%E9%A2%98mdp%E5%88%B0rl/Pasted-image-20250425144547.png"
 width="1926"
 height="1094"
-srcset="https://mcig-ggg.github.io/p/cs188%E4%BB%8E%E6%90%9C%E7%B4%A2%E9%97%AE%E9%A2%98mdp%E5%88%B0rl/Pasted%20image%2020250425144547_hu_1cd6dd1be1c58b61.png 480w, https://mcig-ggg.github.io/p/cs188%E4%BB%8E%E6%90%9C%E7%B4%A2%E9%97%AE%E9%A2%98mdp%E5%88%B0rl/Pasted%20image%2020250425144547_hu_e5a6f85dfaf3e412.png 1024w"
+srcset="https://mcig-ggg.github.io/p/cs188%E4%BB%8E%E6%90%9C%E7%B4%A2%E9%97%AE%E9%A2%98mdp%E5%88%B0rl/Pasted-image-20250425144547_hu_1cd6dd1be1c58b61.png 480w, https://mcig-ggg.github.io/p/cs188%E4%BB%8E%E6%90%9C%E7%B4%A2%E9%97%AE%E9%A2%98mdp%E5%88%B0rl/Pasted-image-20250425144547_hu_e5a6f85dfaf3e412.png 1024w"
 loading="lazy"
 alt="Pasted image 20250425144547.png"
 class="gallery-image"
@@ -541,7 +541,7 @@ $$Q(s, a; \theta) = \text{NeuralNetwork}(s, a; \theta)$$&lt;p>&lt;br>
 &lt;/ul>
 &lt;/li>
 &lt;/ul>
-&lt;hr></description></item><item><title>obsidian折腾总结</title><link>https://mcig-ggg.github.io/p/obsidian%E6%8A%98%E8%85%BE%E6%80%BB%E7%BB%93/</link><pubDate>Mon, 02 Jun 2025 00:00:00 +0000</pubDate><guid>https://mcig-ggg.github.io/p/obsidian%E6%8A%98%E8%85%BE%E6%80%BB%E7%BB%93/</guid><description>&lt;ul>
+&lt;hr></description></item><item><title>obsidian折腾总结</title><link>https://mcig-ggg.github.io/p/obsidian%E6%8A%98%E8%85%BE%E6%80%BB%E7%BB%93/</link><pubDate>Mon, 02 Jun 2025 00:00:00 +0000</pubDate><guid>https://mcig-ggg.github.io/p/obsidian%E6%8A%98%E8%85%BE%E6%80%BB%E7%BB%93/</guid><description>&lt;img src="https://mcig-ggg.github.io/p/obsidian%E6%8A%98%E8%85%BE%E6%80%BB%E7%BB%93/Pasted-image-20250422233209.png" alt="Featured image of post obsidian折腾总结" />&lt;ul>
 &lt;li>少折腾&lt;/li>
 &lt;li>记录下现在的成果
 &lt;ul>
@@ -573,20 +573,20 @@ $$Q(s, a; \theta) = \text{NeuralNetwork}(s, a; \theta)$$&lt;p>&lt;br>
 &lt;li>tasks
 &lt;ul>
 &lt;li>tasks canlendar wraper
-&lt;img src="https://mcig-ggg.github.io/p/obsidian%E6%8A%98%E8%85%BE%E6%80%BB%E7%BB%93/Pasted%20image%2020250422233209.png"
+&lt;img src="https://mcig-ggg.github.io/p/obsidian%E6%8A%98%E8%85%BE%E6%80%BB%E7%BB%93/Pasted-image-20250422233209.png"
 width="2452"
 height="1678"
-srcset="https://mcig-ggg.github.io/p/obsidian%E6%8A%98%E8%85%BE%E6%80%BB%E7%BB%93/Pasted%20image%2020250422233209_hu_9b13379e66f72074.png 480w, https://mcig-ggg.github.io/p/obsidian%E6%8A%98%E8%85%BE%E6%80%BB%E7%BB%93/Pasted%20image%2020250422233209_hu_5b6133dbfdeb7e3f.png 1024w"
+srcset="https://mcig-ggg.github.io/p/obsidian%E6%8A%98%E8%85%BE%E6%80%BB%E7%BB%93/Pasted-image-20250422233209_hu_9b13379e66f72074.png 480w, https://mcig-ggg.github.io/p/obsidian%E6%8A%98%E8%85%BE%E6%80%BB%E7%BB%93/Pasted-image-20250422233209_hu_5b6133dbfdeb7e3f.png 1024w"
 loading="lazy"
 alt="Pasted image 20250422233209.png"
 class="gallery-image"
 data-flex-grow="146"
 data-flex-basis="350px"
 >
-&lt;img src="https://mcig-ggg.github.io/p/obsidian%E6%8A%98%E8%85%BE%E6%80%BB%E7%BB%93/Pasted%20image%2020250422233237.png"
+&lt;img src="https://mcig-ggg.github.io/p/obsidian%E6%8A%98%E8%85%BE%E6%80%BB%E7%BB%93/Pasted-image-20250422233237.png"
 width="2510"
 height="1676"
-srcset="https://mcig-ggg.github.io/p/obsidian%E6%8A%98%E8%85%BE%E6%80%BB%E7%BB%93/Pasted%20image%2020250422233237_hu_80cb5fd53543c147.png 480w, https://mcig-ggg.github.io/p/obsidian%E6%8A%98%E8%85%BE%E6%80%BB%E7%BB%93/Pasted%20image%2020250422233237_hu_566502363b761ba.png 1024w"
+srcset="https://mcig-ggg.github.io/p/obsidian%E6%8A%98%E8%85%BE%E6%80%BB%E7%BB%93/Pasted-image-20250422233237_hu_80cb5fd53543c147.png 480w, https://mcig-ggg.github.io/p/obsidian%E6%8A%98%E8%85%BE%E6%80%BB%E7%BB%93/Pasted-image-20250422233237_hu_566502363b761ba.png 1024w"
 loading="lazy"
 alt="Pasted image 20250422233237.png"
 class="gallery-image"
