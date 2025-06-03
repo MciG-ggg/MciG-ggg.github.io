@@ -9,7 +9,7 @@
 <svg class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="16" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg>
 <span>暗色模式</span></li></ol></li></ol></aside><main class="main full-width"><article class=main-article><header class=article-header><div class=article-details><header class=article-category><a href=/categories/%E5%BC%80%E5%8F%91/>开发</a></header><div class=article-title-wrapper><h2 class=article-title><a href=/p/hugo_publish/>hugo_publish</a></h2><h3 class=article-subtitle>Content from hugo_publish</h3></div><footer class=article-time><div><svg class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><path d="M11.795 21H5a2 2 0 01-2-2V7a2 2 0 012-2h12a2 2 0 012 2v4"/><circle cx="18" cy="18" r="4"/><path d="M15 3v4"/><path d="M7 3v4"/><path d="M3 11h16"/><path d="M18 16.496V18l1 1"/></svg>
 <time class=article-time--published>Jun 03, 2025</time></div><div><svg class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
-<time class=article-time--reading>阅读时长: 3 分钟</time></div></footer></div></header><section class=article-content><p><strong>1. 项目结构</strong></p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+<time class=article-time--reading>阅读时长: 2 分钟</time></div></footer></div></header><section class=article-content><p><strong>1. 项目结构</strong></p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
 </span><span class=lnt> 2
 </span><span class=lnt> 3
 </span><span class=lnt> 4
@@ -33,215 +33,95 @@
 </span></span><span class=line><span class=cl>    ├── config_manager.py        # 配置管理
 </span></span><span class=line><span class=cl>    ├── image_processor.py       # 图片处理
 </span></span><span class=line><span class=cl>    └── obsidian_image_handler.py # Obsidian图片转换
-</span></span></code></pre></td></tr></table></div></div><p><strong>2. 核心功能和主要类</strong></p><ol><li><p><code>BlogProcessor</code> 类 (blog_processor.py)：</p><ul><li><code>create_new_post()</code> - 创建新的Hugo文章</li><li><code>process_markdown_files()</code> - 处理Markdown文件转换</li><li><code>list_published_markdowns()</code> - 列出已发布的文章</li><li><code>set_publish_false()</code> - 设置文章为未发布状态</li><li><code>unpublish_article()</code> - 取消发布文章</li><li><code>preview_site()</code> - 预览博客站点</li><li><code>deploy_to_repos()</code> - 部署到GitHub仓库</li></ul></li><li><p><code>FrontMatter</code> 类 (front_matter.py)：</p><ul><li>管理文章前置数据</li><li>处理标签和分类</li><li>提供标准化的数据访问接口</li></ul></li><li><p>支持模块：</p><ul><li>config_manager.py: 配置管理</li><li>obsidian_image_handler.py: 图片处理</li><li>image_processor.py: 图片处理工具</li></ul></li></ol><p><strong>3. 程序流程图</strong></p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span><span class=lnt>11
-</span><span class=lnt>12
-</span><span class=lnt>13
-</span><span class=lnt>14
-</span><span class=lnt>15
-</span><span class=lnt>16
-</span><span class=lnt>17
-</span><span class=lnt>18
-</span><span class=lnt>19
-</span><span class=lnt>20
-</span><span class=lnt>21
-</span><span class=lnt>22
-</span><span class=lnt>23
-</span><span class=lnt>24
-</span><span class=lnt>25
-</span><span class=lnt>26
-</span><span class=lnt>27
-</span><span class=lnt>28
-</span><span class=lnt>29
-</span><span class=lnt>30
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>graph TD
-</span></span><span class=line><span class=cl>    A[开始] --&gt; B{检查命令行参数}
-</span></span><span class=line><span class=cl>    B --&gt;|--preview| C[预览模式]
-</span></span><span class=line><span class=cl>    B --&gt;|--unpublish| D[取消发布]
-</span></span><span class=line><span class=cl>    B --&gt;|--republish| E[重新发布]
-</span></span><span class=line><span class=cl>    B --&gt;|默认发布| F[发布流程]
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>    C --&gt; C1[启动Hugo服务器]
-</span></span><span class=line><span class=cl>    C1 --&gt; C2[打开预览页面]
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>    D --&gt; D1[列出已发布文章]
-</span></span><span class=line><span class=cl>    D1 --&gt; D2[选择要取消的文章]
-</span></span><span class=line><span class=cl>    D2 --&gt; D3[更新文章状态]
-</span></span><span class=line><span class=cl>    D3 --&gt; D4[删除Hugo文件]
-</span></span><span class=line><span class=cl>    D4 --&gt; G[部署更新]
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>    E --&gt; E1[找出已发布文章]
-</span></span><span class=line><span class=cl>    E1 --&gt; E2[取消所有发布]
-</span></span><span class=line><span class=cl>    E2 --&gt; E3[重新发布文章]
-</span></span><span class=line><span class=cl>    E3 --&gt; G
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>    F --&gt; F1[处理Markdown文件]
-</span></span><span class=line><span class=cl>    F1 --&gt; F2[处理图片资源]
-</span></span><span class=line><span class=cl>    F2 --&gt; F3[创建Hugo文章]
-</span></span><span class=line><span class=cl>    F3 --&gt; G
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>    G --&gt; G1[更新源码仓库]
-</span></span><span class=line><span class=cl>    G1 --&gt; G2[构建Hugo站点]
-</span></span><span class=line><span class=cl>    G2 --&gt; G3[部署到GitHub Pages]
-</span></span><span class=line><span class=cl>    G3 --&gt; H[结束]
-</span></span></code></pre></td></tr></table></div></div><p><strong>4. 文章处理流程</strong></p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span><span class=lnt>11
-</span><span class=lnt>12
-</span><span class=lnt>13
-</span><span class=lnt>14
-</span><span class=lnt>15
-</span><span class=lnt>16
-</span><span class=lnt>17
-</span><span class=lnt>18
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>sequenceDiagram
-</span></span><span class=line><span class=cl>    participant U as 用户
-</span></span><span class=line><span class=cl>    participant BP as BlogProcessor
-</span></span><span class=line><span class=cl>    participant FM as FrontMatter
-</span></span><span class=line><span class=cl>    participant IH as ImageHandler
-</span></span><span class=line><span class=cl>    participant H as Hugo
-</span></span><span class=line><span class=cl>    participant G as Git仓库
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>    U-&gt;&gt;BP: 执行发布命令
-</span></span><span class=line><span class=cl>    BP-&gt;&gt;FM: 提取YAML和内容
-</span></span><span class=line><span class=cl>    FM-&gt;&gt;FM: 处理前置数据
-</span></span><span class=line><span class=cl>    BP-&gt;&gt;IH: 处理图片
-</span></span><span class=line><span class=cl>    IH-&gt;&gt;IH: 复制并重命名图片
-</span></span><span class=line><span class=cl>    BP-&gt;&gt;BP: 创建Hugo文章
-</span></span><span class=line><span class=cl>    BP-&gt;&gt;H: 构建站点
-</span></span><span class=line><span class=cl>    BP-&gt;&gt;G: 推送源码
-</span></span><span class=line><span class=cl>    BP-&gt;&gt;G: 部署页面
-</span></span><span class=line><span class=cl>    G--&gt;&gt;U: 返回部署结果
-</span></span></code></pre></td></tr></table></div></div><p><strong>5. 类关系图</strong></p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span><span class=lnt>11
-</span><span class=lnt>12
-</span><span class=lnt>13
-</span><span class=lnt>14
-</span><span class=lnt>15
-</span><span class=lnt>16
-</span><span class=lnt>17
-</span><span class=lnt>18
-</span><span class=lnt>19
-</span><span class=lnt>20
-</span><span class=lnt>21
-</span><span class=lnt>22
-</span><span class=lnt>23
-</span><span class=lnt>24
-</span><span class=lnt>25
-</span><span class=lnt>26
-</span><span class=lnt>27
-</span><span class=lnt>28
-</span><span class=lnt>29
-</span><span class=lnt>30
-</span><span class=lnt>31
-</span><span class=lnt>32
-</span><span class=lnt>33
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>classDiagram
-</span></span><span class=line><span class=cl>    class BlogProcessor {
-</span></span><span class=line><span class=cl>        +source_dir: Path
-</span></span><span class=line><span class=cl>        +hugo_dir: Path
-</span></span><span class=line><span class=cl>        +create_new_post()
-</span></span><span class=line><span class=cl>        +process_markdown_files()
-</span></span><span class=line><span class=cl>        +list_published_markdowns()
-</span></span><span class=line><span class=cl>        +set_publish_false()
-</span></span><span class=line><span class=cl>        +unpublish_article()
-</span></span><span class=line><span class=cl>        +preview_site()
-</span></span><span class=line><span class=cl>        +deploy_to_repos()
-</span></span><span class=line><span class=cl>    }
-</span></span><span class=line><span class=cl>    
-</span></span><span class=line><span class=cl>    class FrontMatter {
-</span></span><span class=line><span class=cl>        +data: dict
-</span></span><span class=line><span class=cl>        +title: str
-</span></span><span class=line><span class=cl>        +date: str
-</span></span><span class=line><span class=cl>        +tags: list
-</span></span><span class=line><span class=cl>        +categories: list
-</span></span><span class=line><span class=cl>        +draft: bool
-</span></span><span class=line><span class=cl>        +publish: bool
-</span></span><span class=line><span class=cl>        +to_dict()
-</span></span><span class=line><span class=cl>        +update()
-</span></span><span class=line><span class=cl>    }
-</span></span><span class=line><span class=cl>    
-</span></span><span class=line><span class=cl>    class ImageHandler {
-</span></span><span class=line><span class=cl>        +process_obsidian_images()
-</span></span><span class=line><span class=cl>        +copy_image()
-</span></span><span class=line><span class=cl>        +update_links()
-</span></span><span class=line><span class=cl>    }
-</span></span><span class=line><span class=cl>    
-</span></span><span class=line><span class=cl>    BlogProcessor --&gt; FrontMatter : 使用
-</span></span><span class=line><span class=cl>    BlogProcessor --&gt; ImageHandler : 使用
-</span></span></code></pre></td></tr></table></div></div><p><strong>6. 部署流程</strong></p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span><span class=lnt>11
-</span><span class=lnt>12
-</span><span class=lnt>13
-</span><span class=lnt>14
-</span><span class=lnt>15
-</span><span class=lnt>16
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>graph TD
-</span></span><span class=line><span class=cl>    A[开始部署] --&gt; B[更新源码仓库]
-</span></span><span class=line><span class=cl>    B --&gt; C[构建Hugo站点]
-</span></span><span class=line><span class=cl>    C --&gt; D[部署到GitHub Pages]
-</span></span><span class=line><span class=cl>    D --&gt; E[结束]
-</span></span><span class=line><span class=cl>    
-</span></span><span class=line><span class=cl>    B --&gt; B1[Git操作]
-</span></span><span class=line><span class=cl>    B1 --&gt; B2[提交更改]
-</span></span><span class=line><span class=cl>    B2 --&gt; B3[推送到源码仓库]
-</span></span><span class=line><span class=cl>    
-</span></span><span class=line><span class=cl>    C --&gt; C1[生成静态文件]
-</span></span><span class=line><span class=cl>    C1 --&gt; C2[优化资源]
-</span></span><span class=line><span class=cl>    
-</span></span><span class=line><span class=cl>    D --&gt; D1[初始化Pages仓库]
-</span></span><span class=line><span class=cl>    D1 --&gt; D2[提交更改]
-</span></span><span class=line><span class=cl>    D2 --&gt; D3[强制推送到Pages]
-</span></span></code></pre></td></tr></table></div></div><p><strong>7. 配置管理流程</strong></p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span><span class=lnt>5
-</span><span class=lnt>6
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>graph LR
-</span></span><span class=line><span class=cl>    A[配置文件] --&gt;|读取| B[Config类]
-</span></span><span class=line><span class=cl>    B --&gt;|解析| C[配置字典]
-</span></span><span class=line><span class=cl>    C --&gt;|获取配置| D[程序模块]
-</span></span><span class=line><span class=cl>    D --&gt;|更新配置| B
-</span></span><span class=line><span class=cl>    B --&gt;|保存| A
-</span></span></code></pre></td></tr></table></div></div><p><strong>8. 主要功能说明</strong></p><ol><li><p>文章处理：</p><ul><li>支持从Obsidian格式转换到Hugo格式</li><li>自动处理图片资源</li><li>维护标签和分类的映射关系</li><li>支持草稿模式</li></ul></li><li><p>部署功能：</p><ul><li>自动更新源码仓库</li><li>构建Hugo静态站点</li><li>部署到GitHub Pages</li><li>支持预览模式</li></ul></li><li><p>图片处理：</p><ul><li>自动复制和重命名图片</li><li>更新文章中的图片链接</li><li>支持多种图片格式</li></ul></li><li><p>配置管理：</p><ul><li>灵活的配置系统</li><li>支持多环境配置</li><li>配置验证和错误处理</li></ul></li></ol></section><footer class=article-footer><section class=article-tags><a href=/tags/%E5%BC%80%E5%8F%91/>开发</a></section><section class=article-copyright><svg class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><path d="M14.5 9a3.5 4 0 100 6"/></svg>
+</span></span></code></pre></td></tr></table></div></div><p><strong>2. 核心功能和主要类</strong></p><ol><li><p><code>BlogProcessor</code> 类 (blog_processor.py)：</p><ul><li><code>create_new_post()</code> - 创建新的Hugo文章</li><li><code>process_markdown_files()</code> - 处理Markdown文件转换</li><li><code>list_published_markdowns()</code> - 列出已发布的文章</li><li><code>set_publish_false()</code> - 设置文章为未发布状态</li><li><code>unpublish_article()</code> - 取消发布文章</li><li><code>preview_site()</code> - 预览博客站点</li><li><code>deploy_to_repos()</code> - 部署到GitHub仓库</li></ul></li><li><p><code>FrontMatter</code> 类 (front_matter.py)：</p><ul><li>管理文章前置数据</li><li>处理标签和分类</li><li>提供标准化的数据访问接口</li></ul></li><li><p>支持模块：</p><ul><li>config_manager.py: 配置管理</li><li>obsidian_image_handler.py: 图片处理</li><li>image_processor.py: 图片处理工具</li></ul></li></ol><p><strong>3. 程序流程图</strong></p><div class=mermaid id=mermaid-0>graph TD
+A[开始] --> B{检查命令行参数}
+B -->|--preview| C[预览模式]
+B -->|--unpublish| D[取消发布]
+B -->|--republish| E[重新发布]
+B -->|默认发布| F[发布流程]
+C --> C1[启动Hugo服务器]
+C1 --> C2[打开预览页面]
+D --> D1[列出已发布文章]
+D1 --> D2[选择要取消的文章]
+D2 --> D3[更新文章状态]
+D3 --> D4[删除Hugo文件]
+D4 --> G[部署更新]
+E --> E1[找出已发布文章]
+E1 --> E2[取消所有发布]
+E2 --> E3[重新发布文章]
+E3 --> G
+F --> F1[处理Markdown文件]
+F1 --> F2[处理图片资源]
+F2 --> F3[创建Hugo文章]
+F3 --> G
+G --> G1[更新源码仓库]
+G1 --> G2[构建Hugo站点]
+G2 --> G3[部署到GitHub Pages]
+G3 --> H[结束]</div><script>document.addEventListener("DOMContentLoaded",function(){mermaid.initialize({startOnLoad:!0,theme:"default",securityLevel:"loose",flowchart:{htmlLabels:!0,curve:"basis"}}),mermaid.init(0[0],"#mermaid-0")})</script><p><strong>4. 文章处理流程</strong></p><div class=mermaid id=mermaid-1>sequenceDiagram
+participant U as 用户
+participant BP as BlogProcessor
+participant FM as FrontMatter
+participant IH as ImageHandler
+participant H as Hugo
+participant G as Git仓库
+U->>BP: 执行发布命令
+BP->>FM: 提取YAML和内容
+FM->>FM: 处理前置数据
+BP->>IH: 处理图片
+IH->>IH: 复制并重命名图片
+BP->>BP: 创建Hugo文章
+BP->>H: 构建站点
+BP->>G: 推送源码
+BP->>G: 部署页面
+G-->>U: 返回部署结果</div><script>document.addEventListener("DOMContentLoaded",function(){mermaid.initialize({startOnLoad:!0,theme:"default",securityLevel:"loose",flowchart:{htmlLabels:!0,curve:"basis"}}),mermaid.init(0[0],"#mermaid-1")})</script><p><strong>5. 类关系图</strong></p><div class=mermaid id=mermaid-2>classDiagram
+class BlogProcessor {
++source_dir: Path
++hugo_dir: Path
++create_new_post()
++process_markdown_files()
++list_published_markdowns()
++set_publish_false()
++unpublish_article()
++preview_site()
++deploy_to_repos()
+}
+class FrontMatter {
++data: dict
++title: str
++date: str
++tags: list
++categories: list
++draft: bool
++publish: bool
++to_dict()
++update()
+}
+class ImageHandler {
++process_obsidian_images()
++copy_image()
++update_links()
+}
+BlogProcessor --> FrontMatter : 使用
+BlogProcessor --> ImageHandler : 使用</div><script>document.addEventListener("DOMContentLoaded",function(){mermaid.initialize({startOnLoad:!0,theme:"default",securityLevel:"loose",flowchart:{htmlLabels:!0,curve:"basis"}}),mermaid.init(0[0],"#mermaid-2")})</script><p><strong>6. 部署流程</strong></p><div class=mermaid id=mermaid-3>graph TD
+A[开始部署] --> B[更新源码仓库]
+B --> C[构建Hugo站点]
+C --> D[部署到GitHub Pages]
+D --> E[结束]
+B --> B1[Git操作]
+B1 --> B2[提交更改]
+B2 --> B3[推送到源码仓库]
+C --> C1[生成静态文件]
+C1 --> C2[优化资源]
+D --> D1[初始化Pages仓库]
+D1 --> D2[提交更改]
+D2 --> D3[强制推送到Pages]</div><script>document.addEventListener("DOMContentLoaded",function(){mermaid.initialize({startOnLoad:!0,theme:"default",securityLevel:"loose",flowchart:{htmlLabels:!0,curve:"basis"}}),mermaid.init(0[0],"#mermaid-3")})</script><p><strong>7. 配置管理流程</strong></p><div class=mermaid id=mermaid-4>graph LR
+A[配置文件] -->|读取| B[Config类]
+B -->|解析| C[配置字典]
+C -->|获取配置| D[程序模块]
+D -->|更新配置| B
+B -->|保存| A</div><script>document.addEventListener("DOMContentLoaded",function(){mermaid.initialize({startOnLoad:!0,theme:"default",securityLevel:"loose",flowchart:{htmlLabels:!0,curve:"basis"}}),mermaid.init(0[0],"#mermaid-4")})</script><p><strong>8. 主要功能说明</strong></p><ol><li><p>文章处理：</p><ul><li>支持从Obsidian格式转换到Hugo格式</li><li>自动处理图片资源</li><li>维护标签和分类的映射关系</li><li>支持草稿模式</li></ul></li><li><p>部署功能：</p><ul><li>自动更新源码仓库</li><li>构建Hugo静态站点</li><li>部署到GitHub Pages</li><li>支持预览模式</li></ul></li><li><p>图片处理：</p><ul><li>自动复制和重命名图片</li><li>更新文章中的图片链接</li><li>支持多种图片格式</li></ul></li><li><p>配置管理：</p><ul><li>灵活的配置系统</li><li>支持多环境配置</li><li>配置验证和错误处理</li></ul></li></ol></section><footer class=article-footer><section class=article-tags><a href=/tags/%E5%BC%80%E5%8F%91/>开发</a></section><section class=article-copyright><svg class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><path d="M14.5 9a3.5 4 0 100 6"/></svg>
 <span>Licensed under CC BY-NC-SA 4.0</span></section></footer><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css integrity=sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV crossorigin=anonymous><script src=https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js integrity=sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8 crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js integrity=sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05 crossorigin=anonymous defer></script><script>window.addEventListener("DOMContentLoaded",()=>{const e=document.querySelector(".main-article");renderMathInElement(e,{delimiters:[{left:"$$",right:"$$",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1},{left:"\\[",right:"\\]",display:!0}],ignoredClasses:["gist"]})})</script></article><script src=https://utteranc.es/client.js repo=MciG-ggg/MciG-ggg.github.io issue-term=pathname label=comment crossorigin=anonymous async></script><style>.utterances{max-width:unset}</style><script>let utterancesLoaded=!1;function setUtterancesTheme(e){let t=document.querySelector(".utterances iframe");t&&t.contentWindow.postMessage({type:"set-theme",theme:`github-${e}`},"https://utteranc.es")}addEventListener("message",e=>{if(e.origin!=="https://utteranc.es")return;utterancesLoaded=!0,setUtterancesTheme(document.documentElement.dataset.scheme)}),window.addEventListener("onColorSchemeChange",e=>{if(!utterancesLoaded)return;setUtterancesTheme(e.detail)})</script><footer class=site-footer><section class=copyright>&copy;
-2025 MciG</section><section class=powerby>路漫漫其修远兮，吾将上下而求索<br>使用 <a href=https://gohugo.io/ target=_blank rel=noopener>Hugo</a> 构建<br>主题 <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=noopener data-version=3.30.0>Stack</a></b> 由 <a href=https://jimmycai.com target=_blank rel=noopener>Jimmy</a> 设计</section></footer><div class=pswp tabindex=-1 role=dialog aria-hidden=true><div class=pswp__bg></div><div class=pswp__scroll-wrap><div class=pswp__container><div class=pswp__item></div><div class=pswp__item></div><div class=pswp__item></div></div><div class="pswp__ui pswp__ui--hidden"><div class=pswp__top-bar><div class=pswp__counter></div><button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+2025 MciG</section><section class=powerby>路漫漫其修远兮，吾将上下而求索<br>使用 <a href=https://gohugo.io/ target=_blank rel=noopener>Hugo</a> 构建<br>主题 <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=noopener data-version=3.30.0>Stack</a></b> 由 <a href=https://jimmycai.com target=_blank rel=noopener>Jimmy</a> 设计</section></footer><script src=https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js></script><div class=pswp tabindex=-1 role=dialog aria-hidden=true><div class=pswp__bg></div><div class=pswp__scroll-wrap><div class=pswp__container><div class=pswp__item></div><div class=pswp__item></div><div class=pswp__item></div></div><div class="pswp__ui pswp__ui--hidden"><div class=pswp__top-bar><div class=pswp__counter></div><button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
 <button class="pswp__button pswp__button--share" title=Share></button>
 <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
 <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button><div class=pswp__preloader><div class=pswp__preloader__icn><div class=pswp__preloader__cut><div class=pswp__preloader__donut></div></div></div></div></div><div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap"><div class=pswp__share-tooltip></div></div><button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
