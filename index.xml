@@ -631,7 +631,346 @@ $$Q(s, a; \theta) = \text{NeuralNetwork}(s, a; \theta)$$&lt;p>&lt;br>
 &lt;/ul>
 &lt;/li>
 &lt;/ul>
-&lt;hr></description></item><item><title>obsidian折腾总结</title><link>https://mcig-ggg.github.io/p/obsidian%E6%8A%98%E8%85%BE%E6%80%BB%E7%BB%93/</link><pubDate>Tue, 03 Jun 2025 00:00:00 +0000</pubDate><guid>https://mcig-ggg.github.io/p/obsidian%E6%8A%98%E8%85%BE%E6%80%BB%E7%BB%93/</guid><description>&lt;ul>
+&lt;hr></description></item><item><title>hugo_publish</title><link>https://mcig-ggg.github.io/p/hugo_publish/</link><pubDate>Tue, 03 Jun 2025 00:00:00 +0000</pubDate><guid>https://mcig-ggg.github.io/p/hugo_publish/</guid><description>&lt;p>&lt;strong>1. 项目结构&lt;/strong>&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">.
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">├── hugo_publish_blog.py # 主程序
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">├── config.yaml # 配置文件
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">├── config.yaml.example # 配置文件模板
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">├── requirements.txt # 依赖清单
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">└── scripts/ # 功能模块
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> ├── __init__.py
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> ├── blog_processor.py # 博客处理核心类
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> ├── front_matter.py # 文章前置数据处理
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> ├── config_manager.py # 配置管理
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> ├── image_processor.py # 图片处理
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> └── obsidian_image_handler.py # Obsidian图片转换
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;strong>2. 核心功能和主要类&lt;/strong>&lt;/p>
+&lt;ol>
+&lt;li>
+&lt;p>&lt;code>BlogProcessor&lt;/code> 类 (blog_processor.py)：&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>create_new_post()&lt;/code> - 创建新的Hugo文章&lt;/li>
+&lt;li>&lt;code>process_markdown_files()&lt;/code> - 处理Markdown文件转换&lt;/li>
+&lt;li>&lt;code>list_published_markdowns()&lt;/code> - 列出已发布的文章&lt;/li>
+&lt;li>&lt;code>set_publish_false()&lt;/code> - 设置文章为未发布状态&lt;/li>
+&lt;li>&lt;code>unpublish_article()&lt;/code> - 取消发布文章&lt;/li>
+&lt;li>&lt;code>preview_site()&lt;/code> - 预览博客站点&lt;/li>
+&lt;li>&lt;code>deploy_to_repos()&lt;/code> - 部署到GitHub仓库&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;code>FrontMatter&lt;/code> 类 (front_matter.py)：&lt;/p>
+&lt;ul>
+&lt;li>管理文章前置数据&lt;/li>
+&lt;li>处理标签和分类&lt;/li>
+&lt;li>提供标准化的数据访问接口&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>支持模块：&lt;/p>
+&lt;ul>
+&lt;li>config_manager.py: 配置管理&lt;/li>
+&lt;li>obsidian_image_handler.py: 图片处理&lt;/li>
+&lt;li>image_processor.py: 图片处理工具&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ol>
+&lt;p>&lt;strong>3. 程序流程图&lt;/strong>&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;span class="lnt">21
+&lt;/span>&lt;span class="lnt">22
+&lt;/span>&lt;span class="lnt">23
+&lt;/span>&lt;span class="lnt">24
+&lt;/span>&lt;span class="lnt">25
+&lt;/span>&lt;span class="lnt">26
+&lt;/span>&lt;span class="lnt">27
+&lt;/span>&lt;span class="lnt">28
+&lt;/span>&lt;span class="lnt">29
+&lt;/span>&lt;span class="lnt">30
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">graph TD
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> A[开始] --&amp;gt; B{检查命令行参数}
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> B --&amp;gt;|--preview| C[预览模式]
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> B --&amp;gt;|--unpublish| D[取消发布]
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> B --&amp;gt;|--republish| E[重新发布]
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> B --&amp;gt;|默认发布| F[发布流程]
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> C --&amp;gt; C1[启动Hugo服务器]
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> C1 --&amp;gt; C2[打开预览页面]
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> D --&amp;gt; D1[列出已发布文章]
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> D1 --&amp;gt; D2[选择要取消的文章]
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> D2 --&amp;gt; D3[更新文章状态]
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> D3 --&amp;gt; D4[删除Hugo文件]
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> D4 --&amp;gt; G[部署更新]
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> E --&amp;gt; E1[找出已发布文章]
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> E1 --&amp;gt; E2[取消所有发布]
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> E2 --&amp;gt; E3[重新发布文章]
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> E3 --&amp;gt; G
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> F --&amp;gt; F1[处理Markdown文件]
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> F1 --&amp;gt; F2[处理图片资源]
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> F2 --&amp;gt; F3[创建Hugo文章]
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> F3 --&amp;gt; G
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> G --&amp;gt; G1[更新源码仓库]
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> G1 --&amp;gt; G2[构建Hugo站点]
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> G2 --&amp;gt; G3[部署到GitHub Pages]
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> G3 --&amp;gt; H[结束]
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;strong>4. 文章处理流程&lt;/strong>&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">sequenceDiagram
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> participant U as 用户
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> participant BP as BlogProcessor
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> participant FM as FrontMatter
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> participant IH as ImageHandler
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> participant H as Hugo
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> participant G as Git仓库
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> U-&amp;gt;&amp;gt;BP: 执行发布命令
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> BP-&amp;gt;&amp;gt;FM: 提取YAML和内容
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> FM-&amp;gt;&amp;gt;FM: 处理前置数据
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> BP-&amp;gt;&amp;gt;IH: 处理图片
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> IH-&amp;gt;&amp;gt;IH: 复制并重命名图片
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> BP-&amp;gt;&amp;gt;BP: 创建Hugo文章
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> BP-&amp;gt;&amp;gt;H: 构建站点
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> BP-&amp;gt;&amp;gt;G: 推送源码
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> BP-&amp;gt;&amp;gt;G: 部署页面
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> G--&amp;gt;&amp;gt;U: 返回部署结果
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;strong>5. 类关系图&lt;/strong>&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;span class="lnt">21
+&lt;/span>&lt;span class="lnt">22
+&lt;/span>&lt;span class="lnt">23
+&lt;/span>&lt;span class="lnt">24
+&lt;/span>&lt;span class="lnt">25
+&lt;/span>&lt;span class="lnt">26
+&lt;/span>&lt;span class="lnt">27
+&lt;/span>&lt;span class="lnt">28
+&lt;/span>&lt;span class="lnt">29
+&lt;/span>&lt;span class="lnt">30
+&lt;/span>&lt;span class="lnt">31
+&lt;/span>&lt;span class="lnt">32
+&lt;/span>&lt;span class="lnt">33
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">classDiagram
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> class BlogProcessor {
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> +source_dir: Path
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> +hugo_dir: Path
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> +create_new_post()
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> +process_markdown_files()
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> +list_published_markdowns()
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> +set_publish_false()
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> +unpublish_article()
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> +preview_site()
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> +deploy_to_repos()
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> }
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> class FrontMatter {
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> +data: dict
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> +title: str
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> +date: str
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> +tags: list
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> +categories: list
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> +draft: bool
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> +publish: bool
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> +to_dict()
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> +update()
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> }
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> class ImageHandler {
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> +process_obsidian_images()
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> +copy_image()
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> +update_links()
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> }
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> BlogProcessor --&amp;gt; FrontMatter : 使用
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> BlogProcessor --&amp;gt; ImageHandler : 使用
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;strong>6. 部署流程&lt;/strong>&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">graph TD
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> A[开始部署] --&amp;gt; B[更新源码仓库]
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> B --&amp;gt; C[构建Hugo站点]
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> C --&amp;gt; D[部署到GitHub Pages]
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> D --&amp;gt; E[结束]
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> B --&amp;gt; B1[Git操作]
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> B1 --&amp;gt; B2[提交更改]
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> B2 --&amp;gt; B3[推送到源码仓库]
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> C --&amp;gt; C1[生成静态文件]
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> C1 --&amp;gt; C2[优化资源]
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> D --&amp;gt; D1[初始化Pages仓库]
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> D1 --&amp;gt; D2[提交更改]
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> D2 --&amp;gt; D3[强制推送到Pages]
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;strong>7. 配置管理流程&lt;/strong>&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">graph LR
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> A[配置文件] --&amp;gt;|读取| B[Config类]
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> B --&amp;gt;|解析| C[配置字典]
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> C --&amp;gt;|获取配置| D[程序模块]
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> D --&amp;gt;|更新配置| B
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> B --&amp;gt;|保存| A
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;strong>8. 主要功能说明&lt;/strong>&lt;/p>
+&lt;ol>
+&lt;li>
+&lt;p>文章处理：&lt;/p>
+&lt;ul>
+&lt;li>支持从Obsidian格式转换到Hugo格式&lt;/li>
+&lt;li>自动处理图片资源&lt;/li>
+&lt;li>维护标签和分类的映射关系&lt;/li>
+&lt;li>支持草稿模式&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>部署功能：&lt;/p>
+&lt;ul>
+&lt;li>自动更新源码仓库&lt;/li>
+&lt;li>构建Hugo静态站点&lt;/li>
+&lt;li>部署到GitHub Pages&lt;/li>
+&lt;li>支持预览模式&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>图片处理：&lt;/p>
+&lt;ul>
+&lt;li>自动复制和重命名图片&lt;/li>
+&lt;li>更新文章中的图片链接&lt;/li>
+&lt;li>支持多种图片格式&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>配置管理：&lt;/p>
+&lt;ul>
+&lt;li>灵活的配置系统&lt;/li>
+&lt;li>支持多环境配置&lt;/li>
+&lt;li>配置验证和错误处理&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ol></description></item><item><title>obsidian折腾总结</title><link>https://mcig-ggg.github.io/p/obsidian%E6%8A%98%E8%85%BE%E6%80%BB%E7%BB%93/</link><pubDate>Tue, 03 Jun 2025 00:00:00 +0000</pubDate><guid>https://mcig-ggg.github.io/p/obsidian%E6%8A%98%E8%85%BE%E6%80%BB%E7%BB%93/</guid><description>&lt;ul>
 &lt;li>少折腾&lt;/li>
 &lt;li>记录下现在的成果
 &lt;ul>
