@@ -104,7 +104,7 @@
 &lt;hr>
 &lt;h3 id="总结">&lt;strong>总结&lt;/strong>
 &lt;/h3>&lt;p>搜索问题的形式化定义为智能体提供了在复杂环境中规划行动的数学框架。通过明确状态空间、动作、转移模型等要素，结合适当的搜索算法（如BFS、A*、UCS），智能体能够高效地找到从初始状态到目标状态的最优路径。这一过程是构建理性规划智能体的基础，也是后续学习更高级算法（如强化学习）的前提。&lt;/p>
-&lt;h2 id="hahahugoshortcode10s0hbhb">&lt;div class="admonition admonition-note">
+&lt;h2 id="hahahugoshortcode11s0hbhb">&lt;div class="admonition admonition-note">
 &lt;div class="admonition-title">
 搜索问题的解法
 &lt;/div>
