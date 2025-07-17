@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>开发 on MciG</title><link>https://mcig-ggg.github.io/tags/%E5%BC%80%E5%8F%91/</link><description>Recent content in 开发 on MciG</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><copyright>MciG</copyright><lastBuildDate>Sun, 22 Jun 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://mcig-ggg.github.io/tags/%E5%BC%80%E5%8F%91/index.xml" rel="self" type="application/rss+xml"/><item><title>hugo_publish</title><link>https://mcig-ggg.github.io/p/hugo_publish/</link><pubDate>Sun, 22 Jun 2025 00:00:00 +0000</pubDate><guid>https://mcig-ggg.github.io/p/hugo_publish/</guid><description>&lt;p>&lt;strong>1. 项目结构&lt;/strong>&lt;/p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>开发 on MciG</title><link>https://mcig-ggg.github.io/tags/%E5%BC%80%E5%8F%91/</link><description>Recent content in 开发 on MciG</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><copyright>MciG</copyright><lastBuildDate>Thu, 17 Jul 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://mcig-ggg.github.io/tags/%E5%BC%80%E5%8F%91/index.xml" rel="self" type="application/rss+xml"/><item><title>hugo_publish</title><link>https://mcig-ggg.github.io/p/hugo_publish/</link><pubDate>Thu, 17 Jul 2025 00:00:00 +0000</pubDate><guid>https://mcig-ggg.github.io/p/hugo_publish/</guid><description>&lt;p>&lt;strong>1. 项目结构&lt;/strong>&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
 &lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
@@ -272,7 +272,7 @@ mermaid.init(undefined, "#mermaid-4");
 &lt;li>配置验证和错误处理&lt;/li>
 &lt;/ul>
 &lt;/li>
-&lt;/ol></description></item><item><title>hugo_publish</title><link>https://mcig-ggg.github.io/p/hugo_publish/</link><pubDate>Sun, 22 Jun 2025 00:00:00 +0000</pubDate><guid>https://mcig-ggg.github.io/p/hugo_publish/</guid><description>&lt;p>&lt;strong>1. 项目结构&lt;/strong>&lt;/p>
+&lt;/ol></description></item><item><title>hugo_publish</title><link>https://mcig-ggg.github.io/p/hugo_publish/</link><pubDate>Thu, 17 Jul 2025 00:00:00 +0000</pubDate><guid>https://mcig-ggg.github.io/p/hugo_publish/</guid><description>&lt;p>&lt;strong>1. 项目结构&lt;/strong>&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
 &lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1

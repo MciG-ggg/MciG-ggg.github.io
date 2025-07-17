@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>MciG</title><link>https://mcig-ggg.github.io/</link><description>Recent content on MciG</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><copyright>MciG</copyright><lastBuildDate>Sun, 22 Jun 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://mcig-ggg.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>2025-W17-04</title><link>https://mcig-ggg.github.io/p/2025-w17-04/</link><pubDate>Sun, 22 Jun 2025 00:00:00 +0000</pubDate><guid>https://mcig-ggg.github.io/p/2025-w17-04/</guid><description>&lt;h1 id="2025-042127">2025-04/21~27
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>MciG</title><link>https://mcig-ggg.github.io/</link><description>Recent content on MciG</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><copyright>MciG</copyright><lastBuildDate>Thu, 17 Jul 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://mcig-ggg.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>2025-W17-04</title><link>https://mcig-ggg.github.io/p/2025-w17-04/</link><pubDate>Thu, 17 Jul 2025 00:00:00 +0000</pubDate><guid>https://mcig-ggg.github.io/p/2025-w17-04/</guid><description>&lt;h1 id="2025-042127">2025-04/21~27
 &lt;/h1>&lt;h2 id="review">Review
 &lt;/h2>&lt;ul>
 &lt;li>折腾的一周：
@@ -42,7 +42,7 @@
 &lt;h2 id="thoughts">THOUGHTS
 &lt;/h2>&lt;ul>
 &lt;li>折腾的最终境界就是默认配置&amp;hellip;&lt;/li>
-&lt;/ul></description></item><item><title>2025-W22-06</title><link>https://mcig-ggg.github.io/p/2025-w22-06/</link><pubDate>Sun, 22 Jun 2025 00:00:00 +0000</pubDate><guid>https://mcig-ggg.github.io/p/2025-w22-06/</guid><description>&lt;h1 id="2025-w22-06">2025-W22-06
+&lt;/ul></description></item><item><title>2025-W22-06</title><link>https://mcig-ggg.github.io/p/2025-w22-06/</link><pubDate>Thu, 17 Jul 2025 00:00:00 +0000</pubDate><guid>https://mcig-ggg.github.io/p/2025-w22-06/</guid><description>&lt;h1 id="2025-w22-06">2025-W22-06
 &lt;/h1>&lt;h2 id="review">Review
 &lt;/h2>&lt;ul>
 &lt;li>好久没写周结了, 上次写都整整一个月前了&amp;hellip;&amp;hellip;,&lt;/li>
@@ -88,7 +88,7 @@
 &lt;/ul>
 &lt;/li>
 &lt;li>然后感觉自己好像还是对传统互联网感兴趣一点, 也许就决定走这条路了, 不过也要多了解最新的技术&lt;/li>
-&lt;/ul></description></item><item><title>2025-W24-06</title><link>https://mcig-ggg.github.io/p/2025-w24-06/</link><pubDate>Sun, 22 Jun 2025 00:00:00 +0000</pubDate><guid>https://mcig-ggg.github.io/p/2025-w24-06/</guid><description>&lt;h1 id="2025-w24-06">2025-W24-06
+&lt;/ul></description></item><item><title>2025-W24-06</title><link>https://mcig-ggg.github.io/p/2025-w24-06/</link><pubDate>Thu, 17 Jul 2025 00:00:00 +0000</pubDate><guid>https://mcig-ggg.github.io/p/2025-w24-06/</guid><description>&lt;h1 id="2025-w24-06">2025-W24-06
 &lt;/h1>&lt;h2 id="review">Review
 &lt;/h2>&lt;ul>
 &lt;li>这周做了一堆实验, 实验报告要写死了&lt;/li>
@@ -108,7 +108,221 @@
 &lt;h2 id="thoughts">THOUGHTS
 &lt;/h2>&lt;ul>
 &lt;li>感觉自己进入信息爆炸了, 天天闲着就看手机, 手机拿在手上不松的.&lt;/li>
-&lt;/ul></description></item><item><title>CS188从搜索问题，MDP到RL</title><link>https://mcig-ggg.github.io/p/cs188%E4%BB%8E%E6%90%9C%E7%B4%A2%E9%97%AE%E9%A2%98mdp%E5%88%B0rl/</link><pubDate>Sun, 22 Jun 2025 00:00:00 +0000</pubDate><guid>https://mcig-ggg.github.io/p/cs188%E4%BB%8E%E6%90%9C%E7%B4%A2%E9%97%AE%E9%A2%98mdp%E5%88%B0rl/</guid><description>&lt;img src="https://mcig-ggg.github.io/p/cs188%E4%BB%8E%E6%90%9C%E7%B4%A2%E9%97%AE%E9%A2%98mdp%E5%88%B0rl/Pasted-image-20250424203806.png" alt="Featured image of post CS188从搜索问题，MDP到RL" />&lt;hr>
+&lt;/ul></description></item><item><title>cs168proj2</title><link>https://mcig-ggg.github.io/p/cs168proj2/</link><pubDate>Thu, 17 Jul 2025 00:00:00 +0000</pubDate><guid>https://mcig-ggg.github.io/p/cs168proj2/</guid><description>&lt;blockquote>
+&lt;p>[!NOTE] Title
+好的协议不是防止所有错误，而是确保错误能被快速检测和修复&lt;/p>&lt;/blockquote>
+&lt;p>大概就是从头实现路由器算法的每个规则.&lt;/p>
+&lt;p>每个需要实现的函数, 都会以事件驱动的方式, 被框架的模拟器调用. 所以我们只需要实现具体函数即可, 调用过程不用管.&lt;/p>
+&lt;h2 id="stage1-安装静态路由">stage1: 安装静态路由
+&lt;/h2>&lt;p>先实现安装静态路由.&lt;/p>
+&lt;ul>
+&lt;li>由&amp;quot;一个节点第一次连接到一个路由器&amp;quot; 事件触发
+比较简单, 没有什么太多说的.
+大概讲一下 TableEntry:
+&lt;div class="mermaid" id="mermaid-0">
+classDiagram
+class TableEntry {
++dst : 目的地址
++port : 下一跳端口
++latency : 路径代价/延迟
++expire_time : 过期时间
+}
+&lt;/div>
+&lt;script>
+document.addEventListener('DOMContentLoaded', function() {
+mermaid.initialize({
+startOnLoad: true,
+theme: 'default',
+securityLevel: 'loose',
+flowchart: {
+htmlLabels: true,
+curve: 'basis'
+}
+});
+mermaid.init(undefined, "#mermaid-0");
+});
+&lt;/script> &lt;/li>
+&lt;/ul>
+&lt;blockquote>
+&lt;p>[!NOTE] Title
+这里的 latency 就相当于课本里所说的 cost&lt;/p>&lt;/blockquote>
+&lt;p>TableEntry 只告诉你我这个路由器能到哪里, 以及下一步你该去哪里.&lt;/p>
+&lt;h2 id="stage2-转发数据包">stage2: 转发数据包
+&lt;/h2>&lt;ul>
+&lt;li>用 packet 的 dst ,从&lt;em>路由表&lt;/em>中找到&lt;em>对应的路由表项&lt;/em>&lt;/li>
+&lt;li>检查路由表项是否为空 or 路由表项. latency &amp;gt;= INFINITY
+&lt;ul>
+&lt;li>如果为 false: 说明这个 packet 可以转发 (有下一个目的地, 且下一个目的地可以到达 (latency &amp;lt; INFINITY))&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="stage3-转发路由表">stage3: 转发路由表
+&lt;/h2>&lt;ul>
+&lt;li>对某一个路由器,定时转发其所有路由表项, 向其所有邻居&lt;/li>
+&lt;/ul>
+&lt;blockquote>
+&lt;p>[!NOTE] Title
+要向该路由器所有邻居转发其所有路由表项
+从路由表中查找到各个邻居需要走的端口, 从那些端口转发自己所有的路由表项.&lt;/p>&lt;/blockquote>
+&lt;h2 id="stage4-更新路由表">stage4: 更新路由表
+&lt;/h2>&lt;ul>
+&lt;li>当路由器从邻居收到一条到某个目的地（route_dst）的路由通告时，决定是否更新自己的路由表。&lt;/li>
+&lt;/ul>
+&lt;h3 id="主要流程">主要流程
+&lt;/h3>&lt;ol>
+&lt;li>
+&lt;p>&lt;strong>计算总延迟&lt;/strong>&lt;br>
+&lt;code>total_latency = route_latency + self.ports.get_latency(port)&lt;/code>&lt;br>
+总延迟 = 邻居到目的地的延迟 + 本地到邻居的延迟&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>设置过期时间&lt;/strong>&lt;br>
+&lt;code>expire_time = api.current_time() + self.ROUTE_TTL&lt;/code>&lt;br>
+路由项的有效期&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>路由表更新规则&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>如果路由表中没有该目的地（route_dst），直接添加新项。&lt;/li>
+&lt;li>如果已有该目的地：
+&lt;ul>
+&lt;li>如果原来的下一跳端口就是这次收到通告的端口，直接更新（刷新延迟和过期时间）。&lt;/li>
+&lt;li>如果新通告的总延迟更小，则更新为更优的路径。&lt;/li>
+&lt;li>否则，不做任何更改。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ol>
+&lt;h2 id="stage5-处理超时">stage5: 处理超时
+&lt;/h2>&lt;ul>
+&lt;li>定期检查路由表，把已经过期的路由项删除，保证路由表的有效性和准确性。&lt;/li>
+&lt;/ul>
+&lt;h3 id="主要流程-1">主要流程
+&lt;/h3>&lt;ol>
+&lt;li>
+&lt;p>&lt;strong>遍历路由表所有项&lt;/strong>&lt;br>
+&lt;code>for _, table_entry in list(t.items()):&lt;/code>&lt;br>
+遍历当前路由表中的每一项。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>判断是否过期&lt;/strong>&lt;br>
+&lt;code>if table_entry.expire_time != FOREVER and table_entry.expire_time &amp;lt; api.current_time():&lt;/code>&lt;/p>
+&lt;ul>
+&lt;li>如果该路由项的过期时间不是永久（FOREVER），并且已经小于当前时间（即已经过期），则进入下一步。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>日志记录&lt;/strong>&lt;br>
+&lt;code>self.log(f&amp;quot;Route expired: dst={table_entry.dst}, port={table_entry.port}, latency={table_entry.latency}&amp;quot;)&lt;/code>&lt;/p>
+&lt;ul>
+&lt;li>记录一条日志，说明哪一项已经过期。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>删除过期项&lt;/strong>&lt;br>
+&lt;code>t.pop(table_entry.dst)&lt;/code>&lt;/p>
+&lt;ul>
+&lt;li>从路由表中删除这条过期的路由项。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ol>
+&lt;p>基本的路由器功能已经实现, 下面是一些优化和问题修复&lt;/p>
+&lt;hr>
+&lt;h2 id="stage6-水平分割">stage6: 水平分割
+&lt;/h2>&lt;ul>
+&lt;li>水平分割: 在路由器互相发通告, 转发路由表的时候,不向学到该路由的端口通告该路由, 防止两个路由器无限循环互相转发数据 (也仅能防止两个路由器, 三个及以上做不到)&lt;/li>
+&lt;/ul>
+&lt;h2 id="stage7-poison-reverse">stage7: Poison Reverse
+&lt;/h2>&lt;ul>
+&lt;li>Poison Reverse: 如果我的到达某目的地的最短路径是通过你，那么我在通告你的时候，告诉你我到该目的地的距离是无穷大&lt;/li>
+&lt;/ul>
+&lt;h2 id="stage8-counting-to-infinity">stage8: Counting to Infinity
+&lt;/h2>&lt;p>以上两种方式都无法避免:&lt;/p>
+&lt;ul>
+&lt;li>假设A、B、C形成环，A到C的链路断开：
+&lt;ul>
+&lt;li>A发现到C不可达，距离变大。&lt;/li>
+&lt;li>B还没意识到，告诉A“我到C距离是2”，A更新为3。&lt;/li>
+&lt;li>下一轮，B又从A学到“3”，B更新为4……&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>核心思想：只要距离超过INFINITY，通告时就直接用INFINITY，防止路由器之间互相“抬高”距离，网络能快速收敛。
+&lt;ul>
+&lt;li>把大于 INFINITY 的距离直接设为 INFINITY，核心目的就是为了防止路由器之间继续互相“抬高”数值&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="stage9-poisoning-expired-routes">stage9: Poisoning Expired Routes
+&lt;/h2>&lt;ul>
+&lt;li>当路由过期时，不是直接删除它，而是将其标记为无限大（毒化），并继续传播这个&amp;rsquo;死亡通知&amp;rsquo;一段时间&lt;/li>
+&lt;li>直接删除的核心问题：信息黑洞效应
+&lt;ul>
+&lt;li>当路由器直接删除失效路由时，会立即形成信息真空：
+下游路由器不知情：相邻路由器仍需等待自己的超时计时器到期
+临时环路风险：其他节点可能继续向已删除路由的节点发送流量
+典型案例（7节点拓扑）：
+h1 &amp;ndash; s1 &amp;ndash; s2 &amp;ndash; s3 &amp;ndash; s4 &amp;ndash; s5 &amp;ndash; s6 &amp;ndash; s7
+当s1-s2断开：
+若s2直接删除h1路由：
+s3仍认为可通过s2到达h1（跳数=3）
+s3继续向s2转发数据包 → 黑洞丢包&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;blockquote>
+&lt;p>[!NOTE] title
+删除是简单的，但正确的删除需要智慧&lt;/p>&lt;/blockquote>
+&lt;h2 id="stage10-触发更新">stage10: 触发更新
+&lt;/h2>&lt;h3 id="1-历史记录结构selfhistory">1. 历史记录结构（self.history）
+&lt;/h3>&lt;ul>
+&lt;li>在&lt;code>__init__&lt;/code>中添加了&lt;code>self.history = {}&lt;/code>。&lt;/li>
+&lt;li>结构为： &lt;code>{port: {dst: latency}}&lt;/code> (一个嵌套字典)&lt;/li>
+&lt;li>作用：记录“上次通过每个端口(port)通告给每个目的地(dst)的延迟(latency)”。&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h3 id="2-辅助函数">2. 辅助函数
+&lt;/h3>&lt;h4 id="should_advertiseself-port-dst-latency">should_advertise(self, port, dst, latency)
+&lt;/h4>&lt;ul>
+&lt;li>判断是否需要通告。&lt;/li>
+&lt;li>如果历史中没有该端口或目的地，说明是第一次通告，返回True。&lt;/li>
+&lt;li>如果历史中有，但延迟发生了变化，也返回True。&lt;/li>
+&lt;li>否则返回False（即内容没变，不需要通告）。&lt;/li>
+&lt;/ul>
+&lt;h4 id="update_historyself-port-dst-latency">update_history(self, port, dst, latency)
+&lt;/h4>&lt;ul>
+&lt;li>每次通告后，更新历史记录。&lt;/li>
+&lt;li>保证下次判断时有最新的历史数据。&lt;/li>
+&lt;/ul>
+&lt;h3 id="3-send_routes">3. send_routes
+&lt;/h3>&lt;ul>
+&lt;li>遍历所有端口和路由表项。&lt;/li>
+&lt;li>对于每个端口-目的地组合，先判断是否需要通告（force为True时无条件通告）。&lt;/li>
+&lt;li>只有需要通告时才真正发送，并更新历史。&lt;/li>
+&lt;li>支持&lt;code>single_port&lt;/code>参数，只向指定端口通告（用于链路刚上线时）。&lt;/li>
+&lt;/ul>
+&lt;h3 id="4-handle_route_advertisement">4. handle_route_advertisement
+&lt;/h3>&lt;ul>
+&lt;li>收到邻居的路由通告时，只有当本地路由表真的被更新（新增、更优、同端口刷新）时，才调用&lt;code>self.send_routes(force=False)&lt;/code>，即只在有变化时触发增量通告。&lt;/li>
+&lt;/ul>
+&lt;h3 id="5-handle_link_up">5. handle_link_up
+&lt;/h3>&lt;ul>
+&lt;li>当有新链路上线时，如果&lt;code>SEND_ON_LINK_UP&lt;/code>为True，立即用&lt;code>send_routes(force=True, single_port=port)&lt;/code>向新邻居通告所有路由。&lt;/li>
+&lt;/ul>
+&lt;h3 id="6-handle_link_down">6. handle_link_down
+&lt;/h3>&lt;ul>
+&lt;li>当链路断开时：
+&lt;ul>
+&lt;li>如果&lt;code>POISON_ON_LINK_DOWN&lt;/code>为True，把所有走该端口的路由毒化（latency=INFINITY），并用&lt;code>send_routes(force=False)&lt;/code>增量通告毒化结果。&lt;/li>
+&lt;li>否则，直接删除所有走该端口的路由。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="7-增量通告的核心">7. 增量通告的核心
+&lt;/h3>&lt;ul>
+&lt;li>只通告“有变化”的路由（即历史记录和当前要通告的内容不同）。&lt;/li>
+&lt;li>这样可以减少冗余消息，提高网络效率。&lt;/li>
+&lt;/ul></description></item><item><title>CS188从搜索问题，MDP到RL</title><link>https://mcig-ggg.github.io/p/cs188%E4%BB%8E%E6%90%9C%E7%B4%A2%E9%97%AE%E9%A2%98mdp%E5%88%B0rl/</link><pubDate>Thu, 17 Jul 2025 00:00:00 +0000</pubDate><guid>https://mcig-ggg.github.io/p/cs188%E4%BB%8E%E6%90%9C%E7%B4%A2%E9%97%AE%E9%A2%98mdp%E5%88%B0rl/</guid><description>&lt;img src="https://mcig-ggg.github.io/p/cs188%E4%BB%8E%E6%90%9C%E7%B4%A2%E9%97%AE%E9%A2%98mdp%E5%88%B0rl/Pasted-image-20250424203806.png" alt="Featured image of post CS188从搜索问题，MDP到RL" />&lt;hr>
 &lt;h1 id="cs188从搜索问题到-rl人工智能决策算法的演进之路">CS188：从搜索问题到 RL——人工智能决策算法的演进之路
 &lt;/h1>&lt;p>UC Berkeley 的 CS188 课程（人工智能导论）以“构建智能体的决策能力”为核心，从经典的搜索算法到现代强化学习（Reinforcement Learning, RL），系统性地揭示了人工智能如何在复杂环境中规划路径、解决问题并优化策略。本文将沿着课程脉络，梳理从基础搜索到强化学习的演进逻辑，并探讨其背后的核心思想。&lt;/p>
 &lt;hr>
@@ -651,7 +865,7 @@ $$Q(s, a; \theta) = \text{NeuralNetwork}(s, a; \theta)$$&lt;p>&lt;br>
 &lt;/ul>
 &lt;/li>
 &lt;/ul>
-&lt;hr></description></item><item><title>hugo_publish</title><link>https://mcig-ggg.github.io/p/hugo_publish/</link><pubDate>Sun, 22 Jun 2025 00:00:00 +0000</pubDate><guid>https://mcig-ggg.github.io/p/hugo_publish/</guid><description>&lt;p>&lt;strong>1. 项目结构&lt;/strong>&lt;/p>
+&lt;hr></description></item><item><title>hugo_publish</title><link>https://mcig-ggg.github.io/p/hugo_publish/</link><pubDate>Thu, 17 Jul 2025 00:00:00 +0000</pubDate><guid>https://mcig-ggg.github.io/p/hugo_publish/</guid><description>&lt;p>&lt;strong>1. 项目结构&lt;/strong>&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
 &lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
@@ -925,7 +1139,7 @@ mermaid.init(undefined, "#mermaid-4");
 &lt;li>配置验证和错误处理&lt;/li>
 &lt;/ul>
 &lt;/li>
-&lt;/ol></description></item><item><title>obsidian折腾总结</title><link>https://mcig-ggg.github.io/p/obsidian%E6%8A%98%E8%85%BE%E6%80%BB%E7%BB%93/</link><pubDate>Sun, 22 Jun 2025 00:00:00 +0000</pubDate><guid>https://mcig-ggg.github.io/p/obsidian%E6%8A%98%E8%85%BE%E6%80%BB%E7%BB%93/</guid><description>&lt;img src="https://mcig-ggg.github.io/p/obsidian%E6%8A%98%E8%85%BE%E6%80%BB%E7%BB%93/Pasted-image-20250422233209.png" alt="Featured image of post obsidian折腾总结" />&lt;ul>
+&lt;/ol></description></item><item><title>obsidian折腾总结</title><link>https://mcig-ggg.github.io/p/obsidian%E6%8A%98%E8%85%BE%E6%80%BB%E7%BB%93/</link><pubDate>Thu, 17 Jul 2025 00:00:00 +0000</pubDate><guid>https://mcig-ggg.github.io/p/obsidian%E6%8A%98%E8%85%BE%E6%80%BB%E7%BB%93/</guid><description>&lt;img src="https://mcig-ggg.github.io/p/obsidian%E6%8A%98%E8%85%BE%E6%80%BB%E7%BB%93/Pasted-image-20250422233209.png" alt="Featured image of post obsidian折腾总结" />&lt;ul>
 &lt;li>少折腾&lt;/li>
 &lt;li>记录下现在的成果
 &lt;ul>
@@ -981,7 +1195,7 @@ data-flex-basis="359px"
 &lt;/li>
 &lt;/ul>
 &lt;/li>
-&lt;/ul></description></item><item><title>避免无意义的重复：记一次obsidian折腾</title><link>https://mcig-ggg.github.io/p/%E9%81%BF%E5%85%8D%E6%97%A0%E6%84%8F%E4%B9%89%E7%9A%84%E9%87%8D%E5%A4%8D%E8%AE%B0%E4%B8%80%E6%AC%A1obsidian%E6%8A%98%E8%85%BE/</link><pubDate>Sun, 22 Jun 2025 00:00:00 +0000</pubDate><guid>https://mcig-ggg.github.io/p/%E9%81%BF%E5%85%8D%E6%97%A0%E6%84%8F%E4%B9%89%E7%9A%84%E9%87%8D%E5%A4%8D%E8%AE%B0%E4%B8%80%E6%AC%A1obsidian%E6%8A%98%E8%85%BE/</guid><description>&lt;h2 id="起因">起因
+&lt;/ul></description></item><item><title>避免无意义的重复：记一次obsidian折腾</title><link>https://mcig-ggg.github.io/p/%E9%81%BF%E5%85%8D%E6%97%A0%E6%84%8F%E4%B9%89%E7%9A%84%E9%87%8D%E5%A4%8D%E8%AE%B0%E4%B8%80%E6%AC%A1obsidian%E6%8A%98%E8%85%BE/</link><pubDate>Thu, 17 Jul 2025 00:00:00 +0000</pubDate><guid>https://mcig-ggg.github.io/p/%E9%81%BF%E5%85%8D%E6%97%A0%E6%84%8F%E4%B9%89%E7%9A%84%E9%87%8D%E5%A4%8D%E8%AE%B0%E4%B8%80%E6%AC%A1obsidian%E6%8A%98%E8%85%BE/</guid><description>&lt;h2 id="起因">起因
 &lt;/h2>&lt;ul>
 &lt;li>事情的起因是复制 ai 回答的内容里的 LaTeX 公式，它所采用的是 &lt;code>\( \)&lt;/code> (行内公式) 和 &lt;code>\[ \]&lt;/code> （行间公式），而 obsidian 默认支持的是 &lt;code>$ $&lt;/code> 和 &lt;code>$$ $$&lt;/code> ，然后复制过来的话要对内容进行修改才能成功渲染LaTeX 公式&lt;/li>
 &lt;li>手动修改无疑是无意义的重复，但是我一直懒得找解决方法，直到今天实在受不了了。&lt;/li>
@@ -1013,7 +1227,7 @@ data-flex-basis="359px"
 &lt;/h2>&lt;ul>
 &lt;li>第一个就是，就像 jyy 说的，要是重复做什么事情三次以上，就该想想有没有现成的自动化工具，如果没有，就看看自己能不能写出来，这是学计算机的人很需要的一个技能&lt;/li>
 &lt;li>然后就是 ai 的使用吧，比较难度高的任务还是得用好点的 ai, 不然错误太多了。&lt;/li>
-&lt;/ul></description></item><item><title>大一下学期总结</title><link>https://mcig-ggg.github.io/p/%E5%A4%A7%E4%B8%80%E4%B8%8B%E5%AD%A6%E6%9C%9F%E6%80%BB%E7%BB%93/</link><pubDate>Sun, 22 Jun 2025 00:00:00 +0000</pubDate><guid>https://mcig-ggg.github.io/p/%E5%A4%A7%E4%B8%80%E4%B8%8B%E5%AD%A6%E6%9C%9F%E6%80%BB%E7%BB%93/</guid><description>&lt;img src="https://mcig-ggg.github.io/p/%E5%A4%A7%E4%B8%80%E4%B8%8B%E5%AD%A6%E6%9C%9F%E6%80%BB%E7%BB%93/fb4370fea6cb9bdbc22dd7d77d9bad27-1.jpg" alt="Featured image of post 大一下学期总结" />&lt;h1 id="大一下学期总结">大一下学期总结
+&lt;/ul></description></item><item><title>大一下学期总结</title><link>https://mcig-ggg.github.io/p/%E5%A4%A7%E4%B8%80%E4%B8%8B%E5%AD%A6%E6%9C%9F%E6%80%BB%E7%BB%93/</link><pubDate>Thu, 17 Jul 2025 00:00:00 +0000</pubDate><guid>https://mcig-ggg.github.io/p/%E5%A4%A7%E4%B8%80%E4%B8%8B%E5%AD%A6%E6%9C%9F%E6%80%BB%E7%BB%93/</guid><description>&lt;img src="https://mcig-ggg.github.io/p/%E5%A4%A7%E4%B8%80%E4%B8%8B%E5%AD%A6%E6%9C%9F%E6%80%BB%E7%BB%93/fb4370fea6cb9bdbc22dd7d77d9bad27-1.jpg" alt="Featured image of post 大一下学期总结" />&lt;h1 id="大一下学期总结">大一下学期总结
 &lt;/h1>&lt;p>这学期的心态变了很多,我也不想在这篇文章里写太多技术相关的东西.主要就是记录下我目前的一些想法&lt;/p>
 &lt;h2 id="学习">学习
 &lt;/h2>&lt;ul>
