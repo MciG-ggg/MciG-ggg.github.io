@@ -1,7 +1,31 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>公开课 on MciG</title><link>https://mcig-ggg.github.io/categories/%E5%85%AC%E5%BC%80%E8%AF%BE/</link><description>Recent content in 公开课 on MciG</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><copyright>MciG</copyright><lastBuildDate>Thu, 17 Jul 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://mcig-ggg.github.io/categories/%E5%85%AC%E5%BC%80%E8%AF%BE/index.xml" rel="self" type="application/rss+xml"/><item><title>cs168proj2</title><link>https://mcig-ggg.github.io/p/cs168proj2/</link><pubDate>Thu, 17 Jul 2025 00:00:00 +0000</pubDate><guid>https://mcig-ggg.github.io/p/cs168proj2/</guid><description>&lt;blockquote>
-&lt;p>[!NOTE] Title
-好的协议不是防止所有错误，而是确保错误能被快速检测和修复&lt;/p>&lt;/blockquote>
-&lt;p>大概就是从头实现路由器算法的每个规则.&lt;/p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>公开课 on MciG</title><link>https://mcig-ggg.github.io/categories/%E5%85%AC%E5%BC%80%E8%AF%BE/</link><description>Recent content in 公开课 on MciG</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><copyright>MciG</copyright><lastBuildDate>Thu, 17 Jul 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://mcig-ggg.github.io/categories/%E5%85%AC%E5%BC%80%E8%AF%BE/index.xml" rel="self" type="application/rss+xml"/><item><title>cs168proj2</title><link>https://mcig-ggg.github.io/p/cs168proj2/</link><pubDate>Thu, 17 Jul 2025 00:00:00 +0000</pubDate><guid>https://mcig-ggg.github.io/p/cs168proj2/</guid><description>&lt;p>&lt;div class="admonition admonition-note">
+&lt;div class="admonition-title">
+Title
+&lt;/div>
+&lt;div class="admonition-content">
+好的协议不是防止所有错误，而是确保错误能被快速检测和修复
+&lt;/div>
+&lt;/div>
+&lt;style>
+.admonition {
+border-left: 4px solid #42a5f5;
+background: #f5f7fa;
+margin: 1.5em 0;
+padding: 1em 1.2em;
+border-radius: 6px;
+}
+.admonition-note { border-color: #42a5f5; }
+.admonition-warning { border-color: #ffa726; background: #fff8e1; }
+.admonition-info { border-color: #26c6da; background: #e0f7fa; }
+.admonition-title {
+font-weight: bold;
+margin-bottom: 0.5em;
+}
+.admonition-content {
+font-size: 1em;
+}
+&lt;/style>
+大概就是从头实现路由器算法的每个规则.&lt;/p>
 &lt;p>每个需要实现的函数, 都会以事件驱动的方式, 被框架的模拟器调用. 所以我们只需要实现具体函数即可, 调用过程不用管.&lt;/p>
 &lt;h2 id="stage1-安装静态路由">stage1: 安装静态路由
 &lt;/h2>&lt;p>先实现安装静态路由.&lt;/p>
@@ -9,7 +33,7 @@
 &lt;li>由&amp;quot;一个节点第一次连接到一个路由器&amp;quot; 事件触发
 比较简单, 没有什么太多说的.
 大概讲一下 TableEntry:
-&lt;div class="mermaid" id="mermaid-0">
+&lt;div class="mermaid" id="mermaid-1">
 classDiagram
 class TableEntry {
 +dst : 目的地址
@@ -29,14 +53,38 @@ htmlLabels: true,
 curve: 'basis'
 }
 });
-mermaid.init(undefined, "#mermaid-0");
+mermaid.init(undefined, "#mermaid-1");
 });
-&lt;/script> &lt;/li>
+&lt;/script>
+&lt;div class="admonition admonition-note">
+&lt;div class="admonition-title">
+Title
+&lt;/div>
+&lt;div class="admonition-content">
+这里的 latency 就相当于课本里所说的 cost
+&lt;/div>
+&lt;/div>
+&lt;style>
+.admonition {
+border-left: 4px solid #42a5f5;
+background: #f5f7fa;
+margin: 1.5em 0;
+padding: 1em 1.2em;
+border-radius: 6px;
+}
+.admonition-note { border-color: #42a5f5; }
+.admonition-warning { border-color: #ffa726; background: #fff8e1; }
+.admonition-info { border-color: #26c6da; background: #e0f7fa; }
+.admonition-title {
+font-weight: bold;
+margin-bottom: 0.5em;
+}
+.admonition-content {
+font-size: 1em;
+}
+&lt;/style>
+TableEntry 只告诉你我这个路由器能到哪里, 以及下一步你该去哪里.&lt;/li>
 &lt;/ul>
-&lt;blockquote>
-&lt;p>[!NOTE] Title
-这里的 latency 就相当于课本里所说的 cost&lt;/p>&lt;/blockquote>
-&lt;p>TableEntry 只告诉你我这个路由器能到哪里, 以及下一步你该去哪里.&lt;/p>
 &lt;h2 id="stage2-转发数据包">stage2: 转发数据包
 &lt;/h2>&lt;ul>
 &lt;li>用 packet 的 dst ,从&lt;em>路由表&lt;/em>中找到&lt;em>对应的路由表项&lt;/em>&lt;/li>
@@ -50,10 +98,34 @@ mermaid.init(undefined, "#mermaid-0");
 &lt;/h2>&lt;ul>
 &lt;li>对某一个路由器,定时转发其所有路由表项, 向其所有邻居&lt;/li>
 &lt;/ul>
-&lt;blockquote>
-&lt;p>[!NOTE] Title
+&lt;div class="admonition admonition-note">
+&lt;div class="admonition-title">
+Title
+&lt;/div>
+&lt;div class="admonition-content">
 要向该路由器所有邻居转发其所有路由表项
-从路由表中查找到各个邻居需要走的端口, 从那些端口转发自己所有的路由表项.&lt;/p>&lt;/blockquote>
+从路由表中查找到各个邻居需要走的端口, 从那些端口转发自己所有的路由表项.
+&lt;/div>
+&lt;/div>
+&lt;style>
+.admonition {
+border-left: 4px solid #42a5f5;
+background: #f5f7fa;
+margin: 1.5em 0;
+padding: 1em 1.2em;
+border-radius: 6px;
+}
+.admonition-note { border-color: #42a5f5; }
+.admonition-warning { border-color: #ffa726; background: #fff8e1; }
+.admonition-info { border-color: #26c6da; background: #e0f7fa; }
+.admonition-title {
+font-weight: bold;
+margin-bottom: 0.5em;
+}
+.admonition-content {
+font-size: 1em;
+}
+&lt;/style>
 &lt;h2 id="stage4-更新路由表">stage4: 更新路由表
 &lt;/h2>&lt;ul>
 &lt;li>当路由器从邻居收到一条到某个目的地（route_dst）的路由通告时，决定是否更新自己的路由表。&lt;/li>
@@ -156,13 +228,37 @@ h1 &amp;ndash; s1 &amp;ndash; s2 &amp;ndash; s3 &amp;ndash; s4 &amp;ndash; s5 &a
 当s1-s2断开：
 若s2直接删除h1路由：
 s3仍认为可通过s2到达h1（跳数=3）
-s3继续向s2转发数据包 → 黑洞丢包&lt;/li>
+s3继续向s2转发数据包 → 黑洞丢包
+&lt;div class="admonition admonition-note">
+&lt;div class="admonition-title">
+title
+&lt;/div>
+&lt;div class="admonition-content">
+删除是简单的，但正确的删除需要智慧
+&lt;/div>
+&lt;/div>
+&lt;style>
+.admonition {
+border-left: 4px solid #42a5f5;
+background: #f5f7fa;
+margin: 1.5em 0;
+padding: 1em 1.2em;
+border-radius: 6px;
+}
+.admonition-note { border-color: #42a5f5; }
+.admonition-warning { border-color: #ffa726; background: #fff8e1; }
+.admonition-info { border-color: #26c6da; background: #e0f7fa; }
+.admonition-title {
+font-weight: bold;
+margin-bottom: 0.5em;
+}
+.admonition-content {
+font-size: 1em;
+}
+&lt;/style> &lt;/li>
 &lt;/ul>
 &lt;/li>
 &lt;/ul>
-&lt;blockquote>
-&lt;p>[!NOTE] title
-删除是简单的，但正确的删除需要智慧&lt;/p>&lt;/blockquote>
 &lt;h2 id="stage10-触发更新">stage10: 触发更新
 &lt;/h2>&lt;h3 id="1-历史记录结构selfhistory">1. 历史记录结构（self.history）
 &lt;/h3>&lt;ul>

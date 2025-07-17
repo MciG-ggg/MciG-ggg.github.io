@@ -104,8 +104,11 @@
 &lt;hr>
 &lt;h3 id="总结">&lt;strong>总结&lt;/strong>
 &lt;/h3>&lt;p>搜索问题的形式化定义为智能体提供了在复杂环境中规划行动的数学框架。通过明确状态空间、动作、转移模型等要素，结合适当的搜索算法（如BFS、A*、UCS），智能体能够高效地找到从初始状态到目标状态的最优路径。这一过程是构建理性规划智能体的基础，也是后续学习更高级算法（如强化学习）的前提。&lt;/p>
-&lt;blockquote>
-&lt;p>[!NOTE] 搜索问题的解法&lt;/p>
+&lt;h2 id="hahahugoshortcode10s0hbhb">&lt;div class="admonition admonition-note">
+&lt;div class="admonition-title">
+搜索问题的解法
+&lt;/div>
+&lt;div class="admonition-content">
 &lt;ul>
 &lt;li>把搜索问题抽象成图论问题
 &lt;ul>
@@ -114,9 +117,29 @@
 &lt;li>用图的搜索算法来解决搜索问题&lt;/li>
 &lt;/ul>
 &lt;/li>
-&lt;/ul>&lt;/blockquote>
-&lt;hr>
-&lt;h2 id="第二部分不确定性与动态环境从-mdp-到强化学习">&lt;strong>第二部分：不确定性与动态环境——从 MDP 到强化学习&lt;/strong>
+&lt;/ul>
+&lt;/div>
+&lt;/div>
+&lt;style>
+.admonition {
+border-left: 4px solid #42a5f5;
+background: #f5f7fa;
+margin: 1.5em 0;
+padding: 1em 1.2em;
+border-radius: 6px;
+}
+.admonition-note { border-color: #42a5f5; }
+.admonition-warning { border-color: #ffa726; background: #fff8e1; }
+.admonition-info { border-color: #26c6da; background: #e0f7fa; }
+.admonition-title {
+font-weight: bold;
+margin-bottom: 0.5em;
+}
+.admonition-content {
+font-size: 1em;
+}
+&lt;/style>
+&lt;/h2>&lt;h2 id="第二部分不确定性与动态环境从-mdp-到强化学习">&lt;strong>第二部分：不确定性与动态环境——从 MDP 到强化学习&lt;/strong>
 &lt;/h2>&lt;h3 id="1-马尔可夫决策过程mdp">&lt;strong>1. 马尔可夫决策过程（MDP）&lt;/strong>
 &lt;/h3>&lt;p>MDP 是建模随机环境的数学框架，包含：&lt;/p>
 &lt;ul>
@@ -236,20 +259,47 @@ data-flex-grow="176"
 data-flex-basis="422px"
 >&lt;/li>
 &lt;/ul>
-&lt;blockquote>
-&lt;p>[!NOTE] Title&lt;/p>
+&lt;div class="admonition admonition-note">
+&lt;div class="admonition-title">
+Title
+&lt;/div>
+&lt;div class="admonition-content">
 &lt;ul>
 &lt;li>左侧：基于数据去获取P（a），可以理解为对世界建模，理解概率的分布&lt;/li>
 &lt;li>右侧：基于采样的数据直接获取A 的期望，并不知道概率分布（对世界的具体模型没有了解）&lt;/li>
-&lt;/ul>&lt;/blockquote>
+&lt;/ul>
+&lt;/div>
+&lt;/div>
+&lt;style>
+.admonition {
+border-left: 4px solid #42a5f5;
+background: #f5f7fa;
+margin: 1.5em 0;
+padding: 1em 1.2em;
+border-radius: 6px;
+}
+.admonition-note { border-color: #42a5f5; }
+.admonition-warning { border-color: #ffa726; background: #fff8e1; }
+.admonition-info { border-color: #26c6da; background: #e0f7fa; }
+.admonition-title {
+font-weight: bold;
+margin-bottom: 0.5em;
+}
+.admonition-content {
+font-size: 1em;
+}
+&lt;/style>
 &lt;ul>
 &lt;li>不基于模型的RL：当环境模型未知时，强化学习通过&lt;strong>试错&lt;/strong>直接学习策略。核心算法 Q 学习通过&lt;strong>时序差分更新&lt;/strong>逐步逼近最优动作价值函数：&lt;br>
 $$
 Q (s, a) \leftarrow Q (s, a) + \alpha \left[ R (s, a) + \gamma \max_{a'} Q (s', a') - Q (s, a) \right]
 $$&lt;/li>
 &lt;/ul>
-&lt;blockquote>
-&lt;p>[!NOTE] Q-learning 是离策略 (Off-policy)&lt;/p>
+&lt;div class="admonition admonition-note">
+&lt;div class="admonition-title">
+Q-learning 是离策略 (Off-policy)
+&lt;/div>
+&lt;div class="admonition-content">
 &lt;ul>
 &lt;li>离策略算法的核心是将目标策略（Target Policy）的学习与行为策略（Behavior Policy）的数据收集过程分离。
 &lt;ul>
@@ -257,7 +307,28 @@ $$&lt;/li>
 &lt;li>行为策略（μ） ：用于&lt;em>与环境交互、生成训练数据&lt;/em>的策略，通常包含探索机制（如ε-greedy、Boltzmann 探索）。&lt;/li>
 &lt;/ul>
 &lt;/li>
-&lt;/ul>&lt;/blockquote>
+&lt;/ul>
+&lt;/div>
+&lt;/div>
+&lt;style>
+.admonition {
+border-left: 4px solid #42a5f5;
+background: #f5f7fa;
+margin: 1.5em 0;
+padding: 1em 1.2em;
+border-radius: 6px;
+}
+.admonition-note { border-color: #42a5f5; }
+.admonition-warning { border-color: #ffa726; background: #fff8e1; }
+.admonition-info { border-color: #26c6da; background: #e0f7fa; }
+.admonition-title {
+font-weight: bold;
+margin-bottom: 0.5em;
+}
+.admonition-content {
+font-size: 1em;
+}
+&lt;/style>
 &lt;table>
 &lt;thead>
 &lt;tr>
