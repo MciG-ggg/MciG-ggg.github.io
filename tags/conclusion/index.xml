@@ -594,7 +594,7 @@ $$Q(s, a; \theta) = \text{NeuralNetwork}(s, a; \theta)$$&lt;p&gt;&lt;br&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;hr&gt;</description></item><item><title>docker底层原理简介</title><link>https://mcig-ggg.github.io/p/docker%E5%BA%95%E5%B1%82%E5%8E%9F%E7%90%86%E7%AE%80%E4%BB%8B/</link><pubDate>Mon, 06 Oct 2025 00:00:00 +0000</pubDate><guid>https://mcig-ggg.github.io/p/docker%E5%BA%95%E5%B1%82%E5%8E%9F%E7%90%86%E7%AE%80%E4%BB%8B/</guid><description>&lt;img src="https://mcig-ggg.github.io/docker%E5%BA%95%E5%B1%82%E5%8E%9F%E7%90%86%E7%AE%80%E4%BB%8B%202025-10-06%2021.03.37.excalidraw" alt="Featured image of post docker底层原理简介" /&gt;&lt;h1 id="docker底层原理简介"&gt;docker底层原理简介
+&lt;hr&gt;</description></item><item><title>docker底层原理简介</title><link>https://mcig-ggg.github.io/p/docker%E5%BA%95%E5%B1%82%E5%8E%9F%E7%90%86%E7%AE%80%E4%BB%8B/</link><pubDate>Mon, 06 Oct 2025 00:00:00 +0000</pubDate><guid>https://mcig-ggg.github.io/p/docker%E5%BA%95%E5%B1%82%E5%8E%9F%E7%90%86%E7%AE%80%E4%BB%8B/</guid><description>&lt;img src="https://mcig-ggg.github.io/Pasted-image-20251006220327.png" alt="Featured image of post docker底层原理简介" /&gt;&lt;h1 id="docker底层原理简介"&gt;docker底层原理简介
 &lt;/h1&gt;&lt;p&gt;#conclusion&lt;/p&gt;
 &lt;p&gt;docker 为了实现容器间的隔离，资源的限制，高效性，分别使用了 linux namespace, Cgroups(control groups), Union FS 这几个技术，下面一一介绍&lt;/p&gt;
 &lt;h2 id="linux-namespace"&gt;Linux namespace
@@ -603,7 +603,10 @@ $$Q(s, a; \theta) = \text{NeuralNetwork}(s, a; \theta)$$&lt;p&gt;&lt;br&gt;
 &lt;/h3&gt;&lt;ul&gt;
 &lt;li&gt;以前：操作系统里 pid 和进程一一对应，不可能有进程的pid相同&lt;/li&gt;
 &lt;li&gt;现在：操作系统增加一个 &lt;em&gt;osid&lt;/em&gt; ，现在一个进程的识别要同时匹配 &lt;em&gt;osid&lt;/em&gt;， &lt;em&gt;pid&lt;/em&gt;，一个进程树对应一个&lt;em&gt;osid&lt;/em&gt;， 大概如下
-![[docker底层原理简介 2025-10-06 21.03.37.excalidraw]]&lt;/li&gt;
+&lt;img src="https://mcig-ggg.github.io/Pasted-image-20251006220327.png"
+loading="lazy"
+alt="Pasted image 20251006220327.png"
+&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;blockquote&gt;
 &lt;p&gt;[!NOTE]
@@ -695,17 +698,6 @@ data-flex-basis="532px"
 &lt;p&gt;某人能让我从别人的角度,另外的角度看自己看世界,我很感谢&lt;/p&gt;
 &lt;p&gt;爱到底是什么呢,该怎么去爱人呢,我很讨厌教育体系内缺少这方面的教育,明明是人生中重要的东西,但是大部分人却对此不甚了解,只能自己慢慢摸索.人生不应该只有面前的绩点,未来的保研,追求的工作,拿到的工资.人生中很多东西都很重要,所以请不要忘记自己心里重要的东西,自己身边重要的东西.&lt;/p&gt;
 &lt;p&gt;这学期接触了一些学校里的人之后,愈发感觉大学内部的信息流通实在是太闭塞,比如说我们学校里的开源协会,我原本以为学校里没有什么技术氛围,没想到还是有的(不过里面基本都是老登)&lt;/p&gt;
-&lt;p&gt;&lt;img src="https://mcig-ggg.github.io/p/%E5%A4%A7%E4%B8%80%E4%B8%8B%E5%AD%A6%E6%9C%9F%E6%80%BB%E7%BB%93/73179512905131d196dea717dd735482_720.jpg"
-width="1280"
-height="960"
-srcset="https://mcig-ggg.github.io/p/%E5%A4%A7%E4%B8%80%E4%B8%8B%E5%AD%A6%E6%9C%9F%E6%80%BB%E7%BB%93/73179512905131d196dea717dd735482_720_hu_f763e75ce554d705.jpg 480w, https://mcig-ggg.github.io/p/%E5%A4%A7%E4%B8%80%E4%B8%8B%E5%AD%A6%E6%9C%9F%E6%80%BB%E7%BB%93/73179512905131d196dea717dd735482_720_hu_e2f02e3d58520447.jpg 1024w"
-loading="lazy"
-alt="73179512905131d196dea717dd735482_720.jpg"
-class="gallery-image"
-data-flex-grow="133"
-data-flex-basis="320px"
-&gt;
-每个人都有一个不大不小的梦&lt;/p&gt;
 &lt;p&gt;&lt;img src="https://mcig-ggg.github.io/p/%E5%A4%A7%E4%B8%80%E4%B8%8B%E5%AD%A6%E6%9C%9F%E6%80%BB%E7%BB%93/2919d67e78439bda89f3cfc66d21abfb_720.jpg"
 width="1080"
 height="1920"
@@ -715,6 +707,17 @@ alt="2919d67e78439bda89f3cfc66d21abfb_720.jpg"
 class="gallery-image"
 data-flex-grow="56"
 data-flex-basis="135px"
+&gt;
+每个人都有一个不大不小的梦&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://mcig-ggg.github.io/p/%E5%A4%A7%E4%B8%80%E4%B8%8B%E5%AD%A6%E6%9C%9F%E6%80%BB%E7%BB%93/73179512905131d196dea717dd735482_720.jpg"
+width="1280"
+height="960"
+srcset="https://mcig-ggg.github.io/p/%E5%A4%A7%E4%B8%80%E4%B8%8B%E5%AD%A6%E6%9C%9F%E6%80%BB%E7%BB%93/73179512905131d196dea717dd735482_720_hu_f763e75ce554d705.jpg 480w, https://mcig-ggg.github.io/p/%E5%A4%A7%E4%B8%80%E4%B8%8B%E5%AD%A6%E6%9C%9F%E6%80%BB%E7%BB%93/73179512905131d196dea717dd735482_720_hu_e2f02e3d58520447.jpg 1024w"
+loading="lazy"
+alt="73179512905131d196dea717dd735482_720.jpg"
+class="gallery-image"
+data-flex-grow="133"
+data-flex-basis="320px"
 &gt;
 这学期后面开始偶尔喝点酒,以前挺抗拒喝酒的,不过现在喝的也基本只是鸡尾酒.前段时间开源协会有人说要搞聚会,虽然最后也就几个人,吃晚饭去酒吧聊天.第一次去酒吧,感觉遇到的人经历的事听到的东西对我的世界观冲击有点大&lt;/p&gt;
 &lt;p&gt;人生还有很长啊.&lt;/p&gt;</description></item><item><title>CS188从搜索问题，MDP到RL</title><link>https://mcig-ggg.github.io/p/cs188%E4%BB%8E%E6%90%9C%E7%B4%A2%E9%97%AE%E9%A2%98mdp%E5%88%B0rl/</link><pubDate>Sun, 05 Oct 2025 00:00:00 +0000</pubDate><guid>https://mcig-ggg.github.io/p/cs188%E4%BB%8E%E6%90%9C%E7%B4%A2%E9%97%AE%E9%A2%98mdp%E5%88%B0rl/</guid><description>&lt;img src="https://mcig-ggg.github.io/p/cs188%E4%BB%8E%E6%90%9C%E7%B4%A2%E9%97%AE%E9%A2%98mdp%E5%88%B0rl/Pasted-image-20250425133751.png" alt="Featured image of post CS188从搜索问题，MDP到RL" /&gt;&lt;hr&gt;
