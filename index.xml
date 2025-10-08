@@ -1,4 +1,188 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>MciG</title><link>https://mcig-ggg.github.io/</link><description>Recent content on MciG</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><copyright>MciG</copyright><lastBuildDate>Mon, 06 Oct 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://mcig-ggg.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>2025-04/21~27</title><link>https://mcig-ggg.github.io/p/2025-04/21~27/</link><pubDate>Mon, 06 Oct 2025 00:00:00 +0000</pubDate><guid>https://mcig-ggg.github.io/p/2025-04/21~27/</guid><description>&lt;h1 id="2025-042127"&gt;2025-04/21~27
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>MciG</title><link>https://mcig-ggg.github.io/</link><description>Recent content on MciG</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><copyright>MciG</copyright><lastBuildDate>Wed, 08 Oct 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://mcig-ggg.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>docker底层原理简介</title><link>https://mcig-ggg.github.io/p/docker%E5%BA%95%E5%B1%82%E5%8E%9F%E7%90%86%E7%AE%80%E4%BB%8B/</link><pubDate>Wed, 08 Oct 2025 00:00:00 +0000</pubDate><guid>https://mcig-ggg.github.io/p/docker%E5%BA%95%E5%B1%82%E5%8E%9F%E7%90%86%E7%AE%80%E4%BB%8B/</guid><description>&lt;img src="https://mcig-ggg.github.io/Pasted-image-20251006220327.png" alt="Featured image of post docker底层原理简介" /&gt;&lt;h1 id="docker底层原理简介"&gt;docker底层原理简介
+&lt;/h1&gt;&lt;p&gt;#conclusion&lt;/p&gt;
+&lt;p&gt;docker 为了实现容器间的隔离，资源的限制，高效性，分别使用了 linux namespace, Cgroups(control groups), Union FS 这几个技术，下面一一介绍&lt;/p&gt;
+&lt;h2 id="linux-namespace"&gt;Linux namespace
+&lt;/h2&gt;&lt;p&gt;刚开始见到会联想到 cpp 的 namespace,了解之后发现二者在效果上差不多都是： 隔离某些东西（linux namespace：pid 对应的进程，一个pid在不同的namespace对应不同进程， cpp namespace： 一个函数名在不同namespace对应不同函数）&lt;/p&gt;
+&lt;h3 id="具体原理"&gt;具体原理
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;以前：操作系统里 pid 和进程一一对应，不可能有进程的pid相同&lt;/li&gt;
+&lt;li&gt;现在：操作系统增加一个 &lt;em&gt;osid&lt;/em&gt; ，现在一个进程的识别要同时匹配 &lt;em&gt;osid&lt;/em&gt;， &lt;em&gt;pid&lt;/em&gt;，一个进程树对应一个&lt;em&gt;osid&lt;/em&gt;， 大概如下&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src="https://mcig-ggg.github.io/Pasted-image-20251006220327.png"
+loading="lazy"
+alt="Pasted image 20251006220327.png"
+&gt;&lt;/p&gt;
+&lt;div class="admonition admonition-note"&gt;
+&lt;div class="admonition-title"&gt;
+Note
+&lt;/div&gt;
+&lt;div class="admonition-content"&gt;
+一个进程树对应一个&lt;em&gt;osid&lt;/em&gt;
+现在进程树隔离了,这样我们就可以创建两个不干扰的容器了
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;style&gt;
+.admonition {
+border-left: 4px solid #42a5f5;
+background: #f5f7fa;
+margin: 1.5em 0;
+padding: 1em 1.2em;
+border-radius: 6px;
+}
+.admonition-note { border-color: #42a5f5; }
+.admonition-warning { border-color: #ffa726; background: #fff8e1; }
+.admonition-info { border-color: #26c6da; background: #e0f7fa; }
+.admonition-title {
+font-weight: bold;
+margin-bottom: 0.5em;
+}
+.admonition-content {
+font-size: 1em;
+}
+&lt;/style&gt;
+&lt;h2 id="cgroups"&gt;Cgroups
+&lt;/h2&gt;&lt;p&gt;前面可以让两个容器隔离了，现在还需要控制容器的 cpu 占用，内存占用等等，不能让容器随意使用系统资源。Cgroups 通过层级结构（hierarchy）和控制组（group）来管理资源。每个层级可以包含多个控制组，每个控制组可以包含多个进程。每个控制组可以独立地配置资源限制和优先级。&lt;/p&gt;
+&lt;p&gt;Cgroups的数据结构存储在/sys/fs/group 下，大概有这些目录结构：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt; 1
+&lt;/span&gt;&lt;span class="lnt"&gt; 2
+&lt;/span&gt;&lt;span class="lnt"&gt; 3
+&lt;/span&gt;&lt;span class="lnt"&gt; 4
+&lt;/span&gt;&lt;span class="lnt"&gt; 5
+&lt;/span&gt;&lt;span class="lnt"&gt; 6
+&lt;/span&gt;&lt;span class="lnt"&gt; 7
+&lt;/span&gt;&lt;span class="lnt"&gt; 8
+&lt;/span&gt;&lt;span class="lnt"&gt; 9
+&lt;/span&gt;&lt;span class="lnt"&gt;10
+&lt;/span&gt;&lt;span class="lnt"&gt;11
+&lt;/span&gt;&lt;span class="lnt"&gt;12
+&lt;/span&gt;&lt;span class="lnt"&gt;13
+&lt;/span&gt;&lt;span class="lnt"&gt;14
+&lt;/span&gt;&lt;span class="lnt"&gt;15
+&lt;/span&gt;&lt;span class="lnt"&gt;16
+&lt;/span&gt;&lt;span class="lnt"&gt;17
+&lt;/span&gt;&lt;span class="lnt"&gt;18
+&lt;/span&gt;&lt;span class="lnt"&gt;19
+&lt;/span&gt;&lt;span class="lnt"&gt;20
+&lt;/span&gt;&lt;span class="lnt"&gt;21
+&lt;/span&gt;&lt;span class="lnt"&gt;22
+&lt;/span&gt;&lt;span class="lnt"&gt;23
+&lt;/span&gt;&lt;span class="lnt"&gt;24
+&lt;/span&gt;&lt;span class="lnt"&gt;25
+&lt;/span&gt;&lt;span class="lnt"&gt;26
+&lt;/span&gt;&lt;span class="lnt"&gt;27
+&lt;/span&gt;&lt;span class="lnt"&gt;28
+&lt;/span&gt;&lt;span class="lnt"&gt;29
+&lt;/span&gt;&lt;span class="lnt"&gt;30
+&lt;/span&gt;&lt;span class="lnt"&gt;31
+&lt;/span&gt;&lt;span class="lnt"&gt;32
+&lt;/span&gt;&lt;span class="lnt"&gt;33
+&lt;/span&gt;&lt;span class="lnt"&gt;34
+&lt;/span&gt;&lt;span class="lnt"&gt;35
+&lt;/span&gt;&lt;span class="lnt"&gt;36
+&lt;/span&gt;&lt;span class="lnt"&gt;37
+&lt;/span&gt;&lt;span class="lnt"&gt;38
+&lt;/span&gt;&lt;span class="lnt"&gt;39
+&lt;/span&gt;&lt;span class="lnt"&gt;40
+&lt;/span&gt;&lt;span class="lnt"&gt;41
+&lt;/span&gt;&lt;span class="lnt"&gt;42
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;/sys/fs/cgroup/
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;├── cgroup.controllers
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;├── cgroup.max.depth
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;├── cgroup.max.descendants
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;├── cgroup.pressure
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;├── cgroup.procs
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;├── cgroup.stat
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;├── cgroup.subtree_control
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;├── cgroup.threads
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;├── cpu.pressure
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;├── cpuset.cpus.effective
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;├── cpuset.cpus.isolated
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;├── cpuset.mems.effective
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;├── cpu.stat
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;├── cpu.stat.local
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;├── dev-hugepages.mount
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;├── dev-mqueue.mount
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;├── dmem.capacity
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;├── dmem.current
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;├── init.scope
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;├── io.cost.model
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;├── io.cost.qos
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;├── io.pressure
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;├── io.prio.class
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;├── io.stat
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;├── irq.pressure
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;├── machine.slice
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;├── memory.numa_stat
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;├── memory.pressure
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;├── memory.reclaim
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;├── memory.stat
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;├── memory.zswap.writeback
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;├── misc.capacity
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;├── misc.current
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;├── misc.peak
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;├── proc-sys-fs-binfmt_misc.mount
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;├── sys-fs-fuse-connections.mount
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;├── sys-kernel-config.mount
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;├── sys-kernel-debug.mount
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;├── sys-kernel-tracing.mount
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;├── system.slice
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;└── user.slice
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;然后在 &lt;code&gt;/proc/*/cgroup&lt;/code&gt; 下会有各个进程的所属的控制组信息，每一行表示一个进程在某个层级中的控制组路径。格式如下：
+&lt;code&gt;&amp;lt;层级号&amp;gt;:&amp;lt;子系统&amp;gt;:&amp;lt;控制组路径&amp;gt;&lt;/code&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;层级号：表示控制组所属的层级编号。&lt;/li&gt;
+&lt;li&gt;子系统：表示控制组管理的资源类型，例如 cpu、memory、blkio 等。&lt;/li&gt;
+&lt;li&gt;控制组路径：表示进程所属的控制组路径，从根控制组开始。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;举个例子：&lt;/p&gt;
+&lt;p&gt;0::/user.slice/user-1000.slice/ user@1000.service /app.slice/ app-Hyprland-dunst@3883b287.service ：表示进程属于用户 1000 的 Hyprland-dunst 服务。路径中的每一级都表示一个控制组的层级结构。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;user.slice：表示用户级别的控制组。&lt;/li&gt;
+&lt;li&gt;user-1000.slice：表示用户 1000 的控制组。&lt;/li&gt;
+&lt;li&gt;user@1000.service：表示用户 1000 的服务。&lt;/li&gt;
+&lt;li&gt;app.slice：表示应用程序级别的控制组。&lt;/li&gt;
+&lt;li&gt;app-Hyprland-dunst@3883b287.service：表示 Hyprland-dunst 服务的具体实例。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;还有：
+0::/system.slice/systemd-userdbd.service&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;system.slice：表示这是一个系统级别的控制组。&lt;/li&gt;
+&lt;li&gt;systemd-userdbd.service：表示这是 systemd-userdbd 服务。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="union-fs"&gt;Union FS
+&lt;/h2&gt;&lt;p&gt;UnionFS是一种联合文件系统技术，它允许&lt;em&gt;多个文件系统挂载到同一目录下&lt;/em&gt;，合并成一个整体视图。它采用&lt;em&gt;分层结构，底层为只读层，顶层为可写层，数据修改只发生在顶层&lt;/em&gt;，利用“&lt;em&gt;写时复制&lt;/em&gt;”机制确保底层数据不受影响。UnionFS在容器技术中广泛应用，如Docker使用类似的OverlayFS管理镜像分层。它优势在于高效存储、快速更新和简化管理，但也存在文件操作复杂性和潜在一致性问题。&lt;/p&gt;
+&lt;div class="mermaid" id="mermaid-1"&gt;
+graph TD
+A["Merged View: file1.txt (modified)"] --&gt; B["Writable Work Layer"]
+A --&gt; C["Read-Only Lower Layer"]
+B --&gt; D["file1.txt (modified)"]
+C --&gt; E["file1.txt (original)"]
+style A fill:#ffe6ff,stroke:#333
+style B fill:#ffe6e6,stroke:#ff6666
+style C fill:#e6e6ff,stroke:#6666ff
+style D fill:#ffe6e6,stroke:#ff6666
+style E fill:#e6e6ff,stroke:#6666ff
+&lt;/div&gt;
+&lt;script&gt;
+document.addEventListener('DOMContentLoaded', function() {
+mermaid.initialize({
+startOnLoad: true,
+theme: 'default',
+securityLevel: 'loose',
+flowchart: {
+htmlLabels: true,
+curve: 'basis'
+}
+});
+mermaid.init(undefined, "#mermaid-1");
+});
+&lt;/script&gt;</description></item><item><title>2025-04/21~27</title><link>https://mcig-ggg.github.io/p/2025-04/21~27/</link><pubDate>Mon, 06 Oct 2025 00:00:00 +0000</pubDate><guid>https://mcig-ggg.github.io/p/2025-04/21~27/</guid><description>&lt;h1 id="2025-042127"&gt;2025-04/21~27
 &lt;/h1&gt;&lt;h2 id="review"&gt;Review
 &lt;/h2&gt;&lt;ul&gt;
 &lt;li&gt;折腾的一周：
@@ -1014,26 +1198,7 @@ $$Q(s, a; \theta) = \text{NeuralNetwork}(s, a; \theta)$$&lt;p&gt;&lt;br&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;hr&gt;</description></item><item><title>docker底层原理简介</title><link>https://mcig-ggg.github.io/p/docker%E5%BA%95%E5%B1%82%E5%8E%9F%E7%90%86%E7%AE%80%E4%BB%8B/</link><pubDate>Mon, 06 Oct 2025 00:00:00 +0000</pubDate><guid>https://mcig-ggg.github.io/p/docker%E5%BA%95%E5%B1%82%E5%8E%9F%E7%90%86%E7%AE%80%E4%BB%8B/</guid><description>&lt;img src="https://mcig-ggg.github.io/images/Pasted-image-20251006220327.png" alt="Featured image of post docker底层原理简介" /&gt;&lt;h1 id="docker底层原理简介"&gt;docker底层原理简介
-&lt;/h1&gt;&lt;p&gt;#conclusion&lt;/p&gt;
-&lt;p&gt;docker 为了实现容器间的隔离，资源的限制，高效性，分别使用了 linux namespace, Cgroups(control groups), Union FS 这几个技术，下面一一介绍&lt;/p&gt;
-&lt;h2 id="linux-namespace"&gt;Linux namespace
-&lt;/h2&gt;&lt;p&gt;刚开始见到会联想到 cpp 的 namespace,了解之后发现二者在效果上差不多都是： 隔离某些东西（linux namespace：pid 对应的进程，一个pid在不同的namespace对应不同进程， cpp namespace： 一个函数名在不同namespace对应不同函数）&lt;/p&gt;
-&lt;h3 id="具体原理"&gt;具体原理
-&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;以前：操作系统里 pid 和进程一一对应，不可能有进程的pid相同&lt;/li&gt;
-&lt;li&gt;现在：操作系统增加一个 &lt;em&gt;osid&lt;/em&gt; ，现在一个进程的识别要同时匹配 &lt;em&gt;osid&lt;/em&gt;， &lt;em&gt;pid&lt;/em&gt;，一个进程树对应一个&lt;em&gt;osid&lt;/em&gt;， 大概如下
-&lt;img src="https://mcig-ggg.github.io/images/Pasted-image-20251006220327.png"
-loading="lazy"
-alt="Pasted image 20251006220327.png"
-&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;blockquote&gt;
-&lt;p&gt;[!NOTE]
-一个进程树对应一个&lt;em&gt;osid&lt;/em&gt;
-现在进程树隔离了,这样我们就可以创建两个不干扰的容器了&lt;/p&gt;&lt;/blockquote&gt;
-&lt;h2 id="cgroups"&gt;Cgroups
-&lt;/h2&gt;&lt;p&gt;前面可以让两个容器隔离了，现在还需要控制容器的 cpu 占用，内存占用等等，不能让容器随意使用系统资源。&lt;/p&gt;</description></item><item><title>hugo_publish</title><link>https://mcig-ggg.github.io/p/hugo_publish/</link><pubDate>Mon, 06 Oct 2025 00:00:00 +0000</pubDate><guid>https://mcig-ggg.github.io/p/hugo_publish/</guid><description>&lt;p&gt;&lt;strong&gt;1. 项目结构&lt;/strong&gt;&lt;/p&gt;
+&lt;hr&gt;</description></item><item><title>hugo_publish</title><link>https://mcig-ggg.github.io/p/hugo_publish/</link><pubDate>Mon, 06 Oct 2025 00:00:00 +0000</pubDate><guid>https://mcig-ggg.github.io/p/hugo_publish/</guid><description>&lt;p&gt;&lt;strong&gt;1. 项目结构&lt;/strong&gt;&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
 &lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
 &lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt; 1
@@ -1564,7 +1729,7 @@ data-flex-basis="320px"
 &lt;hr&gt;
 &lt;h3 id="总结"&gt;&lt;strong&gt;总结&lt;/strong&gt;
 &lt;/h3&gt;&lt;p&gt;搜索问题的形式化定义为智能体提供了在复杂环境中规划行动的数学框架。通过明确状态空间、动作、转移模型等要素，结合适当的搜索算法（如BFS、A*、UCS），智能体能够高效地找到从初始状态到目标状态的最优路径。这一过程是构建理性规划智能体的基础，也是后续学习更高级算法（如强化学习）的前提。&lt;/p&gt;
-&lt;h2 id="hahahugoshortcode12s0hbhb"&gt;&lt;div class="admonition admonition-note"&gt;
+&lt;h2 id="hahahugoshortcode10s0hbhb"&gt;&lt;div class="admonition admonition-note"&gt;
 &lt;div class="admonition-title"&gt;
 搜索问题的解法
 &lt;/div&gt;
