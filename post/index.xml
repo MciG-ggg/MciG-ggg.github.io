@@ -48,7 +48,7 @@ font-size: 1em;
 &lt;/style&gt;
 &lt;h2 id="cgroups"&gt;Cgroups
 &lt;/h2&gt;&lt;p&gt;前面可以让两个容器隔离了，现在还需要控制容器的 cpu 占用，内存占用等等，不能让容器随意使用系统资源。Cgroups 通过层级结构（hierarchy）和控制组（group）来管理资源。每个层级可以包含多个控制组，每个控制组可以包含多个进程。每个控制组可以独立地配置资源限制和优先级。&lt;/p&gt;
-&lt;p&gt;Cgroups的数据结构存储在/sys/fs/group 下，大概有这些目录结构：&lt;/p&gt;
+&lt;p&gt;Cgroups的数据结构存储在 &lt;code&gt;/sys/fs/group&lt;/code&gt; 下，大概有这些目录结构：&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
 &lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
 &lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt; 1
