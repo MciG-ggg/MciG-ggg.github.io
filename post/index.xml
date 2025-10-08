@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on MciG</title><link>https://mcig-ggg.github.io/post/</link><description>Recent content in Posts on MciG</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><copyright>MciG</copyright><lastBuildDate>Wed, 08 Oct 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://mcig-ggg.github.io/post/index.xml" rel="self" type="application/rss+xml"/><item><title>docker底层原理简介</title><link>https://mcig-ggg.github.io/p/docker%E5%BA%95%E5%B1%82%E5%8E%9F%E7%90%86%E7%AE%80%E4%BB%8B/</link><pubDate>Wed, 08 Oct 2025 00:00:00 +0000</pubDate><guid>https://mcig-ggg.github.io/p/docker%E5%BA%95%E5%B1%82%E5%8E%9F%E7%90%86%E7%AE%80%E4%BB%8B/</guid><description>&lt;img src="https://mcig-ggg.github.io/Pasted%20image%2020251006220327.png" alt="Featured image of post docker底层原理简介" /&gt;&lt;h1 id="docker底层原理简介"&gt;docker底层原理简介
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on MciG</title><link>https://mcig-ggg.github.io/post/</link><description>Recent content in Posts on MciG</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><copyright>MciG</copyright><lastBuildDate>Wed, 08 Oct 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://mcig-ggg.github.io/post/index.xml" rel="self" type="application/rss+xml"/><item><title>docker底层原理简介</title><link>https://mcig-ggg.github.io/p/docker%E5%BA%95%E5%B1%82%E5%8E%9F%E7%90%86%E7%AE%80%E4%BB%8B/</link><pubDate>Wed, 08 Oct 2025 00:00:00 +0000</pubDate><guid>https://mcig-ggg.github.io/p/docker%E5%BA%95%E5%B1%82%E5%8E%9F%E7%90%86%E7%AE%80%E4%BB%8B/</guid><description>&lt;img src="https://mcig-ggg.github.io/Pasted-image-20251006220327.png" alt="Featured image of post docker底层原理简介" /&gt;&lt;h1 id="docker底层原理简介"&gt;docker底层原理简介
 &lt;/h1&gt;&lt;p&gt;#conclusion&lt;/p&gt;
 &lt;p&gt;docker 为了实现容器间的隔离，资源的限制，高效性，分别使用了 linux namespace, Cgroups(control groups), Union FS 这几个技术，下面一一介绍&lt;/p&gt;
 &lt;h2 id="linux-namespace"&gt;Linux namespace
@@ -8,7 +8,10 @@
 &lt;li&gt;以前：操作系统里 pid 和进程一一对应，不可能有进程的pid相同&lt;/li&gt;
 &lt;li&gt;现在：操作系统增加一个 &lt;em&gt;osid&lt;/em&gt; ，现在一个进程的识别要同时匹配 &lt;em&gt;osid&lt;/em&gt;， &lt;em&gt;pid&lt;/em&gt;，一个进程树对应一个&lt;em&gt;osid&lt;/em&gt;， 大概如下&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;![[Pasted image 20251006220327.png]]&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://mcig-ggg.github.io/Pasted-image-20251006220327.png"
+loading="lazy"
+alt="Pasted image 20251006220327.png"
+&gt;&lt;/p&gt;
 &lt;div class="admonition admonition-note"&gt;
 &lt;div class="admonition-title"&gt;
 Note
