@@ -134,6 +134,21 @@ margin-bottom: 0.5em;
 .admonition-content {
 font-size: 1em;
 }
+@media (prefers-color-scheme: dark) {
+.admonition {
+background: #2c3e50;
+color: #ecf0f1;
+}
+.admonition-note { border-color: #42a5f5; }
+.admonition-warning { border-color: #ffa726; background: #5d4037; }
+.admonition-info { border-color: #26c6da; background: #004d40; }
+.admonition-title {
+color: #ecf0f1;
+}
+.admonition-content {
+color: #ecf0f1;
+}
+}
 &lt;/style&gt;
 大概就是从头实现路由器算法的每个规则.&lt;/p&gt;
 &lt;p&gt;每个需要实现的函数, 都会以事件驱动的方式, 被框架的模拟器调用. 所以我们只需要实现具体函数即可, 调用过程不用管.&lt;/p&gt;
@@ -192,6 +207,21 @@ margin-bottom: 0.5em;
 .admonition-content {
 font-size: 1em;
 }
+@media (prefers-color-scheme: dark) {
+.admonition {
+background: #2c3e50;
+color: #ecf0f1;
+}
+.admonition-note { border-color: #42a5f5; }
+.admonition-warning { border-color: #ffa726; background: #5d4037; }
+.admonition-info { border-color: #26c6da; background: #004d40; }
+.admonition-title {
+color: #ecf0f1;
+}
+.admonition-content {
+color: #ecf0f1;
+}
+}
 &lt;/style&gt;
 TableEntry 只告诉你我这个路由器能到哪里, 以及下一步你该去哪里.&lt;/li&gt;
 &lt;/ul&gt;
@@ -234,6 +264,21 @@ margin-bottom: 0.5em;
 }
 .admonition-content {
 font-size: 1em;
+}
+@media (prefers-color-scheme: dark) {
+.admonition {
+background: #2c3e50;
+color: #ecf0f1;
+}
+.admonition-note { border-color: #42a5f5; }
+.admonition-warning { border-color: #ffa726; background: #5d4037; }
+.admonition-info { border-color: #26c6da; background: #004d40; }
+.admonition-title {
+color: #ecf0f1;
+}
+.admonition-content {
+color: #ecf0f1;
+}
 }
 &lt;/style&gt;
 &lt;h2 id="stage4-更新路由表"&gt;stage4: 更新路由表
@@ -364,6 +409,21 @@ margin-bottom: 0.5em;
 }
 .admonition-content {
 font-size: 1em;
+}
+@media (prefers-color-scheme: dark) {
+.admonition {
+background: #2c3e50;
+color: #ecf0f1;
+}
+.admonition-note { border-color: #42a5f5; }
+.admonition-warning { border-color: #ffa726; background: #5d4037; }
+.admonition-info { border-color: #26c6da; background: #004d40; }
+.admonition-title {
+color: #ecf0f1;
+}
+.admonition-content {
+color: #ecf0f1;
+}
 }
 &lt;/style&gt; &lt;/li&gt;
 &lt;/ul&gt;
@@ -558,6 +618,21 @@ margin-bottom: 0.5em;
 .admonition-content {
 font-size: 1em;
 }
+@media (prefers-color-scheme: dark) {
+.admonition {
+background: #2c3e50;
+color: #ecf0f1;
+}
+.admonition-note { border-color: #42a5f5; }
+.admonition-warning { border-color: #ffa726; background: #5d4037; }
+.admonition-info { border-color: #26c6da; background: #004d40; }
+.admonition-title {
+color: #ecf0f1;
+}
+.admonition-content {
+color: #ecf0f1;
+}
+}
 &lt;/style&gt;
 &lt;/h2&gt;&lt;h2 id="第二部分不确定性与动态环境从-mdp-到强化学习"&gt;&lt;strong&gt;第二部分：不确定性与动态环境——从 MDP 到强化学习&lt;/strong&gt;
 &lt;/h2&gt;&lt;h3 id="1-马尔可夫决策过程mdp"&gt;&lt;strong&gt;1. 马尔可夫决策过程（MDP）&lt;/strong&gt;
@@ -708,6 +783,21 @@ margin-bottom: 0.5em;
 .admonition-content {
 font-size: 1em;
 }
+@media (prefers-color-scheme: dark) {
+.admonition {
+background: #2c3e50;
+color: #ecf0f1;
+}
+.admonition-note { border-color: #42a5f5; }
+.admonition-warning { border-color: #ffa726; background: #5d4037; }
+.admonition-info { border-color: #26c6da; background: #004d40; }
+.admonition-title {
+color: #ecf0f1;
+}
+.admonition-content {
+color: #ecf0f1;
+}
+}
 &lt;/style&gt;
 &lt;ul&gt;
 &lt;li&gt;不基于模型的RL：当环境模型未知时，强化学习通过&lt;strong&gt;试错&lt;/strong&gt;直接学习策略。核心算法 Q 学习通过&lt;strong&gt;时序差分更新&lt;/strong&gt;逐步逼近最优动作价值函数：&lt;br&gt;
@@ -747,6 +837,21 @@ margin-bottom: 0.5em;
 }
 .admonition-content {
 font-size: 1em;
+}
+@media (prefers-color-scheme: dark) {
+.admonition {
+background: #2c3e50;
+color: #ecf0f1;
+}
+.admonition-note { border-color: #42a5f5; }
+.admonition-warning { border-color: #ffa726; background: #5d4037; }
+.admonition-info { border-color: #26c6da; background: #004d40; }
+.admonition-title {
+color: #ecf0f1;
+}
+.admonition-content {
+color: #ecf0f1;
+}
 }
 &lt;/style&gt;
 &lt;table&gt;
@@ -1078,6 +1183,21 @@ margin-bottom: 0.5em;
 }
 .admonition-content {
 font-size: 1em;
+}
+@media (prefers-color-scheme: dark) {
+.admonition {
+background: #2c3e50;
+color: #ecf0f1;
+}
+.admonition-note { border-color: #42a5f5; }
+.admonition-warning { border-color: #ffa726; background: #5d4037; }
+.admonition-info { border-color: #26c6da; background: #004d40; }
+.admonition-title {
+color: #ecf0f1;
+}
+.admonition-content {
+color: #ecf0f1;
+}
 }
 &lt;/style&gt;
 &lt;h2 id="cgroups"&gt;Cgroups

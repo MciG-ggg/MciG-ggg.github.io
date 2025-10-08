@@ -24,6 +24,21 @@ margin-bottom: 0.5em;
 .admonition-content {
 font-size: 1em;
 }
+@media (prefers-color-scheme: dark) {
+.admonition {
+background: #2c3e50;
+color: #ecf0f1;
+}
+.admonition-note { border-color: #42a5f5; }
+.admonition-warning { border-color: #ffa726; background: #5d4037; }
+.admonition-info { border-color: #26c6da; background: #004d40; }
+.admonition-title {
+color: #ecf0f1;
+}
+.admonition-content {
+color: #ecf0f1;
+}
+}
 &lt;/style&gt;
 大概就是从头实现路由器算法的每个规则.&lt;/p&gt;
 &lt;p&gt;每个需要实现的函数, 都会以事件驱动的方式, 被框架的模拟器调用. 所以我们只需要实现具体函数即可, 调用过程不用管.&lt;/p&gt;
@@ -82,6 +97,21 @@ margin-bottom: 0.5em;
 .admonition-content {
 font-size: 1em;
 }
+@media (prefers-color-scheme: dark) {
+.admonition {
+background: #2c3e50;
+color: #ecf0f1;
+}
+.admonition-note { border-color: #42a5f5; }
+.admonition-warning { border-color: #ffa726; background: #5d4037; }
+.admonition-info { border-color: #26c6da; background: #004d40; }
+.admonition-title {
+color: #ecf0f1;
+}
+.admonition-content {
+color: #ecf0f1;
+}
+}
 &lt;/style&gt;
 TableEntry 只告诉你我这个路由器能到哪里, 以及下一步你该去哪里.&lt;/li&gt;
 &lt;/ul&gt;
@@ -124,6 +154,21 @@ margin-bottom: 0.5em;
 }
 .admonition-content {
 font-size: 1em;
+}
+@media (prefers-color-scheme: dark) {
+.admonition {
+background: #2c3e50;
+color: #ecf0f1;
+}
+.admonition-note { border-color: #42a5f5; }
+.admonition-warning { border-color: #ffa726; background: #5d4037; }
+.admonition-info { border-color: #26c6da; background: #004d40; }
+.admonition-title {
+color: #ecf0f1;
+}
+.admonition-content {
+color: #ecf0f1;
+}
 }
 &lt;/style&gt;
 &lt;h2 id="stage4-更新路由表"&gt;stage4: 更新路由表
@@ -254,6 +299,21 @@ margin-bottom: 0.5em;
 }
 .admonition-content {
 font-size: 1em;
+}
+@media (prefers-color-scheme: dark) {
+.admonition {
+background: #2c3e50;
+color: #ecf0f1;
+}
+.admonition-note { border-color: #42a5f5; }
+.admonition-warning { border-color: #ffa726; background: #5d4037; }
+.admonition-info { border-color: #26c6da; background: #004d40; }
+.admonition-title {
+color: #ecf0f1;
+}
+.admonition-content {
+color: #ecf0f1;
+}
 }
 &lt;/style&gt; &lt;/li&gt;
 &lt;/ul&gt;
