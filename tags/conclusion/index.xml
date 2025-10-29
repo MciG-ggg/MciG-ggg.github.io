@@ -1,4 +1,62 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Conclusion on MciG</title><link>https://mcig-ggg.github.io/tags/conclusion/</link><description>Recent content in Conclusion on MciG</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><copyright>MciG</copyright><lastBuildDate>Wed, 08 Oct 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://mcig-ggg.github.io/tags/conclusion/index.xml" rel="self" type="application/rss+xml"/><item><title>CS188：从搜索问题到RL</title><link>https://mcig-ggg.github.io/p/cs188%E4%BB%8E%E6%90%9C%E7%B4%A2%E9%97%AE%E9%A2%98%E5%88%B0rl/</link><pubDate>Wed, 08 Oct 2025 00:00:00 +0000</pubDate><guid>https://mcig-ggg.github.io/p/cs188%E4%BB%8E%E6%90%9C%E7%B4%A2%E9%97%AE%E9%A2%98%E5%88%B0rl/</guid><description>&lt;img src="https://mcig-ggg.github.io/p/cs188%E4%BB%8E%E6%90%9C%E7%B4%A2%E9%97%AE%E9%A2%98%E5%88%B0rl/Pasted-image-20250424203806.png" alt="Featured image of post CS188：从搜索问题到RL" /&gt;&lt;hr&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Conclusion on MciG</title><link>https://mcig-ggg.github.io/tags/conclusion/</link><description>Recent content in Conclusion on MciG</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><copyright>MciG</copyright><lastBuildDate>Wed, 29 Oct 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://mcig-ggg.github.io/tags/conclusion/index.xml" rel="self" type="application/rss+xml"/><item><title>MIT introtodeeplearning lab1</title><link>https://mcig-ggg.github.io/p/mit-introtodeeplearning-lab1/</link><pubDate>Wed, 29 Oct 2025 00:00:00 +0000</pubDate><guid>https://mcig-ggg.github.io/p/mit-introtodeeplearning-lab1/</guid><description>&lt;h1 id="mit-introtodeeplearning-lab1"&gt;MIT introtodeeplearning lab1
+&lt;/h1&gt;&lt;p&gt;&lt;div class="admonition admonition-note"&gt;
+&lt;div class="admonition-title"&gt;
+Note
+&lt;/div&gt;
+&lt;div class="admonition-content"&gt;
+&lt;p&gt;个人感觉神经网络最重要的是搞清楚：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;每个维度代表什么&lt;/li&gt;
+&lt;li&gt;每一层之间的维度转换&lt;/li&gt;
+&lt;li&gt;数据是什么&lt;/li&gt;
+&lt;li&gt;训练最后的输出是什么&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;style&gt;
+.admonition {
+border-left: 4px solid #42a5f5;
+background: #f5f7fa;
+margin: 1.5em 0;
+padding: 1em 1.2em;
+border-radius: 6px;
+}
+.admonition-note { border-color: #42a5f5; }
+.admonition-warning { border-color: #ffa726; background: #fff8e1; }
+.admonition-info { border-color: #26c6da; background: #e0f7fa; }
+.admonition-title {
+font-weight: bold;
+margin-bottom: 0.5em;
+}
+.admonition-content {
+color: #000000;
+font-size: 1em;
+}
+@media (prefers-color-scheme: dark) {
+.admonition {
+background: #2c3e50;
+color: #ecf0f1;
+}
+.admonition-note { border-color: #42a5f5; }
+.admonition-warning { border-color: #ffa726; background: #5d4037; }
+.admonition-info { border-color: #26c6da; background: #004d40; }
+.admonition-title {
+color: #ecf0f1;
+}
+.admonition-content {
+color: #ecf0f1;
+}
+}
+&lt;/style&gt;
+part1 是 pytorch 的介绍，这个博客主要是讲一下 part2,用RNN来生成音乐&lt;/p&gt;
+&lt;h2 id="0-架构图"&gt;0. 架构图
+&lt;/h2&gt;&lt;p&gt;[[mit_DNN_lab1_MusicGeneration.excalidraw]]&lt;/p&gt;
+&lt;h2 id="1-开始前的准备"&gt;1. 开始前的准备
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;基本 用 uv, init之后add各个包就可以了&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="2-数据集"&gt;2. 数据集
+&lt;/h2&gt;</description></item><item><title>CS188：从搜索问题到RL</title><link>https://mcig-ggg.github.io/p/cs188%E4%BB%8E%E6%90%9C%E7%B4%A2%E9%97%AE%E9%A2%98%E5%88%B0rl/</link><pubDate>Wed, 08 Oct 2025 00:00:00 +0000</pubDate><guid>https://mcig-ggg.github.io/p/cs188%E4%BB%8E%E6%90%9C%E7%B4%A2%E9%97%AE%E9%A2%98%E5%88%B0rl/</guid><description>&lt;img src="https://mcig-ggg.github.io/p/cs188%E4%BB%8E%E6%90%9C%E7%B4%A2%E9%97%AE%E9%A2%98%E5%88%B0rl/Pasted-image-20250424203806.png" alt="Featured image of post CS188：从搜索问题到RL" /&gt;&lt;hr&gt;
 &lt;h1 id="cs188从搜索问题到-rl人工智能决策算法的演进之路"&gt;CS188：从搜索问题到 RL——人工智能决策算法的演进之路
 &lt;/h1&gt;&lt;p&gt;UC Berkeley 的 CS188 课程（人工智能导论）以“构建智能体的决策能力”为核心，从经典的搜索算法到现代强化学习（Reinforcement Learning, RL），系统性地揭示了人工智能如何在复杂环境中规划路径、解决问题并优化策略。本文将沿着课程脉络，梳理从基础搜索到强化学习的演进逻辑，并探讨其背后的核心思想。&lt;/p&gt;
 &lt;hr&gt;
@@ -104,7 +162,7 @@
 &lt;hr&gt;
 &lt;h3 id="总结"&gt;&lt;strong&gt;总结&lt;/strong&gt;
 &lt;/h3&gt;&lt;p&gt;搜索问题的形式化定义为智能体提供了在复杂环境中规划行动的数学框架。通过明确状态空间、动作、转移模型等要素，结合适当的搜索算法（如BFS、A*、UCS），智能体能够高效地找到从初始状态到目标状态的最优路径。这一过程是构建理性规划智能体的基础，也是后续学习更高级算法（如强化学习）的前提。&lt;/p&gt;
-&lt;h2 id="hahahugoshortcode14s0hbhb"&gt;&lt;div class="admonition admonition-note"&gt;
+&lt;h2 id="hahahugoshortcode13s0hbhb"&gt;&lt;div class="admonition admonition-note"&gt;
 &lt;div class="admonition-title"&gt;
 搜索问题的解法
 &lt;/div&gt;
