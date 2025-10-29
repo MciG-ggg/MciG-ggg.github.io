@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Dairy on MciG</title><link>https://mcig-ggg.github.io/categories/dairy/</link><description>Recent content in Dairy on MciG</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><copyright>MciG</copyright><lastBuildDate>Wed, 29 Oct 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://mcig-ggg.github.io/categories/dairy/index.xml" rel="self" type="application/rss+xml"/><item><title>2025-W44-10</title><link>https://mcig-ggg.github.io/p/2025-w44-10/</link><pubDate>Wed, 29 Oct 2025 00:00:00 +0000</pubDate><guid>https://mcig-ggg.github.io/p/2025-w44-10/</guid><description>&lt;h1 id="2025-w44-10"&gt;2025-W44-10
+&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;开始学 mit deeplearning
+&lt;ul&gt;
+&lt;li&gt;一开始感觉有点吃力， 慢慢看吧&lt;/li&gt;
+&lt;li&gt;做了 lab1, 感觉 part2 有点难，写个博客总结下&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;打算走具身智能了&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="review"&gt;Review
+&lt;/h2&gt;&lt;h3 id="completed"&gt;Completed
+&lt;/h3&gt;&lt;h3 id="uncompleted"&gt;Uncompleted
+&lt;/h3&gt;&lt;h2 id="next-week-plan"&gt;Next Week Plan
+&lt;/h2&gt;&lt;h2 id="thoughts"&gt;THOUGHTS
+&lt;/h2&gt;</description></item><item><title>2025-W41-10</title><link>https://mcig-ggg.github.io/p/2025-w41-10/</link><pubDate>Mon, 20 Oct 2025 00:00:00 +0000</pubDate><guid>https://mcig-ggg.github.io/p/2025-w41-10/</guid><description>&lt;h1 id="2025-w41-10"&gt;2025-W41-10
+&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;定一下这学期规划吧，别东搞西搞了。
+&lt;ul&gt;
+&lt;li&gt;感觉没有太大必要去看peekaping前端部分，还是走后端吧&lt;/li&gt;
+&lt;li&gt;可以把dubbogo，seatago多看一点&lt;/li&gt;
+&lt;li&gt;jyyos的课还有lab做完，老老实实的写还有debug!!!
+&lt;ul&gt;
+&lt;li&gt;看完之后，这学期还有空的话课外看看LLM&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;然后课内就是：
+&lt;ul&gt;
+&lt;li&gt;大物课上写作业，看知识点就行了，比较轻松&lt;/li&gt;
+&lt;li&gt;离散，模电，概统，有点吃力，要多发力
+&lt;ul&gt;
+&lt;li&gt;离散，概统看课快的话，把期末卷子写写，然后可以看看CS70&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;还有逃课最好不要逃课去玩，课上也可以刷课&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="review"&gt;Review
+&lt;/h2&gt;&lt;h3 id="completed"&gt;Completed
+&lt;/h3&gt;&lt;h3 id="uncompleted"&gt;Uncompleted
+&lt;/h3&gt;&lt;h2 id="next-week-plan"&gt;Next Week Plan
+&lt;/h2&gt;&lt;h2 id="thoughts"&gt;THOUGHTS
+&lt;/h2&gt;</description></item><item><title>2025-W43-10</title><link>https://mcig-ggg.github.io/p/2025-w43-10/</link><pubDate>Mon, 20 Oct 2025 00:00:00 +0000</pubDate><guid>https://mcig-ggg.github.io/p/2025-w43-10/</guid><description>&lt;h1 id="2025-w43-10"&gt;2025-W43-10
+&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;这周进社团了，社团招新进了
+&lt;ul&gt;
+&lt;li&gt;有工位了，感觉效率高很多&lt;/li&gt;
+&lt;li&gt;有那种家的感觉了，&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;然后 jyyos M9 后面换 go 写了，心智负担更低了，leveldb 的文档写挺好的，现在实现一点 memtable 的功能了，简化下实现，大概学一下数据库&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="review"&gt;Review
+&lt;/h2&gt;&lt;h3 id="completed"&gt;Completed
+&lt;/h3&gt;&lt;h3 id="uncompleted"&gt;Uncompleted
+&lt;/h3&gt;&lt;h2 id="next-week-plan"&gt;Next Week Plan
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;继续写 M9&lt;/li&gt;
+&lt;li&gt;看 dubbogo, kiwi
+&lt;ul&gt;
+&lt;li&gt;从 dubbogo-example 开始看吧，然后学下怎么用&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="thoughts"&gt;THOUGHTS
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;有工位学习和生活分开了，回去之后就能好好休息了&lt;/li&gt;
+&lt;li&gt;然后上周大概规划了每周的每一天做什么，感觉更有掌控感了&lt;/li&gt;
+&lt;/ul&gt;</description></item><item><title>2025-04/21~27</title><link>https://mcig-ggg.github.io/p/2025-04/21~27/</link><pubDate>Wed, 08 Oct 2025 00:00:00 +0000</pubDate><guid>https://mcig-ggg.github.io/p/2025-04/21~27/</guid><description>&lt;h1 id="2025-042127"&gt;2025-04/21~27
+&lt;/h1&gt;&lt;h2 id="review"&gt;Review
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;折腾的一周：
+&lt;ul&gt;
+&lt;li&gt;折腾 obsidian&lt;/li&gt;
+&lt;li&gt;折腾个人博客&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;CS188 就看了一节
+&lt;ul&gt;
+&lt;li&gt;感觉得慢慢看，不要急&lt;/li&gt;
+&lt;li&gt;所以复习了下前面的内容，打算写篇博客文章，还没写完&lt;/li&gt;
+&lt;li&gt;proj, 和 discussion 的进度也要跟上&lt;/li&gt;
+&lt;li&gt;五一结束前估计搞不完了，看看 5 月中旬能不能搞完&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;写了点小工具，不过是重复造轮子罢了,,,&lt;/li&gt;
+&lt;li&gt;重启 leetcode, 好久没刷了，每天花一点点时间刷刷&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="completed"&gt;Completed
+&lt;/h3&gt;&lt;h3 id="uncompleted"&gt;Uncompleted
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;CS188proj2, proj3
+&lt;ul&gt;
+&lt;li&gt;还有前面的 discussion&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="next-week-plan"&gt;Next Week Plan
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;等待五一爽学爽玩&lt;/li&gt;
+&lt;li&gt;每天抽时间看书，刷 leetcode&lt;/li&gt;
+&lt;li&gt;&lt;input checked="" disabled="" type="checkbox"&gt; CS188proj2 🔺 ➕ 2025-04-27 📅 2025-04-30 ✅ 2025-04-29&lt;/li&gt;
+&lt;li&gt;&lt;input checked="" disabled="" type="checkbox"&gt; CS188proj3 🔺 ➕ 2025-04-29 ⏳ 2025-05-02 📅 2025-05-02 ✅ 2025-05-0a1&lt;/li&gt;
+&lt;li&gt;&lt;input checked="" disabled="" type="checkbox"&gt; CS70 概率论部分 note ⏫ ➕ 2025-04-29 📅 2025-05-11&lt;/li&gt;
+&lt;li&gt;&lt;input checked="" disabled="" type="checkbox"&gt; CS188discussion 🔼 ➕ 2025-04-29 ✅ 2025-06-09&lt;/li&gt;
+&lt;li&gt;&lt;input checked="" disabled="" type="checkbox"&gt; 线代期末复习 🔺 📅 2025-05-05 ✅ 2025-05-08&lt;/li&gt;
+&lt;li&gt;&lt;input checked="" disabled="" type="checkbox"&gt; 电路作业 ⏫ ⏳ 2025-05-05 ✅ 2025-05-08&lt;/li&gt;
+&lt;li&gt;&lt;input checked="" disabled="" type="checkbox"&gt; 电路大物实验报告 🔼 ⏳ 2025-05-02 ✅ 2025-05-03&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="thoughts"&gt;THOUGHTS
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;折腾的最终境界就是默认配置&amp;hellip;&lt;/li&gt;
+&lt;/ul&gt;</description></item><item><title>2025-W22-06</title><link>https://mcig-ggg.github.io/p/2025-w22-06/</link><pubDate>Wed, 08 Oct 2025 00:00:00 +0000</pubDate><guid>https://mcig-ggg.github.io/p/2025-w22-06/</guid><description>&lt;h1 id="2025-w22-06"&gt;2025-W22-06
+&lt;/h1&gt;&lt;h2 id="review"&gt;Review
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;好久没写周结了, 上次写都整整一个月前了&amp;hellip;&amp;hellip;,&lt;/li&gt;
+&lt;li&gt;上个月课内事情很多, 没时间学课外的&lt;/li&gt;
+&lt;li&gt;重新折腾了下博客&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="completed"&gt;Completed
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;CS188
+&lt;ul&gt;
+&lt;li&gt;看到 bayes net&lt;/li&gt;
+&lt;li&gt;写到 proj4, 没动了, 打算暑假继续&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;CS70
+&lt;ul&gt;
+&lt;li&gt;看了一点点然后没看了, 暑假继续&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;后面开看计网了, 看的中科大计网, 打算暑假写写 CS144 的 lab
+&lt;ul&gt;
+&lt;li&gt;目前刚看到网络层&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="uncompleted"&gt;Uncompleted
+&lt;/h3&gt;&lt;h2 id="next-week-plan"&gt;Next Week Plan
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;最后一周, 要结课了, 要开始准备下课内的考试了
+&lt;ul&gt;
+&lt;li&gt;其实下周就有公选课的考试&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;继续看计网, 打算放假前看完中科大计网&lt;/li&gt;
+&lt;li&gt;暑假打算看 jyyos, 之前就看了一点, 看完再看 6.824&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="thoughts"&gt;THOUGHTS
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;下学期想找实习&lt;/li&gt;
+&lt;li&gt;有点想学 go
+&lt;ul&gt;
+&lt;li&gt;下学期不想找离学校太远的, 然后附近的公司基本是 cpp, java, go, 然后不太想学 java&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;然后感觉自己好像还是对传统互联网感兴趣一点, 也许就决定走这条路了, 不过也要多了解最新的技术&lt;/li&gt;
+&lt;/ul&gt;</description></item><item><title>2025-W24-06</title><link>https://mcig-ggg.github.io/p/2025-w24-06/</link><pubDate>Wed, 08 Oct 2025 00:00:00 +0000</pubDate><guid>https://mcig-ggg.github.io/p/2025-w24-06/</guid><description>&lt;h1 id="2025-w24-06"&gt;2025-W24-06
+&lt;/h1&gt;&lt;h2 id="review"&gt;Review
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;这周做了一堆实验, 实验报告要写死了&lt;/li&gt;
+&lt;li&gt;课外的事情没做啥, 到处折腾了一点&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="completed"&gt;Completed
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;看了点 cs144 的proj, 感觉有点意思&lt;/li&gt;
+&lt;li&gt;开始学 go, 语法基本差不多, 主要是多一个 go routine 和channel&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="uncompleted"&gt;Uncompleted
+&lt;/h3&gt;&lt;h2 id="next-week-plan"&gt;Next Week Plan
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;把 go 基本语法看完&lt;/li&gt;
+&lt;li&gt;做个小项目&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="thoughts"&gt;THOUGHTS
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;感觉自己进入信息爆炸了, 天天闲着就看手机, 手机拿在手上不松的.&lt;/li&gt;
+&lt;/ul&gt;</description></item></channel></rss>
