@@ -91,12 +91,8 @@ $$\mathbb{R}^3, \mathfrak{so}(3), \mathrm{Rot}(\hat{\boldsymbol{\omega}},\theta)
 &lt;h2 id="chapter3"&gt;Chapter3
 &lt;/h2&gt;&lt;h3 id="32-刚体旋转"&gt;3.2 刚体旋转
 &lt;/h3&gt;&lt;h4 id="旋转矩阵"&gt;旋转矩阵
-&lt;/h4&gt;$$
-R^TR = I
-$$&lt;p&gt;进一步，在右手系下有:&lt;/p&gt;
-$$
-detR = 1
-$$&lt;p&gt;3*3旋转矩阵的集合称为 &lt;em&gt;特殊正交群&lt;/em&gt; $SO(3)$ （李群）
+&lt;/h4&gt;$$\nR^TR = I\n$$&lt;p&gt;进一步，在右手系下有:&lt;/p&gt;
+$$\ndetR = 1\n$$&lt;p&gt;3*3旋转矩阵的集合称为 &lt;em&gt;特殊正交群&lt;/em&gt; $SO(3)$ （李群）
 同理，2*2 为 $SO(2)$&lt;/p&gt;
 &lt;h5 id="正交群的性质"&gt;正交群的性质
 &lt;/h5&gt;&lt;ul&gt;
@@ -122,13 +118,8 @@ data-flex-basis="502px"
 &gt;&lt;/p&gt;
 &lt;p&gt;由图可得， $\dot{r_{i}} = \omega_{s} \times r_{i}, i=1,2,3$ ,其中i 取 1，2,3 的时候分别对应 x, y, z 轴
 整合成矩阵形式有：&lt;/p&gt;
-$$
-\dot{R} = [\omega_{s} \times r_{1}, \omega_{s} \times r_{2}, \omega_{s} \times r_{3},]
-$$&lt;p&gt;上述方程可写为：&lt;/p&gt;
-$$
-\dot{R} = [ \boldsymbol{\omega} ]_{\times} \cdot R
-\tag{3.29}
-$$&lt;p&gt;其中 $[\omega]_{\times}$ 属于so(3)（李代数）(而不是 $\dot{R} \in so(3)$ )&lt;/p&gt;
+$$\n\dot{R} = [\omega_{s} \times r_{1}, \omega_{s} \times r_{2}, \omega_{s} \times r_{3},]\n$$&lt;p&gt;上述方程可写为：&lt;/p&gt;
+$$\n\dot{R} = [ \boldsymbol{\omega} ]_{\times} \cdot R \n\tag{3.29}\n$$&lt;p&gt;其中 $[\omega]_{\times}$ 属于so(3)（李代数）(而不是 $\dot{R} \in so(3)$ )&lt;/p&gt;
 &lt;p&gt;&lt;div class="admonition admonition-note"&gt;
 &lt;div class="admonition-title"&gt;
 李群和李代数
@@ -175,87 +166,33 @@ color: #ecf0f1;
 为将上式右边的叉积消去，我们引入了一种新的运算，即将 $\boldsymbol{\omega}\times R$ 重新写成 $[\boldsymbol{\omega}] R$ 的形式，其中 $[\boldsymbol{\omega}]$ 为向量 $\boldsymbol{\omega}\in\mathbb{R}^3$ 对应的 $3\times 3$ 反对称（skew-symmetric）矩阵。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;定义 3.7&lt;/strong&gt;
 给定一向量 $\mathbf{x}=[x_1,x_2,x_3]^{\sf T}\in\mathbb{R}^3$ ，定义&lt;/p&gt;
-$$
-[\mathbf{x}]_\times =
-\begin{bmatrix}
-0 &amp; -x_3 &amp; x_2 \\
-x_3 &amp; 0 &amp; -x_1 \\
--x_2 &amp; x_1 &amp; 0
-\end{bmatrix}
-\tag{3.30}
-$$&lt;p&gt;矩阵 $[\mathbf{x}]_\times$ 就是与向量 $\mathbf{x}$ 对应的 $3\times 3$ 反对称矩阵，因此满足&lt;/p&gt;
-$$
-[\mathbf{x}]_\times^{\sf T} = -[\mathbf{x}]_\times
-$$&lt;p&gt;旋转矩阵与反对称矩阵之间具有一个非常有用的特性，如下所述。&lt;/p&gt;
+$$\n[\mathbf{x}]_\times =\n\begin{bmatrix}\n0 &amp; -x_3 &amp; x_2 \\\nx_3 &amp; 0 &amp; -x_1 \\\n-x_2 &amp; x_1 &amp; 0\n\end{bmatrix}\n\tag{3.30}\n$$&lt;p&gt;矩阵 $[\mathbf{x}]_\times$ 就是与向量 $\mathbf{x}$ 对应的 $3\times 3$ 反对称矩阵，因此满足&lt;/p&gt;
+$$\n[\mathbf{x}]_\times^{\sf T} = -[\mathbf{x}]_\times\n$$&lt;p&gt;旋转矩阵与反对称矩阵之间具有一个非常有用的特性，如下所述。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;命题 3.8&lt;/strong&gt;
 给定任意 $\boldsymbol{\omega}\in\mathbb{R}^3$ 和 $R\in SO(3)$ ，总能满足&lt;/p&gt;
-$$
-R\,[\boldsymbol{\omega}]_\times R^{\sf T} = [R\boldsymbol{\omega}]_\times
-\tag{3.31}
-$$&lt;p&gt;&lt;strong&gt;证明&lt;/strong&gt;：令 $\mathbf{r}_i$ 表示 $R$ 的第 $i$ 列，因此我们有&lt;/p&gt;
-$$
-\begin{aligned}
-R\,[\boldsymbol{\omega}]_\times R^{\sf T}
-&amp;=
-\begin{bmatrix}
-\mathbf{r}_1^{\sf T}(\boldsymbol{\omega}\times\mathbf{r}_1) &amp;
-\mathbf{r}_1^{\sf T}(\boldsymbol{\omega}\times\mathbf{r}_2) &amp;
-\mathbf{r}_1^{\sf T}(\boldsymbol{\omega}\times\mathbf{r}_3) \\[2mm]
-\mathbf{r}_2^{\sf T}(\boldsymbol{\omega}\times\mathbf{r}_1) &amp;
-\mathbf{r}_2^{\sf T}(\boldsymbol{\omega}\times\mathbf{r}_2) &amp;
-\mathbf{r}_2^{\sf T}(\boldsymbol{\omega}\times\mathbf{r}_3) \\[2mm]
-\mathbf{r}_3^{\sf T}(\boldsymbol{\omega}\times\mathbf{r}_1) &amp;
-\mathbf{r}_3^{\sf T}(\boldsymbol{\omega}\times\mathbf{r}_2) &amp;
-\mathbf{r}_3^{\sf T}(\boldsymbol{\omega}\times\mathbf{r}_3)
-\end{bmatrix} \\[4mm]
-&amp;=
-\begin{bmatrix}
-0 &amp; -\mathbf{r}_3^{\sf T}\boldsymbol{\omega} &amp; \mathbf{r}_2^{\sf T}\boldsymbol{\omega} \\[2mm]
-\mathbf{r}_3^{\sf T}\boldsymbol{\omega} &amp; 0 &amp; -\mathbf{r}_1^{\sf T}\boldsymbol{\omega} \\[2mm]
--\mathbf{r}_2^{\sf T}\boldsymbol{\omega} &amp; \mathbf{r}_1^{\sf T}\boldsymbol{\omega} &amp; 0
-\end{bmatrix} \\[4mm]
-&amp;= [R\boldsymbol{\omega}]_\times
-\end{aligned}
-\tag{3.32}
-$$&lt;h4 id="转动的指数坐标表示"&gt;转动的指数坐标表示
-&lt;/h4&gt;$$
-\dot p = [\boldsymbol{\omega}]_\times p
-\tag{3.50}
-$$&lt;p&gt;初始条件为 $p(0)$。该方程满足前面讨论过的线性微分方程 $\dot x = A x$ 的形式，因此其解可写成&lt;/p&gt;
-$$
-p(t) = e^{t[\boldsymbol{\omega}]_\times} p(0)
-$$&lt;p&gt;由于 $t$ 和 $\theta$ 可以互换，上面的方程又可写成&lt;/p&gt;
-$$
-p(\theta) = e^{\theta[\hat{\boldsymbol{\omega}}]_\times} p(0)
-$$&lt;p&gt;下面对方程中的矩阵指数 $e^{\theta[\hat{\boldsymbol{\omega}}]_\times}$ 进行级数展开。
+$$\nR\,[\boldsymbol{\omega}]_\times R^{\sf T} = [R\boldsymbol{\omega}]_\times\n\tag{3.31}\n$$&lt;p&gt;&lt;strong&gt;证明&lt;/strong&gt;：令 $\mathbf{r}_i$ 表示 $R$ 的第 $i$ 列，因此我们有&lt;/p&gt;
+$$\n\begin{aligned}\nR\,[\boldsymbol{\omega}]_\times R^{\sf T}\n&amp;=\n\begin{bmatrix}\n\mathbf{r}_1^{\sf T}(\boldsymbol{\omega}\times\mathbf{r}_1) &amp;\n\mathbf{r}_1^{\sf T}(\boldsymbol{\omega}\times\mathbf{r}_2) &amp;\n\mathbf{r}_1^{\sf T}(\boldsymbol{\omega}\times\mathbf{r}_3) \\[2mm]\n\mathbf{r}_2^{\sf T}(\boldsymbol{\omega}\times\mathbf{r}_1) &amp;\n\mathbf{r}_2^{\sf T}(\boldsymbol{\omega}\times\mathbf{r}_2) &amp;\n\mathbf{r}_2^{\sf T}(\boldsymbol{\omega}\times\mathbf{r}_3) \\[2mm]\n\mathbf{r}_3^{\sf T}(\boldsymbol{\omega}\times\mathbf{r}_1) &amp;\n\mathbf{r}_3^{\sf T}(\boldsymbol{\omega}\times\mathbf{r}_2) &amp;\n\mathbf{r}_3^{\sf T}(\boldsymbol{\omega}\times\mathbf{r}_3)\n\end{bmatrix} \\[4mm]\n&amp;=\n\begin{bmatrix}\n0 &amp; -\mathbf{r}_3^{\sf T}\boldsymbol{\omega} &amp; \mathbf{r}_2^{\sf T}\boldsymbol{\omega} \\[2mm]\n\mathbf{r}_3^{\sf T}\boldsymbol{\omega} &amp; 0 &amp; -\mathbf{r}_1^{\sf T}\boldsymbol{\omega} \\[2mm]\n-\mathbf{r}_2^{\sf T}\boldsymbol{\omega} &amp; \mathbf{r}_1^{\sf T}\boldsymbol{\omega} &amp; 0\n\end{bmatrix} \\[4mm]\n&amp;= [R\boldsymbol{\omega}]_\times\n\end{aligned}\n\tag{3.32}\n$$&lt;h4 id="转动的指数坐标表示"&gt;转动的指数坐标表示
+&lt;/h4&gt;$$\n\dot p = [\boldsymbol{\omega}]_\times p\n\tag{3.50}\n$$&lt;p&gt;初始条件为 $p(0)$。该方程满足前面讨论过的线性微分方程 $\dot x = A x$ 的形式，因此其解可写成&lt;/p&gt;
+$$\np(t) = e^{t[\boldsymbol{\omega}]_\times} p(0)\n$$&lt;p&gt;由于 $t$ 和 $\theta$ 可以互换，上面的方程又可写成&lt;/p&gt;
+$$\np(\theta) = e^{\theta[\hat{\boldsymbol{\omega}}]_\times} p(0)\n$$&lt;p&gt;下面对方程中的矩阵指数 $e^{\theta[\hat{\boldsymbol{\omega}}]_\times}$ 进行级数展开。
 注意到 $[\hat{\boldsymbol{\omega}}]_\times^3 = -[\hat{\boldsymbol{\omega}}]_\times$，因此级数展开式中的 $[\hat{\boldsymbol{\omega}}]_\times^3$ 用 $-[\hat{\boldsymbol{\omega}}]_\times$ 代替，$[\hat{\boldsymbol{\omega}}]_\times^4$ 用 $-[\hat{\boldsymbol{\omega}}]_\times^2$ 代替，$[\hat{\boldsymbol{\omega}}]_\times^5$ 用 $[\hat{\boldsymbol{\omega}}]_\times$ 代替，诸如此类，由此得到&lt;/p&gt;
-&lt;p&gt;$$
-e^{\theta[\hat{\boldsymbol{\omega}}]&lt;em&gt;\times}
-= I + \theta[\hat{\boldsymbol{\omega}}]&lt;/em&gt;\times&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;\frac{\theta^2}{2!}[\hat{\boldsymbol{\omega}}]_\times^2&lt;/li&gt;
-&lt;li&gt;\frac{\theta^3}{3!}[\hat{\boldsymbol{\omega}}]_\times^3&lt;/li&gt;
-&lt;li&gt;\cdots
-$$&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;再来回顾一下 $\sin\theta$ 和 $\cos\theta$ 的级数展开形式：&lt;/p&gt;
-$$
-\sin\theta = \theta - \frac{\theta^3}{3!} + \frac{\theta^5}{5!} - \cdots,\qquad
-\cos\theta = 1 - \frac{\theta^2}{2!} + \frac{\theta^4}{4!} - \cdots
-$$&lt;p&gt;因此，指数 $e^{\theta[\hat{\boldsymbol{\omega}}]_\times}$ 可简化为如下形式。&lt;/p&gt;
+$$\begin{aligned}
+\ne^{\theta[\hat{\boldsymbol{\omega}}]_\times}\n= \\
+&amp;\quad I + \theta[\hat{\boldsymbol{\omega}}]_\times\n+ \frac{\theta^2}{2!}[\hat{\boldsymbol{\omega}}]_\times^2\n+ \frac{\theta^3}{3!}[\hat{\boldsymbol{\omega}}]_\times^3\n \\
+&amp;\quad + \cdots\n
+\end{aligned}$$&lt;p&gt;再来回顾一下 $\sin\theta$ 和 $\cos\theta$ 的级数展开形式：&lt;/p&gt;
+$$\begin{aligned}
+\n\sin\theta = \\
+&amp;\quad \theta - \frac{\theta^3}{3!} + \frac{\theta^5}{5!} - \cdots,\qquad\n\cos\theta = 1 - \frac{\theta^2}{2!} \\
+&amp;\quad + \frac{\theta^4}{4!} - \cdots\n
+\end{aligned}$$&lt;p&gt;因此，指数 $e^{\theta[\hat{\boldsymbol{\omega}}]_\times}$ 可简化为如下形式。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;命题 3.11&lt;/strong&gt;
 给定向量 $\boldsymbol{\omega} = \theta\hat{\boldsymbol{\omega}}\in\mathbb{R}^3$，其中 $\theta$ 为任一标量，而 $\hat{\boldsymbol{\omega}}\in\mathbb{R}^3$ 为一单位向量，$[\hat{\boldsymbol{\omega}}]_\times\in\mathfrak{so}(3)$ 的矩阵指数为&lt;/p&gt;
-&lt;p&gt;$$
-\mathrm{Rot}(\hat{\boldsymbol{\omega}},\theta)
-= e^{\theta[\hat{\boldsymbol{\omega}}]&lt;em&gt;\times}
-= I + \sin\theta[\hat{\boldsymbol{\omega}}]&lt;/em&gt;\times&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;(1-\cos\theta)[\hat{\boldsymbol{\omega}}]_\times^2
-;\in; SO(3)
-\tag{3.51}
-$$&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;式 (3.51) 通常也被称为 &lt;strong&gt;罗德里格斯公式&lt;/strong&gt;（Rodrigues formula）。&lt;/p&gt;
+$$\begin{aligned}
+\n\mathrm{Rot}(\hat{\boldsymbol{\omega}},\theta)\n= \\
+&amp;\quad e^{\theta[\hat{\boldsymbol{\omega}}]_\times}\n= I + \sin\theta[\hat{\boldsymbol{\omega}}]_\times\n \\
+&amp;\quad + (1-\cos\theta)[\hat{\boldsymbol{\omega}}]_\times^2\n\;\in\; SO(3)\n\tag{3.51}\n
+\end{aligned}$$&lt;p&gt;式 (3.51) 通常也被称为 &lt;strong&gt;罗德里格斯公式&lt;/strong&gt;（Rodrigues formula）。&lt;/p&gt;
 &lt;p&gt;&lt;div class="admonition admonition-note"&gt;
 &lt;div class="admonition-title"&gt;
 Note
@@ -303,21 +240,14 @@ color: #ecf0f1;
 &lt;li&gt;$\mathrm{Rot}(\hat{\boldsymbol{\omega}},\theta)$ &lt;strong&gt;本身就是&lt;/strong&gt;一个旋转矩阵
 它把“绕单位轴 $\hat{\boldsymbol{\omega}}$ 转 $\theta$”这件事映射到 $SO(3)$ 里的一个具体元素：&lt;/li&gt;
 &lt;/ol&gt;
-$$
-\mathrm{Rot}(\hat{\boldsymbol{\omega}},\theta)=e^{\theta[\hat{\boldsymbol{\omega}}]_\times}\in SO(3)
-$$&lt;ol start="2"&gt;
+$$\n\mathrm{Rot}(\hat{\boldsymbol{\omega}},\theta)=e^{\theta[\hat{\boldsymbol{\omega}}]_\times}\in SO(3)\n$$&lt;ol start="2"&gt;
 &lt;li&gt;但“旋转矩阵 $R$ ”可以是&lt;strong&gt;任意&lt;/strong&gt; $R\in SO(3)$ ，不限于单轴单角。
 只有当 $R$ 恰好是“绕 $\hat{\boldsymbol{\omega}}$ 转 $\theta$”时，才有&lt;/li&gt;
 &lt;/ol&gt;
-$$
-R=\mathrm{Rot}(\hat{\boldsymbol{\omega}},\theta)
-$$&lt;ol start="3"&gt;
+$$\nR=\mathrm{Rot}(\hat{\boldsymbol{\omega}},\theta)\n$$&lt;ol start="3"&gt;
 &lt;li&gt;任意 $R$ 也能找到对应的一对 $(\hat{\boldsymbol{\omega}},\theta)$——这就是&lt;strong&gt;对数映射&lt;/strong&gt;：&lt;/li&gt;
 &lt;/ol&gt;
-$$
-\theta=\arccos\!\bigl(\tfrac{\mathrm{tr}(R)-1}{2}\bigr),\quad
-[\hat{\boldsymbol{\omega}}]_\times=\frac{1}{2\sin\theta}(R-R^{\sf T})
-$$&lt;p&gt;所以 $\mathrm{Rot}$ 可看成“参数化”或“生成”旋转矩阵的一种手段，而不是旋转矩阵的唯一名字。&lt;/p&gt;
+$$\n\theta=\arccos\!\bigl(\tfrac{\mathrm{tr}(R)-1}{2}\bigr),\quad\n[\hat{\boldsymbol{\omega}}]_\times=\frac{1}{2\sin\theta}(R-R^{\sf T})\n$$&lt;p&gt;所以 $\mathrm{Rot}$ 可看成“参数化”或“生成”旋转矩阵的一种手段，而不是旋转矩阵的唯一名字。&lt;/p&gt;
 &lt;p&gt;一句话：
 $\mathrm{Rot}(\hat{\boldsymbol{\omega}},\theta)$ &lt;strong&gt;是&lt;/strong&gt;旋转矩阵，但旋转矩阵&lt;strong&gt;不全是&lt;/strong&gt;$\mathrm{Rot}(\hat{\boldsymbol{\omega}},\theta)$——它只是“单轴旋转”那一子集。&lt;/p&gt;
 &lt;h4 id="转动的矩阵对数"&gt;转动的矩阵对数
@@ -336,23 +266,15 @@ $R=I \Rightarrow \theta=0,\ \hat{\boldsymbol{\omega}}$ &lt;strong&gt;不确定&l
 $\theta=\pi$，$\hat{\boldsymbol{\omega}}$ 可在下列 &lt;strong&gt;三选一&lt;/strong&gt; 里任取：&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
-$$
-\hat{\boldsymbol{\omega}}=\dfrac{1}{\sqrt{2(1+r_{33})}}
-\begin{bmatrix}r_{13}\\r_{23}\\1+r_{33}\end{bmatrix}
-\quad\text{或}\quad
-\dfrac{1}{\sqrt{2(1+r_{22})}}
-\begin{bmatrix}r_{12}\\1+r_{22}\\r_{32}\end{bmatrix}
-\quad\text{或}\quad
-\dfrac{1}{\sqrt{2(1+r_{11})}}
-\begin{bmatrix}1+r_{11}\\r_{21}\\r_{31}\end{bmatrix}
-$$&lt;p&gt;（分母为零就换下一组）&lt;/p&gt;
+$$\begin{aligned}
+\n \hat{\boldsymbol{\omega}}= \\
+&amp;\quad \dfrac{1}{\sqrt{2(1+r_{33})}}\n \begin{bmatrix}r_{13}\\r_{23}\\1+r_{33}\end{bmatrix}\n \quad\text{或}\quad\n \dfrac{1}{\sqrt{2(1+r_{22})}}\n \begin{bmatrix}r_{12}\\1+r_{22}\\r_{32}\end{bmatrix}\n \quad\text{或}\quad\n \dfrac{1}{\sqrt{2(1+r_{11})}}\n \begin{bmatrix}1 \\
+&amp;\quad +r_{11}\\r_{21}\\r_{31}\end{bmatrix}\n
+\end{aligned}$$&lt;p&gt;（分母为零就换下一组）&lt;/p&gt;
 &lt;ol start="3"&gt;
 &lt;li&gt;&lt;strong&gt;通用情况&lt;/strong&gt;（$\mathrm{tr}\,R\ne -1$）&lt;/li&gt;
 &lt;/ol&gt;
-$$
-\theta=\arccos\!\Bigl(\frac{\mathrm{tr}\,R-1}{2}\Bigr)\in(0,\pi),\quad
-[\hat{\boldsymbol{\omega}}]_\times=\frac{R-R^{\sf T}}{2\sin\theta}
-$$&lt;ul&gt;
+$$\n \theta=\arccos\!\Bigl(\frac{\mathrm{tr}\,R-1}{2}\Bigr)\in(0,\pi),\quad\n [\hat{\boldsymbol{\omega}}]_\times=\frac{R-R^{\sf T}}{2\sin\theta}\n$$&lt;ul&gt;
 &lt;li&gt;几何图景：半径为 π 的实心球（ $\mid\mid \hat{\omega} \theta\mid\mid \leq \pi$ ）
 &lt;ul&gt;
 &lt;li&gt;球面上两点 $\mathbf{r}$ 与 $-\mathbf{r}$（$\theta=\pi$）&lt;strong&gt;映射到同一&lt;/strong&gt; $R$（$\mathrm{tr}\,R=-1$）。&lt;/li&gt;
@@ -1126,7 +1048,7 @@ color: #ecf0f1;
 &lt;hr&gt;
 &lt;h3 id="总结"&gt;&lt;strong&gt;总结&lt;/strong&gt;
 &lt;/h3&gt;&lt;p&gt;搜索问题的形式化定义为智能体提供了在复杂环境中规划行动的数学框架。通过明确状态空间、动作、转移模型等要素，结合适当的搜索算法（如BFS、A*、UCS），智能体能够高效地找到从初始状态到目标状态的最优路径。这一过程是构建理性规划智能体的基础，也是后续学习更高级算法（如强化学习）的前提。&lt;/p&gt;
-&lt;h2 id="hahahugoshortcode13s0hbhb"&gt;&lt;div class="admonition admonition-note"&gt;
+&lt;h2 id="hahahugoshortcode14s0hbhb"&gt;&lt;div class="admonition admonition-note"&gt;
 &lt;div class="admonition-title"&gt;
 搜索问题的解法
 &lt;/div&gt;
