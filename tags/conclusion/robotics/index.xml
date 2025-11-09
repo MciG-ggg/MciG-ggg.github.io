@@ -1,0 +1,400 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Conclusion/Robotics on MciG</title><link>https://mcig-ggg.github.io/tags/conclusion/robotics/</link><description>Recent content in Conclusion/Robotics on MciG</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><copyright>MciG</copyright><lastBuildDate>Sun, 09 Nov 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://mcig-ggg.github.io/tags/conclusion/robotics/index.xml" rel="self" type="application/rss+xml"/><item><title>Modern Robotics笔记</title><link>https://mcig-ggg.github.io/p/modern-robotics%E7%AC%94%E8%AE%B0/</link><pubDate>Sun, 09 Nov 2025 00:00:00 +0000</pubDate><guid>https://mcig-ggg.github.io/p/modern-robotics%E7%AC%94%E8%AE%B0/</guid><description>&lt;img src="https://mcig-ggg.github.io/p/modern-robotics%E7%AC%94%E8%AE%B0/Pasted-image-20251109102102.png" alt="Featured image of post Modern Robotics笔记" /&gt;&lt;h1 id="modern-robotics笔记"&gt;Modern Robotics笔记
+&lt;/h1&gt;&lt;hr&gt;
+&lt;h2 id="chapter2"&gt;Chapter2
+&lt;/h2&gt;&lt;h3 id="机器人关节自由度与缩写"&gt;机器人关节自由度与缩写
+&lt;/h3&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;英文名称&lt;/th&gt;
+&lt;th&gt;中文翻译&lt;/th&gt;
+&lt;th&gt;常用缩写&lt;/th&gt;
+&lt;th&gt;自由度&lt;/th&gt;
+&lt;th&gt;运动类型&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Revolute&lt;/td&gt;
+&lt;td&gt;旋转关节&lt;/td&gt;
+&lt;td&gt;R, Rev&lt;/td&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;旋转&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Prismatic&lt;/td&gt;
+&lt;td&gt;移动关节&lt;/td&gt;
+&lt;td&gt;P, Prism&lt;/td&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;平移&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Cylindrical&lt;/td&gt;
+&lt;td&gt;圆柱关节&lt;/td&gt;
+&lt;td&gt;C, Cyl&lt;/td&gt;
+&lt;td&gt;2&lt;/td&gt;
+&lt;td&gt;旋转+平移&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Spherical&lt;/td&gt;
+&lt;td&gt;球形关节&lt;/td&gt;
+&lt;td&gt;S, Sph&lt;/td&gt;
+&lt;td&gt;3&lt;/td&gt;
+&lt;td&gt;三轴旋转&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Universal&lt;/td&gt;
+&lt;td&gt;万向节&lt;/td&gt;
+&lt;td&gt;U, Univ&lt;/td&gt;
+&lt;td&gt;2&lt;/td&gt;
+&lt;td&gt;二轴旋转&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Planar&lt;/td&gt;
+&lt;td&gt;平面关节&lt;/td&gt;
+&lt;td&gt;Pl, Planar&lt;/td&gt;
+&lt;td&gt;3&lt;/td&gt;
+&lt;td&gt;平面运动&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Helical&lt;/td&gt;
+&lt;td&gt;螺旋关节&lt;/td&gt;
+&lt;td&gt;H, Hel&lt;/td&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;螺旋运动&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Screw&lt;/td&gt;
+&lt;td&gt;螺旋关节&lt;/td&gt;
+&lt;td&gt;Scr&lt;/td&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;螺旋运动&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;h2 id="chapter3"&gt;Chapter3
+&lt;/h2&gt;&lt;h3 id="32-刚体旋转"&gt;3.2 刚体旋转
+&lt;/h3&gt;&lt;h4 id="旋转矩阵"&gt;旋转矩阵
+&lt;/h4&gt;$$
+R^TR = I
+$$&lt;p&gt;进一步，在右手系下有:&lt;/p&gt;
+$$
+detR = 1
+$$&lt;p&gt;3*3旋转矩阵的集合称为 &lt;em&gt;特殊正交群&lt;/em&gt; $SO(3)$ （李群）
+同理，2*2 为 $SO(2)$&lt;/p&gt;
+&lt;h5 id="正交群的性质"&gt;正交群的性质
+&lt;/h5&gt;&lt;ul&gt;
+&lt;li&gt;封闭： $AB\in SO(3)$ （关于“乘法”封闭）&lt;/li&gt;
+&lt;li&gt;结合律&lt;/li&gt;
+&lt;li&gt;存在单位元： $\exists I, AI = IA = A$ (联想，乘法里的 1，单位元，群的特性)&lt;/li&gt;
+&lt;li&gt;可逆性： $\exists A^-1, A A^{-1} = A^{-1}A = I$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id="角速度"&gt;角速度
+&lt;/h4&gt;&lt;p&gt;一个固定参考 $s$ 中的刚体转动，可以考察每时每刻和刚体重合的静止参考系 $b$ , 此时旋转矩阵 $R(t)$ 可以视作刚体每一时刻 $t$ 的位姿。
+那可以相应的定义旋转矩阵的微分 $\dot{R}$ ，就是 $R$ 各个参数对时间的导数
+（积分即为一段时间内刚体位姿变化）&lt;/p&gt;
+&lt;p&gt;下面考察角速度和$\dot{R}$的关系
+&lt;img src="https://mcig-ggg.github.io/p/modern-robotics%E7%AC%94%E8%AE%B0/Pasted-image-20251109102102.png"
+width="492"
+height="235"
+srcset="https://mcig-ggg.github.io/p/modern-robotics%E7%AC%94%E8%AE%B0/Pasted-image-20251109102102_hu_4713fceb7ca6353.png 480w, https://mcig-ggg.github.io/p/modern-robotics%E7%AC%94%E8%AE%B0/Pasted-image-20251109102102_hu_632728481862b6fc.png 1024w"
+loading="lazy"
+alt="Pasted image 20251109102102.png"
+class="gallery-image"
+data-flex-grow="209"
+data-flex-basis="502px"
+&gt;&lt;/p&gt;
+&lt;p&gt;由图可得， $\dot{r_{i}} = \omega_{s} \times r_{i}, i=1,2,3$ ,其中i 取 1，2,3 的时候分别对应 x, y, z 轴
+整合成矩阵形式有：&lt;/p&gt;
+$$
+\dot{R} = [\omega_{s} \times r_{1}, \omega_{s} \times r_{2}, \omega_{s} \times r_{3},]
+$$&lt;p&gt;上述方程可写为：&lt;/p&gt;
+$$
+\dot{R} = [ \boldsymbol{\omega} ]_{\times} \cdot R
+\tag{3.29}
+$$&lt;p&gt;其中 $[\omega]_{\times}$ 属于so(3)（李代数）(而不是 $\dot{R} \in so(3)$ )&lt;/p&gt;
+&lt;p&gt;&lt;div class="admonition admonition-note"&gt;
+&lt;div class="admonition-title"&gt;
+李群和李代数
+&lt;/div&gt;
+&lt;div class="admonition-content"&gt;
+粗略理解（？）： 李群是表示绕某一个轴旋转一个角度，而李代数是绕一个轴旋转一个无限小角度
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;style&gt;
+.admonition {
+border-left: 4px solid #42a5f5;
+background: #f5f7fa;
+margin: 1.5em 0;
+padding: 1em 1.2em;
+border-radius: 6px;
+}
+.admonition-note { border-color: #42a5f5; }
+.admonition-warning { border-color: #ffa726; background: #fff8e1; }
+.admonition-info { border-color: #26c6da; background: #e0f7fa; }
+.admonition-title {
+font-weight: bold;
+margin-bottom: 0.5em;
+}
+.admonition-content {
+color: #000000;
+font-size: 1em;
+}
+@media (prefers-color-scheme: dark) {
+.admonition {
+background: #2c3e50;
+color: #ecf0f1;
+}
+.admonition-note { border-color: #42a5f5; }
+.admonition-warning { border-color: #ffa726; background: #5d4037; }
+.admonition-info { border-color: #26c6da; background: #004d40; }
+.admonition-title {
+color: #ecf0f1;
+}
+.admonition-content {
+color: #ecf0f1;
+}
+}
+&lt;/style&gt;
+为将上式右边的叉积消去，我们引入了一种新的运算，即将 $\boldsymbol{\omega}\times R$ 重新写成 $[\boldsymbol{\omega}] R$ 的形式，其中 $[\boldsymbol{\omega}]$ 为向量 $\boldsymbol{\omega}\in\mathbb{R}^3$ 对应的 $3\times 3$ 反对称（skew-symmetric）矩阵。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;定义 3.7&lt;/strong&gt;
+给定一向量 $\mathbf{x}=[x_1,x_2,x_3]^{\sf T}\in\mathbb{R}^3$ ，定义&lt;/p&gt;
+$$
+[\mathbf{x}]_\times =
+\begin{bmatrix}
+0 &amp; -x_3 &amp; x_2 \\
+x_3 &amp; 0 &amp; -x_1 \\
+-x_2 &amp; x_1 &amp; 0
+\end{bmatrix}
+\tag{3.30}
+$$&lt;p&gt;矩阵 $[\mathbf{x}]_\times$ 就是与向量 $\mathbf{x}$ 对应的 $3\times 3$ 反对称矩阵，因此满足&lt;/p&gt;
+$$
+[\mathbf{x}]_\times^{\sf T} = -[\mathbf{x}]_\times
+$$&lt;p&gt;旋转矩阵与反对称矩阵之间具有一个非常有用的特性，如下所述。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;命题 3.8&lt;/strong&gt;
+给定任意 $\boldsymbol{\omega}\in\mathbb{R}^3$ 和 $R\in SO(3)$ ，总能满足&lt;/p&gt;
+$$
+R\,[\boldsymbol{\omega}]_\times R^{\sf T} = [R\boldsymbol{\omega}]_\times
+\tag{3.31}
+$$&lt;p&gt;&lt;strong&gt;证明&lt;/strong&gt;：令 $\mathbf{r}_i$ 表示 $R$ 的第 $i$ 列，因此我们有&lt;/p&gt;
+$$
+\begin{aligned}
+R\,[\boldsymbol{\omega}]_\times R^{\sf T}
+&amp;=
+\begin{bmatrix}
+\mathbf{r}_1^{\sf T}(\boldsymbol{\omega}\times\mathbf{r}_1) &amp;
+\mathbf{r}_1^{\sf T}(\boldsymbol{\omega}\times\mathbf{r}_2) &amp;
+\mathbf{r}_1^{\sf T}(\boldsymbol{\omega}\times\mathbf{r}_3) \\[2mm]
+\mathbf{r}_2^{\sf T}(\boldsymbol{\omega}\times\mathbf{r}_1) &amp;
+\mathbf{r}_2^{\sf T}(\boldsymbol{\omega}\times\mathbf{r}_2) &amp;
+\mathbf{r}_2^{\sf T}(\boldsymbol{\omega}\times\mathbf{r}_3) \\[2mm]
+\mathbf{r}_3^{\sf T}(\boldsymbol{\omega}\times\mathbf{r}_1) &amp;
+\mathbf{r}_3^{\sf T}(\boldsymbol{\omega}\times\mathbf{r}_2) &amp;
+\mathbf{r}_3^{\sf T}(\boldsymbol{\omega}\times\mathbf{r}_3)
+\end{bmatrix} \\[4mm]
+&amp;=
+\begin{bmatrix}
+0 &amp; -\mathbf{r}_3^{\sf T}\boldsymbol{\omega} &amp; \mathbf{r}_2^{\sf T}\boldsymbol{\omega} \\[2mm]
+\mathbf{r}_3^{\sf T}\boldsymbol{\omega} &amp; 0 &amp; -\mathbf{r}_1^{\sf T}\boldsymbol{\omega} \\[2mm]
+-\mathbf{r}_2^{\sf T}\boldsymbol{\omega} &amp; \mathbf{r}_1^{\sf T}\boldsymbol{\omega} &amp; 0
+\end{bmatrix} \\[4mm]
+&amp;= [R\boldsymbol{\omega}]_\times
+\end{aligned}
+\tag{3.32}
+$$&lt;h4 id="转动的指数坐标表示"&gt;转动的指数坐标表示
+&lt;/h4&gt;$$
+\dot p = [\boldsymbol{\omega}]_\times p
+\tag{3.50}
+$$&lt;p&gt;初始条件为 $p(0)$。该方程满足前面讨论过的线性微分方程 $\dot x = A x$ 的形式，因此其解可写成&lt;/p&gt;
+$$
+p(t) = e^{t[\boldsymbol{\omega}]_\times} p(0)
+$$&lt;p&gt;由于 $t$ 和 $\theta$ 可以互换，上面的方程又可写成&lt;/p&gt;
+$$
+p(\theta) = e^{\theta[\hat{\boldsymbol{\omega}}]_\times} p(0)
+$$&lt;p&gt;下面对方程中的矩阵指数&lt;/p&gt;
+$$
+e^{\theta[\hat{\boldsymbol{\omega}}]_\times}
+$$&lt;p&gt;进行级数展开。
+注意到&lt;/p&gt;
+$$
+[\hat{\boldsymbol{\omega}}]_\times^3 = -[\hat{\boldsymbol{\omega}}]_\times
+$$&lt;p&gt;，因此级数展开式中的 $[\hat{\boldsymbol{\omega}}]&lt;em&gt;\times^3$ 用 $-[\hat{\boldsymbol{\omega}}]&lt;/em&gt;\times$ 代替， $[\hat{\boldsymbol{\omega}}]&lt;em&gt;\times^4$ 用 $-[\hat{\boldsymbol{\omega}}]&lt;/em&gt;\times^2$ 代替， $[\hat{\boldsymbol{\omega}}]&lt;em&gt;\times^5$ 用 $[\hat{\boldsymbol{\omega}}]&lt;/em&gt;\times$ 代替，诸如此类，由此得到&lt;/p&gt;
+&lt;p&gt;$$
+e^{\theta[\hat{\boldsymbol{\omega}}]&lt;em&gt;\times}
+= I + \theta[\hat{\boldsymbol{\omega}}]&lt;/em&gt;\times&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;\frac{\theta^2}{2!}[\hat{\boldsymbol{\omega}}]_\times^2&lt;/li&gt;
+&lt;li&gt;\frac{\theta^3}{3!}[\hat{\boldsymbol{\omega}}]_\times^3&lt;/li&gt;
+&lt;li&gt;\cdots
+$$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;再来回顾一下 $\sin\theta$ 和 $\cos\theta$ 的级数展开形式：&lt;/p&gt;
+$$
+\sin\theta = \theta - \frac{\theta^3}{3!} + \frac{\theta^5}{5!} - \cdots,\qquad
+\cos\theta = 1 - \frac{\theta^2}{2!} + \frac{\theta^4}{4!} - \cdots
+$$&lt;p&gt;因此，指数 $e^{\theta[\hat{\boldsymbol{\omega}}]_\times}$ 可简化为如下形式。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;命题 3.11&lt;/strong&gt;
+给定向量 $\boldsymbol{\omega} = \theta\hat{\boldsymbol{\omega}}\in\mathbb{R}^3$，其中 $\theta$ 为任一标量，而 $\hat{\boldsymbol{\omega}}\in\mathbb{R}^3$ 为一单位向量，$[\hat{\boldsymbol{\omega}}]_\times\in\mathfrak{so}(3)$ 的矩阵指数为&lt;/p&gt;
+&lt;p&gt;$$
+\mathrm{Rot}(\hat{\boldsymbol{\omega}},\theta)
+= e^{\theta[\hat{\boldsymbol{\omega}}]&lt;em&gt;\times}
+= I + \sin\theta[\hat{\boldsymbol{\omega}}]&lt;/em&gt;\times&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;(1-\cos\theta)[\hat{\boldsymbol{\omega}}]_\times^2
+;\in; SO(3)
+\tag{3.51}
+$$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;式 (3.51) 通常也被称为 &lt;strong&gt;罗德里格斯公式&lt;/strong&gt;（Rodrigues formula）。&lt;/p&gt;
+&lt;p&gt;&lt;div class="admonition admonition-note"&gt;
+&lt;div class="admonition-title"&gt;
+Note
+&lt;/div&gt;
+&lt;div class="admonition-content"&gt;
+以上给出了当给定特定转轴 $\hat{\omega}$ 和转轴 $\theta$ 的时候，如何通过矩阵指数构建旋转矩阵
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;style&gt;
+.admonition {
+border-left: 4px solid #42a5f5;
+background: #f5f7fa;
+margin: 1.5em 0;
+padding: 1em 1.2em;
+border-radius: 6px;
+}
+.admonition-note { border-color: #42a5f5; }
+.admonition-warning { border-color: #ffa726; background: #fff8e1; }
+.admonition-info { border-color: #26c6da; background: #e0f7fa; }
+.admonition-title {
+font-weight: bold;
+margin-bottom: 0.5em;
+}
+.admonition-content {
+color: #000000;
+font-size: 1em;
+}
+@media (prefers-color-scheme: dark) {
+.admonition {
+background: #2c3e50;
+color: #ecf0f1;
+}
+.admonition-note { border-color: #42a5f5; }
+.admonition-warning { border-color: #ffa726; background: #5d4037; }
+.admonition-info { border-color: #26c6da; background: #004d40; }
+.admonition-title {
+color: #ecf0f1;
+}
+.admonition-content {
+color: #ecf0f1;
+}
+}
+&lt;/style&gt; 不是简单地把 $\mathrm{Rot}(\hat{\boldsymbol{\omega}},\theta)$ 等同于“那个旋转矩阵 $R$ ”，而是：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;$\mathrm{Rot}(\hat{\boldsymbol{\omega}},\theta)$ &lt;strong&gt;本身就是&lt;/strong&gt;一个旋转矩阵
+它把“绕单位轴 $\hat{\boldsymbol{\omega}}$ 转 $\theta$”这件事映射到 $SO(3)$ 里的一个具体元素：&lt;/li&gt;
+&lt;/ol&gt;
+$$
+\mathrm{Rot}(\hat{\boldsymbol{\omega}},\theta)=e^{\theta[\hat{\boldsymbol{\omega}}]_\times}\in SO(3)
+$$&lt;ol start="2"&gt;
+&lt;li&gt;但“旋转矩阵 $R$ ”可以是&lt;strong&gt;任意&lt;/strong&gt; $R\in SO(3)$ ，不限于单轴单角。
+只有当 $R$ 恰好是“绕 $\hat{\boldsymbol{\omega}}$ 转 $\theta$”时，才有&lt;/li&gt;
+&lt;/ol&gt;
+$$
+R=\mathrm{Rot}(\hat{\boldsymbol{\omega}},\theta)
+$$&lt;ol start="3"&gt;
+&lt;li&gt;任意 $R$ 也能找到对应的一对 $(\hat{\boldsymbol{\omega}},\theta)$——这就是&lt;strong&gt;对数映射&lt;/strong&gt;：&lt;/li&gt;
+&lt;/ol&gt;
+$$
+\theta=\arccos\!\bigl(\tfrac{\mathrm{tr}(R)-1}{2}\bigr),\quad
+[\hat{\boldsymbol{\omega}}]_\times=\frac{1}{2\sin\theta}(R-R^{\sf T})
+$$&lt;p&gt;所以 $\mathrm{Rot}$ 可看成“参数化”或“生成”旋转矩阵的一种手段，而不是旋转矩阵的唯一名字。&lt;/p&gt;
+&lt;p&gt;一句话：
+$\mathrm{Rot}(\hat{\boldsymbol{\omega}},\theta)$ &lt;strong&gt;是&lt;/strong&gt;旋转矩阵，但旋转矩阵&lt;strong&gt;不全是&lt;/strong&gt;$\mathrm{Rot}(\hat{\boldsymbol{\omega}},\theta)$——它只是“单轴旋转”那一子集。&lt;/p&gt;
+&lt;h4 id="转动的矩阵对数"&gt;转动的矩阵对数
+&lt;/h4&gt;&lt;p&gt;在 Obsidian 里可直粘的「SO(3) ↔ 指数坐标」速查卡&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;算法：SO(3) → 指数坐标
+输入 $R\in SO(3)$，输出 $(\hat{\boldsymbol{\omega}},\theta)$ 使 $R=e^{\theta[\hat{\boldsymbol{\omega}}]_\times}$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;平凡情况&lt;/strong&gt;
+$R=I \Rightarrow \theta=0,\ \hat{\boldsymbol{\omega}}$ &lt;strong&gt;不确定&lt;/strong&gt;（任意单位向量）。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;转 π 情况&lt;/strong&gt;（$\mathrm{tr},R=-1$）
+$\theta=\pi$，$\hat{\boldsymbol{\omega}}$ 可在下列 &lt;strong&gt;三选一&lt;/strong&gt; 里任取：&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+$$
+\hat{\boldsymbol{\omega}}=\dfrac{1}{\sqrt{2(1+r_{33})}}
+\begin{bmatrix}r_{13}\\r_{23}\\1+r_{33}\end{bmatrix}
+\quad\text{或}\quad
+\dfrac{1}{\sqrt{2(1+r_{22})}}
+\begin{bmatrix}r_{12}\\1+r_{22}\\r_{32}\end{bmatrix}
+\quad\text{或}\quad
+\dfrac{1}{\sqrt{2(1+r_{11})}}
+\begin{bmatrix}1+r_{11}\\r_{21}\\r_{31}\end{bmatrix}
+$$&lt;p&gt;（分母为零就换下一组）&lt;/p&gt;
+&lt;ol start="3"&gt;
+&lt;li&gt;&lt;strong&gt;通用情况&lt;/strong&gt;（$\mathrm{tr},R\ne -1$）&lt;/li&gt;
+&lt;/ol&gt;
+$$
+\theta=\arccos\!\Bigl(\frac{\mathrm{tr}\,R-1}{2}\Bigr)\in(0,\pi),\quad
+[\hat{\boldsymbol{\omega}}]_\times=\frac{R-R^{\sf T}}{2\sin\theta}
+$$&lt;ul&gt;
+&lt;li&gt;几何图景：半径为 π 的实心球（ $\mid\mid \hat{\omega} \theta\mid\mid \leq \pi$ ）
+&lt;ul&gt;
+&lt;li&gt;球面上两点 $\mathbf{r}$ 与 $-\mathbf{r}$（$\theta=\pi$）&lt;strong&gt;映射到同一&lt;/strong&gt; $R$（$\mathrm{tr},R=-1$）。&lt;/li&gt;
+&lt;li&gt;球内一点 $\mathbf{r}$ 对应唯一旋转：
+$\hat{\boldsymbol{\omega}}=\dfrac{\mathbf{r}}{|\mathbf{r}|},\ \theta=|\mathbf{r}|,\ R=e^{[\mathbf{r}]_\times}$&lt;/li&gt;
+&lt;li&gt;球心 $\mathbf{r}=0$ 对应恒等旋转 $I$。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="admonition admonition-note"&gt;
+&lt;div class="admonition-title"&gt;
+Note
+&lt;/div&gt;
+&lt;div class="admonition-content"&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;球内点&lt;/strong&gt;：对于 $\theta &amp;lt; \pi$ ，每个点 $(\boldsymbol{\omega}, \theta)$ 对应一个唯一的旋转矩阵，因为旋转角度小于 $\pi$ 时，旋转是唯一的。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;球面上点&lt;/strong&gt;：对于 $\theta = \pi$ ，球面上的点 $(\boldsymbol{\omega}, \pi)$ 和 $(-\boldsymbol{\omega}, \pi)$ 映射到同一个旋转矩阵，这解释了为什么 $\mathrm{tr}(R) = -1$ 的旋转矩阵有两个对应的指数坐标。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;style&gt;
+.admonition {
+border-left: 4px solid #42a5f5;
+background: #f5f7fa;
+margin: 1.5em 0;
+padding: 1em 1.2em;
+border-radius: 6px;
+}
+.admonition-note { border-color: #42a5f5; }
+.admonition-warning { border-color: #ffa726; background: #fff8e1; }
+.admonition-info { border-color: #26c6da; background: #e0f7fa; }
+.admonition-title {
+font-weight: bold;
+margin-bottom: 0.5em;
+}
+.admonition-content {
+color: #000000;
+font-size: 1em;
+}
+@media (prefers-color-scheme: dark) {
+.admonition {
+background: #2c3e50;
+color: #ecf0f1;
+}
+.admonition-note { border-color: #42a5f5; }
+.admonition-warning { border-color: #ffa726; background: #5d4037; }
+.admonition-info { border-color: #26c6da; background: #004d40; }
+.admonition-title {
+color: #ecf0f1;
+}
+.admonition-content {
+color: #ecf0f1;
+}
+}
+&lt;/style&gt;</description></item></channel></rss>

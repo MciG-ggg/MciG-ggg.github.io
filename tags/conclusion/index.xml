@@ -1,0 +1,1465 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Conclusion on MciG</title><link>https://mcig-ggg.github.io/tags/conclusion/</link><description>Recent content in Conclusion on MciG</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><copyright>MciG</copyright><lastBuildDate>Sun, 09 Nov 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://mcig-ggg.github.io/tags/conclusion/index.xml" rel="self" type="application/rss+xml"/><item><title>Modern Robotics笔记</title><link>https://mcig-ggg.github.io/p/modern-robotics%E7%AC%94%E8%AE%B0/</link><pubDate>Sun, 09 Nov 2025 00:00:00 +0000</pubDate><guid>https://mcig-ggg.github.io/p/modern-robotics%E7%AC%94%E8%AE%B0/</guid><description>&lt;img src="https://mcig-ggg.github.io/p/modern-robotics%E7%AC%94%E8%AE%B0/Pasted-image-20251109102102.png" alt="Featured image of post Modern Robotics笔记" /&gt;&lt;h1 id="modern-robotics笔记"&gt;Modern Robotics笔记
+&lt;/h1&gt;&lt;hr&gt;
+&lt;h2 id="chapter2"&gt;Chapter2
+&lt;/h2&gt;&lt;h3 id="机器人关节自由度与缩写"&gt;机器人关节自由度与缩写
+&lt;/h3&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;英文名称&lt;/th&gt;
+&lt;th&gt;中文翻译&lt;/th&gt;
+&lt;th&gt;常用缩写&lt;/th&gt;
+&lt;th&gt;自由度&lt;/th&gt;
+&lt;th&gt;运动类型&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Revolute&lt;/td&gt;
+&lt;td&gt;旋转关节&lt;/td&gt;
+&lt;td&gt;R, Rev&lt;/td&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;旋转&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Prismatic&lt;/td&gt;
+&lt;td&gt;移动关节&lt;/td&gt;
+&lt;td&gt;P, Prism&lt;/td&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;平移&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Cylindrical&lt;/td&gt;
+&lt;td&gt;圆柱关节&lt;/td&gt;
+&lt;td&gt;C, Cyl&lt;/td&gt;
+&lt;td&gt;2&lt;/td&gt;
+&lt;td&gt;旋转+平移&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Spherical&lt;/td&gt;
+&lt;td&gt;球形关节&lt;/td&gt;
+&lt;td&gt;S, Sph&lt;/td&gt;
+&lt;td&gt;3&lt;/td&gt;
+&lt;td&gt;三轴旋转&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Universal&lt;/td&gt;
+&lt;td&gt;万向节&lt;/td&gt;
+&lt;td&gt;U, Univ&lt;/td&gt;
+&lt;td&gt;2&lt;/td&gt;
+&lt;td&gt;二轴旋转&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Planar&lt;/td&gt;
+&lt;td&gt;平面关节&lt;/td&gt;
+&lt;td&gt;Pl, Planar&lt;/td&gt;
+&lt;td&gt;3&lt;/td&gt;
+&lt;td&gt;平面运动&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Helical&lt;/td&gt;
+&lt;td&gt;螺旋关节&lt;/td&gt;
+&lt;td&gt;H, Hel&lt;/td&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;螺旋运动&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Screw&lt;/td&gt;
+&lt;td&gt;螺旋关节&lt;/td&gt;
+&lt;td&gt;Scr&lt;/td&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;螺旋运动&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;h2 id="chapter3"&gt;Chapter3
+&lt;/h2&gt;&lt;h3 id="32-刚体旋转"&gt;3.2 刚体旋转
+&lt;/h3&gt;&lt;h4 id="旋转矩阵"&gt;旋转矩阵
+&lt;/h4&gt;$$
+R^TR = I
+$$&lt;p&gt;进一步，在右手系下有:&lt;/p&gt;
+$$
+detR = 1
+$$&lt;p&gt;3*3旋转矩阵的集合称为 &lt;em&gt;特殊正交群&lt;/em&gt; $SO(3)$ （李群）
+同理，2*2 为 $SO(2)$&lt;/p&gt;
+&lt;h5 id="正交群的性质"&gt;正交群的性质
+&lt;/h5&gt;&lt;ul&gt;
+&lt;li&gt;封闭： $AB\in SO(3)$ （关于“乘法”封闭）&lt;/li&gt;
+&lt;li&gt;结合律&lt;/li&gt;
+&lt;li&gt;存在单位元： $\exists I, AI = IA = A$ (联想，乘法里的 1，单位元，群的特性)&lt;/li&gt;
+&lt;li&gt;可逆性： $\exists A^-1, A A^{-1} = A^{-1}A = I$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id="角速度"&gt;角速度
+&lt;/h4&gt;&lt;p&gt;一个固定参考 $s$ 中的刚体转动，可以考察每时每刻和刚体重合的静止参考系 $b$ , 此时旋转矩阵 $R(t)$ 可以视作刚体每一时刻 $t$ 的位姿。
+那可以相应的定义旋转矩阵的微分 $\dot{R}$ ，就是 $R$ 各个参数对时间的导数
+（积分即为一段时间内刚体位姿变化）&lt;/p&gt;
+&lt;p&gt;下面考察角速度和$\dot{R}$的关系
+&lt;img src="https://mcig-ggg.github.io/p/modern-robotics%E7%AC%94%E8%AE%B0/Pasted-image-20251109102102.png"
+width="492"
+height="235"
+srcset="https://mcig-ggg.github.io/p/modern-robotics%E7%AC%94%E8%AE%B0/Pasted-image-20251109102102_hu_4713fceb7ca6353.png 480w, https://mcig-ggg.github.io/p/modern-robotics%E7%AC%94%E8%AE%B0/Pasted-image-20251109102102_hu_632728481862b6fc.png 1024w"
+loading="lazy"
+alt="Pasted image 20251109102102.png"
+class="gallery-image"
+data-flex-grow="209"
+data-flex-basis="502px"
+&gt;&lt;/p&gt;
+&lt;p&gt;由图可得， $\dot{r_{i}} = \omega_{s} \times r_{i}, i=1,2,3$ ,其中i 取 1，2,3 的时候分别对应 x, y, z 轴
+整合成矩阵形式有：&lt;/p&gt;
+$$
+\dot{R} = [\omega_{s} \times r_{1}, \omega_{s} \times r_{2}, \omega_{s} \times r_{3},]
+$$&lt;p&gt;上述方程可写为：&lt;/p&gt;
+$$
+\dot{R} = [ \boldsymbol{\omega} ]_{\times} \cdot R
+\tag{3.29}
+$$&lt;p&gt;其中 $[\omega]_{\times}$ 属于so(3)（李代数）(而不是 $\dot{R} \in so(3)$ )&lt;/p&gt;
+&lt;p&gt;&lt;div class="admonition admonition-note"&gt;
+&lt;div class="admonition-title"&gt;
+李群和李代数
+&lt;/div&gt;
+&lt;div class="admonition-content"&gt;
+粗略理解（？）： 李群是表示绕某一个轴旋转一个角度，而李代数是绕一个轴旋转一个无限小角度
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;style&gt;
+.admonition {
+border-left: 4px solid #42a5f5;
+background: #f5f7fa;
+margin: 1.5em 0;
+padding: 1em 1.2em;
+border-radius: 6px;
+}
+.admonition-note { border-color: #42a5f5; }
+.admonition-warning { border-color: #ffa726; background: #fff8e1; }
+.admonition-info { border-color: #26c6da; background: #e0f7fa; }
+.admonition-title {
+font-weight: bold;
+margin-bottom: 0.5em;
+}
+.admonition-content {
+color: #000000;
+font-size: 1em;
+}
+@media (prefers-color-scheme: dark) {
+.admonition {
+background: #2c3e50;
+color: #ecf0f1;
+}
+.admonition-note { border-color: #42a5f5; }
+.admonition-warning { border-color: #ffa726; background: #5d4037; }
+.admonition-info { border-color: #26c6da; background: #004d40; }
+.admonition-title {
+color: #ecf0f1;
+}
+.admonition-content {
+color: #ecf0f1;
+}
+}
+&lt;/style&gt;
+为将上式右边的叉积消去，我们引入了一种新的运算，即将 $\boldsymbol{\omega}\times R$ 重新写成 $[\boldsymbol{\omega}] R$ 的形式，其中 $[\boldsymbol{\omega}]$ 为向量 $\boldsymbol{\omega}\in\mathbb{R}^3$ 对应的 $3\times 3$ 反对称（skew-symmetric）矩阵。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;定义 3.7&lt;/strong&gt;
+给定一向量 $\mathbf{x}=[x_1,x_2,x_3]^{\sf T}\in\mathbb{R}^3$ ，定义&lt;/p&gt;
+$$
+[\mathbf{x}]_\times =
+\begin{bmatrix}
+0 &amp; -x_3 &amp; x_2 \\
+x_3 &amp; 0 &amp; -x_1 \\
+-x_2 &amp; x_1 &amp; 0
+\end{bmatrix}
+\tag{3.30}
+$$&lt;p&gt;矩阵 $[\mathbf{x}]_\times$ 就是与向量 $\mathbf{x}$ 对应的 $3\times 3$ 反对称矩阵，因此满足&lt;/p&gt;
+$$
+[\mathbf{x}]_\times^{\sf T} = -[\mathbf{x}]_\times
+$$&lt;p&gt;旋转矩阵与反对称矩阵之间具有一个非常有用的特性，如下所述。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;命题 3.8&lt;/strong&gt;
+给定任意 $\boldsymbol{\omega}\in\mathbb{R}^3$ 和 $R\in SO(3)$ ，总能满足&lt;/p&gt;
+$$
+R\,[\boldsymbol{\omega}]_\times R^{\sf T} = [R\boldsymbol{\omega}]_\times
+\tag{3.31}
+$$&lt;p&gt;&lt;strong&gt;证明&lt;/strong&gt;：令 $\mathbf{r}_i$ 表示 $R$ 的第 $i$ 列，因此我们有&lt;/p&gt;
+$$
+\begin{aligned}
+R\,[\boldsymbol{\omega}]_\times R^{\sf T}
+&amp;=
+\begin{bmatrix}
+\mathbf{r}_1^{\sf T}(\boldsymbol{\omega}\times\mathbf{r}_1) &amp;
+\mathbf{r}_1^{\sf T}(\boldsymbol{\omega}\times\mathbf{r}_2) &amp;
+\mathbf{r}_1^{\sf T}(\boldsymbol{\omega}\times\mathbf{r}_3) \\[2mm]
+\mathbf{r}_2^{\sf T}(\boldsymbol{\omega}\times\mathbf{r}_1) &amp;
+\mathbf{r}_2^{\sf T}(\boldsymbol{\omega}\times\mathbf{r}_2) &amp;
+\mathbf{r}_2^{\sf T}(\boldsymbol{\omega}\times\mathbf{r}_3) \\[2mm]
+\mathbf{r}_3^{\sf T}(\boldsymbol{\omega}\times\mathbf{r}_1) &amp;
+\mathbf{r}_3^{\sf T}(\boldsymbol{\omega}\times\mathbf{r}_2) &amp;
+\mathbf{r}_3^{\sf T}(\boldsymbol{\omega}\times\mathbf{r}_3)
+\end{bmatrix} \\[4mm]
+&amp;=
+\begin{bmatrix}
+0 &amp; -\mathbf{r}_3^{\sf T}\boldsymbol{\omega} &amp; \mathbf{r}_2^{\sf T}\boldsymbol{\omega} \\[2mm]
+\mathbf{r}_3^{\sf T}\boldsymbol{\omega} &amp; 0 &amp; -\mathbf{r}_1^{\sf T}\boldsymbol{\omega} \\[2mm]
+-\mathbf{r}_2^{\sf T}\boldsymbol{\omega} &amp; \mathbf{r}_1^{\sf T}\boldsymbol{\omega} &amp; 0
+\end{bmatrix} \\[4mm]
+&amp;= [R\boldsymbol{\omega}]_\times
+\end{aligned}
+\tag{3.32}
+$$&lt;h4 id="转动的指数坐标表示"&gt;转动的指数坐标表示
+&lt;/h4&gt;$$
+\dot p = [\boldsymbol{\omega}]_\times p
+\tag{3.50}
+$$&lt;p&gt;初始条件为 $p(0)$。该方程满足前面讨论过的线性微分方程 $\dot x = A x$ 的形式，因此其解可写成&lt;/p&gt;
+$$
+p(t) = e^{t[\boldsymbol{\omega}]_\times} p(0)
+$$&lt;p&gt;由于 $t$ 和 $\theta$ 可以互换，上面的方程又可写成&lt;/p&gt;
+$$
+p(\theta) = e^{\theta[\hat{\boldsymbol{\omega}}]_\times} p(0)
+$$&lt;p&gt;下面对方程中的矩阵指数&lt;/p&gt;
+$$
+e^{\theta[\hat{\boldsymbol{\omega}}]_\times}
+$$&lt;p&gt;进行级数展开。
+注意到&lt;/p&gt;
+$$
+[\hat{\boldsymbol{\omega}}]_\times^3 = -[\hat{\boldsymbol{\omega}}]_\times
+$$&lt;p&gt;，因此级数展开式中的 $[\hat{\boldsymbol{\omega}}]&lt;em&gt;\times^3$ 用 $-[\hat{\boldsymbol{\omega}}]&lt;/em&gt;\times$ 代替， $[\hat{\boldsymbol{\omega}}]&lt;em&gt;\times^4$ 用 $-[\hat{\boldsymbol{\omega}}]&lt;/em&gt;\times^2$ 代替， $[\hat{\boldsymbol{\omega}}]&lt;em&gt;\times^5$ 用 $[\hat{\boldsymbol{\omega}}]&lt;/em&gt;\times$ 代替，诸如此类，由此得到&lt;/p&gt;
+&lt;p&gt;$$
+e^{\theta[\hat{\boldsymbol{\omega}}]&lt;em&gt;\times}
+= I + \theta[\hat{\boldsymbol{\omega}}]&lt;/em&gt;\times&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;\frac{\theta^2}{2!}[\hat{\boldsymbol{\omega}}]_\times^2&lt;/li&gt;
+&lt;li&gt;\frac{\theta^3}{3!}[\hat{\boldsymbol{\omega}}]_\times^3&lt;/li&gt;
+&lt;li&gt;\cdots
+$$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;再来回顾一下 $\sin\theta$ 和 $\cos\theta$ 的级数展开形式：&lt;/p&gt;
+$$
+\sin\theta = \theta - \frac{\theta^3}{3!} + \frac{\theta^5}{5!} - \cdots,\qquad
+\cos\theta = 1 - \frac{\theta^2}{2!} + \frac{\theta^4}{4!} - \cdots
+$$&lt;p&gt;因此，指数 $e^{\theta[\hat{\boldsymbol{\omega}}]_\times}$ 可简化为如下形式。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;命题 3.11&lt;/strong&gt;
+给定向量 $\boldsymbol{\omega} = \theta\hat{\boldsymbol{\omega}}\in\mathbb{R}^3$，其中 $\theta$ 为任一标量，而 $\hat{\boldsymbol{\omega}}\in\mathbb{R}^3$ 为一单位向量，$[\hat{\boldsymbol{\omega}}]_\times\in\mathfrak{so}(3)$ 的矩阵指数为&lt;/p&gt;
+&lt;p&gt;$$
+\mathrm{Rot}(\hat{\boldsymbol{\omega}},\theta)
+= e^{\theta[\hat{\boldsymbol{\omega}}]&lt;em&gt;\times}
+= I + \sin\theta[\hat{\boldsymbol{\omega}}]&lt;/em&gt;\times&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;(1-\cos\theta)[\hat{\boldsymbol{\omega}}]_\times^2
+;\in; SO(3)
+\tag{3.51}
+$$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;式 (3.51) 通常也被称为 &lt;strong&gt;罗德里格斯公式&lt;/strong&gt;（Rodrigues formula）。&lt;/p&gt;
+&lt;p&gt;&lt;div class="admonition admonition-note"&gt;
+&lt;div class="admonition-title"&gt;
+Note
+&lt;/div&gt;
+&lt;div class="admonition-content"&gt;
+以上给出了当给定特定转轴 $\hat{\omega}$ 和转轴 $\theta$ 的时候，如何通过矩阵指数构建旋转矩阵
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;style&gt;
+.admonition {
+border-left: 4px solid #42a5f5;
+background: #f5f7fa;
+margin: 1.5em 0;
+padding: 1em 1.2em;
+border-radius: 6px;
+}
+.admonition-note { border-color: #42a5f5; }
+.admonition-warning { border-color: #ffa726; background: #fff8e1; }
+.admonition-info { border-color: #26c6da; background: #e0f7fa; }
+.admonition-title {
+font-weight: bold;
+margin-bottom: 0.5em;
+}
+.admonition-content {
+color: #000000;
+font-size: 1em;
+}
+@media (prefers-color-scheme: dark) {
+.admonition {
+background: #2c3e50;
+color: #ecf0f1;
+}
+.admonition-note { border-color: #42a5f5; }
+.admonition-warning { border-color: #ffa726; background: #5d4037; }
+.admonition-info { border-color: #26c6da; background: #004d40; }
+.admonition-title {
+color: #ecf0f1;
+}
+.admonition-content {
+color: #ecf0f1;
+}
+}
+&lt;/style&gt; 不是简单地把 $\mathrm{Rot}(\hat{\boldsymbol{\omega}},\theta)$ 等同于“那个旋转矩阵 $R$ ”，而是：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;$\mathrm{Rot}(\hat{\boldsymbol{\omega}},\theta)$ &lt;strong&gt;本身就是&lt;/strong&gt;一个旋转矩阵
+它把“绕单位轴 $\hat{\boldsymbol{\omega}}$ 转 $\theta$”这件事映射到 $SO(3)$ 里的一个具体元素：&lt;/li&gt;
+&lt;/ol&gt;
+$$
+\mathrm{Rot}(\hat{\boldsymbol{\omega}},\theta)=e^{\theta[\hat{\boldsymbol{\omega}}]_\times}\in SO(3)
+$$&lt;ol start="2"&gt;
+&lt;li&gt;但“旋转矩阵 $R$ ”可以是&lt;strong&gt;任意&lt;/strong&gt; $R\in SO(3)$ ，不限于单轴单角。
+只有当 $R$ 恰好是“绕 $\hat{\boldsymbol{\omega}}$ 转 $\theta$”时，才有&lt;/li&gt;
+&lt;/ol&gt;
+$$
+R=\mathrm{Rot}(\hat{\boldsymbol{\omega}},\theta)
+$$&lt;ol start="3"&gt;
+&lt;li&gt;任意 $R$ 也能找到对应的一对 $(\hat{\boldsymbol{\omega}},\theta)$——这就是&lt;strong&gt;对数映射&lt;/strong&gt;：&lt;/li&gt;
+&lt;/ol&gt;
+$$
+\theta=\arccos\!\bigl(\tfrac{\mathrm{tr}(R)-1}{2}\bigr),\quad
+[\hat{\boldsymbol{\omega}}]_\times=\frac{1}{2\sin\theta}(R-R^{\sf T})
+$$&lt;p&gt;所以 $\mathrm{Rot}$ 可看成“参数化”或“生成”旋转矩阵的一种手段，而不是旋转矩阵的唯一名字。&lt;/p&gt;
+&lt;p&gt;一句话：
+$\mathrm{Rot}(\hat{\boldsymbol{\omega}},\theta)$ &lt;strong&gt;是&lt;/strong&gt;旋转矩阵，但旋转矩阵&lt;strong&gt;不全是&lt;/strong&gt;$\mathrm{Rot}(\hat{\boldsymbol{\omega}},\theta)$——它只是“单轴旋转”那一子集。&lt;/p&gt;
+&lt;h4 id="转动的矩阵对数"&gt;转动的矩阵对数
+&lt;/h4&gt;&lt;p&gt;在 Obsidian 里可直粘的「SO(3) ↔ 指数坐标」速查卡&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;算法：SO(3) → 指数坐标
+输入 $R\in SO(3)$，输出 $(\hat{\boldsymbol{\omega}},\theta)$ 使 $R=e^{\theta[\hat{\boldsymbol{\omega}}]_\times}$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;平凡情况&lt;/strong&gt;
+$R=I \Rightarrow \theta=0,\ \hat{\boldsymbol{\omega}}$ &lt;strong&gt;不确定&lt;/strong&gt;（任意单位向量）。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;转 π 情况&lt;/strong&gt;（$\mathrm{tr},R=-1$）
+$\theta=\pi$，$\hat{\boldsymbol{\omega}}$ 可在下列 &lt;strong&gt;三选一&lt;/strong&gt; 里任取：&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+$$
+\hat{\boldsymbol{\omega}}=\dfrac{1}{\sqrt{2(1+r_{33})}}
+\begin{bmatrix}r_{13}\\r_{23}\\1+r_{33}\end{bmatrix}
+\quad\text{或}\quad
+\dfrac{1}{\sqrt{2(1+r_{22})}}
+\begin{bmatrix}r_{12}\\1+r_{22}\\r_{32}\end{bmatrix}
+\quad\text{或}\quad
+\dfrac{1}{\sqrt{2(1+r_{11})}}
+\begin{bmatrix}1+r_{11}\\r_{21}\\r_{31}\end{bmatrix}
+$$&lt;p&gt;（分母为零就换下一组）&lt;/p&gt;
+&lt;ol start="3"&gt;
+&lt;li&gt;&lt;strong&gt;通用情况&lt;/strong&gt;（$\mathrm{tr},R\ne -1$）&lt;/li&gt;
+&lt;/ol&gt;
+$$
+\theta=\arccos\!\Bigl(\frac{\mathrm{tr}\,R-1}{2}\Bigr)\in(0,\pi),\quad
+[\hat{\boldsymbol{\omega}}]_\times=\frac{R-R^{\sf T}}{2\sin\theta}
+$$&lt;ul&gt;
+&lt;li&gt;几何图景：半径为 π 的实心球（ $\mid\mid \hat{\omega} \theta\mid\mid \leq \pi$ ）
+&lt;ul&gt;
+&lt;li&gt;球面上两点 $\mathbf{r}$ 与 $-\mathbf{r}$（$\theta=\pi$）&lt;strong&gt;映射到同一&lt;/strong&gt; $R$（$\mathrm{tr},R=-1$）。&lt;/li&gt;
+&lt;li&gt;球内一点 $\mathbf{r}$ 对应唯一旋转：
+$\hat{\boldsymbol{\omega}}=\dfrac{\mathbf{r}}{|\mathbf{r}|},\ \theta=|\mathbf{r}|,\ R=e^{[\mathbf{r}]_\times}$&lt;/li&gt;
+&lt;li&gt;球心 $\mathbf{r}=0$ 对应恒等旋转 $I$。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="admonition admonition-note"&gt;
+&lt;div class="admonition-title"&gt;
+Note
+&lt;/div&gt;
+&lt;div class="admonition-content"&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;球内点&lt;/strong&gt;：对于 $\theta &amp;lt; \pi$ ，每个点 $(\boldsymbol{\omega}, \theta)$ 对应一个唯一的旋转矩阵，因为旋转角度小于 $\pi$ 时，旋转是唯一的。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;球面上点&lt;/strong&gt;：对于 $\theta = \pi$ ，球面上的点 $(\boldsymbol{\omega}, \pi)$ 和 $(-\boldsymbol{\omega}, \pi)$ 映射到同一个旋转矩阵，这解释了为什么 $\mathrm{tr}(R) = -1$ 的旋转矩阵有两个对应的指数坐标。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;style&gt;
+.admonition {
+border-left: 4px solid #42a5f5;
+background: #f5f7fa;
+margin: 1.5em 0;
+padding: 1em 1.2em;
+border-radius: 6px;
+}
+.admonition-note { border-color: #42a5f5; }
+.admonition-warning { border-color: #ffa726; background: #fff8e1; }
+.admonition-info { border-color: #26c6da; background: #e0f7fa; }
+.admonition-title {
+font-weight: bold;
+margin-bottom: 0.5em;
+}
+.admonition-content {
+color: #000000;
+font-size: 1em;
+}
+@media (prefers-color-scheme: dark) {
+.admonition {
+background: #2c3e50;
+color: #ecf0f1;
+}
+.admonition-note { border-color: #42a5f5; }
+.admonition-warning { border-color: #ffa726; background: #5d4037; }
+.admonition-info { border-color: #26c6da; background: #004d40; }
+.admonition-title {
+color: #ecf0f1;
+}
+.admonition-content {
+color: #ecf0f1;
+}
+}
+&lt;/style&gt;</description></item><item><title>MIT introtodeeplearning lab1</title><link>https://mcig-ggg.github.io/p/mit-introtodeeplearning-lab1/</link><pubDate>Wed, 29 Oct 2025 00:00:00 +0000</pubDate><guid>https://mcig-ggg.github.io/p/mit-introtodeeplearning-lab1/</guid><description>&lt;h1 id="mit-introtodeeplearning-lab1"&gt;MIT introtodeeplearning lab1
+&lt;/h1&gt;&lt;p&gt;&lt;div class="admonition admonition-note"&gt;
+&lt;div class="admonition-title"&gt;
+Note
+&lt;/div&gt;
+&lt;div class="admonition-content"&gt;
+&lt;p&gt;个人感觉神经网络最重要的是搞清楚：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;每个维度代表什么&lt;/li&gt;
+&lt;li&gt;每一层之间的维度转换&lt;/li&gt;
+&lt;li&gt;数据是什么&lt;/li&gt;
+&lt;li&gt;训练最后的输出是什么&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;style&gt;
+.admonition {
+border-left: 4px solid #42a5f5;
+background: #f5f7fa;
+margin: 1.5em 0;
+padding: 1em 1.2em;
+border-radius: 6px;
+}
+.admonition-note { border-color: #42a5f5; }
+.admonition-warning { border-color: #ffa726; background: #fff8e1; }
+.admonition-info { border-color: #26c6da; background: #e0f7fa; }
+.admonition-title {
+font-weight: bold;
+margin-bottom: 0.5em;
+}
+.admonition-content {
+color: #000000;
+font-size: 1em;
+}
+@media (prefers-color-scheme: dark) {
+.admonition {
+background: #2c3e50;
+color: #ecf0f1;
+}
+.admonition-note { border-color: #42a5f5; }
+.admonition-warning { border-color: #ffa726; background: #5d4037; }
+.admonition-info { border-color: #26c6da; background: #004d40; }
+.admonition-title {
+color: #ecf0f1;
+}
+.admonition-content {
+color: #ecf0f1;
+}
+}
+&lt;/style&gt;
+part1 是 pytorch 的介绍，这个博客主要是讲一下 part2,用RNN来生成音乐&lt;/p&gt;
+&lt;h2 id="0-架构图"&gt;0. 架构图
+&lt;/h2&gt;&lt;p&gt;[[mit_DNN_lab1_MusicGeneration.excalidraw]]&lt;/p&gt;
+&lt;h2 id="1-开始前的准备"&gt;1. 开始前的准备
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;基本 用 uv, init之后add各个包就可以了&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="2-数据集"&gt;2. 数据集
+&lt;/h2&gt;</description></item><item><title>CS188：从搜索问题到RL</title><link>https://mcig-ggg.github.io/p/cs188%E4%BB%8E%E6%90%9C%E7%B4%A2%E9%97%AE%E9%A2%98%E5%88%B0rl/</link><pubDate>Wed, 08 Oct 2025 00:00:00 +0000</pubDate><guid>https://mcig-ggg.github.io/p/cs188%E4%BB%8E%E6%90%9C%E7%B4%A2%E9%97%AE%E9%A2%98%E5%88%B0rl/</guid><description>&lt;img src="https://mcig-ggg.github.io/p/cs188%E4%BB%8E%E6%90%9C%E7%B4%A2%E9%97%AE%E9%A2%98%E5%88%B0rl/Pasted-image-20250424203806.png" alt="Featured image of post CS188：从搜索问题到RL" /&gt;&lt;hr&gt;
+&lt;h1 id="cs188从搜索问题到-rl人工智能决策算法的演进之路"&gt;CS188：从搜索问题到 RL——人工智能决策算法的演进之路
+&lt;/h1&gt;&lt;p&gt;UC Berkeley 的 CS188 课程（人工智能导论）以“构建智能体的决策能力”为核心，从经典的搜索算法到现代强化学习（Reinforcement Learning, RL），系统性地揭示了人工智能如何在复杂环境中规划路径、解决问题并优化策略。本文将沿着课程脉络，梳理从基础搜索到强化学习的演进逻辑，并探讨其背后的核心思想。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id="第一部分确定性世界的决策基础搜索问题"&gt;&lt;strong&gt;第一部分：确定性世界的决策基础——搜索问题&lt;/strong&gt;
+&lt;/h2&gt;&lt;h3 id="1-搜索问题的数学定义"&gt;&lt;strong&gt;1. 搜索问题的数学定义&lt;/strong&gt;
+&lt;/h3&gt;&lt;p&gt;搜索问题的目标是找到从&lt;strong&gt;初始状态&lt;/strong&gt;到&lt;strong&gt;目标状态&lt;/strong&gt;的最优路径（或满足条件的可行路径）。其核心在于形式化环境的结构，使智能体能够系统化地探索可能的行动序列。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id="2-搜索问题的构成要素"&gt;&lt;strong&gt;2. 搜索问题的构成要素&lt;/strong&gt;
+&lt;/h3&gt;&lt;h4 id="1-状态空间state-space"&gt;&lt;strong&gt;(1) 状态空间（State Space）&lt;/strong&gt;
+&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;定义&lt;/strong&gt;：所有可能状态的集合，描述智能体在环境中的可能配置。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;示例&lt;/strong&gt;：
+&lt;ul&gt;
+&lt;li&gt;迷宫问题：状态是坐标 &lt;code&gt;(x, y)&lt;/code&gt;。&lt;/li&gt;
+&lt;li&gt;拼图游戏：状态是棋盘的布局（如八数码问题）。&lt;/li&gt;
+&lt;li&gt;机器人导航：状态是机器人的位置与朝向。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id="2-动作集合actions"&gt;&lt;strong&gt;(2) 动作集合（Actions）&lt;/strong&gt;
+&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;定义&lt;/strong&gt;：在某个状态下可执行的操作集合，记为 &lt;code&gt;Actions(s)&lt;/code&gt;。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;示例&lt;/strong&gt;：
+&lt;ul&gt;
+&lt;li&gt;迷宫中：&lt;code&gt;{上, 下, 左, 右}&lt;/code&gt;。&lt;/li&gt;
+&lt;li&gt;拼图游戏：&lt;code&gt;{空格与相邻数字交换}&lt;/code&gt;。&lt;/li&gt;
+&lt;li&gt;自动驾驶：&lt;code&gt;{加速, 刹车, 左转, 右转}&lt;/code&gt;。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id="3-转移模型transition-model"&gt;&lt;strong&gt;(3) 转移模型（Transition Model）&lt;/strong&gt;
+&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;定义&lt;/strong&gt;：函数 &lt;code&gt;Result(s, a) → s'&lt;/code&gt;，描述在状态 &lt;code&gt;s&lt;/code&gt; 执行动作 &lt;code&gt;a&lt;/code&gt; 后到达的下一状态 &lt;code&gt;s'&lt;/code&gt;。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;示例&lt;/strong&gt;：
+&lt;ul&gt;
+&lt;li&gt;迷宫中：&lt;code&gt;Result((x,y), 上) → (x, y+1)&lt;/code&gt;（假设坐标系向上为y轴正方向）。&lt;/li&gt;
+&lt;li&gt;拼图游戏：&lt;code&gt;Result(当前布局, 左移空格) → 新布局&lt;/code&gt;。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id="4-动作成本action-cost"&gt;&lt;strong&gt;(4) 动作成本（Action Cost）&lt;/strong&gt;
+&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;定义&lt;/strong&gt;：从状态 &lt;code&gt;s&lt;/code&gt; 通过动作 &lt;code&gt;a&lt;/code&gt; 转移到 &lt;code&gt;s'&lt;/code&gt; 的即时成本，记为 &lt;code&gt;Cost(s, a, s')&lt;/code&gt;。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;作用&lt;/strong&gt;：用于衡量路径的优劣（如最短路径、最低能耗）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;示例&lt;/strong&gt;：
+&lt;ul&gt;
+&lt;li&gt;迷宫中：每步成本为1（路径长度即总成本）。&lt;/li&gt;
+&lt;li&gt;导航问题：成本为道路长度或行驶时间。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id="5-初始状态start-state"&gt;&lt;strong&gt;(5) 初始状态（Start State）&lt;/strong&gt;
+&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;定义&lt;/strong&gt;：智能体开始执行任务时的初始配置。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;示例&lt;/strong&gt;：
+&lt;ul&gt;
+&lt;li&gt;罗马尼亚度假问题：初始状态是城市 &lt;code&gt;Arad&lt;/code&gt;。&lt;/li&gt;
+&lt;li&gt;拼图游戏：初始状态是打乱的棋盘布局。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id="6-目标测试goal-test"&gt;&lt;strong&gt;(6) 目标测试（Goal Test）&lt;/strong&gt;
+&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;定义&lt;/strong&gt;：函数 &lt;code&gt;GoalTest(s) → True/False&lt;/code&gt;，判断状态 &lt;code&gt;s&lt;/code&gt; 是否为目标状态。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;示例&lt;/strong&gt;：
+&lt;ul&gt;
+&lt;li&gt;迷宫问题：&lt;code&gt;GoalTest((x,y)) → (x,y)是否为终点坐标&lt;/code&gt;。&lt;/li&gt;
+&lt;li&gt;拼图游戏：&lt;code&gt;GoalTest(s) → s是否为目标布局&lt;/code&gt;。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h3 id="3-搜索问题的求解目标"&gt;&lt;strong&gt;3. 搜索问题的求解目标&lt;/strong&gt;
+&lt;/h3&gt;&lt;p&gt;智能体需要找到从初始状态到目标状态的&lt;strong&gt;最优路径&lt;/strong&gt;（或可行路径），其中“最优”由&lt;strong&gt;路径总成本&lt;/strong&gt;定义。例如：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;最短路径&lt;/strong&gt;：动作成本为1时，BFS可找到最优解。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;最低成本路径&lt;/strong&gt;：动作成本不同时，需使用一致代价搜索（UCS）。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h3 id="4-示例罗马尼亚度假问题"&gt;&lt;strong&gt;4. 示例：罗马尼亚度假问题&lt;/strong&gt;
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;状态空间&lt;/strong&gt;：罗马尼亚城市（如Arad, Bucharest, Sibiu等）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;动作&lt;/strong&gt;：从当前城市可直达的相邻城市（如从Arad可到Sibiu、Timisoara等）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;转移模型&lt;/strong&gt;：&lt;code&gt;Result(Arad, 前往Sibiu) → Sibiu&lt;/code&gt;。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;动作成本&lt;/strong&gt;：城市间的道路长度（如Arad到Sibiu为140公里）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;初始状态&lt;/strong&gt;：Arad。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;目标测试&lt;/strong&gt;：当前城市是否为Bucharest。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;求解目标&lt;/strong&gt;：找到从Arad到Bucharest的最短路径（如Arad → Sibiu → Rimnicu Vilcea → Pitesti → Bucharest）。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id="5-搜索问题与智能体的关系"&gt;&lt;strong&gt;5. 搜索问题与智能体的关系&lt;/strong&gt;
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;理性决策&lt;/strong&gt;：智能体需在有限计算资源下，选择能最大化未来累积奖励（或最小化成本）的行动。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;搜索算法的角色&lt;/strong&gt;：通过系统化地探索状态空间（如BFS、A*、UCS等），找到满足目标的最优路径。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h3 id="6-关键挑战"&gt;&lt;strong&gt;6. 关键挑战&lt;/strong&gt;
+&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;状态空间爆炸&lt;/strong&gt;：状态数量可能随问题规模指数增长（如棋盘游戏）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;最优性与效率的权衡&lt;/strong&gt;：如何在合理时间内找到最优解（如启发式搜索A*）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;动态环境&lt;/strong&gt;：若环境变化（如交通拥堵），需重新规划路径（需结合在线搜索）。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h3 id="总结"&gt;&lt;strong&gt;总结&lt;/strong&gt;
+&lt;/h3&gt;&lt;p&gt;搜索问题的形式化定义为智能体提供了在复杂环境中规划行动的数学框架。通过明确状态空间、动作、转移模型等要素，结合适当的搜索算法（如BFS、A*、UCS），智能体能够高效地找到从初始状态到目标状态的最优路径。这一过程是构建理性规划智能体的基础，也是后续学习更高级算法（如强化学习）的前提。&lt;/p&gt;
+&lt;h2 id="hahahugoshortcode14s0hbhb"&gt;&lt;div class="admonition admonition-note"&gt;
+&lt;div class="admonition-title"&gt;
+搜索问题的解法
+&lt;/div&gt;
+&lt;div class="admonition-content"&gt;
+&lt;ul&gt;
+&lt;li&gt;把搜索问题抽象成图论问题
+&lt;ul&gt;
+&lt;li&gt;把每个状态看成一个节点&lt;/li&gt;
+&lt;li&gt;把每个action 看成节点之间的有向边&lt;/li&gt;
+&lt;li&gt;用图的搜索算法来解决搜索问题&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;style&gt;
+.admonition {
+border-left: 4px solid #42a5f5;
+background: #f5f7fa;
+margin: 1.5em 0;
+padding: 1em 1.2em;
+border-radius: 6px;
+}
+.admonition-note { border-color: #42a5f5; }
+.admonition-warning { border-color: #ffa726; background: #fff8e1; }
+.admonition-info { border-color: #26c6da; background: #e0f7fa; }
+.admonition-title {
+font-weight: bold;
+margin-bottom: 0.5em;
+}
+.admonition-content {
+color: #000000;
+font-size: 1em;
+}
+@media (prefers-color-scheme: dark) {
+.admonition {
+background: #2c3e50;
+color: #ecf0f1;
+}
+.admonition-note { border-color: #42a5f5; }
+.admonition-warning { border-color: #ffa726; background: #5d4037; }
+.admonition-info { border-color: #26c6da; background: #004d40; }
+.admonition-title {
+color: #ecf0f1;
+}
+.admonition-content {
+color: #ecf0f1;
+}
+}
+&lt;/style&gt;
+&lt;/h2&gt;&lt;h2 id="第二部分不确定性与动态环境从-mdp-到强化学习"&gt;&lt;strong&gt;第二部分：不确定性与动态环境——从 MDP 到强化学习&lt;/strong&gt;
+&lt;/h2&gt;&lt;h3 id="1-马尔可夫决策过程mdp"&gt;&lt;strong&gt;1. 马尔可夫决策过程（MDP）&lt;/strong&gt;
+&lt;/h3&gt;&lt;p&gt;MDP 是建模随机环境的数学框架，包含：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;状态 $s$ 、动作 $a$ 、转移概率 $T(s,a,s&amp;rsquo;)$&lt;/strong&gt;：动作可能导致多个后续状态。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;**奖励函数 $R(s,a,s&amp;rsquo;)$ **：定义每个状态的即时收益。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;**折扣因子 $\gamma$ **：权衡当前与未来奖励。&lt;br&gt;
+&lt;img src="https://mcig-ggg.github.io/p/cs188%E4%BB%8E%E6%90%9C%E7%B4%A2%E9%97%AE%E9%A2%98%E5%88%B0rl/Pasted-image-20250424203806.png"
+width="1920"
+height="998"
+srcset="https://mcig-ggg.github.io/p/cs188%E4%BB%8E%E6%90%9C%E7%B4%A2%E9%97%AE%E9%A2%98%E5%88%B0rl/Pasted-image-20250424203806_hu_cd3d5b8b4f9b483e.png 480w, https://mcig-ggg.github.io/p/cs188%E4%BB%8E%E6%90%9C%E7%B4%A2%E9%97%AE%E9%A2%98%E5%88%B0rl/Pasted-image-20250424203806_hu_2a902aba1fa584f2.png 1024w"
+loading="lazy"
+alt="Pasted image 20250424203806.png"
+class="gallery-image"
+data-flex-grow="192"
+data-flex-basis="461px"
+&gt;
+&lt;strong&gt;求解方法&lt;/strong&gt;：&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;值迭代&lt;/strong&gt;：通过贝尔曼方程迭代更新值函数，收敛到最优策略。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;img src="https://mcig-ggg.github.io/p/cs188%E4%BB%8E%E6%90%9C%E7%B4%A2%E9%97%AE%E9%A2%98%E5%88%B0rl/Pasted-image-20250425133751.png"
+width="1932"
+height="1082"
+srcset="https://mcig-ggg.github.io/p/cs188%E4%BB%8E%E6%90%9C%E7%B4%A2%E9%97%AE%E9%A2%98%E5%88%B0rl/Pasted-image-20250425133751_hu_2d5f0c47e67d6b60.png 480w, https://mcig-ggg.github.io/p/cs188%E4%BB%8E%E6%90%9C%E7%B4%A2%E9%97%AE%E9%A2%98%E5%88%B0rl/Pasted-image-20250425133751_hu_6256398997e4fbcb.png 1024w"
+loading="lazy"
+alt="Pasted image 20250425133751.png"
+class="gallery-image"
+data-flex-grow="178"
+data-flex-basis="428px"
+&gt;&lt;/li&gt;
+&lt;li&gt;公式： $$V_{k+1}(s) = \max_{a}\sum_{s'}T(s,a,s')[R(s,a,s')+\gamma V_{k}(s')]$$
+&lt;ul&gt;
+&lt;li&gt;用 $s$ 的下一个状态 $s&amp;rsquo;$ 的第 $k$ 次迭代的V 值 $V_{k}(s&amp;rsquo;)$ 来更新第 $k+1$ 迭代的状态 $s$ 的V 值 $V_{k+1}(s)$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;策略迭代&lt;/strong&gt;：交替执行策略评估与改进，直接优化策略。
+两个步骤：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;策略评价
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;目标&lt;/strong&gt;：计算当前策略 $\pi$ 的状态值函数 $V^\pi(s)$ 。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;方法&lt;/strong&gt;：通过迭代求解贝尔曼期望方程：
+$$V^\pi(s) = \sum_{a} \pi(a|s) \left[ R(s,a) + \gamma \sum_{s'} P(s'|s,a) V^\pi(s') \right]$$
+其中：
+&lt;ul&gt;
+&lt;li&gt;$R(s,a)$ 是即时奖励，&lt;/li&gt;
+&lt;li&gt;$P(s&amp;rsquo;|s,a)$ 是状态转移概率，&lt;/li&gt;
+&lt;li&gt;$\gamma$ 是折扣因子。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;终止条件&lt;/strong&gt;：当值函数的变化小于阈值 $\theta$（如 $10^{-3}$）时停止迭代。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;策略改进/策略提取
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;目标&lt;/strong&gt;：基于当前值函数 $V^\pi(s)$ 生成更优策略 $\pi&amp;rsquo;$ 。
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;方法&lt;/strong&gt;：对每个状态 $s$，选择使动作值函数 $Q^\pi(s,a)$ 最大的动作：
+$$\pi'(s) = \arg\max_{a} \left[ R(s,a) + \gamma \sum_{s'} P(s'|s,a) V^\pi(s') \right]$$&lt;/li&gt;
+&lt;li&gt;若新策略 $\pi&amp;rsquo;$ 与原策略 $\pi$ 相同，则停止迭代；否则，用 $\pi&amp;rsquo;$ 替代 $\pi$ ，重复策略评估。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h3 id="2-强化学习rl无模型的动态决策"&gt;&lt;strong&gt;2. 强化学习（RL）：无模型的动态决策&lt;/strong&gt;
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;RL 问题：仍然是MDP 模型，但是不知道 $T(s,a,s&amp;rsquo;)$ 或 $R(s,a,s&amp;rsquo;)$
+&lt;ul&gt;
+&lt;li&gt;两个主要问题：
+&lt;ul&gt;
+&lt;li&gt;怎么从尝试过的动作中学习（被动RL）
+&lt;ul&gt;
+&lt;li&gt;两种解决办法：
+&lt;ul&gt;
+&lt;li&gt;基于模型的RL：尝试获取 $T(s,a,s&amp;rsquo;)$ 或者 $R(s,a,s&amp;rsquo;)$ ，从而变回MDP 问题，用策略迭代或者值迭代即可&lt;/li&gt;
+&lt;li&gt;不基于模型的RL：不获取 $T(s,a,s&amp;rsquo;)$ 或者 $R(s,a,s&amp;rsquo;)$ ，直接通过 $Q$ 值来学习策略 $\pi$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;怎么基于学到的东西去选择执行的动作（在探索（尝试新动作以发现更好策略）和利用（选择当前最优动作）之间权衡）（主动RL）：
+&lt;ul&gt;
+&lt;li&gt;$\epsilon$ -贪心： $\epsilon$ 的概率随机探索（exploration）， $1-\epsilon$ 的概率采取利用（exploitation）当前数据得出的最佳值&lt;/li&gt;
+&lt;li&gt;exploration function&lt;/li&gt;
+&lt;li&gt;等等&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id="被动rl"&gt;被动RL
+&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;基于模型的RL和不基于模型的RL 的区别：
+&lt;img src="https://mcig-ggg.github.io/p/cs188%E4%BB%8E%E6%90%9C%E7%B4%A2%E9%97%AE%E9%A2%98%E5%88%B0rl/Pasted-image-20250425144547.png"
+width="1926"
+height="1094"
+srcset="https://mcig-ggg.github.io/p/cs188%E4%BB%8E%E6%90%9C%E7%B4%A2%E9%97%AE%E9%A2%98%E5%88%B0rl/Pasted-image-20250425144547_hu_1cd6dd1be1c58b61.png 480w, https://mcig-ggg.github.io/p/cs188%E4%BB%8E%E6%90%9C%E7%B4%A2%E9%97%AE%E9%A2%98%E5%88%B0rl/Pasted-image-20250425144547_hu_e5a6f85dfaf3e412.png 1024w"
+loading="lazy"
+alt="Pasted image 20250425144547.png"
+class="gallery-image"
+data-flex-grow="176"
+data-flex-basis="422px"
+&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="admonition admonition-note"&gt;
+&lt;div class="admonition-title"&gt;
+Title
+&lt;/div&gt;
+&lt;div class="admonition-content"&gt;
+&lt;ul&gt;
+&lt;li&gt;左侧：基于数据去获取P（a），可以理解为对世界建模，理解概率的分布&lt;/li&gt;
+&lt;li&gt;右侧：基于采样的数据直接获取A 的期望，并不知道概率分布（对世界的具体模型没有了解）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;style&gt;
+.admonition {
+border-left: 4px solid #42a5f5;
+background: #f5f7fa;
+margin: 1.5em 0;
+padding: 1em 1.2em;
+border-radius: 6px;
+}
+.admonition-note { border-color: #42a5f5; }
+.admonition-warning { border-color: #ffa726; background: #fff8e1; }
+.admonition-info { border-color: #26c6da; background: #e0f7fa; }
+.admonition-title {
+font-weight: bold;
+margin-bottom: 0.5em;
+}
+.admonition-content {
+color: #000000;
+font-size: 1em;
+}
+@media (prefers-color-scheme: dark) {
+.admonition {
+background: #2c3e50;
+color: #ecf0f1;
+}
+.admonition-note { border-color: #42a5f5; }
+.admonition-warning { border-color: #ffa726; background: #5d4037; }
+.admonition-info { border-color: #26c6da; background: #004d40; }
+.admonition-title {
+color: #ecf0f1;
+}
+.admonition-content {
+color: #ecf0f1;
+}
+}
+&lt;/style&gt;
+&lt;ul&gt;
+&lt;li&gt;不基于模型的RL：当环境模型未知时，强化学习通过&lt;strong&gt;试错&lt;/strong&gt;直接学习策略。核心算法 Q 学习通过&lt;strong&gt;时序差分更新&lt;/strong&gt;逐步逼近最优动作价值函数：&lt;br&gt;
+$$
+Q (s, a) \leftarrow Q (s, a) + \alpha \left[ R (s, a) + \gamma \max_{a'} Q (s', a') - Q (s, a) \right]
+$$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="admonition admonition-note"&gt;
+&lt;div class="admonition-title"&gt;
+Q-learning 是离策略 (Off-policy)
+&lt;/div&gt;
+&lt;div class="admonition-content"&gt;
+&lt;ul&gt;
+&lt;li&gt;离策略算法的核心是将目标策略（Target Policy）的学习与行为策略（Behavior Policy）的数据收集过程分离。
+&lt;ul&gt;
+&lt;li&gt;目标策略（π） ：&lt;em&gt;希望学习的最优策略，通常通过最大化期望回报得到&lt;/em&gt;（如 Q-learning 中的贪婪策略）。&lt;/li&gt;
+&lt;li&gt;行为策略（μ） ：用于&lt;em&gt;与环境交互、生成训练数据&lt;/em&gt;的策略，通常包含探索机制（如ε-greedy、Boltzmann 探索）。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;style&gt;
+.admonition {
+border-left: 4px solid #42a5f5;
+background: #f5f7fa;
+margin: 1.5em 0;
+padding: 1em 1.2em;
+border-radius: 6px;
+}
+.admonition-note { border-color: #42a5f5; }
+.admonition-warning { border-color: #ffa726; background: #fff8e1; }
+.admonition-info { border-color: #26c6da; background: #e0f7fa; }
+.admonition-title {
+font-weight: bold;
+margin-bottom: 0.5em;
+}
+.admonition-content {
+color: #000000;
+font-size: 1em;
+}
+@media (prefers-color-scheme: dark) {
+.admonition {
+background: #2c3e50;
+color: #ecf0f1;
+}
+.admonition-note { border-color: #42a5f5; }
+.admonition-warning { border-color: #ffa726; background: #5d4037; }
+.admonition-info { border-color: #26c6da; background: #004d40; }
+.admonition-title {
+color: #ecf0f1;
+}
+.admonition-content {
+color: #ecf0f1;
+}
+}
+&lt;/style&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;strong&gt;特性&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;离策略（Off-Policy）&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;在线策略（On-Policy）&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;策略关系&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;目标策略 ≠ 行为策略&lt;/td&gt;
+&lt;td&gt;目标策略 = 行为策略&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;数据来源&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;可复用历史数据或外部数据&lt;/td&gt;
+&lt;td&gt;必须实时与环境交互生成新数据&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;典型算法&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Q-learning、DQN、DDPG、SAC&lt;/td&gt;
+&lt;td&gt;SARSA、REINFORCE、PPO&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;数据效率&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;高（数据可重复使用）&lt;/td&gt;
+&lt;td&gt;低（需持续交互）&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;实现复杂度&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;高（需处理分布偏移）&lt;/td&gt;
+&lt;td&gt;低（策略一致性）&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;ul&gt;
+&lt;li&gt;解释：
+&lt;ul&gt;
+&lt;li&gt;为什么学习 $Q$ 值而不是 $V$ 值：
+&lt;ul&gt;
+&lt;li&gt;如果使用 V 值，智能体需要知道环境的动态模型（即状态转移概率 $T(s,a,s&amp;rsquo;)$ 和奖励函数 $R(s,a,s&amp;rsquo;)$ ），才能通过贝尔曼方程计算动作的期望价值. 而通过直接学习 Q(s,a)，绕过了对环境模型的依赖&lt;/li&gt;
+&lt;li&gt;Q值的灵活性与V值的不足 ：Q(s,a) 显式地为每个动作分配价值，允许智能体在探索（如随机动作）和利用（选择当前最优动作）之间灵活切换。若使用 V 值，智能体需要额外机制（如策略函数）将状态价值映射到动作选择，这会增加复杂度。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Q 学习 vs. MDP&lt;/strong&gt;：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;MDP 需已知环境模型（转移概率与奖励函数），RL 无需模型。&lt;/li&gt;
+&lt;li&gt;Q 学习通过经验（状态-动作-奖励序列）直接学习，适用于动态环境。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id="主动rl"&gt;主动RL
+&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;$\epsilon$ - greedy&lt;/li&gt;
+&lt;li&gt;exploration function
+&lt;ul&gt;
+&lt;li&gt;把通过某个 action $a&amp;rsquo;$ 到达某个状态 $s&amp;rsquo;$ 的次数 $N(s&amp;rsquo;,a&amp;rsquo;)$ 纳入考虑，用 $f(Q(s&amp;rsquo;,a&amp;rsquo;), N(s&amp;rsquo;,a&amp;rsquo;))$ 取代原先的 $Q(s&amp;rsquo;,a&amp;rsquo;)$ $$Q(s,a) \leftarrow (1-\alpha)Q(s,a) + \alpha[R(s,a,s') + \gamma \max_{a'}f(Q(s',a'), N(s',a'))]$$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id="approximate-q-learning-介绍"&gt;Approximate Q-learning 介绍
+&lt;/h4&gt;&lt;p&gt;&lt;strong&gt;Approximate Q-learning&lt;/strong&gt; 是经典 Q-learning 算法的扩展，旨在解决传统 Q-learning 在高维或连续状态空间中的&lt;strong&gt;维度灾难&lt;/strong&gt;问题。其核心思想是通过&lt;strong&gt;函数逼近&lt;/strong&gt;（Function Approximation）代替传统的表格（Tabular）存储，利用参数化的函数（如线性模型、神经网络）近似表示 Q 值，从而实现对大规模状态空间的泛化能力。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h5 id="1-为什么需要-approximate-q-learning"&gt;&lt;strong&gt;1. 为什么需要 Approximate Q-learning？&lt;/strong&gt;
+&lt;/h5&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;传统 Q-learning 的局限性&lt;/strong&gt;&lt;br&gt;
+在表格型 Q-learning 中，Q 值存储为一个二维表 $Q(s, a)$，每个状态-动作对需要单独维护一个值。当状态空间巨大（如围棋的 $10^{170}$ 种状态）或连续（如机器人传感器数据）时，表格存储和更新变得不可行。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;函数逼近的优势&lt;/strong&gt;&lt;br&gt;
+使用参数化函数 $Q(s, a; \theta)$（如线性模型、神经网络）代替表格，通过调整参数 $\theta$ 逼近真实 Q 值。这种方法可以：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;泛化&lt;/strong&gt;：相似状态共享参数，避免重复学习。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;处理连续状态&lt;/strong&gt;：直接接受实数向量作为输入（如传感器数据）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;降低存储成本&lt;/strong&gt;：参数规模远小于状态-动作组合数。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h5 id="2-算法原理"&gt;&lt;strong&gt;2. 算法原理&lt;/strong&gt;
+&lt;/h5&gt;&lt;p&gt;&lt;strong&gt;Approximate Q-learning&lt;/strong&gt; 的更新规则基于传统 Q-learning，但引入函数逼近和梯度下降优化：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;目标 Q 值计算&lt;/strong&gt;&lt;br&gt;
+与传统 Q-learning 类似，目标 Q 值为：
+&lt;/p&gt;
+$$\text{Target} = r + \gamma \max_{a'} Q(s', a'; \theta)$$&lt;p&gt;
+其中 $s&amp;rsquo;$ 是下一状态，$\gamma$ 是折扣因子。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;损失函数与参数更新&lt;/strong&gt;&lt;br&gt;
+定义损失函数为预测 Q 值与目标 Q 值的均方误差：
+&lt;/p&gt;
+$$L(\theta) = \frac{1}{2} \left[ Q(s, a; \theta) - \text{Target} \right]^2$$&lt;p&gt;
+通过梯度下降更新参数 $\theta$：
+&lt;/p&gt;
+$$\theta \leftarrow \theta - \alpha \nabla_\theta L(\theta)$$&lt;p&gt;
+其中 $\alpha$ 是学习率，梯度方向由链式法则计算：
+&lt;/p&gt;
+$$\nabla_\theta L(\theta) = \left( Q(s, a; \theta) - \text{Target} \right) \nabla_\theta Q(s, a; \theta)$$&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;伪代码示例&lt;/strong&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;span class="lnt"&gt;3
+&lt;/span&gt;&lt;span class="lnt"&gt;4
+&lt;/span&gt;&lt;span class="lnt"&gt;5
+&lt;/span&gt;&lt;span class="lnt"&gt;6
+&lt;/span&gt;&lt;span class="lnt"&gt;7
+&lt;/span&gt;&lt;span class="lnt"&gt;8
+&lt;/span&gt;&lt;span class="lnt"&gt;9
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-python" data-lang="python"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;each&lt;/span&gt; &lt;span class="n"&gt;episode&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="n"&gt;initialize&lt;/span&gt; &lt;span class="n"&gt;state&lt;/span&gt; &lt;span class="n"&gt;s&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="k"&gt;while&lt;/span&gt; &lt;span class="ow"&gt;not&lt;/span&gt; &lt;span class="n"&gt;terminal&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="n"&gt;choose&lt;/span&gt; &lt;span class="n"&gt;action&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="n"&gt;via&lt;/span&gt; &lt;span class="n"&gt;ε&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;greedy&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Q&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;s&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="n"&gt;θ&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="n"&gt;execute&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;observe&lt;/span&gt; &lt;span class="n"&gt;reward&lt;/span&gt; &lt;span class="n"&gt;r&lt;/span&gt; &lt;span class="ow"&gt;and&lt;/span&gt; &lt;span class="nb"&gt;next&lt;/span&gt; &lt;span class="n"&gt;state&lt;/span&gt; &lt;span class="n"&gt;s&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="n"&gt;target&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;r&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;γ&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;max_a&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39; Q(s&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;; θ)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="n"&gt;loss&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mf"&gt;0.5&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Q&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;s&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="n"&gt;θ&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;target&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;^&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="n"&gt;θ&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;θ&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;α&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Q&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;s&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="n"&gt;θ&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;target&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="err"&gt;∇&lt;/span&gt;&lt;span class="n"&gt;θ&lt;/span&gt; &lt;span class="n"&gt;Q&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;s&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="n"&gt;θ&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="n"&gt;s&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;s&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h5 id="3-函数逼近方法"&gt;&lt;strong&gt;3. 函数逼近方法&lt;/strong&gt;
+&lt;/h5&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;线性函数逼近&lt;/strong&gt;&lt;br&gt;
+用线性组合表示 Q 值：&lt;br&gt;
+&lt;/p&gt;
+$$Q(s, a; \theta) = \theta^T \phi(s, a)$$&lt;p&gt;&lt;br&gt;
+其中 $\phi(s, a)$ 是状态-动作的特征向量（如人工设计的特征或自动编码的特征）。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;非线性函数逼近（如神经网络）&lt;/strong&gt;&lt;br&gt;
+使用深度神经网络（DQN）自动提取状态特征：&lt;br&gt;
+&lt;/p&gt;
+$$Q(s, a; \theta) = \text{NeuralNetwork}(s, a; \theta)$$&lt;p&gt;&lt;br&gt;
+深度 Q 网络（DQN）通过&lt;strong&gt;经验回放&lt;/strong&gt;（Experience Replay）和&lt;strong&gt;目标网络&lt;/strong&gt;（Target Network）稳定训练。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h5 id="4-优缺点分析"&gt;&lt;strong&gt;4. 优缺点分析&lt;/strong&gt;
+&lt;/h5&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;strong&gt;优点&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;缺点&lt;/strong&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;可处理高维/连续状态空间&lt;/td&gt;
+&lt;td&gt;收敛性不保证（函数逼近可能发散）&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;泛化能力强，避免维度灾难&lt;/td&gt;
+&lt;td&gt;需谨慎设计特征或网络结构&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;适用于真实场景（如图像、传感器输入）&lt;/td&gt;
+&lt;td&gt;超参数（学习率、网络架构）敏感&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;h5 id="5-应用场景"&gt;&lt;strong&gt;5. 应用场景&lt;/strong&gt;
+&lt;/h5&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;游戏 AI&lt;/strong&gt;：如 Atari 游戏（DQN 直接以像素为输入）&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;机器人控制&lt;/strong&gt;：连续传感器数据映射到动作（如机械臂抓取）&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;资源调度&lt;/strong&gt;：大规模状态空间下的动态决策（如云计算资源分配）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h5 id="6-扩展与改进"&gt;&lt;strong&gt;6. 扩展与改进&lt;/strong&gt;
+&lt;/h5&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;深度 Q 网络（DQN）&lt;/strong&gt;：结合神经网络与经验回放、目标网络（见 Nature DQN）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Double Q-learning&lt;/strong&gt;：减少最大化偏差（Maximization Bias）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Dueling DQN&lt;/strong&gt;：分离状态价值 $V(s)$ 和动作优势 $A(s, a)$，提升策略评估效率。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h4 id="1-策略搜索policy-search"&gt;&lt;strong&gt;1. 策略搜索（Policy Search）&lt;/strong&gt;
+&lt;/h4&gt;&lt;p&gt;当基于特征的策略难以通过 Q-learning 直接优化时，策略搜索通过直接优化策略参数（而非 Q 值）提升性能。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;核心思想&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Q-learning 的局限&lt;/strong&gt;：Q-learning 优先准确估计 Q 值（建模），但特征设计的偏差可能导致策略次优。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;策略搜索的目标&lt;/strong&gt;：直接优化策略参数，最大化累积奖励（预测），而非精确拟合 Q 值。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;方法分类&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;简单策略搜索&lt;/strong&gt;：通过扰动特征权重（如线性 Q 函数的权重），评估策略改进方向（需大量采样）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;策略梯度（Policy Gradient）&lt;/strong&gt;：基于蒙特卡洛采样，通过梯度上升更新策略参数，使高奖励轨迹的动作概率增加。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;近端策略优化（PPO）&lt;/strong&gt;：改进策略梯度，限制策略更新的幅度，提升训练稳定性。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;应用场景&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;连续动作空间&lt;/strong&gt;（如机器人关节控制）：Q-learning 需计算 $\max_a Q(s,a)$，而连续动作难以枚举，策略搜索直接输出动作分布。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;高维/复杂策略&lt;/strong&gt;（如语言生成）：直接优化生成策略（如选择下一个词的概率分布）。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h4 id="2-案例分析case-studies"&gt;&lt;strong&gt;2. 案例分析（Case Studies）&lt;/strong&gt;
+&lt;/h4&gt;&lt;p&gt;强化学习在多个领域展现强大能力，以下是三个典型应用：&lt;/p&gt;
+&lt;h5 id="案例-1atari-游戏atari-game-playing"&gt;&lt;strong&gt;案例 1：Atari 游戏（Atari Game Playing）&lt;/strong&gt;
+&lt;/h5&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;MDP 设置&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;状态&lt;/strong&gt;：游戏屏幕的像素（$84 \times 84$ 图像）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;动作&lt;/strong&gt;：手柄按键组合（如 18 种离散动作）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;挑战&lt;/strong&gt;：状态空间巨大（$256^{84 \times 84}$），无法使用表格法。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;解决方案&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;深度 Q 网络（DQN）&lt;/strong&gt;：用卷积神经网络逼近 Q 值，结合经验回放和目标网络稳定训练。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;探索策略&lt;/strong&gt;：ε-greedy 平衡探索与利用。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h5 id="案例-2机器人运动控制robot-locomotion"&gt;&lt;strong&gt;案例 2：机器人运动控制（Robot Locomotion）&lt;/strong&gt;
+&lt;/h5&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;MDP 设置&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;状态&lt;/strong&gt;：机器人传感器数据（关节角度、加速度等连续向量）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;动作&lt;/strong&gt;：电机指令（连续向量）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;挑战&lt;/strong&gt;：真实世界训练成本高、风险大。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;解决方案&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;仿真训练迁移&lt;/strong&gt;：先在模拟器中训练策略，再部署到真实机器人。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;策略搜索方法&lt;/strong&gt;：PPO 优化连续动作策略，最大化前进速度、保持平衡等奖励。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h5 id="案例-3语言助手language-assistants"&gt;&lt;strong&gt;案例 3：语言助手（Language Assistants）&lt;/strong&gt;
+&lt;/h5&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;MDP 设置&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;状态&lt;/strong&gt;：已生成的文本序列（如“What is population of Berkeley?”）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;动作&lt;/strong&gt;：选择下一个词（词汇表大小约 10 万）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;奖励&lt;/strong&gt;：人工标注或奖励模型（如回答准确性、流畅性）。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;解决方案&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;策略梯度&lt;/strong&gt;：直接优化生成策略，调整词的概率分布。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;挑战&lt;/strong&gt;：动作空间极大（10 万词），需高效采样与梯度估计。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h4 id="3-后续方向与总结"&gt;&lt;strong&gt;3. 后续方向与总结&lt;/strong&gt;
+&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;课程后续内容&lt;/strong&gt;：转向 &lt;strong&gt;不确定性（Uncertainty）&lt;/strong&gt; 与 &lt;strong&gt;学习理论（Learning）&lt;/strong&gt;，涵盖贝叶斯网络、隐马尔可夫模型等。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;强化学习的核心挑战&lt;/strong&gt;：
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;探索与利用的平衡&lt;/strong&gt;：如何在复杂环境中高效探索（如基于好奇心的内在奖励）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;样本效率&lt;/strong&gt;：减少真实环境中的交互次数（如元学习、模仿学习）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;安全与鲁棒性&lt;/strong&gt;：确保策略在真实场景中的可靠性（如安全约束强化学习）。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;</description></item><item><title>docker底层原理简介</title><link>https://mcig-ggg.github.io/p/docker%E5%BA%95%E5%B1%82%E5%8E%9F%E7%90%86%E7%AE%80%E4%BB%8B/</link><pubDate>Wed, 08 Oct 2025 00:00:00 +0000</pubDate><guid>https://mcig-ggg.github.io/p/docker%E5%BA%95%E5%B1%82%E5%8E%9F%E7%90%86%E7%AE%80%E4%BB%8B/</guid><description>&lt;img src="https://mcig-ggg.github.io/p/docker%E5%BA%95%E5%B1%82%E5%8E%9F%E7%90%86%E7%AE%80%E4%BB%8B/Pasted-image-20251006220327.png" alt="Featured image of post docker底层原理简介" /&gt;&lt;h1 id="docker底层原理简介"&gt;docker底层原理简介
+&lt;/h1&gt;&lt;p&gt;#conclusion&lt;/p&gt;
+&lt;p&gt;docker 为了实现容器间的隔离，资源的限制，高效性，分别使用了 linux namespace, Cgroups(control groups), Union FS 这几个技术，下面一一介绍&lt;/p&gt;
+&lt;h2 id="linux-namespace"&gt;Linux namespace
+&lt;/h2&gt;&lt;p&gt;刚开始见到会联想到 cpp 的 namespace,了解之后发现二者在效果上差不多都是： 隔离某些东西（linux namespace：pid 对应的进程，一个pid在不同的namespace对应不同进程， cpp namespace： 一个函数名在不同namespace对应不同函数）&lt;/p&gt;
+&lt;h3 id="具体原理"&gt;具体原理
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;以前：操作系统里 pid 和进程一一对应，不可能有进程的pid相同&lt;/li&gt;
+&lt;li&gt;现在：操作系统增加一个 &lt;em&gt;osid&lt;/em&gt; ，现在一个进程的识别要同时匹配 &lt;em&gt;osid&lt;/em&gt;， &lt;em&gt;pid&lt;/em&gt;，一个进程树对应一个&lt;em&gt;osid&lt;/em&gt;， 大概如下&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src="https://mcig-ggg.github.io/p/docker%E5%BA%95%E5%B1%82%E5%8E%9F%E7%90%86%E7%AE%80%E4%BB%8B/Pasted-image-20251006220327.png"
+width="1194"
+height="505"
+srcset="https://mcig-ggg.github.io/p/docker%E5%BA%95%E5%B1%82%E5%8E%9F%E7%90%86%E7%AE%80%E4%BB%8B/Pasted-image-20251006220327_hu_5e39c6c38c685c57.png 480w, https://mcig-ggg.github.io/p/docker%E5%BA%95%E5%B1%82%E5%8E%9F%E7%90%86%E7%AE%80%E4%BB%8B/Pasted-image-20251006220327_hu_9673afefa1094b21.png 1024w"
+loading="lazy"
+alt="Pasted image 20251006220327.png"
+class="gallery-image"
+data-flex-grow="236"
+data-flex-basis="567px"
+&gt;&lt;/p&gt;
+&lt;div class="admonition admonition-note"&gt;
+&lt;div class="admonition-title"&gt;
+Note
+&lt;/div&gt;
+&lt;div class="admonition-content"&gt;
+一个进程树对应一个&lt;em&gt;osid&lt;/em&gt;
+现在进程树隔离了,这样我们就可以创建两个不干扰的容器了
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;style&gt;
+.admonition {
+border-left: 4px solid #42a5f5;
+background: #f5f7fa;
+margin: 1.5em 0;
+padding: 1em 1.2em;
+border-radius: 6px;
+}
+.admonition-note { border-color: #42a5f5; }
+.admonition-warning { border-color: #ffa726; background: #fff8e1; }
+.admonition-info { border-color: #26c6da; background: #e0f7fa; }
+.admonition-title {
+font-weight: bold;
+margin-bottom: 0.5em;
+}
+.admonition-content {
+color: #000000;
+font-size: 1em;
+}
+@media (prefers-color-scheme: dark) {
+.admonition {
+background: #2c3e50;
+color: #ecf0f1;
+}
+.admonition-note { border-color: #42a5f5; }
+.admonition-warning { border-color: #ffa726; background: #5d4037; }
+.admonition-info { border-color: #26c6da; background: #004d40; }
+.admonition-title {
+color: #ecf0f1;
+}
+.admonition-content {
+color: #ecf0f1;
+}
+}
+&lt;/style&gt;
+&lt;h2 id="cgroups"&gt;Cgroups
+&lt;/h2&gt;&lt;p&gt;前面可以让两个容器隔离了，现在还需要控制容器的 cpu 占用，内存占用等等，不能让容器随意使用系统资源。Cgroups 通过层级结构（hierarchy）和控制组（group）来管理资源。每个层级可以包含多个控制组，每个控制组可以包含多个进程。每个控制组可以独立地配置资源限制和优先级。&lt;/p&gt;
+&lt;p&gt;Cgroups的数据结构存储在 &lt;code&gt;/sys/fs/group&lt;/code&gt; 下，大概有这些目录结构：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt; 1
+&lt;/span&gt;&lt;span class="lnt"&gt; 2
+&lt;/span&gt;&lt;span class="lnt"&gt; 3
+&lt;/span&gt;&lt;span class="lnt"&gt; 4
+&lt;/span&gt;&lt;span class="lnt"&gt; 5
+&lt;/span&gt;&lt;span class="lnt"&gt; 6
+&lt;/span&gt;&lt;span class="lnt"&gt; 7
+&lt;/span&gt;&lt;span class="lnt"&gt; 8
+&lt;/span&gt;&lt;span class="lnt"&gt; 9
+&lt;/span&gt;&lt;span class="lnt"&gt;10
+&lt;/span&gt;&lt;span class="lnt"&gt;11
+&lt;/span&gt;&lt;span class="lnt"&gt;12
+&lt;/span&gt;&lt;span class="lnt"&gt;13
+&lt;/span&gt;&lt;span class="lnt"&gt;14
+&lt;/span&gt;&lt;span class="lnt"&gt;15
+&lt;/span&gt;&lt;span class="lnt"&gt;16
+&lt;/span&gt;&lt;span class="lnt"&gt;17
+&lt;/span&gt;&lt;span class="lnt"&gt;18
+&lt;/span&gt;&lt;span class="lnt"&gt;19
+&lt;/span&gt;&lt;span class="lnt"&gt;20
+&lt;/span&gt;&lt;span class="lnt"&gt;21
+&lt;/span&gt;&lt;span class="lnt"&gt;22
+&lt;/span&gt;&lt;span class="lnt"&gt;23
+&lt;/span&gt;&lt;span class="lnt"&gt;24
+&lt;/span&gt;&lt;span class="lnt"&gt;25
+&lt;/span&gt;&lt;span class="lnt"&gt;26
+&lt;/span&gt;&lt;span class="lnt"&gt;27
+&lt;/span&gt;&lt;span class="lnt"&gt;28
+&lt;/span&gt;&lt;span class="lnt"&gt;29
+&lt;/span&gt;&lt;span class="lnt"&gt;30
+&lt;/span&gt;&lt;span class="lnt"&gt;31
+&lt;/span&gt;&lt;span class="lnt"&gt;32
+&lt;/span&gt;&lt;span class="lnt"&gt;33
+&lt;/span&gt;&lt;span class="lnt"&gt;34
+&lt;/span&gt;&lt;span class="lnt"&gt;35
+&lt;/span&gt;&lt;span class="lnt"&gt;36
+&lt;/span&gt;&lt;span class="lnt"&gt;37
+&lt;/span&gt;&lt;span class="lnt"&gt;38
+&lt;/span&gt;&lt;span class="lnt"&gt;39
+&lt;/span&gt;&lt;span class="lnt"&gt;40
+&lt;/span&gt;&lt;span class="lnt"&gt;41
+&lt;/span&gt;&lt;span class="lnt"&gt;42
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;/sys/fs/cgroup/
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;├── cgroup.controllers
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;├── cgroup.max.depth
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;├── cgroup.max.descendants
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;├── cgroup.pressure
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;├── cgroup.procs
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;├── cgroup.stat
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;├── cgroup.subtree_control
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;├── cgroup.threads
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;├── cpu.pressure
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;├── cpuset.cpus.effective
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;├── cpuset.cpus.isolated
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;├── cpuset.mems.effective
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;├── cpu.stat
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;├── cpu.stat.local
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;├── dev-hugepages.mount
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;├── dev-mqueue.mount
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;├── dmem.capacity
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;├── dmem.current
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;├── init.scope
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;├── io.cost.model
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;├── io.cost.qos
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;├── io.pressure
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;├── io.prio.class
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;├── io.stat
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;├── irq.pressure
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;├── machine.slice
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;├── memory.numa_stat
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;├── memory.pressure
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;├── memory.reclaim
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;├── memory.stat
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;├── memory.zswap.writeback
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;├── misc.capacity
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;├── misc.current
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;├── misc.peak
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;├── proc-sys-fs-binfmt_misc.mount
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;├── sys-fs-fuse-connections.mount
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;├── sys-kernel-config.mount
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;├── sys-kernel-debug.mount
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;├── sys-kernel-tracing.mount
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;├── system.slice
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;└── user.slice
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;然后在 &lt;code&gt;/proc/*/cgroup&lt;/code&gt; 下会有各个进程的所属的控制组信息，每一行表示一个进程在某个层级中的控制组路径。格式如下：
+&lt;code&gt;&amp;lt;层级号&amp;gt;:&amp;lt;子系统&amp;gt;:&amp;lt;控制组路径&amp;gt;&lt;/code&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;层级号：表示控制组所属的层级编号。&lt;/li&gt;
+&lt;li&gt;子系统：表示控制组管理的资源类型，例如 cpu、memory、blkio 等。&lt;/li&gt;
+&lt;li&gt;控制组路径：表示进程所属的控制组路径，从根控制组开始。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;举个例子：&lt;/p&gt;
+&lt;p&gt;0::/user.slice/user-1000.slice/ user@1000.service /app.slice/ app-Hyprland-dunst@3883b287.service ：表示进程属于用户 1000 的 Hyprland-dunst 服务。路径中的每一级都表示一个控制组的层级结构。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;user.slice：表示用户级别的控制组。&lt;/li&gt;
+&lt;li&gt;user-1000.slice：表示用户 1000 的控制组。&lt;/li&gt;
+&lt;li&gt;user@1000.service：表示用户 1000 的服务。&lt;/li&gt;
+&lt;li&gt;app.slice：表示应用程序级别的控制组。&lt;/li&gt;
+&lt;li&gt;app-Hyprland-dunst@3883b287.service：表示 Hyprland-dunst 服务的具体实例。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;还有：
+0::/system.slice/systemd-userdbd.service&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;system.slice：表示这是一个系统级别的控制组。&lt;/li&gt;
+&lt;li&gt;systemd-userdbd.service：表示这是 systemd-userdbd 服务。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="union-fs"&gt;Union FS
+&lt;/h2&gt;&lt;p&gt;UnionFS是一种联合文件系统技术，它允许&lt;em&gt;多个文件系统挂载到同一目录下&lt;/em&gt;，合并成一个整体视图。它采用&lt;em&gt;分层结构，底层为只读层，顶层为可写层，数据修改只发生在顶层&lt;/em&gt;，利用“&lt;em&gt;写时复制&lt;/em&gt;”机制确保底层数据不受影响。UnionFS在容器技术中广泛应用，如Docker使用类似的OverlayFS管理镜像分层。它优势在于高效存储、快速更新和简化管理，但也存在文件操作复杂性和潜在一致性问题。&lt;/p&gt;
+&lt;div class="mermaid" id="mermaid-1"&gt;
+graph TD
+A["Merged View: file1.txt (modified)"] --&gt; B["Writable Work Layer"]
+A --&gt; C["Read-Only Lower Layer"]
+B --&gt; D["file1.txt (modified)"]
+C --&gt; E["file1.txt (original)"]
+style A fill:#ffe6ff,stroke:#333
+style B fill:#ffe6e6,stroke:#ff6666
+style C fill:#e6e6ff,stroke:#6666ff
+style D fill:#ffe6e6,stroke:#ff6666
+style E fill:#e6e6ff,stroke:#6666ff
+&lt;/div&gt;
+&lt;script&gt;
+document.addEventListener('DOMContentLoaded', function() {
+mermaid.initialize({
+startOnLoad: true,
+theme: 'default',
+securityLevel: 'loose',
+flowchart: {
+htmlLabels: true,
+curve: 'basis'
+}
+});
+mermaid.init(undefined, "#mermaid-1");
+});
+&lt;/script&gt;</description></item><item><title>obsidian折腾总结</title><link>https://mcig-ggg.github.io/p/obsidian%E6%8A%98%E8%85%BE%E6%80%BB%E7%BB%93/</link><pubDate>Wed, 08 Oct 2025 00:00:00 +0000</pubDate><guid>https://mcig-ggg.github.io/p/obsidian%E6%8A%98%E8%85%BE%E6%80%BB%E7%BB%93/</guid><description>&lt;img src="https://mcig-ggg.github.io/p/obsidian%E6%8A%98%E8%85%BE%E6%80%BB%E7%BB%93/Pasted-image-20250422233237.png" alt="Featured image of post obsidian折腾总结" /&gt;&lt;ul&gt;
+&lt;li&gt;少折腾&lt;/li&gt;
+&lt;li&gt;记录下现在的成果
+&lt;ul&gt;
+&lt;li&gt;主页&lt;/li&gt;
+&lt;li&gt;时间线
+&lt;ul&gt;
+&lt;li&gt;添加时间节点：在 Home 里把时间线的 events 加一项&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;习惯记录
+&lt;ul&gt;
+&lt;li&gt;更改标题：更改 &lt;code&gt;dv.span(&amp;quot;** 📖 阅读 **&amp;quot;) &lt;/code&gt; 括号中的内容&lt;/li&gt;
+&lt;li&gt;更改习惯分类：更改 &lt;code&gt;const habitIntensity = getHabitInPage(page, 'reading')&lt;/code&gt; 中‘reading’为对应的习惯分类，如 &lt;code&gt;outputing&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;更改颜色：更改 &lt;code&gt;color: &amp;quot;orange&amp;quot;&lt;/code&gt; 中为 calendarData 中对应颜色&lt;/li&gt;
+&lt;li&gt;记录每天的习惯：如&lt;code&gt;- [x] [[obsidian折腾总结]] #habit outputing:: 1 ✅ 2025-04-22&lt;/code&gt;
+&lt;ul&gt;
+&lt;li&gt;注意格式：
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;#habit&lt;/code&gt; 必须在 &lt;code&gt;outputing&lt;/code&gt; 等前面&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;outputing&lt;/code&gt; 后面要紧跟双冒号 &lt;code&gt;::&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;冒号后面接的是颜色深度，有范围限制&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;contribution 图&lt;/li&gt;
+&lt;li&gt;tasks
+&lt;ul&gt;
+&lt;li&gt;tasks canlendar wraper
+&lt;img src="https://mcig-ggg.github.io/p/obsidian%E6%8A%98%E8%85%BE%E6%80%BB%E7%BB%93/Pasted-image-20250422233237.png"
+width="2510"
+height="1676"
+srcset="https://mcig-ggg.github.io/p/obsidian%E6%8A%98%E8%85%BE%E6%80%BB%E7%BB%93/Pasted-image-20250422233237_hu_80cb5fd53543c147.png 480w, https://mcig-ggg.github.io/p/obsidian%E6%8A%98%E8%85%BE%E6%80%BB%E7%BB%93/Pasted-image-20250422233237_hu_566502363b761ba.png 1024w"
+loading="lazy"
+alt="Pasted image 20250422233237.png"
+class="gallery-image"
+data-flex-grow="149"
+data-flex-basis="359px"
+&gt;
+&lt;img src="https://mcig-ggg.github.io/p/obsidian%E6%8A%98%E8%85%BE%E6%80%BB%E7%BB%93/Pasted-image-20250422233209.png"
+width="2452"
+height="1678"
+srcset="https://mcig-ggg.github.io/p/obsidian%E6%8A%98%E8%85%BE%E6%80%BB%E7%BB%93/Pasted-image-20250422233209_hu_9b13379e66f72074.png 480w, https://mcig-ggg.github.io/p/obsidian%E6%8A%98%E8%85%BE%E6%80%BB%E7%BB%93/Pasted-image-20250422233209_hu_5b6133dbfdeb7e3f.png 1024w"
+loading="lazy"
+alt="Pasted image 20250422233209.png"
+class="gallery-image"
+data-flex-grow="146"
+data-flex-basis="350px"
+&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;</description></item><item><title>大一下学期总结</title><link>https://mcig-ggg.github.io/p/%E5%A4%A7%E4%B8%80%E4%B8%8B%E5%AD%A6%E6%9C%9F%E6%80%BB%E7%BB%93/</link><pubDate>Wed, 08 Oct 2025 00:00:00 +0000</pubDate><guid>https://mcig-ggg.github.io/p/%E5%A4%A7%E4%B8%80%E4%B8%8B%E5%AD%A6%E6%9C%9F%E6%80%BB%E7%BB%93/</guid><description>&lt;img src="https://mcig-ggg.github.io/p/%E5%A4%A7%E4%B8%80%E4%B8%8B%E5%AD%A6%E6%9C%9F%E6%80%BB%E7%BB%93/73179512905131d196dea717dd735482_720.jpg" alt="Featured image of post 大一下学期总结" /&gt;&lt;h1 id="大一下学期总结"&gt;大一下学期总结
+&lt;/h1&gt;&lt;p&gt;这学期的心态变了很多,我也不想在这篇文章里写太多技术相关的东西.主要就是记录下我目前的一些想法&lt;/p&gt;
+&lt;h2 id="学习"&gt;学习
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;一开学想这学期好好学OS, 然后刚开学在看rcore,想这学期把rcore搞完,但是后面又没看了,感觉没啥意义. 后面看了几集jyyos,也没看了&lt;/li&gt;
+&lt;li&gt;后面就被忽悠去搞大创了,一个月边写申报书边看论文,了解了一点SLAM相关, 不过最后申报书没过,幸好我也不太想走这方面.&lt;/li&gt;
+&lt;li&gt;再后面看了点CS188, 了解了一点RL相关,后面有讲AI其他方面的概述,不知道暑假还继不继续看&lt;/li&gt;
+&lt;li&gt;这学期课内事情太多了,有点应付不过来&lt;/li&gt;
+&lt;li&gt;暑假打算看看计网,6.824 .&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="一些想法"&gt;一些想法
+&lt;/h2&gt;&lt;p&gt;我感觉我在人际交往还有个人还有别的方面有了很多变化&lt;/p&gt;
+&lt;p&gt;遇到了一些人,后面进了我们学校的&amp;quot;地下开源协会&amp;quot;,全是大佬,有大二进wxg前端实习的,有同时是archlinuxcn,nix,deepin维护者的大佬.感觉稍微了解了一点开源这个世界&lt;/p&gt;
+&lt;p&gt;打了学校的排球阳光杯,虽然没上场.看大四老登在上面拼命打,拿下最后一球,赢了季军赛之后,坐在地板上哭,挺感慨的.想起了高三在我们的小高中的运动会,最后一跳三级跳拿下第一的事情(虽然厉害的人都去报跳远了).
+时间总是这样流过.&lt;/p&gt;
+&lt;p&gt;这学期看了星际牛仔,漂流少年,冰海战记,怪奇物语.(阿谢拉特很帅)
+&lt;img src="https://mcig-ggg.github.io/p/%E5%A4%A7%E4%B8%80%E4%B8%8B%E5%AD%A6%E6%9C%9F%E6%80%BB%E7%BB%93/73179512905131d196dea717dd735482_720.jpg"
+width="1280"
+height="960"
+srcset="https://mcig-ggg.github.io/p/%E5%A4%A7%E4%B8%80%E4%B8%8B%E5%AD%A6%E6%9C%9F%E6%80%BB%E7%BB%93/73179512905131d196dea717dd735482_720_hu_f763e75ce554d705.jpg 480w, https://mcig-ggg.github.io/p/%E5%A4%A7%E4%B8%80%E4%B8%8B%E5%AD%A6%E6%9C%9F%E6%80%BB%E7%BB%93/73179512905131d196dea717dd735482_720_hu_e2f02e3d58520447.jpg 1024w"
+loading="lazy"
+alt="73179512905131d196dea717dd735482_720.jpg"
+class="gallery-image"
+data-flex-grow="133"
+data-flex-basis="320px"
+&gt;&lt;/p&gt;
+&lt;p&gt;某人能让我从别人的角度,另外的角度看自己看世界,我很感谢&lt;/p&gt;
+&lt;p&gt;爱到底是什么呢,该怎么去爱人呢,我很讨厌教育体系内缺少这方面的教育,明明是人生中重要的东西,但是大部分人却对此不甚了解,只能自己慢慢摸索.人生不应该只有面前的绩点,未来的保研,追求的工作,拿到的工资.人生中很多东西都很重要,所以请不要忘记自己心里重要的东西,自己身边重要的东西.&lt;/p&gt;
+&lt;p&gt;这学期接触了一些学校里的人之后,愈发感觉大学内部的信息流通实在是太闭塞,比如说我们学校里的开源协会,我原本以为学校里没有什么技术氛围,没想到还是有的(不过里面基本都是老登)&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://mcig-ggg.github.io/p/%E5%A4%A7%E4%B8%80%E4%B8%8B%E5%AD%A6%E6%9C%9F%E6%80%BB%E7%BB%93/2919d67e78439bda89f3cfc66d21abfb_720.jpg"
+width="1080"
+height="1920"
+srcset="https://mcig-ggg.github.io/p/%E5%A4%A7%E4%B8%80%E4%B8%8B%E5%AD%A6%E6%9C%9F%E6%80%BB%E7%BB%93/2919d67e78439bda89f3cfc66d21abfb_720_hu_9d8749091dd68a06.jpg 480w, https://mcig-ggg.github.io/p/%E5%A4%A7%E4%B8%80%E4%B8%8B%E5%AD%A6%E6%9C%9F%E6%80%BB%E7%BB%93/2919d67e78439bda89f3cfc66d21abfb_720_hu_d40f545821f0af57.jpg 1024w"
+loading="lazy"
+alt="2919d67e78439bda89f3cfc66d21abfb_720.jpg"
+class="gallery-image"
+data-flex-grow="56"
+data-flex-basis="135px"
+&gt;
+每个人都有一个不大不小的梦&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://mcig-ggg.github.io/p/%E5%A4%A7%E4%B8%80%E4%B8%8B%E5%AD%A6%E6%9C%9F%E6%80%BB%E7%BB%93/fb4370fea6cb9bdbc22dd7d77d9bad27-1.jpg"
+width="2664"
+height="1200"
+srcset="https://mcig-ggg.github.io/p/%E5%A4%A7%E4%B8%80%E4%B8%8B%E5%AD%A6%E6%9C%9F%E6%80%BB%E7%BB%93/fb4370fea6cb9bdbc22dd7d77d9bad27-1_hu_29d84c145c6cf90d.jpg 480w, https://mcig-ggg.github.io/p/%E5%A4%A7%E4%B8%80%E4%B8%8B%E5%AD%A6%E6%9C%9F%E6%80%BB%E7%BB%93/fb4370fea6cb9bdbc22dd7d77d9bad27-1_hu_ab24c02765f85f23.jpg 1024w"
+loading="lazy"
+alt="fb4370fea6cb9bdbc22dd7d77d9bad27 1.jpg"
+class="gallery-image"
+data-flex-grow="222"
+data-flex-basis="532px"
+&gt;
+这学期后面开始偶尔喝点酒,以前挺抗拒喝酒的,不过现在喝的也基本只是鸡尾酒.前段时间开源协会有人说要搞聚会,虽然最后也就几个人,吃晚饭去酒吧聊天.第一次去酒吧,感觉遇到的人经历的事听到的东西对我的世界观冲击有点大&lt;/p&gt;
+&lt;p&gt;人生还有很长啊.&lt;/p&gt;</description></item><item><title>避免无意义的重复：记一次obsidian折腾</title><link>https://mcig-ggg.github.io/p/%E9%81%BF%E5%85%8D%E6%97%A0%E6%84%8F%E4%B9%89%E7%9A%84%E9%87%8D%E5%A4%8D%E8%AE%B0%E4%B8%80%E6%AC%A1obsidian%E6%8A%98%E8%85%BE/</link><pubDate>Sun, 05 Oct 2025 00:00:00 +0000</pubDate><guid>https://mcig-ggg.github.io/p/%E9%81%BF%E5%85%8D%E6%97%A0%E6%84%8F%E4%B9%89%E7%9A%84%E9%87%8D%E5%A4%8D%E8%AE%B0%E4%B8%80%E6%AC%A1obsidian%E6%8A%98%E8%85%BE/</guid><description>&lt;h2 id="起因"&gt;起因
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;事情的起因是复制 ai 回答的内容里的 LaTeX 公式，它所采用的是 &lt;code&gt;\( \)&lt;/code&gt; (行内公式) 和 &lt;code&gt;\[ \]&lt;/code&gt; （行间公式），而 obsidian 默认支持的是 &lt;code&gt;$ $&lt;/code&gt; 和 &lt;code&gt;$$ $$&lt;/code&gt; ，然后复制过来的话要对内容进行修改才能成功渲染LaTeX 公式&lt;/li&gt;
+&lt;li&gt;手动修改无疑是无意义的重复，但是我一直懒得找解决方法，直到今天实在受不了了。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="经历"&gt;经历
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;最开始的想法：看看能不能更改 obsidian 支持的 latex 格式，但是我没找到（也许有，可能只是我没找到）&lt;/li&gt;
+&lt;li&gt;后来的想法：因为对这种字符串操作，第一反应就是 vim, 然后我记得 obsidian 是有 vim 模式的，于是我开了 obsidian 的 vim 模式，尝试手动用 vim 命令更改粘贴后的内容,,,
+&lt;ul&gt;
+&lt;li&gt;但是好像 obsidian 的 vim 支持不是很好（？）好像不支持捕获组（也有可能是我命令输的有问题）&lt;/li&gt;
+&lt;li&gt;于是只能换方法&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;后来把我的需求描述清楚，去问 qwen, 说可以用 obsidian 的 templater 插件，并且给了相应的代码，
+&lt;ul&gt;
+&lt;li&gt;然后我按照他给的代码，去做，发现不行。&lt;/li&gt;
+&lt;li&gt;然后根据我之前的经历，可能是模型不够强&lt;/li&gt;
+&lt;li&gt;于是我去用 cursor&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;cursor 给了代码，能使用
+&lt;ul&gt;
+&lt;li&gt;不过一开始不符合我的需求&lt;/li&gt;
+&lt;li&gt;然后经过不断的调整，描述自己的需求，最终成功实现&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="感想"&gt;感想
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;第一个就是，就像 jyy 说的，要是重复做什么事情三次以上，就该想想有没有现成的自动化工具，如果没有，就看看自己能不能写出来，这是学计算机的人很需要的一个技能&lt;/li&gt;
+&lt;li&gt;然后就是 ai 的使用吧，比较难度高的任务还是得用好点的 ai, 不然错误太多了。&lt;/li&gt;
+&lt;/ul&gt;</description></item></channel></rss>

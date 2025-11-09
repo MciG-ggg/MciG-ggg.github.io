@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Test on MciG</title><link>https://mcig-ggg.github.io/categories/test/</link><description>Recent content in Test on MciG</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><copyright>MciG</copyright><lastBuildDate>Sun, 09 Nov 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://mcig-ggg.github.io/categories/test/index.xml" rel="self" type="application/rss+xml"/><item><title>LaTeX测试</title><link>https://mcig-ggg.github.io/p/latex%E6%B5%8B%E8%AF%95/</link><pubDate>Sun, 09 Nov 2025 00:00:00 +0000</pubDate><guid>https://mcig-ggg.github.io/p/latex%E6%B5%8B%E8%AF%95/</guid><description>&lt;h1 id="latex数学公式测试"&gt;LaTeX数学公式测试
+&lt;/h1&gt;&lt;h2 id="简单公式测试"&gt;简单公式测试
+&lt;/h2&gt;&lt;p&gt;行内公式：$E = mc^2$&lt;/p&gt;
+&lt;p&gt;块级公式：
+&lt;/p&gt;
+$$\int_{-\infty}^{\infty} e^{-x^2} dx = \sqrt{\pi}$$&lt;h2 id="复杂公式测试"&gt;复杂公式测试
+&lt;/h2&gt;&lt;p&gt;矩阵：
+&lt;/p&gt;
+$$\begin{bmatrix}
+0 &amp; -x_3 &amp; x_2 \\
+x_3 &amp; 0 &amp; -x_1 \\
+-x_2 &amp; x_1 &amp; 0
+\end{bmatrix}$$&lt;p&gt;希腊字母：
+&lt;/p&gt;
+$$\alpha, \beta, \gamma, \Delta, \theta, \omega$$&lt;p&gt;特殊符号：
+&lt;/p&gt;
+$$\mathbb{R}^3, \mathfrak{so}(3), \mathrm{Rot}(\hat{\boldsymbol{\omega}},\theta)$$</description></item></channel></rss>

@@ -1,0 +1,375 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>公开课 on MciG</title><link>https://mcig-ggg.github.io/categories/%E5%85%AC%E5%BC%80%E8%AF%BE/</link><description>Recent content in 公开课 on MciG</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><copyright>MciG</copyright><lastBuildDate>Wed, 08 Oct 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://mcig-ggg.github.io/categories/%E5%85%AC%E5%BC%80%E8%AF%BE/index.xml" rel="self" type="application/rss+xml"/><item><title>cs168proj2</title><link>https://mcig-ggg.github.io/p/cs168proj2/</link><pubDate>Wed, 08 Oct 2025 00:00:00 +0000</pubDate><guid>https://mcig-ggg.github.io/p/cs168proj2/</guid><description>&lt;p&gt;&lt;div class="admonition admonition-note"&gt;
+&lt;div class="admonition-title"&gt;
+Title
+&lt;/div&gt;
+&lt;div class="admonition-content"&gt;
+好的协议不是防止所有错误，而是确保错误能被快速检测和修复
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;style&gt;
+.admonition {
+border-left: 4px solid #42a5f5;
+background: #f5f7fa;
+margin: 1.5em 0;
+padding: 1em 1.2em;
+border-radius: 6px;
+}
+.admonition-note { border-color: #42a5f5; }
+.admonition-warning { border-color: #ffa726; background: #fff8e1; }
+.admonition-info { border-color: #26c6da; background: #e0f7fa; }
+.admonition-title {
+font-weight: bold;
+margin-bottom: 0.5em;
+}
+.admonition-content {
+color: #000000;
+font-size: 1em;
+}
+@media (prefers-color-scheme: dark) {
+.admonition {
+background: #2c3e50;
+color: #ecf0f1;
+}
+.admonition-note { border-color: #42a5f5; }
+.admonition-warning { border-color: #ffa726; background: #5d4037; }
+.admonition-info { border-color: #26c6da; background: #004d40; }
+.admonition-title {
+color: #ecf0f1;
+}
+.admonition-content {
+color: #ecf0f1;
+}
+}
+&lt;/style&gt;
+大概就是从头实现路由器算法的每个规则.&lt;/p&gt;
+&lt;p&gt;每个需要实现的函数, 都会以事件驱动的方式, 被框架的模拟器调用. 所以我们只需要实现具体函数即可, 调用过程不用管.&lt;/p&gt;
+&lt;h2 id="stage1-安装静态路由"&gt;stage1: 安装静态路由
+&lt;/h2&gt;&lt;p&gt;先实现安装静态路由.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;由&amp;quot;一个节点第一次连接到一个路由器&amp;quot; 事件触发
+比较简单, 没有什么太多说的.
+大概讲一下 TableEntry:
+&lt;div class="mermaid" id="mermaid-1"&gt;
+classDiagram
+class TableEntry {
++dst : 目的地址
++port : 下一跳端口
++latency : 路径代价/延迟
++expire_time : 过期时间
+}
+&lt;/div&gt;
+&lt;script&gt;
+document.addEventListener('DOMContentLoaded', function() {
+mermaid.initialize({
+startOnLoad: true,
+theme: 'default',
+securityLevel: 'loose',
+flowchart: {
+htmlLabels: true,
+curve: 'basis'
+}
+});
+mermaid.init(undefined, "#mermaid-1");
+});
+&lt;/script&gt;
+&lt;div class="admonition admonition-note"&gt;
+&lt;div class="admonition-title"&gt;
+Title
+&lt;/div&gt;
+&lt;div class="admonition-content"&gt;
+这里的 latency 就相当于课本里所说的 cost
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;style&gt;
+.admonition {
+border-left: 4px solid #42a5f5;
+background: #f5f7fa;
+margin: 1.5em 0;
+padding: 1em 1.2em;
+border-radius: 6px;
+}
+.admonition-note { border-color: #42a5f5; }
+.admonition-warning { border-color: #ffa726; background: #fff8e1; }
+.admonition-info { border-color: #26c6da; background: #e0f7fa; }
+.admonition-title {
+font-weight: bold;
+margin-bottom: 0.5em;
+}
+.admonition-content {
+color: #000000;
+font-size: 1em;
+}
+@media (prefers-color-scheme: dark) {
+.admonition {
+background: #2c3e50;
+color: #ecf0f1;
+}
+.admonition-note { border-color: #42a5f5; }
+.admonition-warning { border-color: #ffa726; background: #5d4037; }
+.admonition-info { border-color: #26c6da; background: #004d40; }
+.admonition-title {
+color: #ecf0f1;
+}
+.admonition-content {
+color: #ecf0f1;
+}
+}
+&lt;/style&gt;
+TableEntry 只告诉你我这个路由器能到哪里, 以及下一步你该去哪里.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="stage2-转发数据包"&gt;stage2: 转发数据包
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;用 packet 的 dst ,从&lt;em&gt;路由表&lt;/em&gt;中找到&lt;em&gt;对应的路由表项&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;检查路由表项是否为空 or 路由表项. latency &amp;gt;= INFINITY
+&lt;ul&gt;
+&lt;li&gt;如果为 false: 说明这个 packet 可以转发 (有下一个目的地, 且下一个目的地可以到达 (latency &amp;lt; INFINITY))&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="stage3-转发路由表"&gt;stage3: 转发路由表
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;对某一个路由器,定时转发其所有路由表项, 向其所有邻居&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="admonition admonition-note"&gt;
+&lt;div class="admonition-title"&gt;
+Title
+&lt;/div&gt;
+&lt;div class="admonition-content"&gt;
+要向该路由器所有邻居转发其所有路由表项
+从路由表中查找到各个邻居需要走的端口, 从那些端口转发自己所有的路由表项.
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;style&gt;
+.admonition {
+border-left: 4px solid #42a5f5;
+background: #f5f7fa;
+margin: 1.5em 0;
+padding: 1em 1.2em;
+border-radius: 6px;
+}
+.admonition-note { border-color: #42a5f5; }
+.admonition-warning { border-color: #ffa726; background: #fff8e1; }
+.admonition-info { border-color: #26c6da; background: #e0f7fa; }
+.admonition-title {
+font-weight: bold;
+margin-bottom: 0.5em;
+}
+.admonition-content {
+color: #000000;
+font-size: 1em;
+}
+@media (prefers-color-scheme: dark) {
+.admonition {
+background: #2c3e50;
+color: #ecf0f1;
+}
+.admonition-note { border-color: #42a5f5; }
+.admonition-warning { border-color: #ffa726; background: #5d4037; }
+.admonition-info { border-color: #26c6da; background: #004d40; }
+.admonition-title {
+color: #ecf0f1;
+}
+.admonition-content {
+color: #ecf0f1;
+}
+}
+&lt;/style&gt;
+&lt;h2 id="stage4-更新路由表"&gt;stage4: 更新路由表
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;当路由器从邻居收到一条到某个目的地（route_dst）的路由通告时，决定是否更新自己的路由表。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="主要流程"&gt;主要流程
+&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;计算总延迟&lt;/strong&gt;&lt;br&gt;
+&lt;code&gt;total_latency = route_latency + self.ports.get_latency(port)&lt;/code&gt;&lt;br&gt;
+总延迟 = 邻居到目的地的延迟 + 本地到邻居的延迟&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;设置过期时间&lt;/strong&gt;&lt;br&gt;
+&lt;code&gt;expire_time = api.current_time() + self.ROUTE_TTL&lt;/code&gt;&lt;br&gt;
+路由项的有效期&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;路由表更新规则&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;如果路由表中没有该目的地（route_dst），直接添加新项。&lt;/li&gt;
+&lt;li&gt;如果已有该目的地：
+&lt;ul&gt;
+&lt;li&gt;如果原来的下一跳端口就是这次收到通告的端口，直接更新（刷新延迟和过期时间）。&lt;/li&gt;
+&lt;li&gt;如果新通告的总延迟更小，则更新为更优的路径。&lt;/li&gt;
+&lt;li&gt;否则，不做任何更改。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id="stage5-处理超时"&gt;stage5: 处理超时
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;定期检查路由表，把已经过期的路由项删除，保证路由表的有效性和准确性。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="主要流程-1"&gt;主要流程
+&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;遍历路由表所有项&lt;/strong&gt;&lt;br&gt;
+&lt;code&gt;for _, table_entry in list(t.items()):&lt;/code&gt;&lt;br&gt;
+遍历当前路由表中的每一项。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;判断是否过期&lt;/strong&gt;&lt;br&gt;
+&lt;code&gt;if table_entry.expire_time != FOREVER and table_entry.expire_time &amp;lt; api.current_time():&lt;/code&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;如果该路由项的过期时间不是永久（FOREVER），并且已经小于当前时间（即已经过期），则进入下一步。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;日志记录&lt;/strong&gt;&lt;br&gt;
+&lt;code&gt;self.log(f&amp;quot;Route expired: dst={table_entry.dst}, port={table_entry.port}, latency={table_entry.latency}&amp;quot;)&lt;/code&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;记录一条日志，说明哪一项已经过期。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;删除过期项&lt;/strong&gt;&lt;br&gt;
+&lt;code&gt;t.pop(table_entry.dst)&lt;/code&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;从路由表中删除这条过期的路由项。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;基本的路由器功能已经实现, 下面是一些优化和问题修复&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id="stage6-水平分割"&gt;stage6: 水平分割
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;水平分割: 在路由器互相发通告, 转发路由表的时候,不向学到该路由的端口通告该路由, 防止两个路由器无限循环互相转发数据 (也仅能防止两个路由器, 三个及以上做不到)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="stage7-poison-reverse"&gt;stage7: Poison Reverse
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;Poison Reverse: 如果我的到达某目的地的最短路径是通过你，那么我在通告你的时候，告诉你我到该目的地的距离是无穷大&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="stage8-counting-to-infinity"&gt;stage8: Counting to Infinity
+&lt;/h2&gt;&lt;p&gt;以上两种方式都无法避免:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;假设A、B、C形成环，A到C的链路断开：
+&lt;ul&gt;
+&lt;li&gt;A发现到C不可达，距离变大。&lt;/li&gt;
+&lt;li&gt;B还没意识到，告诉A“我到C距离是2”，A更新为3。&lt;/li&gt;
+&lt;li&gt;下一轮，B又从A学到“3”，B更新为4……&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;核心思想：只要距离超过INFINITY，通告时就直接用INFINITY，防止路由器之间互相“抬高”距离，网络能快速收敛。
+&lt;ul&gt;
+&lt;li&gt;把大于 INFINITY 的距离直接设为 INFINITY，核心目的就是为了防止路由器之间继续互相“抬高”数值&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="stage9-poisoning-expired-routes"&gt;stage9: Poisoning Expired Routes
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;当路由过期时，不是直接删除它，而是将其标记为无限大（毒化），并继续传播这个&amp;rsquo;死亡通知&amp;rsquo;一段时间&lt;/li&gt;
+&lt;li&gt;直接删除的核心问题：信息黑洞效应
+&lt;ul&gt;
+&lt;li&gt;当路由器直接删除失效路由时，会立即形成信息真空：
+下游路由器不知情：相邻路由器仍需等待自己的超时计时器到期
+临时环路风险：其他节点可能继续向已删除路由的节点发送流量
+典型案例（7节点拓扑）：
+h1 &amp;ndash; s1 &amp;ndash; s2 &amp;ndash; s3 &amp;ndash; s4 &amp;ndash; s5 &amp;ndash; s6 &amp;ndash; s7
+当s1-s2断开：
+若s2直接删除h1路由：
+s3仍认为可通过s2到达h1（跳数=3）
+s3继续向s2转发数据包 → 黑洞丢包
+&lt;div class="admonition admonition-note"&gt;
+&lt;div class="admonition-title"&gt;
+title
+&lt;/div&gt;
+&lt;div class="admonition-content"&gt;
+删除是简单的，但正确的删除需要智慧
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;style&gt;
+.admonition {
+border-left: 4px solid #42a5f5;
+background: #f5f7fa;
+margin: 1.5em 0;
+padding: 1em 1.2em;
+border-radius: 6px;
+}
+.admonition-note { border-color: #42a5f5; }
+.admonition-warning { border-color: #ffa726; background: #fff8e1; }
+.admonition-info { border-color: #26c6da; background: #e0f7fa; }
+.admonition-title {
+font-weight: bold;
+margin-bottom: 0.5em;
+}
+.admonition-content {
+color: #000000;
+font-size: 1em;
+}
+@media (prefers-color-scheme: dark) {
+.admonition {
+background: #2c3e50;
+color: #ecf0f1;
+}
+.admonition-note { border-color: #42a5f5; }
+.admonition-warning { border-color: #ffa726; background: #5d4037; }
+.admonition-info { border-color: #26c6da; background: #004d40; }
+.admonition-title {
+color: #ecf0f1;
+}
+.admonition-content {
+color: #ecf0f1;
+}
+}
+&lt;/style&gt; &lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="stage10-触发更新"&gt;stage10: 触发更新
+&lt;/h2&gt;&lt;h3 id="1-历史记录结构selfhistory"&gt;1. 历史记录结构（self.history）
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;在&lt;code&gt;__init__&lt;/code&gt;中添加了&lt;code&gt;self.history = {}&lt;/code&gt;。&lt;/li&gt;
+&lt;li&gt;结构为： &lt;code&gt;{port: {dst: latency}}&lt;/code&gt; (一个嵌套字典)&lt;/li&gt;
+&lt;li&gt;作用：记录“上次通过每个端口(port)通告给每个目的地(dst)的延迟(latency)”。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h3 id="2-辅助函数"&gt;2. 辅助函数
+&lt;/h3&gt;&lt;h4 id="should_advertiseself-port-dst-latency"&gt;should_advertise(self, port, dst, latency)
+&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;判断是否需要通告。&lt;/li&gt;
+&lt;li&gt;如果历史中没有该端口或目的地，说明是第一次通告，返回True。&lt;/li&gt;
+&lt;li&gt;如果历史中有，但延迟发生了变化，也返回True。&lt;/li&gt;
+&lt;li&gt;否则返回False（即内容没变，不需要通告）。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id="update_historyself-port-dst-latency"&gt;update_history(self, port, dst, latency)
+&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;每次通告后，更新历史记录。&lt;/li&gt;
+&lt;li&gt;保证下次判断时有最新的历史数据。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="3-send_routes"&gt;3. send_routes
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;遍历所有端口和路由表项。&lt;/li&gt;
+&lt;li&gt;对于每个端口-目的地组合，先判断是否需要通告（force为True时无条件通告）。&lt;/li&gt;
+&lt;li&gt;只有需要通告时才真正发送，并更新历史。&lt;/li&gt;
+&lt;li&gt;支持&lt;code&gt;single_port&lt;/code&gt;参数，只向指定端口通告（用于链路刚上线时）。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="4-handle_route_advertisement"&gt;4. handle_route_advertisement
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;收到邻居的路由通告时，只有当本地路由表真的被更新（新增、更优、同端口刷新）时，才调用&lt;code&gt;self.send_routes(force=False)&lt;/code&gt;，即只在有变化时触发增量通告。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="5-handle_link_up"&gt;5. handle_link_up
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;当有新链路上线时，如果&lt;code&gt;SEND_ON_LINK_UP&lt;/code&gt;为True，立即用&lt;code&gt;send_routes(force=True, single_port=port)&lt;/code&gt;向新邻居通告所有路由。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="6-handle_link_down"&gt;6. handle_link_down
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;当链路断开时：
+&lt;ul&gt;
+&lt;li&gt;如果&lt;code&gt;POISON_ON_LINK_DOWN&lt;/code&gt;为True，把所有走该端口的路由毒化（latency=INFINITY），并用&lt;code&gt;send_routes(force=False)&lt;/code&gt;增量通告毒化结果。&lt;/li&gt;
+&lt;li&gt;否则，直接删除所有走该端口的路由。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="7-增量通告的核心"&gt;7. 增量通告的核心
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;只通告“有变化”的路由（即历史记录和当前要通告的内容不同）。&lt;/li&gt;
+&lt;li&gt;这样可以减少冗余消息，提高网络效率。&lt;/li&gt;
+&lt;/ul&gt;</description></item></channel></rss>
