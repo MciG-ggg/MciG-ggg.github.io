@@ -234,7 +234,25 @@ $$&lt;p&gt;进行级数展开。
 注意到&lt;/p&gt;
 $$
 [\hat{\boldsymbol{\omega}}]_\times^3 = -[\hat{\boldsymbol{\omega}}]_\times
-$$&lt;p&gt;，因此级数展开式中的 $[\hat{\boldsymbol{\omega}}]&lt;em&gt;\times^3$ 用 $-[\hat{\boldsymbol{\omega}}]&lt;/em&gt;\times$ 代替， $[\hat{\boldsymbol{\omega}}]&lt;em&gt;\times^4$ 用 $-[\hat{\boldsymbol{\omega}}]&lt;/em&gt;\times^2$ 代替， $[\hat{\boldsymbol{\omega}}]&lt;em&gt;\times^5$ 用 $[\hat{\boldsymbol{\omega}}]&lt;/em&gt;\times$ 代替，诸如此类，由此得到&lt;/p&gt;
+$$&lt;p&gt;，因此级数展开式中的&lt;/p&gt;
+$$
+[\hat{\boldsymbol{\omega}}]_\times^3
+$$&lt;p&gt;用&lt;/p&gt;
+$$
+-[\hat{\boldsymbol{\omega}}]_\times
+$$&lt;p&gt;代替，&lt;/p&gt;
+$$
+[\hat{\boldsymbol{\omega}}]_\times^4
+$$&lt;p&gt;用&lt;/p&gt;
+$$
+-[\hat{\boldsymbol{\omega}}]_\times^2
+$$&lt;p&gt;代替，&lt;/p&gt;
+$$
+[\hat{\boldsymbol{\omega}}]_\times^5
+$$&lt;p&gt;用&lt;/p&gt;
+$$
+[\hat{\boldsymbol{\omega}}]_\times
+$$&lt;p&gt;代替，诸如此类，由此得到&lt;/p&gt;
 &lt;p&gt;$$
 e^{\theta[\hat{\boldsymbol{\omega}}]&lt;em&gt;\times}
 = I + \theta[\hat{\boldsymbol{\omega}}]&lt;/em&gt;\times&lt;/p&gt;
@@ -1132,7 +1150,7 @@ color: #ecf0f1;
 &lt;hr&gt;
 &lt;h3 id="总结"&gt;&lt;strong&gt;总结&lt;/strong&gt;
 &lt;/h3&gt;&lt;p&gt;搜索问题的形式化定义为智能体提供了在复杂环境中规划行动的数学框架。通过明确状态空间、动作、转移模型等要素，结合适当的搜索算法（如BFS、A*、UCS），智能体能够高效地找到从初始状态到目标状态的最优路径。这一过程是构建理性规划智能体的基础，也是后续学习更高级算法（如强化学习）的前提。&lt;/p&gt;
-&lt;h2 id="hahahugoshortcode14s0hbhb"&gt;&lt;div class="admonition admonition-note"&gt;
+&lt;h2 id="hahahugoshortcode15s0hbhb"&gt;&lt;div class="admonition admonition-note"&gt;
 &lt;div class="admonition-title"&gt;
 搜索问题的解法
 &lt;/div&gt;

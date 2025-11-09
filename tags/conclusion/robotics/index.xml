@@ -218,7 +218,25 @@ $$&lt;p&gt;进行级数展开。
 注意到&lt;/p&gt;
 $$
 [\hat{\boldsymbol{\omega}}]_\times^3 = -[\hat{\boldsymbol{\omega}}]_\times
-$$&lt;p&gt;，因此级数展开式中的 $[\hat{\boldsymbol{\omega}}]&lt;em&gt;\times^3$ 用 $-[\hat{\boldsymbol{\omega}}]&lt;/em&gt;\times$ 代替， $[\hat{\boldsymbol{\omega}}]&lt;em&gt;\times^4$ 用 $-[\hat{\boldsymbol{\omega}}]&lt;/em&gt;\times^2$ 代替， $[\hat{\boldsymbol{\omega}}]&lt;em&gt;\times^5$ 用 $[\hat{\boldsymbol{\omega}}]&lt;/em&gt;\times$ 代替，诸如此类，由此得到&lt;/p&gt;
+$$&lt;p&gt;，因此级数展开式中的&lt;/p&gt;
+$$
+[\hat{\boldsymbol{\omega}}]_\times^3
+$$&lt;p&gt;用&lt;/p&gt;
+$$
+-[\hat{\boldsymbol{\omega}}]_\times
+$$&lt;p&gt;代替，&lt;/p&gt;
+$$
+[\hat{\boldsymbol{\omega}}]_\times^4
+$$&lt;p&gt;用&lt;/p&gt;
+$$
+-[\hat{\boldsymbol{\omega}}]_\times^2
+$$&lt;p&gt;代替，&lt;/p&gt;
+$$
+[\hat{\boldsymbol{\omega}}]_\times^5
+$$&lt;p&gt;用&lt;/p&gt;
+$$
+[\hat{\boldsymbol{\omega}}]_\times
+$$&lt;p&gt;代替，诸如此类，由此得到&lt;/p&gt;
 &lt;p&gt;$$
 e^{\theta[\hat{\boldsymbol{\omega}}]&lt;em&gt;\times}
 = I + \theta[\hat{\boldsymbol{\omega}}]&lt;/em&gt;\times&lt;/p&gt;
