@@ -211,32 +211,8 @@ p(t) = e^{t[\boldsymbol{\omega}]_\times} p(0)
 $$&lt;p&gt;由于 $t$ 和 $\theta$ 可以互换，上面的方程又可写成&lt;/p&gt;
 $$
 p(\theta) = e^{\theta[\hat{\boldsymbol{\omega}}]_\times} p(0)
-$$&lt;p&gt;下面对方程中的矩阵指数&lt;/p&gt;
-$$
-e^{\theta[\hat{\boldsymbol{\omega}}]_\times}
-$$&lt;p&gt;进行级数展开。
-注意到&lt;/p&gt;
-$$
-[\hat{\boldsymbol{\omega}}]_\times^3 = -[\hat{\boldsymbol{\omega}}]_\times
-$$&lt;p&gt;，因此级数展开式中的&lt;/p&gt;
-$$
-[\hat{\boldsymbol{\omega}}]_\times^3
-$$&lt;p&gt;用&lt;/p&gt;
-$$
--[\hat{\boldsymbol{\omega}}]_\times
-$$&lt;p&gt;代替，&lt;/p&gt;
-$$
-[\hat{\boldsymbol{\omega}}]_\times^4
-$$&lt;p&gt;用&lt;/p&gt;
-$$
--[\hat{\boldsymbol{\omega}}]_\times^2
-$$&lt;p&gt;代替，&lt;/p&gt;
-$$
-[\hat{\boldsymbol{\omega}}]_\times^5
-$$&lt;p&gt;用&lt;/p&gt;
-$$
-[\hat{\boldsymbol{\omega}}]_\times
-$$&lt;p&gt;代替，诸如此类，由此得到&lt;/p&gt;
+$$&lt;p&gt;下面对方程中的矩阵指数 $e^{\theta[\hat{\boldsymbol{\omega}}]_\times}$ 进行级数展开。
+注意到 $[\hat{\boldsymbol{\omega}}]_\times^3 = -[\hat{\boldsymbol{\omega}}]_\times$，因此级数展开式中的 $[\hat{\boldsymbol{\omega}}]_\times^3$ 用 $-[\hat{\boldsymbol{\omega}}]_\times$ 代替，$[\hat{\boldsymbol{\omega}}]_\times^4$ 用 $-[\hat{\boldsymbol{\omega}}]_\times^2$ 代替，$[\hat{\boldsymbol{\omega}}]_\times^5$ 用 $[\hat{\boldsymbol{\omega}}]_\times$ 代替，诸如此类，由此得到&lt;/p&gt;
 &lt;p&gt;$$
 e^{\theta[\hat{\boldsymbol{\omega}}]&lt;em&gt;\times}
 = I + \theta[\hat{\boldsymbol{\omega}}]&lt;/em&gt;\times&lt;/p&gt;
@@ -340,7 +316,7 @@ $\mathrm{Rot}(\hat{\boldsymbol{\omega}},\theta)$ &lt;strong&gt;是&lt;/strong&gt
 $R=I \Rightarrow \theta=0,\ \hat{\boldsymbol{\omega}}$ &lt;strong&gt;不确定&lt;/strong&gt;（任意单位向量）。&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;strong&gt;转 π 情况&lt;/strong&gt;（$\mathrm{tr},R=-1$）
+&lt;p&gt;&lt;strong&gt;转 π 情况&lt;/strong&gt;（$\mathrm{tr}\,R=-1$）
 $\theta=\pi$，$\hat{\boldsymbol{\omega}}$ 可在下列 &lt;strong&gt;三选一&lt;/strong&gt; 里任取：&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
@@ -355,7 +331,7 @@ $$
 \begin{bmatrix}1+r_{11}\\r_{21}\\r_{31}\end{bmatrix}
 $$&lt;p&gt;（分母为零就换下一组）&lt;/p&gt;
 &lt;ol start="3"&gt;
-&lt;li&gt;&lt;strong&gt;通用情况&lt;/strong&gt;（$\mathrm{tr},R\ne -1$）&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;通用情况&lt;/strong&gt;（$\mathrm{tr}\,R\ne -1$）&lt;/li&gt;
 &lt;/ol&gt;
 $$
 \theta=\arccos\!\Bigl(\frac{\mathrm{tr}\,R-1}{2}\Bigr)\in(0,\pi),\quad
@@ -363,7 +339,7 @@ $$
 $$&lt;ul&gt;
 &lt;li&gt;几何图景：半径为 π 的实心球（ $\mid\mid \hat{\omega} \theta\mid\mid \leq \pi$ ）
 &lt;ul&gt;
-&lt;li&gt;球面上两点 $\mathbf{r}$ 与 $-\mathbf{r}$（$\theta=\pi$）&lt;strong&gt;映射到同一&lt;/strong&gt; $R$（$\mathrm{tr},R=-1$）。&lt;/li&gt;
+&lt;li&gt;球面上两点 $\mathbf{r}$ 与 $-\mathbf{r}$（$\theta=\pi$）&lt;strong&gt;映射到同一&lt;/strong&gt; $R$（$\mathrm{tr}\,R=-1$）。&lt;/li&gt;
 &lt;li&gt;球内一点 $\mathbf{r}$ 对应唯一旋转：
 $\hat{\boldsymbol{\omega}}=\dfrac{\mathbf{r}}{|\mathbf{r}|},\ \theta=|\mathbf{r}|,\ R=e^{[\mathbf{r}]_\times}$&lt;/li&gt;
 &lt;li&gt;球心 $\mathbf{r}=0$ 对应恒等旋转 $I$。&lt;/li&gt;
@@ -376,7 +352,7 @@ Note
 &lt;/div&gt;
 &lt;div class="admonition-content"&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;球内点&lt;/strong&gt;：对于 $\theta &amp;lt; \pi$ ，每个点 $(\boldsymbol{\omega}, \theta)$ 对应一个唯一的旋转矩阵，因为旋转角度小于 $\pi$ 时，旋转是唯一的。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;球内点&lt;/strong&gt;：对于 $\theta &lt; \pi$ ，每个点 $(\boldsymbol{\omega}, \theta)$ 对应一个唯一的旋转矩阵，因为旋转角度小于 $\pi$ 时，旋转是唯一的。&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;球面上点&lt;/strong&gt;：对于 $\theta = \pi$ ，球面上的点 $(\boldsymbol{\omega}, \pi)$ 和 $(-\boldsymbol{\omega}, \pi)$ 映射到同一个旋转矩阵，这解释了为什么 $\mathrm{tr}(R) = -1$ 的旋转矩阵有两个对应的指数坐标。&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;

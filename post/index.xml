@@ -227,32 +227,8 @@ p(t) = e^{t[\boldsymbol{\omega}]_\times} p(0)
 $$&lt;p&gt;由于 $t$ 和 $\theta$ 可以互换，上面的方程又可写成&lt;/p&gt;
 $$
 p(\theta) = e^{\theta[\hat{\boldsymbol{\omega}}]_\times} p(0)
-$$&lt;p&gt;下面对方程中的矩阵指数&lt;/p&gt;
-$$
-e^{\theta[\hat{\boldsymbol{\omega}}]_\times}
-$$&lt;p&gt;进行级数展开。
-注意到&lt;/p&gt;
-$$
-[\hat{\boldsymbol{\omega}}]_\times^3 = -[\hat{\boldsymbol{\omega}}]_\times
-$$&lt;p&gt;，因此级数展开式中的&lt;/p&gt;
-$$
-[\hat{\boldsymbol{\omega}}]_\times^3
-$$&lt;p&gt;用&lt;/p&gt;
-$$
--[\hat{\boldsymbol{\omega}}]_\times
-$$&lt;p&gt;代替，&lt;/p&gt;
-$$
-[\hat{\boldsymbol{\omega}}]_\times^4
-$$&lt;p&gt;用&lt;/p&gt;
-$$
--[\hat{\boldsymbol{\omega}}]_\times^2
-$$&lt;p&gt;代替，&lt;/p&gt;
-$$
-[\hat{\boldsymbol{\omega}}]_\times^5
-$$&lt;p&gt;用&lt;/p&gt;
-$$
-[\hat{\boldsymbol{\omega}}]_\times
-$$&lt;p&gt;代替，诸如此类，由此得到&lt;/p&gt;
+$$&lt;p&gt;下面对方程中的矩阵指数 $e^{\theta[\hat{\boldsymbol{\omega}}]_\times}$ 进行级数展开。
+注意到 $[\hat{\boldsymbol{\omega}}]_\times^3 = -[\hat{\boldsymbol{\omega}}]_\times$，因此级数展开式中的 $[\hat{\boldsymbol{\omega}}]_\times^3$ 用 $-[\hat{\boldsymbol{\omega}}]_\times$ 代替，$[\hat{\boldsymbol{\omega}}]_\times^4$ 用 $-[\hat{\boldsymbol{\omega}}]_\times^2$ 代替，$[\hat{\boldsymbol{\omega}}]_\times^5$ 用 $[\hat{\boldsymbol{\omega}}]_\times$ 代替，诸如此类，由此得到&lt;/p&gt;
 &lt;p&gt;$$
 e^{\theta[\hat{\boldsymbol{\omega}}]&lt;em&gt;\times}
 = I + \theta[\hat{\boldsymbol{\omega}}]&lt;/em&gt;\times&lt;/p&gt;
@@ -356,7 +332,7 @@ $\mathrm{Rot}(\hat{\boldsymbol{\omega}},\theta)$ &lt;strong&gt;是&lt;/strong&gt
 $R=I \Rightarrow \theta=0,\ \hat{\boldsymbol{\omega}}$ &lt;strong&gt;不确定&lt;/strong&gt;（任意单位向量）。&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;strong&gt;转 π 情况&lt;/strong&gt;（$\mathrm{tr},R=-1$）
+&lt;p&gt;&lt;strong&gt;转 π 情况&lt;/strong&gt;（$\mathrm{tr}\,R=-1$）
 $\theta=\pi$，$\hat{\boldsymbol{\omega}}$ 可在下列 &lt;strong&gt;三选一&lt;/strong&gt; 里任取：&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
@@ -371,7 +347,7 @@ $$
 \begin{bmatrix}1+r_{11}\\r_{21}\\r_{31}\end{bmatrix}
 $$&lt;p&gt;（分母为零就换下一组）&lt;/p&gt;
 &lt;ol start="3"&gt;
-&lt;li&gt;&lt;strong&gt;通用情况&lt;/strong&gt;（$\mathrm{tr},R\ne -1$）&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;通用情况&lt;/strong&gt;（$\mathrm{tr}\,R\ne -1$）&lt;/li&gt;
 &lt;/ol&gt;
 $$
 \theta=\arccos\!\Bigl(\frac{\mathrm{tr}\,R-1}{2}\Bigr)\in(0,\pi),\quad
@@ -379,7 +355,7 @@ $$
 $$&lt;ul&gt;
 &lt;li&gt;几何图景：半径为 π 的实心球（ $\mid\mid \hat{\omega} \theta\mid\mid \leq \pi$ ）
 &lt;ul&gt;
-&lt;li&gt;球面上两点 $\mathbf{r}$ 与 $-\mathbf{r}$（$\theta=\pi$）&lt;strong&gt;映射到同一&lt;/strong&gt; $R$（$\mathrm{tr},R=-1$）。&lt;/li&gt;
+&lt;li&gt;球面上两点 $\mathbf{r}$ 与 $-\mathbf{r}$（$\theta=\pi$）&lt;strong&gt;映射到同一&lt;/strong&gt; $R$（$\mathrm{tr}\,R=-1$）。&lt;/li&gt;
 &lt;li&gt;球内一点 $\mathbf{r}$ 对应唯一旋转：
 $\hat{\boldsymbol{\omega}}=\dfrac{\mathbf{r}}{|\mathbf{r}|},\ \theta=|\mathbf{r}|,\ R=e^{[\mathbf{r}]_\times}$&lt;/li&gt;
 &lt;li&gt;球心 $\mathbf{r}=0$ 对应恒等旋转 $I$。&lt;/li&gt;
@@ -392,7 +368,7 @@ Note
 &lt;/div&gt;
 &lt;div class="admonition-content"&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;球内点&lt;/strong&gt;：对于 $\theta &amp;lt; \pi$ ，每个点 $(\boldsymbol{\omega}, \theta)$ 对应一个唯一的旋转矩阵，因为旋转角度小于 $\pi$ 时，旋转是唯一的。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;球内点&lt;/strong&gt;：对于 $\theta &lt; \pi$ ，每个点 $(\boldsymbol{\omega}, \theta)$ 对应一个唯一的旋转矩阵，因为旋转角度小于 $\pi$ 时，旋转是唯一的。&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;球面上点&lt;/strong&gt;：对于 $\theta = \pi$ ，球面上的点 $(\boldsymbol{\omega}, \pi)$ 和 $(-\boldsymbol{\omega}, \pi)$ 映射到同一个旋转矩阵，这解释了为什么 $\mathrm{tr}(R) = -1$ 的旋转矩阵有两个对应的指数坐标。&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
@@ -1150,7 +1126,7 @@ color: #ecf0f1;
 &lt;hr&gt;
 &lt;h3 id="总结"&gt;&lt;strong&gt;总结&lt;/strong&gt;
 &lt;/h3&gt;&lt;p&gt;搜索问题的形式化定义为智能体提供了在复杂环境中规划行动的数学框架。通过明确状态空间、动作、转移模型等要素，结合适当的搜索算法（如BFS、A*、UCS），智能体能够高效地找到从初始状态到目标状态的最优路径。这一过程是构建理性规划智能体的基础，也是后续学习更高级算法（如强化学习）的前提。&lt;/p&gt;
-&lt;h2 id="hahahugoshortcode15s0hbhb"&gt;&lt;div class="admonition admonition-note"&gt;
+&lt;h2 id="hahahugoshortcode13s0hbhb"&gt;&lt;div class="admonition admonition-note"&gt;
 &lt;div class="admonition-title"&gt;
 搜索问题的解法
 &lt;/div&gt;
@@ -1206,10 +1182,10 @@ color: #ecf0f1;
 &lt;/h3&gt;&lt;p&gt;MDP 是建模随机环境的数学框架，包含：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;strong&gt;状态 $s$ 、动作 $a$ 、转移概率 $T(s,a,s&amp;rsquo;)$&lt;/strong&gt;：动作可能导致多个后续状态。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;状态 $s$ 、动作 $a$ 、转移概率 $T(s,a,s')$&lt;/strong&gt;：动作可能导致多个后续状态。&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;**奖励函数 $R(s,a,s&amp;rsquo;)$ **：定义每个状态的即时收益。&lt;/p&gt;
+&lt;p&gt;**奖励函数 $R(s,a,s')$ **：定义每个状态的即时收益。&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;**折扣因子 $\gamma$ **：权衡当前与未来奖励。&lt;br&gt;
@@ -1240,7 +1216,7 @@ data-flex-basis="428px"
 &gt;&lt;/li&gt;
 &lt;li&gt;公式： $$V_{k+1}(s) = \max_{a}\sum_{s'}T(s,a,s')[R(s,a,s')+\gamma V_{k}(s')]$$
 &lt;ul&gt;
-&lt;li&gt;用 $s$ 的下一个状态 $s&amp;rsquo;$ 的第 $k$ 次迭代的V 值 $V_{k}(s&amp;rsquo;)$ 来更新第 $k+1$ 迭代的状态 $s$ 的V 值 $V_{k+1}(s)$&lt;/li&gt;
+&lt;li&gt;用 $s$ 的下一个状态 $s'$ 的第 $k$ 次迭代的V 值 $V_{k}(s')$ 来更新第 $k+1$ 迭代的状态 $s$ 的V 值 $V_{k+1}(s)$&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
@@ -1257,7 +1233,7 @@ $$V^\pi(s) = \sum_{a} \pi(a|s) \left[ R(s,a) + \gamma \sum_{s'} P(s'|s,a) V^\pi(
 其中：
 &lt;ul&gt;
 &lt;li&gt;$R(s,a)$ 是即时奖励，&lt;/li&gt;
-&lt;li&gt;$P(s&amp;rsquo;|s,a)$ 是状态转移概率，&lt;/li&gt;
+&lt;li&gt;$P(s'|s,a)$ 是状态转移概率，&lt;/li&gt;
 &lt;li&gt;$\gamma$ 是折扣因子。&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
@@ -1266,11 +1242,11 @@ $$V^\pi(s) = \sum_{a} \pi(a|s) \left[ R(s,a) + \gamma \sum_{s'} P(s'|s,a) V^\pi(
 &lt;/li&gt;
 &lt;li&gt;策略改进/策略提取
 &lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;目标&lt;/strong&gt;：基于当前值函数 $V^\pi(s)$ 生成更优策略 $\pi&amp;rsquo;$ 。
+&lt;li&gt;&lt;strong&gt;目标&lt;/strong&gt;：基于当前值函数 $V^\pi(s)$ 生成更优策略 $\pi'$ 。
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;方法&lt;/strong&gt;：对每个状态 $s$，选择使动作值函数 $Q^\pi(s,a)$ 最大的动作：
 $$\pi'(s) = \arg\max_{a} \left[ R(s,a) + \gamma \sum_{s'} P(s'|s,a) V^\pi(s') \right]$$&lt;/li&gt;
-&lt;li&gt;若新策略 $\pi&amp;rsquo;$ 与原策略 $\pi$ 相同，则停止迭代；否则，用 $\pi&amp;rsquo;$ 替代 $\pi$ ，重复策略评估。&lt;/li&gt;
+&lt;li&gt;若新策略 $\pi'$ 与原策略 $\pi$ 相同，则停止迭代；否则，用 $\pi'$ 替代 $\pi$ ，重复策略评估。&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
@@ -1281,7 +1257,7 @@ $$\pi'(s) = \arg\max_{a} \left[ R(s,a) + \gamma \sum_{s'} P(s'|s,a) V^\pi(s') \r
 &lt;hr&gt;
 &lt;h3 id="2-强化学习rl无模型的动态决策"&gt;&lt;strong&gt;2. 强化学习（RL）：无模型的动态决策&lt;/strong&gt;
 &lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;RL 问题：仍然是MDP 模型，但是不知道 $T(s,a,s&amp;rsquo;)$ 或 $R(s,a,s&amp;rsquo;)$
+&lt;li&gt;RL 问题：仍然是MDP 模型，但是不知道 $T(s,a,s')$ 或 $R(s,a,s')$
 &lt;ul&gt;
 &lt;li&gt;两个主要问题：
 &lt;ul&gt;
@@ -1289,8 +1265,8 @@ $$\pi'(s) = \arg\max_{a} \left[ R(s,a) + \gamma \sum_{s'} P(s'|s,a) V^\pi(s') \r
 &lt;ul&gt;
 &lt;li&gt;两种解决办法：
 &lt;ul&gt;
-&lt;li&gt;基于模型的RL：尝试获取 $T(s,a,s&amp;rsquo;)$ 或者 $R(s,a,s&amp;rsquo;)$ ，从而变回MDP 问题，用策略迭代或者值迭代即可&lt;/li&gt;
-&lt;li&gt;不基于模型的RL：不获取 $T(s,a,s&amp;rsquo;)$ 或者 $R(s,a,s&amp;rsquo;)$ ，直接通过 $Q$ 值来学习策略 $\pi$&lt;/li&gt;
+&lt;li&gt;基于模型的RL：尝试获取 $T(s,a,s')$ 或者 $R(s,a,s')$ ，从而变回MDP 问题，用策略迭代或者值迭代即可&lt;/li&gt;
+&lt;li&gt;不基于模型的RL：不获取 $T(s,a,s')$ 或者 $R(s,a,s')$ ，直接通过 $Q$ 值来学习策略 $\pi$&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
@@ -1470,7 +1446,7 @@ color: #ecf0f1;
 &lt;ul&gt;
 &lt;li&gt;为什么学习 $Q$ 值而不是 $V$ 值：
 &lt;ul&gt;
-&lt;li&gt;如果使用 V 值，智能体需要知道环境的动态模型（即状态转移概率 $T(s,a,s&amp;rsquo;)$ 和奖励函数 $R(s,a,s&amp;rsquo;)$ ），才能通过贝尔曼方程计算动作的期望价值. 而通过直接学习 Q(s,a)，绕过了对环境模型的依赖&lt;/li&gt;
+&lt;li&gt;如果使用 V 值，智能体需要知道环境的动态模型（即状态转移概率 $T(s,a,s')$ 和奖励函数 $R(s,a,s')$ ），才能通过贝尔曼方程计算动作的期望价值. 而通过直接学习 Q(s,a)，绕过了对环境模型的依赖&lt;/li&gt;
 &lt;li&gt;Q值的灵活性与V值的不足 ：Q(s,a) 显式地为每个动作分配价值，允许智能体在探索（如随机动作）和利用（选择当前最优动作）之间灵活切换。若使用 V 值，智能体需要额外机制（如策略函数）将状态价值映射到动作选择，这会增加复杂度。&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
@@ -1487,7 +1463,7 @@ color: #ecf0f1;
 &lt;li&gt;$\epsilon$ - greedy&lt;/li&gt;
 &lt;li&gt;exploration function
 &lt;ul&gt;
-&lt;li&gt;把通过某个 action $a&amp;rsquo;$ 到达某个状态 $s&amp;rsquo;$ 的次数 $N(s&amp;rsquo;,a&amp;rsquo;)$ 纳入考虑，用 $f(Q(s&amp;rsquo;,a&amp;rsquo;), N(s&amp;rsquo;,a&amp;rsquo;))$ 取代原先的 $Q(s&amp;rsquo;,a&amp;rsquo;)$ $$Q(s,a) \leftarrow (1-\alpha)Q(s,a) + \alpha[R(s,a,s') + \gamma \max_{a'}f(Q(s',a'), N(s',a'))]$$&lt;/li&gt;
+&lt;li&gt;把通过某个 action $a'$ 到达某个状态 $s'$ 的次数 $N(s',a')$ 纳入考虑，用 $f(Q(s',a'), N(s',a'))$ 取代原先的 $Q(s',a')$ $$Q(s,a) \leftarrow (1-\alpha)Q(s,a) + \alpha[R(s,a,s') + \gamma \max_{a'}f(Q(s',a'), N(s',a'))]$$&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
@@ -1519,7 +1495,7 @@ color: #ecf0f1;
 与传统 Q-learning 类似，目标 Q 值为：
 &lt;/p&gt;
 $$\text{Target} = r + \gamma \max_{a'} Q(s', a'; \theta)$$&lt;p&gt;
-其中 $s&amp;rsquo;$ 是下一状态，$\gamma$ 是折扣因子。&lt;/p&gt;
+其中 $s'$ 是下一状态，$\gamma$ 是折扣因子。&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;strong&gt;损失函数与参数更新&lt;/strong&gt;&lt;br&gt;
