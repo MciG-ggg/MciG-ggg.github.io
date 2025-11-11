@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Conclusion/Robotics on MciG</title><link>https://mcig-ggg.github.io/tags/conclusion/robotics/</link><description>Recent content in Conclusion/Robotics on MciG</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><copyright>MciG</copyright><lastBuildDate>Tue, 11 Nov 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://mcig-ggg.github.io/tags/conclusion/robotics/index.xml" rel="self" type="application/rss+xml"/><item><title>Modern Robotics笔记</title><link>https://mcig-ggg.github.io/p/modern-robotics%E7%AC%94%E8%AE%B0/</link><pubDate>Tue, 11 Nov 2025 00:00:00 +0000</pubDate><guid>https://mcig-ggg.github.io/p/modern-robotics%E7%AC%94%E8%AE%B0/</guid><description>&lt;img src="https://mcig-ggg.github.io/p/modern-robotics%E7%AC%94%E8%AE%B0/Pasted-image-20251109102102.png" alt="Featured image of post Modern Robotics笔记" /&gt;&lt;h1 id="modern-robotics笔记"&gt;Modern Robotics笔记
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Conclusion/Robotics on MciG</title><link>https://mcig-ggg.github.io/tags/conclusion/robotics/</link><description>Recent content in Conclusion/Robotics on MciG</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><copyright>MciG</copyright><lastBuildDate>Tue, 11 Nov 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://mcig-ggg.github.io/tags/conclusion/robotics/index.xml" rel="self" type="application/rss+xml"/><item><title>Modern Robotics笔记</title><link>https://mcig-ggg.github.io/p/modern-robotics%E7%AC%94%E8%AE%B0/</link><pubDate>Tue, 11 Nov 2025 00:00:00 +0000</pubDate><guid>https://mcig-ggg.github.io/p/modern-robotics%E7%AC%94%E8%AE%B0/</guid><description>&lt;img src="https://mcig-ggg.github.io/p/modern-robotics%E7%AC%94%E8%AE%B0/Pasted-image-20251111125508.png" alt="Featured image of post Modern Robotics笔记" /&gt;&lt;h1 id="modern-robotics笔记"&gt;Modern Robotics笔记
 &lt;/h1&gt;&lt;hr&gt;
 &lt;h2 id="chapter2"&gt;Chapter2
 &lt;/h2&gt;&lt;h3 id="机器人关节自由度与缩写"&gt;机器人关节自由度与缩写
@@ -89,16 +89,16 @@ $$detR = 1$$&lt;p&gt;3*3旋转矩阵的集合称为 &lt;em&gt;特殊正交群&lt
 &lt;/h4&gt;&lt;p&gt;一个固定参考 $s$ 中的刚体转动，可以考察每时每刻和刚体重合的静止参考系 $b$ , 此时旋转矩阵 $R(t)$ 可以视作刚体每一时刻 $t$ 的位姿。
 那可以相应的定义旋转矩阵的微分 $\dot{R}$ ，就是 $R$ 各个参数对时间的导数
 （积分即为一段时间内刚体位姿变化）&lt;/p&gt;
-&lt;p&gt;下面考察角速度和$\dot{R}$的关系
-&lt;img src="https://mcig-ggg.github.io/p/modern-robotics%E7%AC%94%E8%AE%B0/Pasted-image-20251109102102.png"
-width="492"
-height="235"
-srcset="https://mcig-ggg.github.io/p/modern-robotics%E7%AC%94%E8%AE%B0/Pasted-image-20251109102102_hu_4713fceb7ca6353.png 480w, https://mcig-ggg.github.io/p/modern-robotics%E7%AC%94%E8%AE%B0/Pasted-image-20251109102102_hu_632728481862b6fc.png 1024w"
+&lt;p&gt;下面考察角速度和 $\dot{R}$ 的关系&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://mcig-ggg.github.io/p/modern-robotics%E7%AC%94%E8%AE%B0/Pasted-image-20251111125508.png"
+width="273"
+height="273"
+srcset="https://mcig-ggg.github.io/p/modern-robotics%E7%AC%94%E8%AE%B0/Pasted-image-20251111125508_hu_94fdc72c2d521405.png 480w, https://mcig-ggg.github.io/p/modern-robotics%E7%AC%94%E8%AE%B0/Pasted-image-20251111125508_hu_375e60ba9a6e1f38.png 1024w"
 loading="lazy"
-alt="Pasted image 20251109102102.png"
+alt="Pasted image 20251111125508.png"
 class="gallery-image"
-data-flex-grow="209"
-data-flex-basis="502px"
+data-flex-grow="100"
+data-flex-basis="240px"
 &gt;&lt;/p&gt;
 &lt;p&gt;由图可得， $\dot{r_{i}} = \omega_{s} \times r_{i}, i=1,2,3$ ,其中i 取 1，2,3 的时候分别对应 x, y, z 轴
 整合成矩阵形式有：&lt;/p&gt;
@@ -473,17 +473,17 @@ $$&lt;blockquote&gt;
 $T$ 是 4*4 矩阵，所以和 $[\mathcal{V}]$ (4*4矩阵)相乘&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h5 id="运动旋量的螺旋释义"&gt;运动旋量的螺旋释义
-&lt;/h5&gt;&lt;p&gt;&lt;img src="https://mcig-ggg.github.io/p/modern-robotics%E7%AC%94%E8%AE%B0/Pasted-image-20251111125508.png"
-width="273"
-height="273"
-srcset="https://mcig-ggg.github.io/p/modern-robotics%E7%AC%94%E8%AE%B0/Pasted-image-20251111125508_hu_94fdc72c2d521405.png 480w, https://mcig-ggg.github.io/p/modern-robotics%E7%AC%94%E8%AE%B0/Pasted-image-20251111125508_hu_375e60ba9a6e1f38.png 1024w"
+&lt;/h5&gt;&lt;p&gt;&lt;img src="https://mcig-ggg.github.io/p/modern-robotics%E7%AC%94%E8%AE%B0/Pasted-image-20251109102102.png"
+width="492"
+height="235"
+srcset="https://mcig-ggg.github.io/p/modern-robotics%E7%AC%94%E8%AE%B0/Pasted-image-20251109102102_hu_4713fceb7ca6353.png 480w, https://mcig-ggg.github.io/p/modern-robotics%E7%AC%94%E8%AE%B0/Pasted-image-20251109102102_hu_632728481862b6fc.png 1024w"
 loading="lazy"
-alt="Pasted image 20251111125508.png"
+alt="Pasted image 20251109102102.png"
 class="gallery-image"
-data-flex-grow="100"
-data-flex-basis="240px"
-&gt;
-如图，刚体运动可以分解为：&lt;em&gt;绕某固定轴的一次旋转 + 沿该轴的一次平移&lt;/em&gt;&lt;/p&gt;
+data-flex-grow="209"
+data-flex-basis="502px"
+&gt;&lt;/p&gt;
+&lt;p&gt;如图，刚体运动可以分解为：&lt;em&gt;绕某固定轴的一次旋转 + 沿该轴的一次平移&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;将运动旋量 $\mathcal{V}=(\omega, v)$ 与螺旋运动的各个参数 $\{q, \hat{s}, h\}$ 对应起来，有：&lt;/p&gt;
 $$
 \begin{aligned}
@@ -521,8 +521,7 @@ $$S_a = [\mathrm{Ad}_{T_{ab}}] S_b, \quad S_b = [\mathrm{Ad}_{T_{ba}}] S_a$$&lt;
 &lt;/h4&gt;&lt;p&gt;【命题 3.25】令 $S = (\omega, v)$ 为螺旋轴，&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;
-&lt;p&gt;若 $\|\omega\| = 1$，则对于任意沿螺旋轴的距离 $\theta \in \mathbb{R}$，都有&lt;br&gt;
-&lt;/p&gt;
+&lt;p&gt;若 $\|\omega\| = 1$，则对于任意沿螺旋轴的距离 $\theta \in \mathbb{R}$，都有&lt;/p&gt;
 $$
 \begin{aligned}
 e^{\theta [S]} &amp;= I + \theta [\omega]_\times \\
@@ -530,26 +529,127 @@ e^{\theta [S]} &amp;= I + \theta [\omega]_\times \\
 \end{aligned}
 $$&lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;若 $\omega = 0$ 且 $\|v\| = 1$，则&lt;br&gt;
-&lt;/p&gt;
+&lt;p&gt;若 $\omega = 0$ 且 $\|v\| = 1$，则&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
 $$
 \begin{aligned}
 e^{\theta [S]} &amp;= I + \theta v
 \end{aligned}
-$$&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;上述推导过程实质上给出了对 &lt;strong&gt;Chasles-Mozzi 定理&lt;/strong&gt; 的证明过程，即给定任意的 $(R, p) \in SE(3)$，总能找到与之相对应的螺旋轴 $S = (\omega, v)$ 和标量 $\theta$，满足&lt;br&gt;
+$$&lt;p&gt;
+上述推导过程实质上给出了对 &lt;strong&gt;Chasles-Mozzi 定理&lt;/strong&gt; 的证明过程，即给定任意的 $(R, p) \in SE(3)$，总能找到与之相对应的螺旋轴 $S = (\omega, v)$ 和标量 $\theta$，满足&lt;br&gt;
 &lt;/p&gt;
 $$
 \begin{aligned}
 \begin{bmatrix} R &amp; p \\ 0 &amp; 1 \end{bmatrix} &amp;= \exp\left( \theta \begin{bmatrix} [\omega]_\times &amp; v \\ 0 &amp; 0 \end{bmatrix} \right)
 \end{aligned}
-$$&lt;p&gt;&lt;br&gt;
-式中，矩阵&lt;br&gt;
+$$&lt;p&gt;式中，矩阵&lt;br&gt;
 &lt;/p&gt;
 $$
 \begin{aligned}
 \theta \begin{bmatrix} [\omega]_\times &amp; v \\ 0 &amp; 0 \end{bmatrix} &amp;= \theta [S] \in \mathfrak{se}(3)
 \end{aligned}
-$$&lt;p&gt;&lt;br&gt;
-是 $T = (R, p)$ 的矩阵对数形式。&lt;/p&gt;</description></item></channel></rss>
+$$&lt;p&gt;是 $T = (R, p)$ 的矩阵对数形式。&lt;/p&gt;
+&lt;h3 id="34-力旋量"&gt;3.4 力旋量
+&lt;/h3&gt;&lt;p&gt;把力和力矩合起来:
+&lt;/p&gt;
+$$\mathcal{F_a} = \begin{bmatrix} m_a \\ f_a \\ \end{bmatrix} \in \mathbb{R^6}$$&lt;p&gt;
+根据不同系下功率不变，可以列出：
+&lt;/p&gt;
+$$\mathcal{V^T_b F_b = V^T_a F_a}$$&lt;p&gt;
+由：
+&lt;/p&gt;
+$$\mathcal{V_a} = [Ad_{T_{ab}}] \mathcal{V_b}$$&lt;p&gt;
+得：
+&lt;/p&gt;
+$$\mathcal{F_b} = [Ad_{Tab}]^T \mathcal{F_a}$$&lt;p&gt;
+同理：
+&lt;/p&gt;
+$$\mathcal{F_a} = [Ad_{Tba}]^T \mathcal{F_b}$$&lt;hr&gt;
+&lt;h2 id="第三章总结刚体转动vs一般刚体运动"&gt;第三章总结：刚体转动vs一般刚体运动
+&lt;/h2&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;概念类别&lt;/th&gt;
+&lt;th&gt;刚体转动&lt;/th&gt;
+&lt;th&gt;一般刚体运动&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;数学结构&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;特殊正交群&lt;/strong&gt; $SO(3)$&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;特殊欧式群&lt;/strong&gt; $SE(3)$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;矩阵表示&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;旋转矩阵 $R \in \mathbb{R}^{3\times3}$&lt;/td&gt;
+&lt;td&gt;齐次变换矩阵 $T = \begin{bmatrix} R &amp; p \\ 0 &amp; 1 \end{bmatrix} \in \mathbb{R}^{4\times4}$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;基本性质&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;$R^TR = I$, $\det R = 1$&lt;/td&gt;
+&lt;td&gt;$T^{-1} = \begin{bmatrix} R^T &amp; -R^T p \\ 0 &amp; 1 \end{bmatrix}$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;群性质&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;封闭性、结合律、单位元、可逆性&lt;/td&gt;
+&lt;td&gt;封闭性、结合律、单位元、可逆性&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;李代数&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;$\mathfrak{so}(3) = \{[\omega]_\times : \omega \in \mathbb{R}^3\}$&lt;/td&gt;
+&lt;td&gt;$\mathfrak{se}(3) = \left\{\begin{bmatrix} [\omega]_\times &amp; v \\ 0 &amp; 0 \end{bmatrix}\right\}$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;速度描述&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;角速度 $\omega \in \mathbb{R}^3$&lt;/td&gt;
+&lt;td&gt;运动旋量 $\mathcal{V} = \begin{bmatrix} \omega \\ v \end{bmatrix} \in \mathbb{R}^6$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;运动学方程&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;$\dot{R} = [\omega]_\times R$&lt;/td&gt;
+&lt;td&gt;$\dot{T} = [\mathcal{V}] T$ 或 $T^{-1}\dot{T} = [\mathcal{V}_b]$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;指数坐标&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;$R = e^{\theta[\hat{\omega}]_\times}$ (罗德里格斯公式)&lt;/td&gt;
+&lt;td&gt;$T = e^{\theta[S]}$, $S = \begin{bmatrix} \omega \\ v \end{bmatrix}$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;几何表示&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;绕固定轴的旋转&lt;/td&gt;
+&lt;td&gt;绕螺旋轴的旋转+沿轴平移&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;坐标变换&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;$R_{ab}R_{bc} = R_{ac}$&lt;/td&gt;
+&lt;td&gt;$T_{ab}T_{bc} = T_{ac}$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;微分关系&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;$R^T\dot{R} = [\omega_b]_\times$&lt;/td&gt;
+&lt;td&gt;$T^{-1}\dot{T} = \begin{bmatrix} [\omega_b]_\times &amp; v_b \\ 0 &amp; 0 \end{bmatrix}$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;反对称矩阵&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;$[\omega]_\times = \begin{bmatrix} 0 &amp; -\omega_3 &amp; \omega_2 \\ \omega_3 &amp; 0 &amp; -\omega_1 \\ -\omega_2 &amp; \omega_1 &amp; 0 \end{bmatrix}$&lt;/td&gt;
+&lt;td&gt;$[\mathcal{V}] = \begin{bmatrix} [\omega]_\times &amp; v \\ 0 &amp; 0 \end{bmatrix}$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;自由度&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;3个旋转自由度&lt;/td&gt;
+&lt;td&gt;6个自由度(3旋转+3平移)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;对数映射&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;从$R$求$(\hat{\omega},\theta)$&lt;/td&gt;
+&lt;td&gt;从$T$求$(S,\theta)$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;参数化&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;轴角表示、欧拉角、四元数&lt;/td&gt;
+&lt;td&gt;螺旋轴表示、指数坐标&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;</description></item></channel></rss>
