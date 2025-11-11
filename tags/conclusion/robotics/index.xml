@@ -376,7 +376,7 @@ $$&lt;ul&gt;
 并以&lt;strong&gt;物体系坐标&lt;/strong&gt;写成 $4\times4$ Twist 矩阵：&lt;/p&gt;
 $$
 \begin{aligned}
-&gt; T^{-1}\dot T &amp;= &gt; \begin{bmatrix} &gt; [\boldsymbol{\omega}_b]_\times &amp; \mathbf v_b\\[2mm] &gt; \mathbf 0 &amp; 0 &gt; \end{bmatrix} &gt; \in\mathfrak{se}(3) &gt;
+&gt; T^{-1}\dot T &amp;= \begin{bmatrix} \boldsymbol{\omega}_b]_\times &amp; \mathbf v_b\\[2mm] \mathbf 0 &amp; 0 \end{bmatrix} \in\mathfrak{se}(3) &gt;
 \end{aligned}
 $$&lt;/blockquote&gt;
 &lt;p&gt;因此它正是&lt;strong&gt;物体坐标系下的空间速度&lt;/strong&gt;（body-twist）。&lt;/p&gt;
@@ -471,4 +471,85 @@ $$
 $$&lt;blockquote&gt;
 &lt;p&gt;$[Ad_{T}]$ 是6*6矩阵，所以和 $\mathcal{V_{s}}$ (6维向量)相乘
 $T$ 是 4*4 矩阵，所以和 $[\mathcal{V}]$ (4*4矩阵)相乘&lt;/p&gt;
-&lt;/blockquote&gt;</description></item></channel></rss>
+&lt;/blockquote&gt;
+&lt;h5 id="运动旋量的螺旋释义"&gt;运动旋量的螺旋释义
+&lt;/h5&gt;&lt;p&gt;&lt;img src="https://mcig-ggg.github.io/p/modern-robotics%E7%AC%94%E8%AE%B0/Pasted-image-20251111125508.png"
+width="273"
+height="273"
+srcset="https://mcig-ggg.github.io/p/modern-robotics%E7%AC%94%E8%AE%B0/Pasted-image-20251111125508_hu_94fdc72c2d521405.png 480w, https://mcig-ggg.github.io/p/modern-robotics%E7%AC%94%E8%AE%B0/Pasted-image-20251111125508_hu_375e60ba9a6e1f38.png 1024w"
+loading="lazy"
+alt="Pasted image 20251111125508.png"
+class="gallery-image"
+data-flex-grow="100"
+data-flex-basis="240px"
+&gt;
+如图，刚体运动可以分解为：&lt;em&gt;绕某固定轴的一次旋转 + 沿该轴的一次平移&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;将运动旋量 $\mathcal{V}=(\omega, v)$ 与螺旋运动的各个参数 $\{q, \hat{s}, h\}$ 对应起来，有：&lt;/p&gt;
+$$
+\begin{aligned}
+\mathcal{V} &amp;= \begin{bmatrix} \omega \\ v \\ \end{bmatrix} = \begin{bmatrix} \hat{s}\dot{\theta}\\ \hat{s}\dot{\theta}\times q+h\dot{\theta}\hat{s} \\ \end{bmatrix}
+\end{aligned}
+$$&lt;blockquote&gt;
+&lt;p&gt;$q$ : 为轴上任意一点
+$\hat{s}$ : 为表示螺旋轴方向的单位向量
+$h$ : 为螺旋的节距， 数值上为沿轴方向线速度/绕轴角速度
+$\dot{\theta}$ : 绕螺旋轴旋转角速度&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;注意到，线速度 $v$ 为两项之和： $-\hat{s}\dot{\theta} \times q$ 为转动带来的原点位置变化，而 $h\dot{\theta}\hat{s}$ 为沿轴线速度&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;若 $\omega = 0$，则 $h$ 无限大。这种情况下，$\hat{s} = v / \|v\|$，$\theta = \|v\|$。&lt;/li&gt;
+&lt;li&gt;==由于 $h$ 可能无穷大， $q$ 也不具备唯一性（ $q$ 可在螺旋轴上任取），因此我们决定不采用 $(q, \hat{s}, h)$ 来描述螺旋运动，而采用运动旋量正交化的形式来描述。==&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;所以，考察从 $\mathcal{V}$ 到&lt;strong&gt;螺旋视角&lt;/strong&gt;的变换 ：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;若 $\omega \ne 0 , S = \mathcal{V} / \left\|\mathbb{\omega}\right\| = (\omega/\left\|\omega \right\|, v/ \left\|\omega \right\|)$ , 螺旋轴 $\mathcal{S}$ 只需要简单的正则化 $\mathcal{S}$ , 角速度 $\dot{\theta} = \left\|\omega \right\|, \mathcal{S}\dot{\theta} = \mathcal{V}$&lt;/li&gt;
+&lt;li&gt;若 $\omega = 0, \mathcal{S} = \mathcal{V}/\left\|v \right\| = (0, v/\left\|v \right\|)$ , 线速度 $\dot{\theta} = \left\|v \right\|, \mathcal{S}\dot{\theta} = \mathcal{V}$&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;螺旋轴的矩阵表示&lt;/strong&gt;
+给定参考坐标系，螺旋轴 $S$ 可写成：&lt;/li&gt;
+&lt;/ol&gt;
+$$S = \begin{bmatrix} \omega \\ v \end{bmatrix} \in \mathbb{R}^6$$&lt;p&gt;其中：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;$\|\omega|| = 1$&lt;/li&gt;
+&lt;li&gt;$\omega = 0, \|v\| = 1$。若满足，则 $v = -\omega \times q + h\omega$，式中 $q$ 为轴上任一点，$h$ 为螺旋的节距（若为纯转动，则 $h=0$）；若满足，则螺旋的节距无穷大，对应的运动旋量为纯移动，参数中只有 $v$。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start="5"&gt;
+&lt;li&gt;&lt;strong&gt;定义 3.24&lt;/strong&gt;
+给定参考坐标系，螺旋轴 $S$ 可写成：&lt;/li&gt;
+&lt;/ol&gt;
+$$S = \begin{bmatrix} \omega \\ v \end{bmatrix} \in \mathbb{R}^6$$&lt;p&gt;式中，$[\omega]$ 的下面一行全为 0。而且两个不同坐标系 $\{a\}$ 与 $\{b\}$ 中所描述的螺旋轴之间的映射关系可用下式来表达：&lt;/p&gt;
+$$S_a = [\mathrm{Ad}_{T_{ab}}] S_b, \quad S_b = [\mathrm{Ad}_{T_{ba}}] S_a$$&lt;h4 id="333-刚体运动的指数坐标表达"&gt;3.3.3 刚体运动的指数坐标表达
+&lt;/h4&gt;&lt;p&gt;【命题 3.25】令 $S = (\omega, v)$ 为螺旋轴，&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;若 $\|\omega\| = 1$，则对于任意沿螺旋轴的距离 $\theta \in \mathbb{R}$，都有&lt;br&gt;
+&lt;/p&gt;
+$$
+\begin{aligned}
+e^{\theta [S]} &amp;= I + \theta [\omega]_\times \\
+&amp;\quad + (1 - \cos\theta) [\omega]_\times^2 + (\theta - \sin\theta) [\omega]_\times v
+\end{aligned}
+$$&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;若 $\omega = 0$ 且 $\|v\| = 1$，则&lt;br&gt;
+&lt;/p&gt;
+$$
+\begin{aligned}
+e^{\theta [S]} &amp;= I + \theta v
+\end{aligned}
+$$&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;上述推导过程实质上给出了对 &lt;strong&gt;Chasles-Mozzi 定理&lt;/strong&gt; 的证明过程，即给定任意的 $(R, p) \in SE(3)$，总能找到与之相对应的螺旋轴 $S = (\omega, v)$ 和标量 $\theta$，满足&lt;br&gt;
+&lt;/p&gt;
+$$
+\begin{aligned}
+\begin{bmatrix} R &amp; p \\ 0 &amp; 1 \end{bmatrix} &amp;= \exp\left( \theta \begin{bmatrix} [\omega]_\times &amp; v \\ 0 &amp; 0 \end{bmatrix} \right)
+\end{aligned}
+$$&lt;p&gt;&lt;br&gt;
+式中，矩阵&lt;br&gt;
+&lt;/p&gt;
+$$
+\begin{aligned}
+\theta \begin{bmatrix} [\omega]_\times &amp; v \\ 0 &amp; 0 \end{bmatrix} &amp;= \theta [S] \in \mathfrak{se}(3)
+\end{aligned}
+$$&lt;p&gt;&lt;br&gt;
+是 $T = (R, p)$ 的矩阵对数形式。&lt;/p&gt;</description></item></channel></rss>
