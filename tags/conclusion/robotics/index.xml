@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Conclusion/Robotics on MciG</title><link>https://mcig-ggg.github.io/tags/conclusion/robotics/</link><description>Recent content in Conclusion/Robotics on MciG</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><copyright>MciG</copyright><lastBuildDate>Sun, 09 Nov 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://mcig-ggg.github.io/tags/conclusion/robotics/index.xml" rel="self" type="application/rss+xml"/><item><title>Modern Robotics笔记</title><link>https://mcig-ggg.github.io/p/modern-robotics%E7%AC%94%E8%AE%B0/</link><pubDate>Sun, 09 Nov 2025 00:00:00 +0000</pubDate><guid>https://mcig-ggg.github.io/p/modern-robotics%E7%AC%94%E8%AE%B0/</guid><description>&lt;img src="https://mcig-ggg.github.io/p/modern-robotics%E7%AC%94%E8%AE%B0/Pasted-image-20251109102102.png" alt="Featured image of post Modern Robotics笔记" /&gt;&lt;h1 id="modern-robotics笔记"&gt;Modern Robotics笔记
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Conclusion/Robotics on MciG</title><link>https://mcig-ggg.github.io/tags/conclusion/robotics/</link><description>Recent content in Conclusion/Robotics on MciG</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><copyright>MciG</copyright><lastBuildDate>Tue, 11 Nov 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://mcig-ggg.github.io/tags/conclusion/robotics/index.xml" rel="self" type="application/rss+xml"/><item><title>Modern Robotics笔记</title><link>https://mcig-ggg.github.io/p/modern-robotics%E7%AC%94%E8%AE%B0/</link><pubDate>Tue, 11 Nov 2025 00:00:00 +0000</pubDate><guid>https://mcig-ggg.github.io/p/modern-robotics%E7%AC%94%E8%AE%B0/</guid><description>&lt;img src="https://mcig-ggg.github.io/p/modern-robotics%E7%AC%94%E8%AE%B0/Pasted-image-20251109102102.png" alt="Featured image of post Modern Robotics笔记" /&gt;&lt;h1 id="modern-robotics笔记"&gt;Modern Robotics笔记
 &lt;/h1&gt;&lt;hr&gt;
 &lt;h2 id="chapter2"&gt;Chapter2
 &lt;/h2&gt;&lt;h3 id="机器人关节自由度与缩写"&gt;机器人关节自由度与缩写
@@ -74,7 +74,7 @@
 &lt;hr&gt;
 &lt;h2 id="chapter3"&gt;Chapter3
 &lt;/h2&gt;&lt;h3 id="32-刚体旋转"&gt;3.2 刚体旋转
-&lt;/h3&gt;&lt;h4 id="旋转矩阵"&gt;旋转矩阵
+&lt;/h3&gt;&lt;h4 id="321-旋转矩阵"&gt;3.2.1 旋转矩阵
 &lt;/h4&gt;$$R^TR = I$$&lt;p&gt;进一步，在右手系下有:&lt;/p&gt;
 $$detR = 1$$&lt;p&gt;3*3旋转矩阵的集合称为 &lt;em&gt;特殊正交群&lt;/em&gt; $SO(3)$ （李群）
 同理，2*2 为 $SO(2)$&lt;/p&gt;
@@ -85,7 +85,7 @@ $$detR = 1$$&lt;p&gt;3*3旋转矩阵的集合称为 &lt;em&gt;特殊正交群&lt
 &lt;li&gt;存在单位元： $\exists I, AI = IA = A$ (联想，乘法里的 1，单位元，群的特性)&lt;/li&gt;
 &lt;li&gt;可逆性： $\exists A^-1, A A^{-1} = A^{-1}A = I$&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h4 id="角速度"&gt;角速度
+&lt;h4 id="322-角速度"&gt;3.2.2 角速度
 &lt;/h4&gt;&lt;p&gt;一个固定参考 $s$ 中的刚体转动，可以考察每时每刻和刚体重合的静止参考系 $b$ , 此时旋转矩阵 $R(t)$ 可以视作刚体每一时刻 $t$ 的位姿。
 那可以相应的定义旋转矩阵的微分 $\dot{R}$ ，就是 $R$ 各个参数对时间的导数
 （积分即为一段时间内刚体位姿变化）&lt;/p&gt;
@@ -107,7 +107,7 @@ $$
 \dot{R} &amp;= [\omega_{s} \times r_{1}, \omega_{s} \times r_{2}, \omega_{s} \times r_{3},]
 \end{aligned}
 $$&lt;p&gt;上述方程可写为：&lt;/p&gt;
-$$\dot{R} = [ \boldsymbol{\omega} ]_{\times} \cdot R \tag{3.29}$$&lt;p&gt;其中 $[\omega]_{\times}$ 属于so(3)（李代数）(而不是 $\dot{R} \in so(3)$ )&lt;/p&gt;
+$$\dot{R} = [ \boldsymbol{\omega} ]_{\times} \cdot R$$&lt;p&gt;其中 $[\omega]_{\times}$ 属于so(3)（李代数）(而不是 $\dot{R} \in so(3)$ )&lt;/p&gt;
 &lt;p&gt;&lt;div class="admonition admonition-note"&gt;
 &lt;div class="admonition-title"&gt;
 李群和李代数
@@ -156,7 +156,7 @@ color: #ecf0f1;
 给定一向量 $\mathbf{x}=[x_1,x_2,x_3]^{\sf T}\in\mathbb{R}^3$ ，定义&lt;/p&gt;
 $$
 \begin{aligned}
-[\mathbf{x}]_\times &amp;= \begin{bmatrix} 0 &amp; -x_3 &amp; x_2 \\ x_3 &amp; 0 &amp; -x_1 \\ x_2 &amp; x_1 &amp; 0 \end{bmatrix} \tag{3.30}
+[\mathbf{x}]_\times &amp;= \begin{bmatrix} 0 &amp; -x_3 &amp; x_2 \\ x_3 &amp; 0 &amp; -x_1 \\ x_2 &amp; x_1 &amp; 0 \end{bmatrix}
 \end{aligned}
 $$&lt;p&gt;矩阵 $[\mathbf{x}]_\times$ 就是与向量 $\mathbf{x}$ 对应的 $3\times 3$ 反对称矩阵，因此满足&lt;/p&gt;
 $$[\mathbf{x}]_\times^{\sf T} = -[\mathbf{x}]_\times$$&lt;p&gt;旋转矩阵与反对称矩阵之间具有一个非常有用的特性，如下所述。&lt;/p&gt;
@@ -167,7 +167,7 @@ $$
 R\,[\boldsymbol{\omega}]_\times R^{\sf T} &amp;= [R\boldsymbol{\omega}]_\times \tag{3.31}
 \end{aligned}
 $$&lt;p&gt;&lt;strong&gt;证明&lt;/strong&gt;：令 $\mathbf{r}_i$ 表示 $R$ 的第 $i$ 列，因此我们有&lt;/p&gt;
-$$\begin{aligned} R\,[\boldsymbol{\omega}]_\times R^{\sf T} &amp;= \begin{bmatrix} \mathbf{r}_1^{\sf T}(\boldsymbol{\omega}\times\mathbf{r}_1) &amp; \mathbf{r}_1^{\sf T}(\boldsymbol{\omega}\times\mathbf{r}_2) &amp; \mathbf{r}_1^{\sf T}(\boldsymbol{\omega}\times\mathbf{r}_3) \\[2mm] \mathbf{r}_2^{\sf T}(\boldsymbol{\omega}\times\mathbf{r}_1) &amp; \mathbf{r}_2^{\sf T}(\boldsymbol{\omega}\times\mathbf{r}_2) &amp; \mathbf{r}_2^{\sf T}(\boldsymbol{\omega}\times\mathbf{r}_3) \\[2mm] \mathbf{r}_3^{\sf T}(\boldsymbol{\omega}\times\mathbf{r}_1) &amp; \mathbf{r}_3^{\sf T}(\boldsymbol{\omega}\times\mathbf{r}_2) &amp; \mathbf{r}_3^{\sf T}(\boldsymbol{\omega}\times\mathbf{r}_3) \end{bmatrix} \\[4mm] &amp;= \begin{bmatrix} 0 &amp; -\mathbf{r}_3^{\sf T}\boldsymbol{\omega} &amp; \mathbf{r}_2^{\sf T}\boldsymbol{\omega} \\[2mm] \mathbf{r}_3^{\sf T}\boldsymbol{\omega} &amp; 0 &amp; -\mathbf{r}_1^{\sf T}\boldsymbol{\omega} \\[2mm] \mathbf{r}_2^{\sf T}\boldsymbol{\omega} &amp; \mathbf{r}_1^{\sf T}\boldsymbol{\omega} &amp; 0 \end{bmatrix} \\[4mm] &amp;= [R\boldsymbol{\omega}]_\times \end{aligned} \tag{3.32}$$&lt;h4 id="转动的指数坐标表示"&gt;转动的指数坐标表示
+$$\begin{aligned} R\,[\boldsymbol{\omega}]_\times R^{\sf T} &amp;= \begin{bmatrix} \mathbf{r}_1^{\sf T}(\boldsymbol{\omega}\times\mathbf{r}_1) &amp; \mathbf{r}_1^{\sf T}(\boldsymbol{\omega}\times\mathbf{r}_2) &amp; \mathbf{r}_1^{\sf T}(\boldsymbol{\omega}\times\mathbf{r}_3) \\[2mm] \mathbf{r}_2^{\sf T}(\boldsymbol{\omega}\times\mathbf{r}_1) &amp; \mathbf{r}_2^{\sf T}(\boldsymbol{\omega}\times\mathbf{r}_2) &amp; \mathbf{r}_2^{\sf T}(\boldsymbol{\omega}\times\mathbf{r}_3) \\[2mm] \mathbf{r}_3^{\sf T}(\boldsymbol{\omega}\times\mathbf{r}_1) &amp; \mathbf{r}_3^{\sf T}(\boldsymbol{\omega}\times\mathbf{r}_2) &amp; \mathbf{r}_3^{\sf T}(\boldsymbol{\omega}\times\mathbf{r}_3) \end{bmatrix} \\[4mm] &amp;= \begin{bmatrix} 0 &amp; -\mathbf{r}_3^{\sf T}\boldsymbol{\omega} &amp; \mathbf{r}_2^{\sf T}\boldsymbol{\omega} \\[2mm] \mathbf{r}_3^{\sf T}\boldsymbol{\omega} &amp; 0 &amp; -\mathbf{r}_1^{\sf T}\boldsymbol{\omega} \\[2mm] \mathbf{r}_2^{\sf T}\boldsymbol{\omega} &amp; \mathbf{r}_1^{\sf T}\boldsymbol{\omega} &amp; 0 \end{bmatrix} \\[4mm] &amp;= [R\boldsymbol{\omega}]_\times \end{aligned}$$&lt;h4 id="323-转动的指数坐标表示"&gt;3.2.3 转动的指数坐标表示
 &lt;/h4&gt;$$\dot p = [\boldsymbol{\omega}]_\times p \tag{3.50}$$&lt;p&gt;初始条件为 $p(0)$。该方程满足前面讨论过的线性微分方程 $\dot x = A x$ 的形式，因此其解可写成&lt;/p&gt;
 $$p(t) = e^{t[\boldsymbol{\omega}]_\times} p(0)$$&lt;p&gt;由于 $t$ 和 $\theta$ 可以互换，上面的方程又可写成&lt;/p&gt;
 $$p(\theta) = e^{\theta[\hat{\boldsymbol{\omega}}]_\times} p(0)$$&lt;p&gt;下面对方程中的矩阵指数 $e^{\theta[\hat{\boldsymbol{\omega}}]_\times}$ 进行级数展开。
@@ -187,7 +187,7 @@ $$&lt;p&gt;因此，指数 $e^{\theta[\hat{\boldsymbol{\omega}}]_\times}$ 可简
 给定向量 $\boldsymbol{\omega} = \theta\hat{\boldsymbol{\omega}}\in\mathbb{R}^3$，其中 $\theta$ 为任一标量，而 $\hat{\boldsymbol{\omega}}\in\mathbb{R}^3$ 为一单位向量，$[\hat{\boldsymbol{\omega}}]_\times\in\mathfrak{so}(3)$ 的矩阵指数为&lt;/p&gt;
 $$
 \begin{aligned}
-\mathrm{Rot}(\hat{\boldsymbol{\omega}},\theta) &amp;= e^{\theta[\hat{\boldsymbol{\omega}}]_\times} = I + \sin\theta[\hat{\boldsymbol{\omega}}]_\times (1-\cos\theta)[\hat{\boldsymbol{\omega}}]_\times^2 \;\in\; SO(3) \tag{3.51}
+\mathrm{Rot}(\hat{\boldsymbol{\omega}},\theta) &amp;= e^{\theta[\hat{\boldsymbol{\omega}}]_\times} = I + \sin\theta[\hat{\boldsymbol{\omega}}]_\times (1-\cos\theta)[\hat{\boldsymbol{\omega}}]_\times^2 \;\in\; SO(3)
 \end{aligned}
 $$&lt;p&gt;式 (3.51) 通常也被称为 &lt;strong&gt;罗德里格斯公式&lt;/strong&gt;（Rodrigues formula）。&lt;/p&gt;
 &lt;p&gt;&lt;div class="admonition admonition-note"&gt;
@@ -255,7 +255,7 @@ $$
 $$&lt;p&gt;所以 $\mathrm{Rot}$ 可看成“参数化”或“生成”旋转矩阵的一种手段，而不是旋转矩阵的唯一名字。&lt;/p&gt;
 &lt;p&gt;一句话：
 $\mathrm{Rot}(\hat{\boldsymbol{\omega}},\theta)$ &lt;strong&gt;是&lt;/strong&gt;旋转矩阵，但旋转矩阵&lt;strong&gt;不全是&lt;/strong&gt;$\mathrm{Rot}(\hat{\boldsymbol{\omega}},\theta)$——它只是“单轴旋转”那一子集。&lt;/p&gt;
-&lt;h4 id="转动的矩阵对数"&gt;转动的矩阵对数
+&lt;h4 id="324-转动的矩阵对数"&gt;3.2.4 转动的矩阵对数
 &lt;/h4&gt;&lt;p&gt;在 Obsidian 里可直粘的「SO(3) ↔ 指数坐标」速查卡&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;算法：SO(3) → 指数坐标
@@ -339,4 +339,136 @@ color: #ecf0f1;
 color: #ecf0f1;
 }
 }
-&lt;/style&gt;</description></item></channel></rss>
+&lt;/style&gt;
+&lt;h3 id="33-刚体运动与运动旋量"&gt;3.3 刚体运动与运动旋量
+&lt;/h3&gt;&lt;h4 id="331-齐次变换矩阵"&gt;3.3.1 齐次变换矩阵
+&lt;/h4&gt;&lt;p&gt;旋转矩阵 $R$ 表示 $\{b\}$ 相对于 $\{s\}$ 姿态，和向量 $p$ 表示 $\{b\}$ 相对于 $\{s\}$ 的坐标，把他们两个合在一起有:
+&lt;strong&gt;特殊欧式群&lt;/strong&gt; $SE(3)$ ，又叫&lt;em&gt;刚体运动群&lt;/em&gt;，&lt;em&gt;齐次变换群&lt;/em&gt;&lt;/p&gt;
+$$
+\begin{aligned}
+T &amp;= \begin{bmatrix} R &amp; p \\ 0 &amp; 1 \\ \end{bmatrix} = \begin{bmatrix} r_{11} &amp; r_{12} &amp; r_{13} &amp;p_{1} \\ r_{21} &amp; r_{22} &amp; r_{23} &amp;p_{2} \\ r_{31} &amp; r_{32} &amp; r_{33} &amp;p_{3} \\ 0 &amp; 0 &amp; 0 &amp; 1 \\ \end{bmatrix}
+\end{aligned}
+$$&lt;p&gt;也可以写成&lt;/p&gt;
+$$T = (R,p)$$&lt;h5 id="se3的性质"&gt;SE(3)的性质
+&lt;/h5&gt;&lt;ul&gt;
+&lt;li&gt;齐次变换矩阵 $T$ 的逆矩阵也是齐次变换矩阵&lt;/li&gt;
+&lt;li&gt;两个齐次变换矩阵的乘积还是齐次变换矩阵&lt;/li&gt;
+&lt;li&gt;结合律（不一定有交换律）&lt;/li&gt;
+&lt;li&gt;变换的等距性： $\left\| Tx-Ty \right\| = \left\| x-y \right\|$&lt;/li&gt;
+&lt;li&gt;变换的保角性：对于所有的 $z \in \mathbb{R}^3$ ，都满足 $\langle Tx - Tz, Ty - Tz \rangle = \langle x - z, y - z \rangle$ 。式中 $\langle \cdot, \cdot \rangle$ 表示向量在 $\mathbb{R}^3$ 中的标准内积， $\langle x, y \rangle = x^\mathrm{T} y$ 。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id="332-运动旋量"&gt;3.3.2 运动旋量
+&lt;/h4&gt;&lt;p&gt;物体坐标系 $\{b\}$ 相对于静止参考系 $\{s\}$ 的位形的导数&lt;/p&gt;
+$$\dot{T} = \begin{bmatrix} \dot{R} &amp; \dot{p} \\ 0 &amp; 0 \\ \end{bmatrix}$$&lt;p&gt;考察对 $\dot{T}$ 左乘 $T^{-1}$ 的结果&lt;/p&gt;
+$$
+\begin{aligned}
+T^{-1}\dot T &amp;= \begin{bmatrix} R^{\sf T} &amp; -R^{\sf T}\mathbf p\\[2mm] \mathbf 0 &amp; 1 \end{bmatrix} \begin{bmatrix} \dot R &amp; \dot{\mathbf p}\\[2mm] \mathbf 0 &amp; 0 \end{bmatrix} = \begin{bmatrix} R^{\sf T}\dot R &amp; R^{\sf T}\dot{\mathbf p}\\[2mm] \mathbf 0 &amp; 0 \end{bmatrix}
+\end{aligned}
+$$&lt;ul&gt;
+&lt;li&gt;左上角 $R^{\sf T}\dot R=[\boldsymbol{\omega}_b]_\times$
+→ 物体&lt;strong&gt;自身角速度&lt;/strong&gt; $\boldsymbol{\omega}_b$，但写成&lt;strong&gt;物体系分量&lt;/strong&gt;。&lt;/li&gt;
+&lt;li&gt;右上角 $R^{\sf T}\dot{\mathbf p}=\mathbf v_b$
+→ 物体&lt;strong&gt;原点线速度&lt;/strong&gt;，同样写成&lt;strong&gt;物体系分量&lt;/strong&gt;。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$T^{-1}\dot T$ 把“静系看到的运动”扳回“物体自己看到的运动”：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;动坐标系 $\{b\}$ 相对于&lt;strong&gt;瞬时与自己重合的静系&lt;/strong&gt;的角速度与线速度，
+并以&lt;strong&gt;物体系坐标&lt;/strong&gt;写成 $4\times4$ Twist 矩阵：&lt;/p&gt;
+$$
+\begin{aligned}
+&gt; T^{-1}\dot T &amp;= &gt; \begin{bmatrix} &gt; [\boldsymbol{\omega}_b]_\times &amp; \mathbf v_b\\[2mm] &gt; \mathbf 0 &amp; 0 &gt; \end{bmatrix} &gt; \in\mathfrak{se}(3) &gt;
+\end{aligned}
+$$&lt;/blockquote&gt;
+&lt;p&gt;因此它正是&lt;strong&gt;物体坐标系下的空间速度&lt;/strong&gt;（body-twist）。&lt;/p&gt;
+&lt;p&gt;可以定义物体坐标系中的速度，简称为物体运动旋量&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;六维向量形式&lt;/strong&gt;
+把角速度 $\boldsymbol{\omega}_b$ 与线速度 $\mathbf{v}_b$ 合在一个向量里：&lt;/li&gt;
+&lt;/ul&gt;
+$$
+\begin{aligned}
+\mathcal{V}_b &amp;= \begin{bmatrix}\boldsymbol{\omega}_b \\ \mathbf{v}_b\end{bmatrix}\in\mathbb{R}^6 \tag{3.70}
+\end{aligned}
+$$&lt;ul&gt;
+&lt;li&gt;4*4 矩阵形式&lt;/li&gt;
+&lt;/ul&gt;
+$$
+\begin{aligned}
+T^{-1}\dot T &amp;= [\mathcal{V}_b] = \begin{bmatrix} [\boldsymbol{\omega}_b]_\times &amp; \mathbf{v}_b \\ \mathbf{0} &amp; 0 \end{bmatrix} \in\mathfrak{se}(3) \tag{3.71}
+\end{aligned}
+$$&lt;blockquote&gt;
+&lt;p&gt;所有满足该结构的 $4\times4$ 矩阵集合就是 $\mathfrak{se}(3)$，它与刚体位形 $SE(3)$ 一一对应，称为&lt;strong&gt;矩阵形式的运动旋量&lt;/strong&gt;。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;下面考察 $\dot{T}T^{-1}$&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;数学表达&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+$$
+\begin{aligned}
+\dot T T^{-1} &amp;= \begin{pmatrix} \dot R &amp; \dot p \\ 0 &amp; 0 \end{pmatrix} \begin{pmatrix} R^{\sf T} &amp; -R^{\sf T} p \\ 0 &amp; 1 \end{pmatrix} = \begin{pmatrix} \dot R R^{\sf T} &amp; \dot p - \dot R R^{\sf T} p \\ 0 &amp; 0 \end{pmatrix} \tag{3.72}
+\end{aligned}
+$$&lt;p&gt;进一步简化为：&lt;/p&gt;
+$$= \begin{bmatrix} [\boldsymbol{\omega}_s] &amp; \mathbf{v}_s \\ 0 &amp; 0 \end{bmatrix}$$&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;线速度的解释&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;线速度 $\mathbf{v}_b$ 的物理意义：假设刚体的尺寸足够大，$\mathbf{v}_b$ 可看作是刚体上与固定坐标系原点相重合的点的瞬时速度，并在固定坐标系中度量。&lt;/li&gt;
+&lt;li&gt;数学表达：&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+$$
+\begin{aligned}
+\mathbf{v}_s &amp;= \dot p - \boldsymbol{\omega}_s \times p = \dot p + \boldsymbol{\omega}_s \times (-p) \tag{3.73}
+\end{aligned}
+$$&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;六维向量形式&lt;/strong&gt;
+将 $\boldsymbol{\omega}_b$ 和 $\mathbf{v}_b$ 合成为一个六维向量形式：&lt;/li&gt;
+&lt;/ul&gt;
+$$
+\begin{aligned}
+\mathcal{V}_b &amp;= \begin{bmatrix} \boldsymbol{\omega}_b \\ \mathbf{v}_b \end{bmatrix} \in \mathbb{R}^6 \tag{3.74}
+\end{aligned}
+$$&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;矩阵形式&lt;/strong&gt;
+扩展定义，写成 $4 \times 4$ 矩阵形式：&lt;/li&gt;
+&lt;/ul&gt;
+$$
+\begin{aligned}
+[\mathcal{V}_s] &amp;= \begin{bmatrix} [\boldsymbol{\omega}_s] &amp; \mathbf{v}_s \\ 0 &amp; 0 \end{bmatrix} = \dot T T^{-1} \in \mathfrak{se}(3)
+\end{aligned}
+$$&lt;p&gt;如果我们将移动刚体想象成无穷大，那么在 $\mathcal{V}_s \equiv (\boldsymbol{\omega}_s, \mathbf{v}_s)$ 与 $\mathcal{V}_b \equiv (\boldsymbol{\omega}_b, \mathbf{v}_b)$ 之间存在着非常有吸引力和自然的对称。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;$\boldsymbol{\omega}_b$ 是表示在 $\{b\}$ 中的角速度，而 $\boldsymbol{\omega}_s$ 是表示在 $\{s\}$ 中的角速度。&lt;/li&gt;
+&lt;li&gt;$\mathbf{v}_b$ 是表示在 $\{b\}$ 中与 $\{b\}$ 原点重合点的线速度，而 $\mathbf{v}_s$ 是表示在 $\{s\}$ 中与 $\{s\}$ 系原点重合点的线速度。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h5 id="运动旋量转换关系"&gt;运动旋量转换关系
+&lt;/h5&gt;&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;计算 $\mathcal{V}_b$ 和 $\mathcal{V}_s$：&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+$$[\mathcal{V}_b] = T^{-1} \dot T = T^{-1} [\mathcal{V}_s] T \tag{3.75}$$&lt;p&gt;反过来：&lt;/p&gt;
+$$[\mathcal{V}_s] = T [\mathcal{V}_b] T^{-1} \tag{3.76}$$&lt;ol start="2"&gt;
+&lt;li&gt;&lt;strong&gt;展开式 (3.76)：&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+$$
+\begin{aligned}
+[\mathcal{V}_s] &amp;= \begin{bmatrix} R(\omega_b)R^{\sf T} &amp; -R(\omega_b)R^{\sf T} p + R\mathbf{v}_b \\ 0 &amp; 0 \end{bmatrix}
+\end{aligned}
+$$&lt;ol start="3"&gt;
+&lt;li&gt;&lt;strong&gt;利用 $R[\omega]R^{\sf T} = [\mathcal{R}\omega]$（命题 3.8）和 $[\omega]p = -[p]\omega$（$p, \omega \in \mathbb{R}^3$），简化得到 $\mathcal{V}_b$ 与 $\mathcal{V}_s$ 之间的关系式：&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+$$
+\begin{aligned}
+\begin{bmatrix} \boldsymbol{\omega}_s \\ \mathbf{v}_s \end{bmatrix} &amp;= \begin{bmatrix} R &amp; 0 \\ [p]R &amp; R \end{bmatrix} \begin{bmatrix} \boldsymbol{\omega}_b \\ \mathbf{v}_b \end{bmatrix}
+\end{aligned}
+$$&lt;ol start="4"&gt;
+&lt;li&gt;&lt;strong&gt;伴随变换矩阵（Adjoint Representation）[定义 3.20]：&lt;/strong&gt;
+给定 $T = (R, p) \in SE(3)$，其伴随变换矩阵 $[Ad_T]$ 为：&lt;/li&gt;
+&lt;/ol&gt;
+$$
+\begin{aligned}
+[Ad_T] &amp;= \begin{bmatrix} R &amp; 0 \\ [p]R &amp; R \end{bmatrix} \in \mathbb{R}^{6 \times 6}
+\end{aligned}
+$$&lt;blockquote&gt;
+&lt;p&gt;$[Ad_{T}]$ 是6*6矩阵，所以和 $\mathcal{V_{s}}$ (6维向量)相乘
+$T$ 是 4*4 矩阵，所以和 $[\mathcal{V}]$ (4*4矩阵)相乘&lt;/p&gt;
+&lt;/blockquote&gt;</description></item></channel></rss>
