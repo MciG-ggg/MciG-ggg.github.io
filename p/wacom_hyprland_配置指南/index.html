@@ -1,229 +1,1042 @@
-<!doctype html><html lang=zh-cn dir=ltr><head><meta charset=utf-8><meta name=viewport content='width=device-width,initial-scale=1'><meta name=description content="Hyprland 下 Wacom 数位板映射到外接显示器配置指南 概述 本指南详细介绍如何在 Hyprland 窗口管理器下配置 Wacom 数位板，使其只映射到指定的外接显示器，而不是整个多显示器桌面空间。\n适用场景 系统环境: Ubuntu 24.04 LTS + Hyprland 硬件需求: Wacom 数位板 + 外接显示器 目标: 数位板输入只在外接显示器上响应，提供精确的绘画体验 配置步骤 1. 安装 Wacom 驱动 1 2 3 4 5 6 7 8 # 更新包索引 sudo apt update # 安装 Wacom 驱动（注意：wacom-tools 已弃用） sudo apt install xserver-xorg-input-wacom # 验证安装 dpkg -l | grep wacom 预期输出:\n1 2 3 4 ii libwacom-common 2.10.0-2 all Wacom model feature query library (common files) ii libwacom-dev:amd64 2.10.0-2 amd64 Wacom model feature query library (development files) ii libwacom9:amd64 2.10.0-2 amd64 Wacom model feature query library ii xserver-xorg-input-wacom 1:1.2.0-1ubuntu2 amd64 X.Org X server -- Wacom input driver 2. 识别设备信息 2.1 识别 Wacom 设备名称 1 2 3 4 5 # 方法一：使用 Hyprland 命令 hyprctl devices | grep -i wacom # 方法二：如果需要更详细信息 libinput list-devices | grep -i wacom 示例输出:\n"><title>Wacom_Hyprland_配置指南</title><link rel=canonical href=https://mcig-ggg.github.io/p/wacom_hyprland_%E9%85%8D%E7%BD%AE%E6%8C%87%E5%8D%97/><link rel=stylesheet href=/scss/style.min.bfa9c597533c798058a818106c1b2930d80c66fd40afaa510be2582dade8f9e2.css><meta property='og:title' content="Wacom_Hyprland_配置指南"><meta property='og:description' content="Hyprland 下 Wacom 数位板映射到外接显示器配置指南 概述 本指南详细介绍如何在 Hyprland 窗口管理器下配置 Wacom 数位板，使其只映射到指定的外接显示器，而不是整个多显示器桌面空间。\n适用场景 系统环境: Ubuntu 24.04 LTS + Hyprland 硬件需求: Wacom 数位板 + 外接显示器 目标: 数位板输入只在外接显示器上响应，提供精确的绘画体验 配置步骤 1. 安装 Wacom 驱动 1 2 3 4 5 6 7 8 # 更新包索引 sudo apt update # 安装 Wacom 驱动（注意：wacom-tools 已弃用） sudo apt install xserver-xorg-input-wacom # 验证安装 dpkg -l | grep wacom 预期输出:\n1 2 3 4 ii libwacom-common 2.10.0-2 all Wacom model feature query library (common files) ii libwacom-dev:amd64 2.10.0-2 amd64 Wacom model feature query library (development files) ii libwacom9:amd64 2.10.0-2 amd64 Wacom model feature query library ii xserver-xorg-input-wacom 1:1.2.0-1ubuntu2 amd64 X.Org X server -- Wacom input driver 2. 识别设备信息 2.1 识别 Wacom 设备名称 1 2 3 4 5 # 方法一：使用 Hyprland 命令 hyprctl devices | grep -i wacom # 方法二：如果需要更详细信息 libinput list-devices | grep -i wacom 示例输出:\n"><meta property='og:url' content='https://mcig-ggg.github.io/p/wacom_hyprland_%E9%85%8D%E7%BD%AE%E6%8C%87%E5%8D%97/'><meta property='og:site_name' content='MciG'><meta property='og:type' content='article'><meta property='article:section' content='Post'><meta property='article:published_time' content='2025-11-12T00:00:00+00:00'><meta property='article:modified_time' content='2025-11-12T00:00:00+00:00'><meta name=twitter:title content="Wacom_Hyprland_配置指南"><meta name=twitter:description content="Hyprland 下 Wacom 数位板映射到外接显示器配置指南 概述 本指南详细介绍如何在 Hyprland 窗口管理器下配置 Wacom 数位板，使其只映射到指定的外接显示器，而不是整个多显示器桌面空间。\n适用场景 系统环境: Ubuntu 24.04 LTS + Hyprland 硬件需求: Wacom 数位板 + 外接显示器 目标: 数位板输入只在外接显示器上响应，提供精确的绘画体验 配置步骤 1. 安装 Wacom 驱动 1 2 3 4 5 6 7 8 # 更新包索引 sudo apt update # 安装 Wacom 驱动（注意：wacom-tools 已弃用） sudo apt install xserver-xorg-input-wacom # 验证安装 dpkg -l | grep wacom 预期输出:\n1 2 3 4 ii libwacom-common 2.10.0-2 all Wacom model feature query library (common files) ii libwacom-dev:amd64 2.10.0-2 amd64 Wacom model feature query library (development files) ii libwacom9:amd64 2.10.0-2 amd64 Wacom model feature query library ii xserver-xorg-input-wacom 1:1.2.0-1ubuntu2 amd64 X.Org X server -- Wacom input driver 2. 识别设备信息 2.1 识别 Wacom 设备名称 1 2 3 4 5 # 方法一：使用 Hyprland 命令 hyprctl devices | grep -i wacom # 方法二：如果需要更详细信息 libinput list-devices | grep -i wacom 示例输出:\n"></head><body class=article-page><script>(function(){const e="StackColorScheme";localStorage.getItem(e)||localStorage.setItem(e,"auto")})()</script><script>(function(){const t="StackColorScheme",e=localStorage.getItem(t),n=window.matchMedia("(prefers-color-scheme: dark)").matches===!0;e=="dark"||e==="auto"&&n?document.documentElement.dataset.scheme="dark":document.documentElement.dataset.scheme="light"})()</script><div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky"><button class="hamburger hamburger--spin" type=button id=toggle-menu aria-label=切换菜单>
-<span class=hamburger-box><span class=hamburger-inner></span></span></button><header><figure class=site-avatar><a href=/><img src=/img/avatar_hu_2d151bf001e892f5.png width=300 height=300 class=site-logo loading=lazy alt=Avatar>
-</a><span class=emoji>🍥</span></figure><div class=site-meta><h1 class=site-name><a href=/>MciG</a></h1><h2 class=site-description>MciG</h2></div></header><ol class=menu-social><li><a href=https://github.com/MciG-ggg target=_blank title=GitHub rel=me><!doctype html><svg t="1746714174576" class="icon" viewBox="0 0 1024 1024" p-id="2461" xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200"><path d="M465.981 1001.74a89.578 89.578.0 01-89.889-88.955l-.356-63.666c-176.662 38.422-213.927-74.93-213.927-74.93-28.895-73.372-70.523-92.873-70.523-92.873-57.61-39.446 4.364-38.645 4.364-38.645 63.71 4.452 97.28 65.447 97.28 65.447 56.631 97.058 148.569 69.009 184.765 52.803 5.699-41.049 22.172-69.053 40.337-84.947-141.045-16.028-289.303-70.523-289.303-313.79.0-69.32 24.799-125.952 65.447-170.429-6.589-16.028-28.316-80.584 6.144-168.025.0.0 53.337-17.052 174.659 65.09a609.28 609.28.0 01158.943-21.37c53.915.223 108.276 7.257 159.031 21.37C814.186 6.679 867.434 23.73 867.434 23.73c34.549 87.485 12.822 152.042 6.233 168.025 40.693 44.433 65.358 101.109 65.358 170.43.0 243.89-148.57 297.583-289.926 313.299 22.751 19.723 43.053 58.323 43.053 117.582.0 84.992-.312 119.674-.312 119.674a89.622 89.622.0 01-89.8 89H465.98z" fill="#46B980" p-id="2462"/></svg></a></li><li><a href=https://www.zhihu.com/people/18-40-12-69 target=_blank title=Zhihu rel=me><!doctype html><svg t="1746714155361" class="icon" viewBox="0 0 1024 1024" p-id="1482" xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200"><path d="M564.7 230.1V803h60l25.2 71.4L756.3 803h131.5V230.1H564.7zm247.7 497h-59.9l-75.1 50.4-17.8-50.4h-18V308.3h170.7v418.8zM526.1 486.9H393.3c2.1-44.9 4.3-104.3 6.6-172.9h130.9l-.1-8.1c0-.6-.2-14.7-2.3-29.1-2.1-15-6.6-34.9-21-34.9H287.8c4.4-20.6 15.7-69.7 29.4-93.8l6.4-11.2-12.9-.7c-.8.0-19.6-.9-41.4 10.6-35.7 19-51.7 56.4-58.7 84.4-18.4 73.1-44.6 123.9-55.7 145.6-3.3 6.4-5.3 10.2-6.2 12.8-1.8 4.9-.8 9.8 2.8 13 10.5 9.5 38.2-2.9 38.5-3 .6-.3 1.3-.6 2.2-1 13.9-6.3 55.1-25 69.8-84.5h56.7c.7 32.2 3.1 138.4 2.9 172.9h-141l-2.1 1.5c-23.1 16.9-30.5 63.2-30.8 65.2l-1.4 9.2h167c-12.3 78.3-26.5 113.4-34 127.4-3.7 7-7.3 14-10.7 20.8-21.3 42.2-43.4 85.8-126.3 153.6-3.6 2.8-7 8-4.8 13.7 2.4 6.3 9.3 9.1 24.6 9.1 5.4.0 11.8-.3 19.4-1 49.9-4.4 100.8-18 135.1-87.6 17-35.1 31.7-71.7 43.9-108.9L497 850l5-12c.8-1.9 19-46.3 5.1-95.9l-.5-1.8-108.1-123-22 16.6c6.4-26.1 10.6-49.9 12.5-71.1h158.7v-8c0-40.1-18.5-63.9-19.2-64.9l-2.4-3z" fill="#1296DB" p-id="1483"/></svg></a></li></ol><ol class=menu id=main-menu><li><a href=/><svg class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="5 12 3 12 12 3 21 12 19 12"/><path d="M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"/><path d="M9 21v-6a2 2 0 012-2h2a2 2 0 012 2v6"/></svg>
-<span>主页</span></a></li><li><a href=/%E5%85%B3%E4%BA%8E/><svg class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="7" r="4"/><path d="M6 21v-2a4 4 0 014-4h4a4 4 0 014 4v2"/></svg>
-<span>关于</span></a></li><li><a href=/archives/><svg class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><rect x="3" y="4" width="18" height="4" rx="2"/><path d="M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8"/><line x1="10" y1="12" x2="14" y2="12"/></svg>
-<span>Archives</span></a></li><li><a href=/search/><svg class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="10" cy="10" r="7"/><line x1="21" y1="21" x2="15" y2="15"/></svg>
-<span>Search</span></a></li><li><a href=/links/><svg class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><path d="M10 14a3.5 3.5.0 005 0l4-4a3.5 3.5.0 00-5-5l-.5.5"/><path d="M14 10a3.5 3.5.0 00-5 0l-4 4a3.5 3.5.0 005 5l.5-.5"/></svg>
-<span>Links</span></a></li><li class=menu-bottom-section><ol class=menu><li id=dark-mode-toggle><svg class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="8" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg>
-<svg class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="16" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg>
-<span>暗色模式</span></li></ol></li></ol></aside><aside class="sidebar right-sidebar sticky"><section class="widget archives"><div class=widget-icon><svg class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><line x1="5" y1="9" x2="19" y2="9"/><line x1="5" y1="15" x2="19" y2="15"/><line x1="11" y1="4" x2="7" y2="20"/><line x1="17" y1="4" x2="13" y2="20"/></svg></div><h2 class="widget-title section-title">目录</h2><div class=widget--toc><nav id=TableOfContents><ol><li><a href=#概述>概述</a></li><li><a href=#适用场景>适用场景</a></li><li><a href=#配置步骤>配置步骤</a><ol><li><a href=#1-安装-wacom-驱动>1. 安装 Wacom 驱动</a></li><li><a href=#2-识别设备信息>2. 识别设备信息</a><ol><li><a href=#21-识别-wacom-设备名称>2.1 识别 Wacom 设备名称</a></li><li><a href=#22-识别显示器信息>2.2 识别显示器信息</a></li></ol></li><li><a href=#3-备份配置文件>3. 备份配置文件</a></li><li><a href=#4-配置-wacom-映射>4. 配置 Wacom 映射</a><ol><li><a href=#41-找到-tablet-配置块>4.1 找到 Tablet 配置块</a></li><li><a href=#42-添加输出映射>4.2 添加输出映射</a></li></ol></li><li><a href=#5-重新加载配置>5. 重新加载配置</a></li><li><a href=#6-验证配置>6. 验证配置</a><ol><li><a href=#61-检查设备状态>6.1 检查设备状态</a></li><li><a href=#62-实际测试>6.2 实际测试</a></li></ol></li></ol></li><li><a href=#常见显示器名称>常见显示器名称</a></li><li><a href=#故障排除>故障排除</a><ol><li><a href=#问题1配置不生效>问题1：配置不生效</a></li><li><a href=#问题2找不到设备名称>问题2：找不到设备名称</a></li><li><a href=#问题3映射范围不正确>问题3：映射范围不正确</a></li><li><a href=#问题4压感不工作>问题4：压感不工作</a></li></ol></li><li><a href=#高级配置>高级配置</a><ol><li><a href=#左手模式配置>左手模式配置</a></li><li><a href=#旋转配置>旋转配置</a></li><li><a href=#多显示器特定映射>多显示器特定映射</a></li></ol></li><li><a href=#配置文件位置>配置文件位置</a></li><li><a href=#备份和恢复>备份和恢复</a><ol><li><a href=#创建备份脚本>创建备份脚本</a></li><li><a href=#恢复配置>恢复配置</a></li></ol></li><li><a href=#参考资源>参考资源</a></li></ol></nav></div></section></aside><main class="main full-width"><article class=main-article><header class=article-header><div class=article-details><div class=article-title-wrapper><h2 class=article-title><a href=/p/wacom_hyprland_%E9%85%8D%E7%BD%AE%E6%8C%87%E5%8D%97/>Wacom_Hyprland_配置指南</a></h2></div><footer class=article-time><div><svg class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><path d="M11.795 21H5a2 2 0 01-2-2V7a2 2 0 012-2h12a2 2 0 012 2v4"/><circle cx="18" cy="18" r="4"/><path d="M15 3v4"/><path d="M7 3v4"/><path d="M3 11h16"/><path d="M18 16.496V18l1 1"/></svg>
-<time class=article-time--published>Nov 12, 2025</time></div><div><svg class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
-<time class=article-time--reading>阅读时长: 3 分钟</time></div></footer></div></header><section class=article-content><h1 id=hyprland-下-wacom-数位板映射到外接显示器配置指南>Hyprland 下 Wacom 数位板映射到外接显示器配置指南</h1><h2 id=概述>概述</h2><p>本指南详细介绍如何在 Hyprland 窗口管理器下配置 Wacom 数位板，使其只映射到指定的外接显示器，而不是整个多显示器桌面空间。</p><h2 id=适用场景>适用场景</h2><ul><li><strong>系统环境</strong>: Ubuntu 24.04 LTS + Hyprland</li><li><strong>硬件需求</strong>: Wacom 数位板 + 外接显示器</li><li><strong>目标</strong>: 数位板输入只在外接显示器上响应，提供精确的绘画体验</li></ul><h2 id=配置步骤>配置步骤</h2><h3 id=1-安装-wacom-驱动>1. 安装 Wacom 驱动</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span><span class=lnt>5
-</span><span class=lnt>6
-</span><span class=lnt>7
-</span><span class=lnt>8
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=c1># 更新包索引</span>
-</span></span><span class=line><span class=cl>sudo apt update
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=c1># 安装 Wacom 驱动（注意：wacom-tools 已弃用）</span>
-</span></span><span class=line><span class=cl>sudo apt install xserver-xorg-input-wacom
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=c1># 验证安装</span>
-</span></span><span class=line><span class=cl>dpkg -l <span class=p>|</span> grep wacom
-</span></span></code></pre></td></tr></table></div></div><p><strong>预期输出</strong>:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>ii  libwacom-common                                  2.10.0-2                                  all          Wacom model feature query library (common files)
-</span></span><span class=line><span class=cl>ii  libwacom-dev:amd64                               2.10.0-2                                  amd64        Wacom model feature query library (development files)
-</span></span><span class=line><span class=cl>ii  libwacom9:amd64                                  2.10.0-2                                  amd64        Wacom model feature query library
-</span></span><span class=line><span class=cl>ii  xserver-xorg-input-wacom                         1:1.2.0-1ubuntu2                          amd64        X.Org X server -- Wacom input driver
-</span></span></code></pre></td></tr></table></div></div><h3 id=2-识别设备信息>2. 识别设备信息</h3><h4 id=21-识别-wacom-设备名称>2.1 识别 Wacom 设备名称</h4><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span><span class=lnt>5
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=c1># 方法一：使用 Hyprland 命令</span>
-</span></span><span class=line><span class=cl>hyprctl devices <span class=p>|</span> grep -i wacom
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=c1># 方法二：如果需要更详细信息</span>
-</span></span><span class=line><span class=cl>libinput list-devices <span class=p>|</span> grep -i wacom
-</span></span></code></pre></td></tr></table></div></div><p><strong>示例输出</strong>:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>wacom-one-by-wacom-s-pen
-</span></span></code></pre></td></tr></table></div></div><h4 id=22-识别显示器信息>2.2 识别显示器信息</h4><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=c1># 查看所有显示器配置</span>
-</span></span><span class=line><span class=cl>hyprctl monitors
-</span></span></code></pre></td></tr></table></div></div><p><strong>示例输出</strong>:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span><span class=lnt>5
-</span><span class=lnt>6
-</span><span class=lnt>7
-</span><span class=lnt>8
-</span><span class=lnt>9
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>Monitor eDP-1 (ID 0):  # 内置笔记本显示器
-</span></span><span class=line><span class=cl>	2520x1680@120.00000 at 2433x1373
-</span></span><span class=line><span class=cl>	make: Thermotrex Corporation
-</span></span><span class=line><span class=cl>	model: TL142GVXP12-0
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>Monitor DP-2 (ID 1):  # 外接显示器
-</span></span><span class=line><span class=cl>	1920x1080@60.00000 at 2433x293
-</span></span><span class=line><span class=cl>	make: HP Inc.
-</span></span><span class=line><span class=cl>	model: HP P24v G4
-</span></span></code></pre></td></tr></table></div></div><h3 id=3-备份配置文件>3. 备份配置文件</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span><span class=lnt>5
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=c1># 备份 Hyprland 主配置文件</span>
-</span></span><span class=line><span class=cl>cp ~/.config/hypr/hyprland.conf ~/.config/hypr/hyprland.conf.backup
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=c1># 备份用户设置文件</span>
-</span></span><span class=line><span class=cl>cp ~/.config/hypr/UserConfigs/UserSettings.conf ~/.config/hypr/UserConfigs/UserSettings.conf.backup
-</span></span></code></pre></td></tr></table></div></div><h3 id=4-配置-wacom-映射>4. 配置 Wacom 映射</h3><h4 id=41-找到-tablet-配置块>4.1 找到 Tablet 配置块</h4><p>编辑用户设置文件：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>nano ~/.config/hypr/UserConfigs/UserSettings.conf
-</span></span></code></pre></td></tr></table></div></div><p>找到 <code>tablet</code> 配置块（通常在 <code>input</code> 部分）：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span><span class=lnt>5
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-ini data-lang=ini><span class=line><span class=cl><span class=c1># 原始配置</span>
-</span></span><span class=line><span class=cl><span class=na>tablet {</span>
-</span></span><span class=line><span class=cl>    <span class=na>transform</span> <span class=o>=</span> <span class=s>0
-</span></span></span><span class=line><span class=cl><span class=s>    left_handed = 0</span>
-</span></span><span class=line><span class=cl><span class=na>}</span>
-</span></span></code></pre></td></tr></table></div></div><h4 id=42-添加输出映射>4.2 添加输出映射</h4><p>修改为：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span><span class=lnt>5
-</span><span class=lnt>6
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-ini data-lang=ini><span class=line><span class=cl><span class=c1># 更新后的配置</span>
-</span></span><span class=line><span class=cl><span class=na>tablet {</span>
-</span></span><span class=line><span class=cl>    <span class=na>transform</span> <span class=o>=</span> <span class=s>0
-</span></span></span><span class=line><span class=cl><span class=s>    left_handed = 0
-</span></span></span><span class=line><span class=cl><span class=s>    output = DP-2  # 将 Wacom 映射到外接显示器</span>
-</span></span><span class=line><span class=cl><span class=na>}</span>
-</span></span></code></pre></td></tr></table></div></div><p><strong>配置参数说明</strong>:</p><ul><li><code>transform</code>: 屏幕旋转角度（0=0°, 1=90°, 2=180°, 3=270°）</li><li><code>left_handed</code>: 左手模式（0=右手, 1=左手）</li><li><code>output</code>: 目标显示器名称（根据你的实际显示器名称调整）</li></ul><h3 id=5-重新加载配置>5. 重新加载配置</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span><span class=lnt>5
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=c1># 重新加载 Hyprland 配置</span>
-</span></span><span class=line><span class=cl>hyprctl reload
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=c1># 或者使用快捷键</span>
-</span></span><span class=line><span class=cl><span class=c1># Mod + Shift + R</span>
-</span></span></code></pre></td></tr></table></div></div><h3 id=6-验证配置>6. 验证配置</h3><h4 id=61-检查设备状态>6.1 检查设备状态</h4><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=c1># 检查 Wacom 设备是否正常识别</span>
-</span></span><span class=line><span class=cl>hyprctl devices <span class=p>|</span> grep -A <span class=m>5</span> -i wacom
-</span></span></code></pre></td></tr></table></div></div><h4 id=62-实际测试>6.2 实际测试</h4><ol><li><strong>打开绘图应用</strong>（Krita、GIMP、Inkscape 等）</li><li><strong>移动数位板笔</strong> - 光标应该只出现在指定的外接显示器上</li><li><strong>测试绘画功能</strong> - 确认压感和绘画功能正常</li><li><strong>测试数位板按钮</strong> - 验证快捷键功能</li></ol><h2 id=常见显示器名称>常见显示器名称</h2><p>根据连接方式，显示器名称可能为：</p><div class=table-wrapper><table><thead><tr><th>接口类型</th><th>典型名称</th></tr></thead><tbody><tr><td>HDMI</td><td><code>HDMI-A-1</code>, <code>HDMI-A-2</code></td></tr><tr><td>DisplayPort</td><td><code>DP-1</code>, <code>DP-2</code>, <code>DP-3</code></td></tr><tr><td>USB-C/雷电</td><td><code>USB-C-1</code>, <code>DP-3</code></td></tr><tr><td>内置显示器</td><td><code>eDP-1</code>, <code>LVDS-1</code></td></tr></tbody></table></div><h2 id=故障排除>故障排除</h2><h3 id=问题1配置不生效>问题1：配置不生效</h3><p><strong>解决方案</strong>：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span><span class=lnt>5
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=c1># 完全重启 Hyprland</span>
-</span></span><span class=line><span class=cl>mod + <span class=nb>shift</span> + r
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=c1># 或重启系统</span>
-</span></span><span class=line><span class=cl>sudo reboot
-</span></span></code></pre></td></tr></table></div></div><h3 id=问题2找不到设备名称>问题2：找不到设备名称</h3><p><strong>解决方案</strong>：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span><span class=lnt>5
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=c1># 查看所有输入设备</span>
-</span></span><span class=line><span class=cl>hyprctl devices
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=c1># 确保数位板已连接并被识别</span>
-</span></span><span class=line><span class=cl>lsusb <span class=p>|</span> grep -i wacom
-</span></span></code></pre></td></tr></table></div></div><h3 id=问题3映射范围不正确>问题3：映射范围不正确</h3><p><strong>解决方案</strong>：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span><span class=lnt>5
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=c1># 检查显示器分辨率和位置</span>
-</span></span><span class=line><span class=cl>hyprctl monitors
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=c1># 可能需要调整显示器布局</span>
-</span></span><span class=line><span class=cl><span class=c1># 在 ~/.config/hypr/monitors.conf 中配置</span>
-</span></span></code></pre></td></tr></table></div></div><h3 id=问题4压感不工作>问题4：压感不工作</h3><p><strong>解决方案</strong>：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span><span class=lnt>5
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=c1># 检查是否安装了完整的驱动</span>
-</span></span><span class=line><span class=cl>sudo apt install libwacom9
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=c1># 在绘图应用中检查压感设置</span>
-</span></span><span class=line><span class=cl><span class=c1># 确保选择了正确的输入设备</span>
-</span></span></code></pre></td></tr></table></div></div><h2 id=高级配置>高级配置</h2><h3 id=左手模式配置>左手模式配置</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span><span class=lnt>5
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-ini data-lang=ini><span class=line><span class=cl><span class=na>tablet {</span>
-</span></span><span class=line><span class=cl>    <span class=na>transform</span> <span class=o>=</span> <span class=s>0
-</span></span></span><span class=line><span class=cl><span class=s>    left_handed = 1  # 启用左手模式
-</span></span></span><span class=line><span class=cl><span class=s>    output = DP-2</span>
-</span></span><span class=line><span class=cl><span class=na>}</span>
-</span></span></code></pre></td></tr></table></div></div><h3 id=旋转配置>旋转配置</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span><span class=lnt>5
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-ini data-lang=ini><span class=line><span class=cl><span class=na>tablet {</span>
-</span></span><span class=line><span class=cl>    <span class=na>transform</span> <span class=o>=</span> <span class=s>1  # 顺时针旋转90度
-</span></span></span><span class=line><span class=cl><span class=s>    left_handed = 0
-</span></span></span><span class=line><span class=cl><span class=s>    output = DP-2</span>
-</span></span><span class=line><span class=cl><span class=na>}</span>
-</span></span></code></pre></td></tr></table></div></div><h3 id=多显示器特定映射>多显示器特定映射</h3><p>如果有多个外接显示器，可以指定具体映射：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span><span class=lnt>5
-</span><span class=lnt>6
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-ini data-lang=ini><span class=line><span class=cl><span class=na>tablet {</span>
-</span></span><span class=line><span class=cl>    <span class=na>transform</span> <span class=o>=</span> <span class=s>0
-</span></span></span><span class=line><span class=cl><span class=s>    left_handed = 0
-</span></span></span><span class=line><span class=cl><span class=s>    output = DP-2  # 第二个显示器
-</span></span></span><span class=line><span class=cl><span class=s>    # output = HDMI-A-1  # HDMI 显示器</span>
-</span></span><span class=line><span class=cl><span class=na>}</span>
-</span></span></code></pre></td></tr></table></div></div><h2 id=配置文件位置>配置文件位置</h2><ul><li><strong>主配置文件</strong>: <code>~/.config/hypr/hyprland.conf</code></li><li><strong>用户设置</strong>: <code>~/.config/hypr/UserConfigs/UserSettings.conf</code></li><li><strong>显示器配置</strong>: <code>~/.config/hypr/monitors.conf</code></li><li><strong>工作区配置</strong>: <code>~/.config/hypr/workspaces.conf</code></li></ul><h2 id=备份和恢复>备份和恢复</h2><h3 id=创建备份脚本>创建备份脚本</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span><span class=lnt>11
-</span><span class=lnt>12
-</span><span class=lnt>13
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=cp>#!/bin/bash
-</span></span></span><span class=line><span class=cl><span class=cp></span><span class=c1># backup_wacom_config.sh</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=nv>BACKUP_DIR</span><span class=o>=</span><span class=s2>&#34;</span><span class=nv>$HOME</span><span class=s2>/.config/hypr/backups&#34;</span>
-</span></span><span class=line><span class=cl><span class=nv>DATE</span><span class=o>=</span><span class=k>$(</span>date +<span class=s2>&#34;%Y%m%d_%H%M%S&#34;</span><span class=k>)</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>mkdir -p <span class=nv>$BACKUP_DIR</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=c1># 备份配置文件</span>
-</span></span><span class=line><span class=cl>cp ~/.config/hypr/UserConfigs/UserSettings.conf <span class=s2>&#34;</span><span class=nv>$BACKUP_DIR</span><span class=s2>/UserSettings_</span><span class=nv>$DATE</span><span class=s2>.conf&#34;</span>
-</span></span><span class=line><span class=cl>cp ~/.config/hypr/hyprland.conf <span class=s2>&#34;</span><span class=nv>$BACKUP_DIR</span><span class=s2>/hyprland_</span><span class=nv>$DATE</span><span class=s2>.conf&#34;</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=nb>echo</span> <span class=s2>&#34;配置已备份到: </span><span class=nv>$BACKUP_DIR</span><span class=s2>&#34;</span>
-</span></span></code></pre></td></tr></table></div></div><h3 id=恢复配置>恢复配置</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=c1># 恢复最新备份</span>
-</span></span><span class=line><span class=cl>cp ~/.config/hypr/backups/UserSettings_*.conf ~/.config/hypr/UserConfigs/UserSettings.conf
-</span></span><span class=line><span class=cl>hyprctl reload
-</span></span></code></pre></td></tr></table></div></div><h2 id=参考资源>参考资源</h2><ul><li><a class=link href=https://wiki.hyprland.org/ target=_blank rel=noopener>Hyprland 官方文档</a></li><li><a class=link href=https://github.com/linuxwacom target=_blank rel=noopener>Wacom Linux 支持</a></li><li><a class=link href=https://help.ubuntu.com/community/Wacom target=_blank rel=noopener>Ubuntu Wacom 配置指南</a></li></ul><hr><p><strong>提示</strong>: 配置完成后，建议创建系统还原点，以便在出现问题时快速恢复。</p><p><strong>注意</strong>: 本指南基于 Ubuntu 24.04 LTS 和 Hyprland，其他发行版可能需要调整包管理命令。</p></section><footer class=article-footer><section class=article-copyright><svg class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><path d="M14.5 9a3.5 4 0 100 6"/></svg>
-<span>Licensed under CC BY-NC-SA 4.0</span></section></footer><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css integrity=sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV crossorigin=anonymous><script src=https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js integrity=sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8 crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js integrity=sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05 crossorigin=anonymous defer></script><script>window.addEventListener("DOMContentLoaded",()=>{const e=document.querySelector(".main-article");renderMathInElement(e,{delimiters:[{left:"$$",right:"$$",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1},{left:"\\[",right:"\\]",display:!0}],ignoredClasses:["gist"]})})</script></article><script src=https://utteranc.es/client.js repo=MciG-ggg/MciG-ggg.github.io issue-term=pathname label=comment crossorigin=anonymous async></script><style>.utterances{max-width:unset}</style><script>let utterancesLoaded=!1;function setUtterancesTheme(e){let t=document.querySelector(".utterances iframe");t&&t.contentWindow.postMessage({type:"set-theme",theme:`github-${e}`},"https://utteranc.es")}addEventListener("message",e=>{if(e.origin!=="https://utteranc.es")return;utterancesLoaded=!0,setUtterancesTheme(document.documentElement.dataset.scheme)}),window.addEventListener("onColorSchemeChange",e=>{if(!utterancesLoaded)return;setUtterancesTheme(e.detail)})</script><footer class=site-footer><section class=copyright>&copy;
-2025 MciG</section><section class=powerby>路漫漫其修远兮，吾将上下而求索<br>使用 <a href=https://gohugo.io/ target=_blank rel=noopener>Hugo</a> 构建<br>主题 <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=noopener data-version=3.30.0>Stack</a></b> 由 <a href=https://jimmycai.com target=_blank rel=noopener>Jimmy</a> 设计</section></footer><script src=https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js></script><div class=pswp tabindex=-1 role=dialog aria-hidden=true><div class=pswp__bg></div><div class=pswp__scroll-wrap><div class=pswp__container><div class=pswp__item></div><div class=pswp__item></div><div class=pswp__item></div></div><div class="pswp__ui pswp__ui--hidden"><div class=pswp__top-bar><div class=pswp__counter></div><button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
-<button class="pswp__button pswp__button--share" title=Share></button>
-<button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
-<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button><div class=pswp__preloader><div class=pswp__preloader__icn><div class=pswp__preloader__cut><div class=pswp__preloader__donut></div></div></div></div></div><div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap"><div class=pswp__share-tooltip></div></div><button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
-</button>
-<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button><div class=pswp__caption><div class=pswp__caption__center></div></div></div></div></div><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo=" crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU=" crossorigin=anonymous defer></script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css crossorigin=anonymous><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css crossorigin=anonymous></main></div><script src=https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z+KMkF24hUW8WePSA9HM=" crossorigin=anonymous></script><script type=text/javascript src=/ts/main.1e9a3bafd846ced4c345d084b355fb8c7bae75701c338f8a1f8a82c780137826.js defer></script><script>(function(){const e=document.createElement("link");e.href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap",e.type="text/css",e.rel="stylesheet",document.head.appendChild(e)})()</script></body></html>
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="Hyprland 下 Wacom 数位板映射到外接显示器配置指南 概述 本指南详细介绍如何在 Hyprland 窗口管理器下配置 Wacom 数位板，使其只映射到指定的外接显示器，而不是整个多显示器桌面空间。\n适用场景 系统环境: Ubuntu 24.04 LTS + Hyprland 硬件需求: Wacom 数位板 + 外接显示器 目标: 数位板输入只在外接显示器上响应，提供精确的绘画体验 配置步骤 1. 安装 Wacom 驱动 1 2 3 4 5 6 7 8 # 更新包索引 sudo apt update # 安装 Wacom 驱动（注意：wacom-tools 已弃用） sudo apt install xserver-xorg-input-wacom # 验证安装 dpkg -l | grep wacom 预期输出:\n1 2 3 4 ii libwacom-common 2.10.0-2 all Wacom model feature query library (common files) ii libwacom-dev:amd64 2.10.0-2 amd64 Wacom model feature query library (development files) ii libwacom9:amd64 2.10.0-2 amd64 Wacom model feature query library ii xserver-xorg-input-wacom 1:1.2.0-1ubuntu2 amd64 X.Org X server -- Wacom input driver 2. 识别设备信息 2.1 识别 Wacom 设备名称 1 2 3 4 5 # 方法一：使用 Hyprland 命令 hyprctl devices | grep -i wacom # 方法二：如果需要更详细信息 libinput list-devices | grep -i wacom 示例输出:\n">
+<title>Wacom_Hyprland_配置指南</title>
+
+<link rel='canonical' href='https://mcig-ggg.github.io/p/wacom_hyprland_%E9%85%8D%E7%BD%AE%E6%8C%87%E5%8D%97/'>
+
+<link rel="stylesheet" href="/scss/style.min.bfa9c597533c798058a818106c1b2930d80c66fd40afaa510be2582dade8f9e2.css"><meta property='og:title' content="Wacom_Hyprland_配置指南">
+<meta property='og:description' content="Hyprland 下 Wacom 数位板映射到外接显示器配置指南 概述 本指南详细介绍如何在 Hyprland 窗口管理器下配置 Wacom 数位板，使其只映射到指定的外接显示器，而不是整个多显示器桌面空间。\n适用场景 系统环境: Ubuntu 24.04 LTS + Hyprland 硬件需求: Wacom 数位板 + 外接显示器 目标: 数位板输入只在外接显示器上响应，提供精确的绘画体验 配置步骤 1. 安装 Wacom 驱动 1 2 3 4 5 6 7 8 # 更新包索引 sudo apt update # 安装 Wacom 驱动（注意：wacom-tools 已弃用） sudo apt install xserver-xorg-input-wacom # 验证安装 dpkg -l | grep wacom 预期输出:\n1 2 3 4 ii libwacom-common 2.10.0-2 all Wacom model feature query library (common files) ii libwacom-dev:amd64 2.10.0-2 amd64 Wacom model feature query library (development files) ii libwacom9:amd64 2.10.0-2 amd64 Wacom model feature query library ii xserver-xorg-input-wacom 1:1.2.0-1ubuntu2 amd64 X.Org X server -- Wacom input driver 2. 识别设备信息 2.1 识别 Wacom 设备名称 1 2 3 4 5 # 方法一：使用 Hyprland 命令 hyprctl devices | grep -i wacom # 方法二：如果需要更详细信息 libinput list-devices | grep -i wacom 示例输出:\n">
+<meta property='og:url' content='https://mcig-ggg.github.io/p/wacom_hyprland_%E9%85%8D%E7%BD%AE%E6%8C%87%E5%8D%97/'>
+<meta property='og:site_name' content='MciG'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2025-11-12T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2025-11-12T00:00:00&#43;00:00'/>
+<meta name="twitter:title" content="Wacom_Hyprland_配置指南">
+<meta name="twitter:description" content="Hyprland 下 Wacom 数位板映射到外接显示器配置指南 概述 本指南详细介绍如何在 Hyprland 窗口管理器下配置 Wacom 数位板，使其只映射到指定的外接显示器，而不是整个多显示器桌面空间。\n适用场景 系统环境: Ubuntu 24.04 LTS + Hyprland 硬件需求: Wacom 数位板 + 外接显示器 目标: 数位板输入只在外接显示器上响应，提供精确的绘画体验 配置步骤 1. 安装 Wacom 驱动 1 2 3 4 5 6 7 8 # 更新包索引 sudo apt update # 安装 Wacom 驱动（注意：wacom-tools 已弃用） sudo apt install xserver-xorg-input-wacom # 验证安装 dpkg -l | grep wacom 预期输出:\n1 2 3 4 ii libwacom-common 2.10.0-2 all Wacom model feature query library (common files) ii libwacom-dev:amd64 2.10.0-2 amd64 Wacom model feature query library (development files) ii libwacom9:amd64 2.10.0-2 amd64 Wacom model feature query library ii xserver-xorg-input-wacom 1:1.2.0-1ubuntu2 amd64 X.Org X server -- Wacom input driver 2. 识别设备信息 2.1 识别 Wacom 设备名称 1 2 3 4 5 # 方法一：使用 Hyprland 命令 hyprctl devices | grep -i wacom # 方法二：如果需要更详细信息 libinput list-devices | grep -i wacom 示例输出:\n">
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu_2d151bf001e892f5.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🍥</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">MciG</a></h1>
+            <h2 class="site-description">MciG</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://github.com/MciG-ggg'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <?xml version="1.0" standalone="no"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg t="1746714174576" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2461" xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200"><path d="M465.981 1001.74a89.578 89.578 0 0 1-89.889-88.955l-0.356-63.666c-176.662 38.422-213.927-74.93-213.927-74.93-28.895-73.372-70.523-92.873-70.523-92.873-57.61-39.446 4.364-38.645 4.364-38.645 63.71 4.452 97.28 65.447 97.28 65.447 56.631 97.058 148.569 69.009 184.765 52.803 5.699-41.049 22.172-69.053 40.337-84.947-141.045-16.028-289.303-70.523-289.303-313.79 0-69.32 24.799-125.952 65.447-170.429-6.589-16.028-28.316-80.584 6.144-168.025 0 0 53.337-17.052 174.659 65.09a609.28 609.28 0 0 1 158.943-21.37c53.915 0.223 108.276 7.257 159.031 21.37C814.186 6.679 867.434 23.73 867.434 23.73c34.549 87.485 12.822 152.042 6.233 168.025 40.693 44.433 65.358 101.109 65.358 170.43 0 243.89-148.57 297.583-289.926 313.299 22.751 19.723 43.053 58.323 43.053 117.582 0 84.992-0.312 119.674-0.312 119.674a89.622 89.622 0 0 1-89.8 89H465.98z" fill="#46B980" p-id="2462"></path></svg>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://www.zhihu.com/people/18-40-12-69'
+                        target="_blank"
+                        title="Zhihu"
+                        rel="me"
+                    >
+                        
+                        
+                            <?xml version="1.0" standalone="no"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg t="1746714155361" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1482" xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200"><path d="M564.7 230.1V803h60l25.2 71.4L756.3 803h131.5V230.1H564.7z m247.7 497h-59.9l-75.1 50.4-17.8-50.4h-18V308.3h170.7v418.8zM526.1 486.9H393.3c2.1-44.9 4.3-104.3 6.6-172.9h130.9l-0.1-8.1c0-0.6-0.2-14.7-2.3-29.1-2.1-15-6.6-34.9-21-34.9H287.8c4.4-20.6 15.7-69.7 29.4-93.8l6.4-11.2-12.9-0.7c-0.8 0-19.6-0.9-41.4 10.6-35.7 19-51.7 56.4-58.7 84.4-18.4 73.1-44.6 123.9-55.7 145.6-3.3 6.4-5.3 10.2-6.2 12.8-1.8 4.9-0.8 9.8 2.8 13 10.5 9.5 38.2-2.9 38.5-3 0.6-0.3 1.3-0.6 2.2-1 13.9-6.3 55.1-25 69.8-84.5h56.7c0.7 32.2 3.1 138.4 2.9 172.9h-141l-2.1 1.5c-23.1 16.9-30.5 63.2-30.8 65.2l-1.4 9.2h167c-12.3 78.3-26.5 113.4-34 127.4-3.7 7-7.3 14-10.7 20.8-21.3 42.2-43.4 85.8-126.3 153.6-3.6 2.8-7 8-4.8 13.7 2.4 6.3 9.3 9.1 24.6 9.1 5.4 0 11.8-0.3 19.4-1 49.9-4.4 100.8-18 135.1-87.6 17-35.1 31.7-71.7 43.9-108.9L497 850l5-12c0.8-1.9 19-46.3 5.1-95.9l-0.5-1.8-108.1-123-22 16.6c6.4-26.1 10.6-49.9 12.5-71.1h158.7v-8c0-40.1-18.5-63.9-19.2-64.9l-2.4-3z" fill="#1296DB" p-id="1483"></path></svg>
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>主页</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/%E5%85%B3%E4%BA%8E/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>关于</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/links/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>Links</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>暗色模式</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#概述">概述</a></li>
+    <li><a href="#适用场景">适用场景</a></li>
+    <li><a href="#配置步骤">配置步骤</a>
+      <ol>
+        <li><a href="#1-安装-wacom-驱动">1. 安装 Wacom 驱动</a></li>
+        <li><a href="#2-识别设备信息">2. 识别设备信息</a>
+          <ol>
+            <li><a href="#21-识别-wacom-设备名称">2.1 识别 Wacom 设备名称</a></li>
+            <li><a href="#22-识别显示器信息">2.2 识别显示器信息</a></li>
+          </ol>
+        </li>
+        <li><a href="#3-备份配置文件">3. 备份配置文件</a></li>
+        <li><a href="#4-配置-wacom-映射">4. 配置 Wacom 映射</a>
+          <ol>
+            <li><a href="#41-找到-tablet-配置块">4.1 找到 Tablet 配置块</a></li>
+            <li><a href="#42-添加输出映射">4.2 添加输出映射</a></li>
+          </ol>
+        </li>
+        <li><a href="#5-重新加载配置">5. 重新加载配置</a></li>
+        <li><a href="#6-验证配置">6. 验证配置</a>
+          <ol>
+            <li><a href="#61-检查设备状态">6.1 检查设备状态</a></li>
+            <li><a href="#62-实际测试">6.2 实际测试</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li><a href="#常见显示器名称">常见显示器名称</a></li>
+    <li><a href="#故障排除">故障排除</a>
+      <ol>
+        <li><a href="#问题1配置不生效">问题1：配置不生效</a></li>
+        <li><a href="#问题2找不到设备名称">问题2：找不到设备名称</a></li>
+        <li><a href="#问题3映射范围不正确">问题3：映射范围不正确</a></li>
+        <li><a href="#问题4压感不工作">问题4：压感不工作</a></li>
+      </ol>
+    </li>
+    <li><a href="#高级配置">高级配置</a>
+      <ol>
+        <li><a href="#左手模式配置">左手模式配置</a></li>
+        <li><a href="#旋转配置">旋转配置</a></li>
+        <li><a href="#多显示器特定映射">多显示器特定映射</a></li>
+      </ol>
+    </li>
+    <li><a href="#配置文件位置">配置文件位置</a></li>
+    <li><a href="#备份和恢复">备份和恢复</a>
+      <ol>
+        <li><a href="#创建备份脚本">创建备份脚本</a></li>
+        <li><a href="#恢复配置">恢复配置</a></li>
+      </ol>
+    </li>
+    <li><a href="#参考资源">参考资源</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/wacom_hyprland_%E9%85%8D%E7%BD%AE%E6%8C%87%E5%8D%97/">Wacom_Hyprland_配置指南</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Nov 12, 2025</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    阅读时长: 3 分钟
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <h1 id="hyprland-下-wacom-数位板映射到外接显示器配置指南">Hyprland 下 Wacom 数位板映射到外接显示器配置指南
+</h1><h2 id="概述">概述
+</h2><p>本指南详细介绍如何在 Hyprland 窗口管理器下配置 Wacom 数位板，使其只映射到指定的外接显示器，而不是整个多显示器桌面空间。</p>
+<h2 id="适用场景">适用场景
+</h2><ul>
+<li><strong>系统环境</strong>: Ubuntu 24.04 LTS + Hyprland</li>
+<li><strong>硬件需求</strong>: Wacom 数位板 + 外接显示器</li>
+<li><strong>目标</strong>: 数位板输入只在外接显示器上响应，提供精确的绘画体验</li>
+</ul>
+<h2 id="配置步骤">配置步骤
+</h2><h3 id="1-安装-wacom-驱动">1. 安装 Wacom 驱动
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 更新包索引</span>
+</span></span><span class="line"><span class="cl">sudo apt update
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 安装 Wacom 驱动（注意：wacom-tools 已弃用）</span>
+</span></span><span class="line"><span class="cl">sudo apt install xserver-xorg-input-wacom
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 验证安装</span>
+</span></span><span class="line"><span class="cl">dpkg -l <span class="p">|</span> grep wacom
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><strong>预期输出</strong>:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">ii  libwacom-common                                  2.10.0-2                                  all          Wacom model feature query library (common files)
+</span></span><span class="line"><span class="cl">ii  libwacom-dev:amd64                               2.10.0-2                                  amd64        Wacom model feature query library (development files)
+</span></span><span class="line"><span class="cl">ii  libwacom9:amd64                                  2.10.0-2                                  amd64        Wacom model feature query library
+</span></span><span class="line"><span class="cl">ii  xserver-xorg-input-wacom                         1:1.2.0-1ubuntu2                          amd64        X.Org X server -- Wacom input driver
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="2-识别设备信息">2. 识别设备信息
+</h3><h4 id="21-识别-wacom-设备名称">2.1 识别 Wacom 设备名称
+</h4><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 方法一：使用 Hyprland 命令</span>
+</span></span><span class="line"><span class="cl">hyprctl devices <span class="p">|</span> grep -i wacom
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 方法二：如果需要更详细信息</span>
+</span></span><span class="line"><span class="cl">libinput list-devices <span class="p">|</span> grep -i wacom
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><strong>示例输出</strong>:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">wacom-one-by-wacom-s-pen
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="22-识别显示器信息">2.2 识别显示器信息
+</h4><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 查看所有显示器配置</span>
+</span></span><span class="line"><span class="cl">hyprctl monitors
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><strong>示例输出</strong>:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Monitor eDP-1 (ID 0):  # 内置笔记本显示器
+</span></span><span class="line"><span class="cl">	2520x1680@120.00000 at 2433x1373
+</span></span><span class="line"><span class="cl">	make: Thermotrex Corporation
+</span></span><span class="line"><span class="cl">	model: TL142GVXP12-0
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Monitor DP-2 (ID 1):  # 外接显示器
+</span></span><span class="line"><span class="cl">	1920x1080@60.00000 at 2433x293
+</span></span><span class="line"><span class="cl">	make: HP Inc.
+</span></span><span class="line"><span class="cl">	model: HP P24v G4
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="3-备份配置文件">3. 备份配置文件
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 备份 Hyprland 主配置文件</span>
+</span></span><span class="line"><span class="cl">cp ~/.config/hypr/hyprland.conf ~/.config/hypr/hyprland.conf.backup
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 备份用户设置文件</span>
+</span></span><span class="line"><span class="cl">cp ~/.config/hypr/UserConfigs/UserSettings.conf ~/.config/hypr/UserConfigs/UserSettings.conf.backup
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="4-配置-wacom-映射">4. 配置 Wacom 映射
+</h3><h4 id="41-找到-tablet-配置块">4.1 找到 Tablet 配置块
+</h4><p>编辑用户设置文件：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">nano ~/.config/hypr/UserConfigs/UserSettings.conf
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>找到 <code>tablet</code> 配置块（通常在 <code>input</code> 部分）：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-ini" data-lang="ini"><span class="line"><span class="cl"><span class="c1"># 原始配置</span>
+</span></span><span class="line"><span class="cl"><span class="na">tablet {</span>
+</span></span><span class="line"><span class="cl">    <span class="na">transform</span> <span class="o">=</span> <span class="s">0
+</span></span></span><span class="line"><span class="cl"><span class="s">    left_handed = 0</span>
+</span></span><span class="line"><span class="cl"><span class="na">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="42-添加输出映射">4.2 添加输出映射
+</h4><p>修改为：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-ini" data-lang="ini"><span class="line"><span class="cl"><span class="c1"># 更新后的配置</span>
+</span></span><span class="line"><span class="cl"><span class="na">tablet {</span>
+</span></span><span class="line"><span class="cl">    <span class="na">transform</span> <span class="o">=</span> <span class="s">0
+</span></span></span><span class="line"><span class="cl"><span class="s">    left_handed = 0
+</span></span></span><span class="line"><span class="cl"><span class="s">    output = DP-2  # 将 Wacom 映射到外接显示器</span>
+</span></span><span class="line"><span class="cl"><span class="na">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><strong>配置参数说明</strong>:</p>
+<ul>
+<li><code>transform</code>: 屏幕旋转角度（0=0°, 1=90°, 2=180°, 3=270°）</li>
+<li><code>left_handed</code>: 左手模式（0=右手, 1=左手）</li>
+<li><code>output</code>: 目标显示器名称（根据你的实际显示器名称调整）</li>
+</ul>
+<h3 id="5-重新加载配置">5. 重新加载配置
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 重新加载 Hyprland 配置</span>
+</span></span><span class="line"><span class="cl">hyprctl reload
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 或者使用快捷键</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Mod + Shift + R</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="6-验证配置">6. 验证配置
+</h3><h4 id="61-检查设备状态">6.1 检查设备状态
+</h4><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 检查 Wacom 设备是否正常识别</span>
+</span></span><span class="line"><span class="cl">hyprctl devices <span class="p">|</span> grep -A <span class="m">5</span> -i wacom
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="62-实际测试">6.2 实际测试
+</h4><ol>
+<li><strong>打开绘图应用</strong>（Krita、GIMP、Inkscape 等）</li>
+<li><strong>移动数位板笔</strong> - 光标应该只出现在指定的外接显示器上</li>
+<li><strong>测试绘画功能</strong> - 确认压感和绘画功能正常</li>
+<li><strong>测试数位板按钮</strong> - 验证快捷键功能</li>
+</ol>
+<h2 id="常见显示器名称">常见显示器名称
+</h2><p>根据连接方式，显示器名称可能为：</p>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>接口类型</th>
+          <th>典型名称</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>HDMI</td>
+          <td><code>HDMI-A-1</code>, <code>HDMI-A-2</code></td>
+      </tr>
+      <tr>
+          <td>DisplayPort</td>
+          <td><code>DP-1</code>, <code>DP-2</code>, <code>DP-3</code></td>
+      </tr>
+      <tr>
+          <td>USB-C/雷电</td>
+          <td><code>USB-C-1</code>, <code>DP-3</code></td>
+      </tr>
+      <tr>
+          <td>内置显示器</td>
+          <td><code>eDP-1</code>, <code>LVDS-1</code></td>
+      </tr>
+  </tbody>
+</table></div>
+<h2 id="故障排除">故障排除
+</h2><h3 id="问题1配置不生效">问题1：配置不生效
+</h3><p><strong>解决方案</strong>：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 完全重启 Hyprland</span>
+</span></span><span class="line"><span class="cl">mod + <span class="nb">shift</span> + r
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 或重启系统</span>
+</span></span><span class="line"><span class="cl">sudo reboot
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="问题2找不到设备名称">问题2：找不到设备名称
+</h3><p><strong>解决方案</strong>：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 查看所有输入设备</span>
+</span></span><span class="line"><span class="cl">hyprctl devices
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 确保数位板已连接并被识别</span>
+</span></span><span class="line"><span class="cl">lsusb <span class="p">|</span> grep -i wacom
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="问题3映射范围不正确">问题3：映射范围不正确
+</h3><p><strong>解决方案</strong>：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 检查显示器分辨率和位置</span>
+</span></span><span class="line"><span class="cl">hyprctl monitors
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 可能需要调整显示器布局</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 在 ~/.config/hypr/monitors.conf 中配置</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="问题4压感不工作">问题4：压感不工作
+</h3><p><strong>解决方案</strong>：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 检查是否安装了完整的驱动</span>
+</span></span><span class="line"><span class="cl">sudo apt install libwacom9
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 在绘图应用中检查压感设置</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 确保选择了正确的输入设备</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="高级配置">高级配置
+</h2><h3 id="左手模式配置">左手模式配置
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-ini" data-lang="ini"><span class="line"><span class="cl"><span class="na">tablet {</span>
+</span></span><span class="line"><span class="cl">    <span class="na">transform</span> <span class="o">=</span> <span class="s">0
+</span></span></span><span class="line"><span class="cl"><span class="s">    left_handed = 1  # 启用左手模式
+</span></span></span><span class="line"><span class="cl"><span class="s">    output = DP-2</span>
+</span></span><span class="line"><span class="cl"><span class="na">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="旋转配置">旋转配置
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-ini" data-lang="ini"><span class="line"><span class="cl"><span class="na">tablet {</span>
+</span></span><span class="line"><span class="cl">    <span class="na">transform</span> <span class="o">=</span> <span class="s">1  # 顺时针旋转90度
+</span></span></span><span class="line"><span class="cl"><span class="s">    left_handed = 0
+</span></span></span><span class="line"><span class="cl"><span class="s">    output = DP-2</span>
+</span></span><span class="line"><span class="cl"><span class="na">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="多显示器特定映射">多显示器特定映射
+</h3><p>如果有多个外接显示器，可以指定具体映射：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-ini" data-lang="ini"><span class="line"><span class="cl"><span class="na">tablet {</span>
+</span></span><span class="line"><span class="cl">    <span class="na">transform</span> <span class="o">=</span> <span class="s">0
+</span></span></span><span class="line"><span class="cl"><span class="s">    left_handed = 0
+</span></span></span><span class="line"><span class="cl"><span class="s">    output = DP-2  # 第二个显示器
+</span></span></span><span class="line"><span class="cl"><span class="s">    # output = HDMI-A-1  # HDMI 显示器</span>
+</span></span><span class="line"><span class="cl"><span class="na">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="配置文件位置">配置文件位置
+</h2><ul>
+<li><strong>主配置文件</strong>: <code>~/.config/hypr/hyprland.conf</code></li>
+<li><strong>用户设置</strong>: <code>~/.config/hypr/UserConfigs/UserSettings.conf</code></li>
+<li><strong>显示器配置</strong>: <code>~/.config/hypr/monitors.conf</code></li>
+<li><strong>工作区配置</strong>: <code>~/.config/hypr/workspaces.conf</code></li>
+</ul>
+<h2 id="备份和恢复">备份和恢复
+</h2><h3 id="创建备份脚本">创建备份脚本
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="cp">#!/bin/bash
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="c1"># backup_wacom_config.sh</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nv">BACKUP_DIR</span><span class="o">=</span><span class="s2">&#34;</span><span class="nv">$HOME</span><span class="s2">/.config/hypr/backups&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">DATE</span><span class="o">=</span><span class="k">$(</span>date +<span class="s2">&#34;%Y%m%d_%H%M%S&#34;</span><span class="k">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">mkdir -p <span class="nv">$BACKUP_DIR</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 备份配置文件</span>
+</span></span><span class="line"><span class="cl">cp ~/.config/hypr/UserConfigs/UserSettings.conf <span class="s2">&#34;</span><span class="nv">$BACKUP_DIR</span><span class="s2">/UserSettings_</span><span class="nv">$DATE</span><span class="s2">.conf&#34;</span>
+</span></span><span class="line"><span class="cl">cp ~/.config/hypr/hyprland.conf <span class="s2">&#34;</span><span class="nv">$BACKUP_DIR</span><span class="s2">/hyprland_</span><span class="nv">$DATE</span><span class="s2">.conf&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;配置已备份到: </span><span class="nv">$BACKUP_DIR</span><span class="s2">&#34;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="恢复配置">恢复配置
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 恢复最新备份</span>
+</span></span><span class="line"><span class="cl">cp ~/.config/hypr/backups/UserSettings_*.conf ~/.config/hypr/UserConfigs/UserSettings.conf
+</span></span><span class="line"><span class="cl">hyprctl reload
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="参考资源">参考资源
+</h2><ul>
+<li><a class="link" href="https://wiki.hyprland.org/"  target="_blank" rel="noopener"
+    >Hyprland 官方文档</a></li>
+<li><a class="link" href="https://github.com/linuxwacom"  target="_blank" rel="noopener"
+    >Wacom Linux 支持</a></li>
+<li><a class="link" href="https://help.ubuntu.com/community/Wacom"  target="_blank" rel="noopener"
+    >Ubuntu Wacom 配置指南</a></li>
+</ul>
+<hr>
+<p><strong>提示</strong>: 配置完成后，建议创建系统还原点，以便在出现问题时快速恢复。</p>
+<p><strong>注意</strong>: 本指南基于 Ubuntu 24.04 LTS 和 Hyprland，其他发行版可能需要调整包管理命令。</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI&#43;WdtXRGWt2kTvGFasHpSy3SV"crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG&#43;vnGctmUb0ZY0l8"crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"integrity="sha384-&#43;VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4&#43;/RRE05"crossorigin="anonymous"
+                defer
+                >
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+	const mainArticleElement = document.querySelector(".main-article");
+        renderMathInElement(mainArticleElement, {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ],
+            ignoredClasses: ["gist"]
+        });})
+</script>
+
+    
+</article>
+
+    
+
+    
+
+     
+    
+        
+    <script src="https://utteranc.es/client.js" 
+        repo="MciG-ggg/MciG-ggg.github.io"
+        issue-term="pathname"
+        
+        label="comment"
+        
+        crossorigin="anonymous"
+        async
+        >
+</script>
+
+<style>
+    .utterances {
+        max-width: unset;
+    }
+</style>
+
+<script>
+    let utterancesLoaded = false;
+
+    function setUtterancesTheme(theme) {
+        let utterances = document.querySelector('.utterances iframe');
+        if (utterances) {
+            utterances.contentWindow.postMessage(
+                {
+                    type: 'set-theme',
+                    theme: `github-${theme}`
+                },
+                'https://utteranc.es'
+            );
+        }
+    }
+
+    addEventListener('message', event => {
+        if (event.origin !== 'https://utteranc.es') return;
+
+        
+        utterancesLoaded = true;
+        setUtterancesTheme(document.documentElement.dataset.scheme)
+    });
+
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (!utterancesLoaded) return;
+        setUtterancesTheme(e.detail)
+    })
+</script>
+
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+        2025 MciG
+    </section>
+    
+    <section class="powerby">
+        
+            路漫漫其修远兮，吾将上下而求索 <br/>
+        使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 构建 <br />
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.30.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+    </section>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.1e9a3bafd846ced4c345d084b355fb8c7bae75701c338f8a1f8a82c780137826.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>
