@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="zh-cn" dir="ltr">
-    <head><meta charset='utf-8'>
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset='utf-8'>
 <meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="Hyprland 下 Wacom 数位板映射到外接显示器配置指南 概述 本指南详细介绍如何在 Hyprland 窗口管理器下配置 Wacom 数位板，使其只映射到指定的外接显示器，而不是整个多显示器桌面空间。\n适用场景 系统环境: Ubuntu 24.04 LTS + Hyprland 硬件需求: Wacom 数位板 + 外接显示器 目标: 数位板输入只在外接显示器上响应，提供精确的绘画体验 配置步骤 1. 安装 Wacom 驱动 1 2 3 4 5 6 7 8 # 更新包索引 sudo apt update # 安装 Wacom 驱动（注意：wacom-tools 已弃用） sudo apt install xserver-xorg-input-wacom # 验证安装 dpkg -l | grep wacom 预期输出:\n1 2 3 4 ii libwacom-common 2.10.0-2 all Wacom model feature query library (common files) ii libwacom-dev:amd64 2.10.0-2 amd64 Wacom model feature query library (development files) ii libwacom9:amd64 2.10.0-2 amd64 Wacom model feature query library ii xserver-xorg-input-wacom 1:1.2.0-1ubuntu2 amd64 X.Org X server -- Wacom input driver 2. 识别设备信息 2.1 识别 Wacom 设备名称 1 2 3 4 5 # 方法一：使用 Hyprland 命令 hyprctl devices | grep -i wacom # 方法二：如果需要更详细信息 libinput list-devices | grep -i wacom 示例输出:\n">
 <title>Wacom_Hyprland_配置指南</title>
 
-<link rel='canonical' href='https://mcig-ggg.github.io/p/wacom_hyprland_%E9%85%8D%E7%BD%AE%E6%8C%87%E5%8D%97/'>
+<link rel='canonical' href='http://localhost:1313/p/wacom_hyprland_%E9%85%8D%E7%BD%AE%E6%8C%87%E5%8D%97/'>
 
 <link rel="stylesheet" href="/scss/style.min.bfa9c597533c798058a818106c1b2930d80c66fd40afaa510be2582dade8f9e2.css"><meta property='og:title' content="Wacom_Hyprland_配置指南">
 <meta property='og:description' content="Hyprland 下 Wacom 数位板映射到外接显示器配置指南 概述 本指南详细介绍如何在 Hyprland 窗口管理器下配置 Wacom 数位板，使其只映射到指定的外接显示器，而不是整个多显示器桌面空间。\n适用场景 系统环境: Ubuntu 24.04 LTS + Hyprland 硬件需求: Wacom 数位板 + 外接显示器 目标: 数位板输入只在外接显示器上响应，提供精确的绘画体验 配置步骤 1. 安装 Wacom 驱动 1 2 3 4 5 6 7 8 # 更新包索引 sudo apt update # 安装 Wacom 驱动（注意：wacom-tools 已弃用） sudo apt install xserver-xorg-input-wacom # 验证安装 dpkg -l | grep wacom 预期输出:\n1 2 3 4 ii libwacom-common 2.10.0-2 all Wacom model feature query library (common files) ii libwacom-dev:amd64 2.10.0-2 amd64 Wacom model feature query library (development files) ii libwacom9:amd64 2.10.0-2 amd64 Wacom model feature query library ii xserver-xorg-input-wacom 1:1.2.0-1ubuntu2 amd64 X.Org X server -- Wacom input driver 2. 识别设备信息 2.1 识别 Wacom 设备名称 1 2 3 4 5 # 方法一：使用 Hyprland 命令 hyprctl devices | grep -i wacom # 方法二：如果需要更详细信息 libinput list-devices | grep -i wacom 示例输出:\n">
-<meta property='og:url' content='https://mcig-ggg.github.io/p/wacom_hyprland_%E9%85%8D%E7%BD%AE%E6%8C%87%E5%8D%97/'>
+<meta property='og:url' content='http://localhost:1313/p/wacom_hyprland_%E9%85%8D%E7%BD%AE%E6%8C%87%E5%8D%97/'>
 <meta property='og:site_name' content='MciG'>
 <meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2025-11-12T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2025-11-12T00:00:00&#43;00:00'/>
 <meta name="twitter:title" content="Wacom_Hyprland_配置指南">
@@ -1025,7 +1025,7 @@
                 src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
                 
                 >
-            </script><script type="text/javascript" src="/ts/main.1e9a3bafd846ced4c345d084b355fb8c7bae75701c338f8a1f8a82c780137826.js" defer></script>
+            </script><script type="text/javascript" src="/ts/main.c69c9d66b3dd090537c69f1fad79226ae24aeee4365be3ae88557ddeafeb90ce.js" defer></script>
 <script>
     (function () {
         const customFont = document.createElement('link');
