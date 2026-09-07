@@ -196,4 +196,8 @@ Raw CSV: `docs/perf/full-e2e-rtx3050.csv`; validation detail: `docs/perf/tk005-r
 
 Step-by-step commits live in nanovllm-omni's `git log perf/cuda-graph-default-on`, from `972224c` (talker skeleton) through `e91ca41` (--pipeline full bench).
 
-The price of getting full working is memory: 1881 MiB peak already edges against the ceiling on a 4GB card. Making the talker capture a full CUDA-Graph span, or quantizing MTP's delayed codebooks, will have to free up VRAM first. That's it for now.
+The price of getting full working is memory: 1881 MiB peak already edges against the ceiling on a 4GB card. Making the talker capture a full CUDA-Graph span, or quantizing MTP's delayed codebooks, will have to free up VRAM first.
+
+> **Update (2026-09)**: The thinker CUDA Graph now captures `n_steps - 1` graphs (not `n_steps`): prefill produces the first token eagerly, saving one wasted warmup + capture + VRAM. Graph decode also executes the EOS + audio-stop state machine, matching eager frame counts (9/10/15 instead of budget-forced 16). Re-measured on WSL RTX 3050 (cold-hot-v3, `docs/perf/aligned/cold-hot-v3.json`): **thinker decode hot p50 ≈ 196 ms** vs eager median 1248 ms (~**6.36×**); capture cost amortises after a single request. Parity check (`tools/bench_graph_eager_parity.py`): graph and eager produce identical token counts and identical non-pad audio rows across three different prompts. See `tools/bench_cold_hot_cuda_graph.py` for the cold/hot split benchmark that separates capture cost from replay throughput.
+
+That's it for now.

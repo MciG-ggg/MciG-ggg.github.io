@@ -1,5 +1,5 @@
 ---
-title: "Pushing MiniMind-O another 7.5×: end-to-end CUDA Graph practice + a cross-family feasibility verdict"
+title: "Pushing MiniMind-O another 7.5×: CUDA Graph practice on the thinker decode stage + a cross-family feasibility verdict"
 timestamp: 2026-09-03T22:10:00+08:00
 tags:
   - AI
@@ -8,7 +8,7 @@ tags:
   - CUDA Graph
   - PyTorch
 series: nanovllm-omni Dev Notes
-description: After the last post cut MiniMind-O from 846ms to 320ms, the remaining ~510ms turned out to be pure launch overhead — no kernel work. CUDA Graph was the only lever left. This post records how all 5 prerequisites fell into place one by one, the final 7.51× end-to-end speedup, and why the other three model families either weren't worth it or didn't need the same treatment.
+description: After the last post cut MiniMind-O from 846ms to 320ms, the remaining ~510ms turned out to be pure launch overhead — no kernel work. CUDA Graph was the only lever left. This post records how all 5 prerequisites fell into place one by one, the final 7.51× thinker-decode speedup (not full-pipeline E2E — see the correction note at the end), and why the other three model families either weren't worth it or didn't need the same treatment.
 toc: true
 ---
 ## Where the last post left off
@@ -98,19 +98,25 @@ What followed was the process of knocking out all 4 obstacles one by one. This s
 
 **Knocking out obstacle 2 (KV cat)**: in `nanovllm_omni/models/minimind_omni/attention.py` §5 I added `enable_fixed_kv_buffer`: preallocate a `[max_len, n_heads, head_dim]` KV buffer, write the current K/V to the `_kv_pos` slot each step, cursor += 1. A CPU bit-exact test (`tests/test_fixed_kv_buffer_forward.py`) proves this path is mathematically equivalent to the cat path, and it's further verified bit-exact on GPU.
 
-**Knocking out obstacle 3 (shape drift)**: instead of trying to write the whole decode loop into one graph, it's **one graph per step** — capture `n_steps` sub-graphs. The first runs prefill (input shape = `[1, 9, seq]`), the next 15 run decode (input shape = `[1, 9, 1]`). The shape is fixed inside each sub-graph.
+**Knocking out obstacle 3 (shape drift)**: instead of trying to write the whole decode loop into one graph, it's **one graph per decode step** — capture `n_steps - 1` sub-graphs (prefill produces the first token eagerly, then each of the remaining `n_steps - 1` decode steps gets its own captured graph with input shape `[1, 9, 1]`). The shape is fixed inside each sub-graph. Each graph is **position-dependent**: `_kv_pos` is a Python int used for tensor slicing at capture time, so the KV write slot and read range are baked into each graph. Making graphs position-independent would require converting `_kv_pos` to a device-side tensor — a significant attention rewrite for marginal VRAM savings; the per-position approach is standard practice (vLLM, TGI).
 
-**Knocking out obstacle 4 (re-capture side effects)**: use capture-once / replay-many — **capture only on the first call**, pure replay afterward. The small randomness during capture only shows up the first time; all 16 steps after that are deterministic.
+**Knocking out obstacle 4 (re-capture side effects)**: use capture-once / replay-many — **capture only on the first call**, pure replay afterward. Each of the `n_steps - 1` graphs gets one eager warmup forward (to settle cuBLAS workspace) + one `torch.cuda.graph(g)` capture on a side stream. The randomness during capture only affects the first call; all subsequent replays are deterministic.
 
 **An extra defect discovered (defect #5)**: there was a problem I didn't foresee with this capture scheme — the per-step graph's KV offset is baked to the **`prefill_len` of the first prompt**. If the next prompt has a different length, reusing the old graph misaligns the KV. Fix: `_needs_recapture()` discards the old graph + zeroes the buffer + re-runs prefill + rebuilds graphs whenever `_prefill_len` changes. Same-prompt reuses stay untouched (preserving repeat determinism). This fix was verified bit-exact on the RTX 3050 across 3 length cycles + 2 round-trips using `tools/bench_defect5_3cycle.py`.
 
-Final numbers:
+Final numbers (RTX 3050 4GB, torch 2.14, `HF_HUB_OFFLINE=1`, `max_tokens=16`, `PYTHONPATH=.`, seed 42; `docs/perf/aligned/cold-hot-v3.json` + `parity-v2.json`):
 
-- **Single CUDA Graph step**: eager 36.11 ms/step → graphed 3.49 ms/step, **10.36× per-step speedup**.
-- **16-step end-to-end**: eager ~320 ms → graphed ~42 ms, **7.51× end-to-end** (after accounting for capture cost and padding overhead).
+- **Single CUDA Graph step** (prior report): eager 36.11 ms/step → graphed 3.49 ms/step, **10.36× per-step speedup**.
+- **16-step thinker decode cold/hot split** (`tools/bench_cold_hot_cuda_graph.py`): eager median 1248 ms → graph **hot p50 196 ms / p95 218 ms** (30 requests reusing the same graph), **~6.36× hot speedup**; cold path (incl. capture) 1153 ms, capture cost ≈ 956 ms, **amortises after 1 request**. VRAM peak 490 MB.
+- **Graph × Eager token/audio parity** (`tools/bench_graph_eager_parity.py`, 3 prompts × 16 tokens):
+  - `Hi` (plen=2): eager 2466 ms → graph 1249 ms (**1.97×**, first-run GPU noise)
+  - `Hello there` (plen=2): eager 918 ms → graph 178 ms (**5.14×**)
+  - `Tell me a short story` (plen=6): eager 906 ms → graph 1104 ms (**0.82×**, new prompt length triggers recapture, single request)
+  - Token counts: eager / graph all 16; audio non-pad rows: 8 / 8 — identical.
+  - Average **2.65×** (incl. first-run GPU noise).
 - **Public `Omni.generate` API e2e**: 3 different-length prompts in a hetero-prompt cycle + same-prompt repeats — **all produce byte-identical WAV** (matching MD5s).
 
-7.51× isn't the peak theoretical number (the per-step 10.36× is), but end-to-end subtracts the host-side sampling, buffer resets, and Mimi codec decode that sit outside the graph. **For a scheme starting at 320ms, zero new dependencies, pure monkey-patch + CUDA Graph capture, this leverage ratio beats all 25 rounds of monkey-patching combined.**
+7.51× isn't the peak theoretical number (the per-step 10.36× is), but the thinker-stage measurement subtracts the host-side sampling, buffer resets, and Mimi codec decode that sit outside the graph. **For the thinker decode path starting at 320ms, zero new dependencies, pure monkey-patch + CUDA Graph capture, this leverage ratio beats all 25 rounds of monkey-patching combined.**
 
 ## Cross-family scan: why only one got done
 
@@ -162,7 +168,9 @@ Ollama just de-forked its own GGML in v0.30 and directly depends on llama.cpp �
 
 ## Wrap-up
 
-This session delivered 7.51× end-to-end + all 5 GPU gates green (serve-path / cross-prompt / longrun / determinism / Omni() e2e). But the more valuable byproduct is **those 5 conditions** — it turned "can CUDA Graph be used here" from a luck-based voodoo question into an engineering check you can tick off 5 lines at a time.
+This session delivered 7.51× on the thinker decode stage + all 5 GPU gates green (serve-path / cross-prompt / longrun / determinism / Omni() e2e). But the more valuable byproduct is **those 5 conditions** — it turned "can CUDA Graph be used here" from a luck-based voodoo question into an engineering check you can tick off 5 lines at a time.
+
+> **Correction note (2026-09)**: The 7.51× (320→42 ms) figure measures the **thinker decode loop only** — not the full MiniMind-O E2E pipeline. The complete pipeline includes thinker + talker + code2wav; real E2E with thinker graph engaged is ~640–850 ms depending on prompt length, with the talker and Mimi codec stages dominating. The code now captures `n_steps - 1` graphs (not `n_steps`): prefill produces the first token eagerly, then `n_steps - 1` decode steps each replay one captured graph. This saves one wasted warmup + capture + VRAM. Graphs remain position-dependent by design. Re-measured on WSL RTX 3050 after the off-by-one fix and KV-zero-on-prefill fix: thinker decode **hot p50 ≈ 196 ms** vs eager median 1248 ms (~**6.36×**); capture cost amortises after a single request. See `tools/bench_cold_hot_cuda_graph.py` for the cold/hot split benchmark and `tools/bench_graph_eager_parity.py` for the token/audio parity check.
 
 If your model also wants CUDA Graph optimization, the suggested flow:
 

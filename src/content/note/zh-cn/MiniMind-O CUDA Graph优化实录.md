@@ -1,5 +1,5 @@
 ---
-title: 把 MiniMind-O 再压 7.5 倍：CUDA Graph 全栈实践 + 跨族可行性判定
+title: 把 MiniMind-O 再压 7.5 倍：CUDA Graph thinker decode 实践 + 跨族可行性判定
 timestamp: 2026-09-06T21:30:00+08:00
 tags:
   - AI
@@ -8,7 +8,7 @@ tags:
   - CUDA Graph
   - PyTorch
 series: nanovllm-omni 开发手记
-description: 上一次把 MiniMind-O 从 846ms 压到 320ms 后，剩下的 ~510ms 全是 launch overhead、没有 kernel 工作。CUDA Graph 是唯一杠杆。这篇记录 5 个前置条件怎么一一就位、最终拿到 7.51× 端到端加速，以及为什么另外三个模型族不值得或不需要做同样的事。
+description: 上一次把 MiniMind-O 从 846ms 压到 320ms 后，剩下的 ~510ms 全是 launch overhead、没有 kernel 工作。CUDA Graph 是唯一杠杆。这篇记录 5 个前置条件怎么一一就位、最终拿到 7.51× thinker decode 加速（不是全流水线 E2E——见文末勘误），以及为什么另外三个模型族不值得或不需要做同样的事。
 toc: true
 ---
 ## 上一篇写到哪了
@@ -98,19 +98,25 @@ Capture 有 RNG 副作用，所以"capture once / replay many"优于每 run 捕�
 
 **打掉障碍 2（KV cat）**：在 `nanovllm_omni/models/minimind_omni/attention.py` §5 加了 `enable_fixed_kv_buffer`：预分配一个 `[max_len, n_heads, head_dim]` 的 KV buffer，每步把当前 K/V 写到 `_kv_pos` 位置，光标 += 1。CPU bit-exact 测试（`tests/test_fixed_kv_buffer_forward.py`）验证这条路径和 cat 路径数学等价，GPU 上进一步验证 bit-exact。
 
-**打掉障碍 3（shape 漂移）**：不试图把整段 decode loop 写进一张图——而是**每步一张图**，捕获 `n_steps` 张子图。第一张跑 prefill（输入 shape = `[1, 9, seq]`），后面 15 张跑 decode（输入 shape = `[1, 9, 1]`）。shape 在每张子图内部是固定的。
+**打掉障碍 3（shape 漂移）**：不试图把整段 decode loop 写进一张图——而是**每 decode 步一张图**，捕获 `n_steps - 1` 张子图（prefill 以 eager 方式产出第一个 token，之后 `n_steps - 1` 个 decode 步各一张输入 shape = `[1, 9, 1]` 的捕获图）。shape 在每张子图内部是固定的。每张图是**位置依赖的**：`_kv_pos` 是 Python int，capture 时通过张量切片烧入了 KV 的写入位和读取范围。要做位置无关图，需要把 `_kv_pos` 转为设备端 tensor + 用 `torch.narrow` 索引——对注意力层的重写代价大，VRAM 节省微乎其微；per-position 方式是 vLLM / TGI 的标准做法，刻意保留。
 
-**打掉障碍 4（re-capture 副作用）**：用 capture-once / replay-many 策略——**只在第一次调用时捕获**，后续调用纯 replay。Capture 期间的小随机性只出现在第一次，之后 16 步全部 deterministic。
+**打掉障碍 4（re-capture 副作用）**：用 capture-once / replay-many 策略——**只在第一次调用时捕获**，后续调用纯 replay。每张图先做一次 eager warmup forward（让 cuBLAS workspace 选好算法），再用 `torch.cuda.graph(g)` 在 side stream 上捕获。Capture 期间的随机性只出现在第一次，之后全部 deterministic。
 
 **额外发现的一个 defect（defect #5）**：这套捕获还有个我一开始没预料到的问题——per-step 图的 KV 偏移烧在**首次 prompt 的 `prefill_len`**。如果下一个 prompt 长度变了，复用旧图会让 KV 错位。修法是 `_needs_recapture()` 在 `_prefill_len` 变化时丢弃旧图 + 清零 buffer + 重新 prefill + 重建图。同 prompt 复用保持不动（保证重复确定性）。这个修复在 RTX 3050 上用 `tools/bench_defect5_3cycle.py` 跨 3 个长度 cycle + 2 轮 round-trip 验证 bit-exact。
 
-最终数字：
+最终数字（RTX 3050 4GB，torch 2.14，`HF_HUB_OFFLINE=1`，`max_tokens=16`，`PYTHONPATH=.`，seed 42；`docs/perf/aligned/cold-hot-v3.json` + `parity-v2.json`）：
 
-- **单 CUDA Graph 单步**：eager 36.11 ms/step → graphed 3.49 ms/step，**10.36× 单步加速**。
-- **16 步端到端 e2e**：eager ~320 ms → graphed ~42 ms，**7.51× 端到端**（扣掉 capture 成本和 padding 开销后）。
+- **单 CUDA Graph 单步**（原报告）：eager 36.11 ms/step → graphed 3.49 ms/step，**10.36× 单步加速**。
+- **16 步 thinker decode cold/hot split**（`tools/bench_cold_hot_cuda_graph.py`）：eager median 1248 ms → graph **hot p50 196 ms / p95 218 ms**（30 次请求同 prompt 复用 graph），**~6.36× hot 加速**；cold path（含 capture）1153 ms，capture cost ≈ 956 ms，**一次 request 就回本**。VRAM peak 490 MB。
+- **Graph × Eager token/audio parity**（`tools/bench_graph_eager_parity.py`，3 个 prompt × 16 token）：
+  - `Hi` (plen=2)：eager 2466 ms → graph 1249 ms（**1.97×**，首 run GPU 噪声偏高）
+  - `Hello there` (plen=2)：eager 918 ms → graph 178 ms（**5.14×**）
+  - `Tell me a short story` (plen=6)：eager 906 ms → graph 1104 ms（**0.82×**，新 prompt 长度触发 recapture，摊到单次 request）
+  - token 数：eager / graph 全部 16；audio 非 pad 行：8 / 8 完全一致
+  - 平均 **2.65×**（含 GPU 首 run 噪声）
 - **公开 `Omni.generate` API e2e**：3 次不同长度 prompt 异 prompt cycle + 同 prompt 重复，**全部产出同一份 WAV 字节**（MD5 一致）。
 
-7.51× 不是峰值理论值（单步 10.36× 是），但端到端扣掉了 host-side sampling、buffer 重置、Mimi codec decode 这些不在图内的开销。**对一个 320ms 起步、零新依赖、纯 monkey-patch + CUDA Graph 捕获的方案来说，这个杠杆比是 25 轮 monkey-patch 加起来都比不上的。**
+7.51× 不是峰值理论值（单步 10.36× 是），但 thinker decode 测量扣掉了 host-side sampling、buffer 重置、Mimi codec decode 这些不在图内的开销。**对一个 320ms 起步、零新依赖、纯 monkey-patch + CUDA Graph 捕获的方案来说，这个杠杆比是 25 轮 monkey-patch 加起来都比不上的。**
 
 ## 跨族扫描：为什么只做了一个
 
@@ -162,7 +168,9 @@ Ollama 在 v0.30 刚反 de-fork 了自家 GGML、直接依赖 llama.cpp——他
 
 ## 收尾
 
-这个 session 拿了 7.51× 端到端 + 5 个 GPU 闸门全绿（serve-path / cross-prompt / longrun / determinism / Omni() e2e）。但更值钱的副产品是**那 5 个条件**——它把"Cuda Graph 能不能用"从一个"看运气"的玄学问题变成了一个可以 5 条逐一打勾的工程判断。
+这个 session 拿了 7.51× thinker decode 加速 + 5 个 GPU 闸门全绿（serve-path / cross-prompt / longrun / determinism / Omni() e2e）。但更值钱的副产品是**那 5 个条件**——它把“Cuda Graph 能不能用”从一个“看运气”的玄学问题变成了一个可以 5 条逐一打勾的工程判断。
+
+> **勘误（2026-09）**：7.51×（320→42 ms）测的是 **thinker decode loop**，不是完整 MiniMind-O E2E 流水线。完整流水线包括 thinker + talker + code2wav，实际 E2E 约 640–850 ms（talker 和 Mimi codec 占主要开销）。代码现在捕获 `n_steps - 1` 张图（不是 `n_steps`）：prefill eager 产出第一个 token，然后 `n_steps - 1` 个 decode 步各 replay 一张捕获图，省了一张废 warmup + capture + VRAM。图依然是 position-dependent（设计意图）。WSL 上重跑后的实际数字：thinker decode hot p50 ≈ 196 ms（vs eager 1248 ms，约 **6.36×**），capture cost 一次 request 就回本。参见 `tools/bench_cold_hot_cuda_graph.py` 的 cold/hot 分离 benchmark 和 `tools/bench_graph_eager_parity.py` 的 token/audio parity 验证。
 
 如果你的模型也想做 CUDA Graph 优化，建议流程：
 

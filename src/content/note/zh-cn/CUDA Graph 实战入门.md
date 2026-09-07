@@ -483,6 +483,8 @@ CUDA Graph 的入门门槛主要不在 API 难调，而在**那 5 条 gotcha 都
 4. 多 shape 用 key-based cache + eager fallback——cache miss capture，capture 失败 invalidate；
 5. 用 `cudaLaunchKernel` 事件数 + MD5 双验证确认图真的接通了。
 
-如果这 5 步走完你的模型仍然不划算，多半是它本来就不 launch-bound（比如 kernel 工作量大、shape 不固定、batch 太小）——这种情况 CUDA Graph 不是杠杆，省下时间去做别的优化。完整的项目级实操记录在[《MiniMind-O CUDA Graph 优化实录》](/note/MiniMind-O%20CUDA%20Graph%E4%BC%98%E5%8C%96%E5%AE%9E%E5%BD%95)，里面是 MiniMind-O 上把 17 000 次 launch 压到 7 次、拿到 7.51× 端到端加速的完整过程——读完这篇入门之后看那篇会顺畅很多。
+如果这 5 步走完你的模型仍然不划算，多半是它本来就不 launch-bound（比如 kernel 工作量大、shape 不固定、batch 太小）——这种情况 CUDA Graph 不是杠杆，省下时间去做别的优化。完整的项目级实操记录在[《把 MiniMind-O 再压 7.5 倍：CUDA Graph thinker decode 实践 + 跨族可行性判定》](/note/MiniMind-O%20CUDA%20Graph%E4%BC%98%E5%8C%96%E5%AE%9E%E5%BD%95)，里面是 MiniMind-O 上把 17 000 次 launch 压到 7 次、拿到 7.51× **thinker decode 加速**（注意不是全流水线 E2E）的完整过程——读完这篇入门之后看那篇会顺畅很多。
+
+> **注意**：实际代码捕获 `n_steps - 1` 张图（prefill eager 产出第一个 token，之后每个 decode 步一张），不是 `n_steps` 张。这避免了捕获一张永远不会 replay 的图的浪费。另外，每张图是 position-dependent 的：`_kv_pos` 是 Python int，capture 时通过张量切片烧入；要做到位置无关需要把 `_kv_pos` 转为设备端 tensor，代价大而收益微，vLLM/TGI 也是 per-position 做法。WSL RTX 3050 上的实际数字（cold-hot-v3）：**thinker decode hot p50 ≈ 196 ms**（vs eager 1248 ms，约 **6.36×**），capture cost 一次 request 就回本。参见 `tools/bench_cold_hot_cuda_graph.py` 和 `tools/bench_graph_eager_parity.py`。
 
 下一篇计划写 torch.compile 跟 CUDA Graph 的叠用边界——同样 5 条逐一打勾，但场景从"自家训的小模型"换到"上游库 + 我们只做 stage 串联"，到时候再说。

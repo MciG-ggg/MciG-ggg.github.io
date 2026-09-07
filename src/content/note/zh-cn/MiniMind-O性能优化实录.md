@@ -162,6 +162,9 @@ seen_mlp.add(cls)
   eager frames median: 9
   graph frames median: 16
   WAV validation: 30/30 passed on both paths
+```
+
+> **勘误（2026-09）**：上面的对比存在 frame 数量不对称：egress 产出 9 frame（EOS 提前停止），graph 产出 16 frame（旧版不检查 EOS，跑满预算）。628 ms / 9 frame vs 197 ms / 16 frame 是苹果比橘子。现在代码已修复：graph decode 也执行 EOS + audio-stop 檢查，产出与 eager 相同的 frame 数（如 9/10/15）。同时捕获数量从 `n_steps` 修正为 `n_steps - 1`。WSL RTX 3050 上重跑（cold-hot-v3）：**thinker decode hot p50 ≈ 196 ms**（vs eager median 1248 ms，约 **6.36×**），capture cost 一次 request 就回本。参见 `tools/bench_cold_hot_cuda_graph.py` 和 `tools/bench_graph_eager_parity.py`。
 
 length matrix: 3 prompts × 5 lengths × 3 runs
   8   frames budget -> median 134.53 ms, actual frames 8
