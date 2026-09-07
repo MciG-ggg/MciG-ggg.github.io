@@ -114,9 +114,18 @@ Capture 有 RNG 副作用，所以"capture once / replay many"优于每 run 捕�
   - `Tell me a short story` (plen=6)：eager 906 ms → graph 1104 ms（**0.82×**，新 prompt 长度触发 recapture，摊到单次 request）
   - token 数：eager / graph 全部 16；audio 非 pad 行：8 / 8 完全一致
   - 平均 **2.65×**（含 GPU 首 run 噪声）
+- **完整 E2E `Omni.generate` 4-cell sweep**（`python -m nanovllm_omni.optim.bench sweep-graphs --pipeline full`，6 prompt × 6 run，max_tokens=16；`docs/perf/aligned/e2e-sweep-v1/`）：
+  - **无 graph**：total median **807.5 ms**（thinker 787 + talker 336 + code2wav 23；per-step 65.6；frames 9/10/15）
+  - **仅 thinker**：total median **226.8 ms**（thinker 202 + talker 387 + code2wav 22）
+  - **仅 talker**：total median **788.9 ms**（talker graph 强制 greedy，与采样开不是苹果比橘子）
+  - **两个都开**：total median **223.8 ms**
+  - **端到端加速 ~3.61×**（807.5 → 223.8 ms）。Talker graph 在这套 bench 里不增益（talker 在 E2E 中占 30–40%，每步 decode 本身已经很便宜）；全部加速都来自 thinker graph。
+  - VRAM peak：1.1 GB（无 graph）→ 1.79 GB（两个都开），4 GB 卡余量充足。
 - **公开 `Omni.generate` API e2e**：3 次不同长度 prompt 异 prompt cycle + 同 prompt 重复，**全部产出同一份 WAV 字节**（MD5 一致）。
 
-7.51× 不是峰值理论值（单步 10.36× 是），但 thinker decode 测量扣掉了 host-side sampling、buffer 重置、Mimi codec decode 这些不在图内的开销。**对一个 320ms 起步、零新依赖、纯 monkey-patch + CUDA Graph 捕获的方案来说，这个杠杆比是 25 轮 monkey-patch 加起来都比不上的。**
+对外可以引用的 headline 数字是 **3.61× 完整 E2E**，而不是 6.36×（仅 thinker）或 7.51×（thinker 原语）。Thinker 每步 graph 干掉了约 580 ms 的 host launch overhead；剩下的 talker 在图外、占用 360 ms 是下一阶段（talker 主干 MiniMindBlock loop 未 graph 化）的优化空间。
+
+7.51× 不是峰值理论值（单步 10.36× 是），但 thinker decode 测量扣掉了 host-side sampling、buffer 重置、Mimi codec decode 这些不在图内的开销。**对一个 320ms 起步、零新依赖、纯 monkey-patch + CUDA Graph 捕获的方案来说，这个杠杆比是 25 轮 monkey-patch 加起来都比不上的。** 完整 E2E（thinker + talker + code2wav）实际落在 **3.61×**，剩下被不在图里的 talker 主导。
 
 ## 跨族扫描：为什么只做了一个
 

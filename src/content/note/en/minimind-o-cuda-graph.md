@@ -114,9 +114,18 @@ Final numbers (RTX 3050 4GB, torch 2.14, `HF_HUB_OFFLINE=1`, `max_tokens=16`, `P
   - `Tell me a short story` (plen=6): eager 906 ms → graph 1104 ms (**0.82×**, new prompt length triggers recapture, single request)
   - Token counts: eager / graph all 16; audio non-pad rows: 8 / 8 — identical.
   - Average **2.65×** (incl. first-run GPU noise).
+- **Full E2E `Omni.generate` 4-cell sweep** (`python -m nanovllm_omni.optim.bench sweep-graphs --pipeline full`, 6 prompts × 6 runs, max_tokens=16; `docs/perf/aligned/e2e-sweep-v1/`):
+  - **no graph**: total median **807.5 ms** (thinker 787 ms + talker 336 ms + code2wav 23 ms; per-step 65.6 ms; frames 9/10/15)
+  - **thinker only**: total median **226.8 ms** (thinker 202 ms + talker 387 ms + code2wav 22 ms)
+  - **talker only**: total median **788.9 ms** (talker 318 ms, but talker graph forces greedy decode so this arm is not apples-to-apples with sampling=on)
+  - **both**: total median **223.8 ms**
+  - **End-to-end speedup: ~3.61×** (807.5 → 223.8 ms). The talker graph gives nothing in this bench (talker is ~30–40% of E2E and the per-step decode there is already cheap); the entire E2E win comes from the thinker graph.
+  - VRAM peak: 1.1 GB (no graph) → 1.79 GB (both) — fits comfortably on the 4 GB card.
 - **Public `Omni.generate` API e2e**: 3 different-length prompts in a hetero-prompt cycle + same-prompt repeats — **all produce byte-identical WAV** (matching MD5s).
 
-7.51× isn't the peak theoretical number (the per-step 10.36× is), but the thinker-stage measurement subtracts the host-side sampling, buffer resets, and Mimi codec decode that sit outside the graph. **For the thinker decode path starting at 320ms, zero new dependencies, pure monkey-patch + CUDA Graph capture, this leverage ratio beats all 25 rounds of monkey-patching combined.**
+The headline number to quote is **3.61× full E2E**, not 6.36× (thinker-only) or 7.51× (thinker primitive). The thinker's per-step graph frees ~580 ms of host-launch overhead; the talker sits outside the graph and dominates the remaining 360 ms. Closing that gap requires a trunk-level talker graph (`talker.talker_mtp` is captured, but the per-step MiniMindBlock loop isn't), which is the next ticket.
+
+7.51× isn't the peak theoretical number (the per-step 10.36× is), but the thinker-stage measurement subtracts the host-side sampling, buffer resets, and Mimi codec decode that sit outside the graph. **For the thinker decode path starting at 320ms, zero new dependencies, pure monkey-patch + CUDA Graph capture, this leverage ratio beats all 25 rounds of monkey-patching combined.** Full E2E (thinker + talker + code2wav) lands at **3.61×**, dominated by the talker which sits outside the graph.
 
 ## Cross-family scan: why only one got done
 
