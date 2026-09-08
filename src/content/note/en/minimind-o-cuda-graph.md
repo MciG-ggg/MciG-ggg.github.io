@@ -189,4 +189,40 @@ If your model also wants CUDA Graph optimization, the suggested flow:
 
 The full evidence chain is in `docs/perf/ncu-generate-kernels-2026-09-01.md` (74KB, 51 sections) in the nanovllm-omni repo; §51 is the cross-family feasibility scan material written for this post. For per-step GPU probes: all 24 `tools/bench_*.py` files, each corresponding to one decision point.
 
+### Follow-up: collapsing 15 graphs into 1 — paged KV + single-graph replay
+
+The thinker graph above had a structural problem I never solved: **it is per-position**. At `n_steps=16` it captures 15 graphs, one per decode position. The reason is physical. The fixed-KV buffer reads history as `k_hist = self._kv_past_key[:, : self._kv_pos]`, and `_kv_pos` grows every step, so **the slice shape changes every step** — while CUDA Graph freezes shapes at capture time. One position, one graph.
+
+That costs three things: capture is paid 15 times, VRAM holds 15 graphs, and `n_steps` is a capture shape — a user changing `max_tokens` from 16 to 32 invalidates the whole set.
+
+First, a path I **tried and rejected**: pad KV to `max_len` so the shape is constant. I measured what that costs SDPA: `seq_k=30` is 0.0207 ms, `seq_k=2048` is 0.1418 ms — **4.8×**. Scaled up, the hot path goes from 196 ms to roughly 480–580 ms, i.e. slower than eager. Shape-constancy bought with padding is paid for in compute, and the trade is bad.
+
+The real answer is what vLLM and TGI already do: **paged KV**. New K/V is written through `slot_mapping` (fixed length); history is read through `block_tables` + `context_lens` (fixed shape). **Only tensor values change per step, never shapes** — so one graph suffices: rewrite the metadata, then `replay()`.
+
+Rather than write a block manager, I pinned my nano-vllm fork as a submodule (`third_party/nano-vllm`) and reused its `BlockManager` / `Sequence`. The attention kernel is not flash-attn: on this CUDA 13.0 / torch 2.14 box, flash-attn's `setup.py` hardcodes `-std=c++17` while torch 2.14's ATen headers require C++20, so it simply does not build. The torch-native path instead gathers the window with `index_select` over `block_tables` into a dense tensor and applies an additive `-inf` mask from `context_lens`. One detail matters here: **the window width is sized by `prompt_len + max_new_tokens`, not `max_position_embeddings`** — so it stays a ~48-token window and never degenerates into the pad-to-2048 trap above.
+
+Numbers (RTX 3050 4GB, torch 2.14.0+cu130, 3 prompts x 10 reps, 16 tokens, seed 42):
+
+| cell | graphs | hot p50 | cold | capture | frames |
+|---|---|---|---|---|---|
+| eager | 0 | 973.1 ms | — | — | 8 |
+| per-position | **15** | **220.6 ms** | 1219.9 ms | 999.3 ms | 16 |
+| paged single graph | **1** | 233.7 ms | **362.9 ms** | **129.2 ms** | 16 |
+
+**This is a trade, not a clean win, and it should be reported as one.** The single graph is ~6% slower hot (233.7 vs 220.6 ms), for an obvious reason: the paged read gathers a window and masks it, where the per-position graph reads an exactly-sized contiguous slice.
+
+What it buys: capture is 7.7× cheaper (129.2 vs 999.3 ms), the cold path is 3.4× faster (362.9 vs 1219.9 ms), and one graph stays resident instead of 15.
+
+The fourth gain is the valuable one and it does not show up in a latency column: **`n_steps` is no longer a capture shape**. The bench asserts this directly — change `n_steps` from 16 to 12 and `recapture_on_n_steps_change=false`. On the per-position path, every change of `max_tokens` re-pays 15 captures. On the paged path, nothing happens. For serving, that matters more than the 6%.
+
+On correctness, paged and per-position produce identical frame counts across all three prompts (16/16/16). The eager column's 8 is the pre-existing eager-vs-graph stopping difference, not something this change introduced. The stop state machine is inherited from `CudaGraphDecoder` rather than reimplemented — reimplementing it would let the two paths drift apart and make the benchmark meaningless.
+
+The time sink was not the decoder. It was three import-shim bugs, all of which only detonated on real hardware:
+
+1. **grad-mode KV write.** `index_copy_` raised `a leaf Variable that requires grad is being used in an in-place operation`. The pool is storage, never an autograd leaf — writes now run under `no_grad` on detached tensors, and the pool is allocated `requires_grad=False`.
+2. **Stubs shadowing real packages.** My `_stub_module` checked "already imported", not "importable". On this box triton ships with torch, so the partial stub replaced it and **transformers' lazy module graph blew up on `triton.language`, making `AutoModelForCausalLM` unimportable**. It now refuses to shadow anything `find_spec` can resolve.
+3. **Stubs outliving the load.** Left in `sys.modules` they poison the process: transformers probes `find_spec('flash_attn')`, a stub has `__spec__ is None`, and that raises `ValueError`. The loader now withdraws its external stubs once the fork module has bound what it needs.
+
+None of these are design problems. They are "imports fine locally" ≠ "runs on the real box" problems. Code with 18 green CPU contract tests detonated three times in a row on first GPU contact.
+
 The next post plans to cover SmolVLA integration — the same 5 checks ticked off and 4 obstacles knocked out, but the scenario shifts from AR text+audio to VLA vision+action. We'll see then.

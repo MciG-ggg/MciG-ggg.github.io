@@ -285,4 +285,40 @@ with torch.cuda.graph(graph), torch.inference_mode():
 - `tools/` 清理:删了 3 个被取代的 GPU probe(`profile_cuda_graph.py` / `bench_defect5_3cycle.py` / `profile_talker_mtp_only.py`),`profile_talker_mtp_only` 并进了 `profile_talker_vs_thinker`。
 - 三个 review subagent(optim/ / tools/ / holistic)并行审了一遍,`_patched_forward` 补了「必须恰两处替换」的防御、replay 加了失败重置、`_capture` 的 stream 注释修正了。
 
+### 续篇:把 15 张图压成 1 张——paged KV + 单图 replay
+
+前面这套 thinker graph 有个一直没解决的结构性问题:**它是 per-position 的**。`n_steps=16` 就捕 15 张图,每张只对应一个 decode 位置。原因很物理:固定 KV buffer 的历史切片是 `k_hist = self._kv_past_key[:, : self._kv_pos]`,`_kv_pos` 每步都在涨,**切片形状每步都变**,而 CUDA Graph 在 capture 时把形状焊死了。所以只能一个位置一张图。
+
+代价有三个:capture 要付 15 次、VRAM 要驻 15 张图、而且 `n_steps` 是 capture shape——用户把 `max_tokens` 从 16 改成 32,整套图作废重捕。
+
+先说一条**试过并且否掉**的路:把 KV padding 到 `max_len`,形状不就恒定了吗?量了一下 SDPA 的成本:`seq_k=30` 是 0.0207 ms,`seq_k=2048` 是 0.1418 ms,**4.8 倍**。按这个比例热路径会从 196 ms 涨到 480–580 ms——比 eager 还慢。padding 换来的形状恒定,是拿算力买的,买亏了。
+
+真正的解法是 vLLM/TGI 早就在用的那套:**paged KV**。新 K/V 通过 `slot_mapping` 写入(定长),历史通过 `block_tables` + `context_lens` 读出(定形)。**每一步只有张量的值在变,形状全程恒定**——那就只需要一张图,每步改完 metadata 再 `replay()` 就行。
+
+我没有从零写 block manager,而是把自己 fork 的 nano-vllm 挂成 submodule(`third_party/nano-vllm`),直接复用它的 `BlockManager` / `Sequence`。attention kernel 那层没用 flash-attn——在这台 CUDA 13.0 / torch 2.14 的机器上,flash-attn 的 `setup.py` 把 `-std=c++17` 写死了,而 torch 2.14 的 ATen 头文件要求 C++20,直接编不过。改成 torch 原生实现:按 `block_tables` 用 `index_select` 把窗口 gather 成 dense,再按 `context_lens` 加 `-inf` mask。这里有个关键点——**窗口宽度是按 `prompt_len + max_new_tokens` 算的,不是按 `max_position_embeddings`**,所以它是个 48 token 的小窗口,不会退化成上面那个「padding 到 2048」的坑。
+
+跑出来的数(RTX 3050 4GB / torch 2.14.0+cu130 / 3 prompts × 10 reps / 16 tokens / seed 42):
+
+| cell | graphs | hot p50 | cold | capture | frames |
+|---|---|---|---|---|---|
+| eager | 0 | 973.1 ms | — | — | 8 |
+| per-position | **15** | **220.6 ms** | 1219.9 ms | 999.3 ms | 16 |
+| paged 单图 | **1** | 233.7 ms | **362.9 ms** | **129.2 ms** | 16 |
+
+**这不是碾压,是一次权衡,得这么讲。**单图热路径慢了 6%(233.7 vs 220.6 ms),原因很直白:paged 读要 gather 一个窗口再 mask,per-position 读的是一段刚好尺寸的连续切片,后者当然更快。
+
+换来的是另外三样:capture 便宜 7.7 倍(129.2 vs 999.3 ms)、cold path 快 3.4 倍(362.9 vs 1219.9 ms)、常驻 1 张图而不是 15 张。
+
+但最有价值的其实是第四样,它不体现在延迟里:**`n_steps` 不再是 capture shape**。bench 里专门验了这条——把 `n_steps` 从 16 改成 12,`recapture_on_n_steps_change=false`。per-position 那条路上,用户每换一次 `max_tokens` 就要重捕 15 张图;paged 这条路上什么都不用做。对 serving 来说,这比 6% 的热路径差值重要得多。
+
+正确性上,paged 和 per-position 的帧数在三条 prompt 上完全一致(16/16/16)。eager 那列的 8 是既有的 eager-vs-graph 停止行为差异,不是这次引入的。停止状态机我是直接继承 `CudaGraphDecoder` 的,没有重写——重写一遍就等于让两条路径的停止行为可以各自漂移,那 bench 就不可比了。
+
+真正花时间的不是写 decoder,是三个 import shim 的 bug,全是在真机上才炸出来的:
+
+1. **grad 模式下的 KV 写入**。`index_copy_` 报 `a leaf Variable that requires grad is being used in an in-place operation`。KV pool 是纯存储,不该是 autograd leaf——写入包 `no_grad` + `detach`,pool 本身 `requires_grad=False`。
+2. **stub 盖掉了真包**。我的 `_stub_module` 只检查「是否已导入」,没检查「是否可导入」。而这台机器上 triton 是跟着 torch 装的,于是残缺 stub 把真 triton 顶掉了,**transformers 的 lazy module 图在 `triton.language` 上炸开,`AutoModelForCausalLM` 直接导不进来**。改成 `find_spec` 能解析到就绝不覆盖。
+3. **stub 活过了加载过程**。留在 `sys.modules` 里会污染整个进程——transformers 会去 `find_spec('flash_attn')`,而 stub 的 `__spec__ is None`,直接抛 `ValueError`。fork 模块 exec 完就该把这些外部 stub 撤掉。
+
+这三个都不是设计问题,是「本地能 import ≠ 真机能跑」的问题。CPU 上 18 个契约测试全绿的代码,在 GPU 上第一次跑就连着炸了三次。
+
 下一篇写 SmolVLA 接入——同 5 条逐一打勾 + 4 个障碍一一打掉,但场景换 VLA 视觉+动作,届时 stage 1 的 talker_cuda_graph 那一套也许能复用到 SmolVLA 的 action chunk 队列里,到时候再说。
