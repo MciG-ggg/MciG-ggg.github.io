@@ -1,5 +1,56 @@
 # Changelog
 
+## [0.32.0](https://github.com/MciG-ggg/mcig-ggg.github.io/compare/v0.31.4...v0.32.0) (2026-09-08)
+
+
+### Features
+
+* **i18n:** enable en locale, migrate content under zh-cn/ ([0e98650](https://github.com/MciG-ggg/mcig-ggg.github.io/commit/0e9865047b40c69d52869184feb351400d761009))
+* **linkroll:** add Kinnari's blog ([dec13d9](https://github.com/MciG-ggg/mcig-ggg.github.io/commit/dec13d978669ea351147def2590412645064ad11))
+* **ui:** 添加文章目录侧边栏，显示阅读进度和当前位置 ([9bc5a31](https://github.com/MciG-ggg/mcig-ggg.github.io/commit/9bc5a31acbb32f137a9ca1ddea28734c582bae5a)), closes [#4](https://github.com/MciG-ggg/mcig-ggg.github.io/issues/4)
+* 支持从 Obsidian BLOG 目录加载文章 ([108ddb3](https://github.com/MciG-ggg/mcig-ggg.github.io/commit/108ddb340e855741b2c8198275db0393467ff1d1))
+* 更新作者信息以反映正确的联系信息 ([9f44419](https://github.com/MciG-ggg/mcig-ggg.github.io/commit/9f444194285f983a04b0f3b29b08bc8520514480))
+* 添加 .nojekyll 文件以支持 GitHub Pages ([92aa309](https://github.com/MciG-ggg/mcig-ggg.github.io/commit/92aa309961a1933c5c0c8a163656ec3d0b13e2eb))
+* 添加 cardlink 插件支持 ([c5ba429](https://github.com/MciG-ggg/mcig-ggg.github.io/commit/c5ba4291c4c3eb5cfca8159f6f628d5bef790c91))
+* 添加 Mermaid 客户端渲染支持 ([633729a](https://github.com/MciG-ggg/mcig-ggg.github.io/commit/633729a69af2a2fe192700fbf1cc159153e7093e))
+* 添加 Obsidian 博客文章的硬链接 ([3fcd354](https://github.com/MciG-ggg/mcig-ggg.github.io/commit/3fcd3543666cdca5252953009c67b52fa7ba55ff))
+* 添加《原来哭也是一种能力》内容文件 ([1ff5681](https://github.com/MciG-ggg/mcig-ggg.github.io/commit/1ff5681924b85231a4fa71ebd79f55f9b5385a2d))
+* 添加《孔乙己》和《世界人权宣言》的内容文件 ([05ef711](https://github.com/MciG-ggg/mcig-ggg.github.io/commit/05ef711faffe015bdfeb0ff1acedbb2682de15c4))
+* 添加博客发布脚本并删除无用的总结文件 ([9b01f0d](https://github.com/MciG-ggg/mcig-ggg.github.io/commit/9b01f0d3a380eb413133078c2df2e3cf51974a59))
+* 添加多个配置指南和内容示例，删除不再需要的模板文件 ([8caf1e7](https://github.com/MciG-ggg/mcig-ggg.github.io/commit/8caf1e7d718a85c24e1d57ca651501abeb15f004))
+* 添加时间戳以记录内容发布时间 ([5615583](https://github.com/MciG-ggg/mcig-ggg.github.io/commit/56155833c17714294e89539adeda9bb712d6cb6d))
+* 纯客户端 Mermaid 渲染支持 ([ac8ec44](https://github.com/MciG-ggg/mcig-ggg.github.io/commit/ac8ec449fef3d6395ef9e904d808043b0a606f30))
+* 通过内容检测渲染 Mermaid 图表 ([a39b2d8](https://github.com/MciG-ggg/mcig-ggg.github.io/commit/a39b2d8c9613a3e5b8dd82a404dc2fa6ba793521))
+
+
+### Bug Fixes
+
+* **ci:** enable pnpm 11 build scripts via allowBuilds ([6c60c8d](https://github.com/MciG-ggg/mcig-ggg.github.io/commit/6c60c8d18c58d8f3972752cbf4f19ef91c67f499))
+* **ci:** pin pnpm to 9.15.9 to avoid pnpm 11 ignored-builds regression ([7ef9ba2](https://github.com/MciG-ggg/mcig-ggg.github.io/commit/7ef9ba28b95ff5286b6a25d681d0658d7454dd9a))
+* **skill:** 压缩 mcig-blog-writer description 到 848 字符(loader 上限 1024) ([22dc3ba](https://github.com/MciG-ggg/mcig-ggg.github.io/commit/22dc3ba4b06b10bc9f158ac767b9a59f71961d2c))
+* **style:** remove global user-select:none so text is selectable (Safari included) ([92588fc](https://github.com/MciG-ggg/mcig-ggg.github.io/commit/92588fcf476bf3fdc4509a363dbbbcd0d4db33c1))
+* 为'未命名 3'添加缺失的 timestamp 字段 ([4004c18](https://github.com/MciG-ggg/mcig-ggg.github.io/commit/4004c18189104f866051b15fc7f8e8347809fb96))
+* 修复 cs168proj2.md 中 title 字段的格式问题 ([50124ab](https://github.com/MciG-ggg/mcig-ggg.github.io/commit/50124ab11d8af43575cc0cd10e37b7ebbffcba35))
+* 修复 frontmatter 中 title 为空导致 CI/CD 失败的问题 ([195750b](https://github.com/MciG-ggg/mcig-ggg.github.io/commit/195750bbde8d7af9114a81b7020cdfe1526d90e2))
+* 修复 Mermaid 客户端渲染问题 ([0cb92b3](https://github.com/MciG-ggg/mcig-ggg.github.io/commit/0cb92b3a0c43688822fa7ba1635bc7a5d1ef9de2))
+* 修复 Mermaid 策略配置并移除冗余依赖 ([9c7cd16](https://github.com/MciG-ggg/mcig-ggg.github.io/commit/9c7cd1648cfe532599051ff9a8c5d44b2e3f6bd1))
+* 修复 YAML frontmatter 格式错误 ([9e55b5f](https://github.com/MciG-ggg/mcig-ggg.github.io/commit/9e55b5f397ce0ff7550b692cc8a6ba77cad1b1ba))
+* 修复图片路径引用 ([27646aa](https://github.com/MciG-ggg/mcig-ggg.github.io/commit/27646aa30ce53503b5523e7e4f16ebede112f3ad))
+* 修正标签格式以确保正确解析 ([fc45122](https://github.com/MciG-ggg/mcig-ggg.github.io/commit/fc45122b83faad89b208c5cb30d01632499222f0))
+* 删除周记模板 ([f7cd6ee](https://github.com/MciG-ggg/mcig-ggg.github.io/commit/f7cd6ee8e3e0fa652e1b0594a11708209c974b7a))
+* 加timestamp ([b2c88a9](https://github.com/MciG-ggg/mcig-ggg.github.io/commit/b2c88a9f365867632b23934ae4eecf4da7263d45))
+* 补充缺失的 frontmatter title 字段 ([57e0df2](https://github.com/MciG-ggg/mcig-ggg.github.io/commit/57e0df2341f9b7ec199dd1cbc87098920ceac09a))
+
+
+### Reverts
+
+* restore homepage to pre-personal-academic-entry state ([b88569c](https://github.com/MciG-ggg/mcig-ggg.github.io/commit/b88569cee4528ee4b1bf7cd8a0bce23ea4dd9ceb))
+
+
+### Miscellaneous Chores
+
+* 删除不再需要的测试和未命名文档 ([50a4990](https://github.com/MciG-ggg/mcig-ggg.github.io/commit/50a4990a44c762b6673bed4625e78fb2751aa63c))
+
 ## [0.31.4](https://github.com/tuyuritio/astro-theme-thought-lite/compare/v0.31.3...v0.31.4) (2025-12-25)
 
 
